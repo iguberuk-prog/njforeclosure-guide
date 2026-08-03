@@ -20,115 +20,133 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-blue-100 py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold text-blue-900 mb-4">
-            Facing Foreclosure or Financial Hardship?
-          </h1>
-          <p className="text-xl text-gray-700 mb-8">
-            You have more options than you think. Get honest guidance from New Jersey's trusted foreclosure resource.
-          </p>
-          <Link
-            href="/quiz"
-            className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition text-lg"
-          >
-            Take the Situation Quiz (2 min)
-          </Link>
+      {/* Hero Section ~ LUXURY DESIGN */}
+      <section className="relative w-full overflow-hidden">
+        <img
+          src="/images/hero-banner-luxury.png"
+          alt="Premium Foreclosure Solutions - Professional Guidance"
+          className="w-full h-auto object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center z-10">
+            <Link
+              href="/quiz"
+              className="inline-block bg-yellow-500 text-navy px-10 py-4 rounded-lg font-bold hover:bg-yellow-400 transition text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105"
+            >
+              Get Your Free Consultation →
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">
-            You Have 7 Options. Let's Find the Right One.
-          </h2>
+      {/* Main Content ~ LUXURY SECTION */}
+      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-bold text-white mb-6">
+              7 Premium Solutions for Your Situation
+            </h2>
+            <p className="text-xl text-blue-100 mb-12">
+              Personalized guidance from New Jersey's trusted foreclosure advisors
+            </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                num: '1',
-                title: 'Loan Modification',
-                desc: 'Reduce your monthly payment by modifying your existing loan terms.',
-              },
-              {
-                num: '2',
-                title: 'Refinancing',
-                desc: 'Replace your current loan with a new one at better terms if you qualify.',
-              },
-              {
-                num: '3',
-                title: 'Forbearance or Deferment',
-                desc: 'Temporarily pause or reduce payments while you get back on your feet.',
-              },
-              {
-                num: '4',
-                title: 'Short Sale',
-                desc: 'Sell your home for less than owed with lender approval.',
-              },
-              {
-                num: '5',
-                title: 'Loan-to-Value Refinance',
-                desc: 'Tap your home equity to pay off debt or cover expenses.',
-              },
-              {
-                num: '6',
-                title: 'Bankruptcy Protection',
-                desc: 'Explore Chapter 13 bankruptcy to restructure debt and keep your home.',
-              },
-              {
-                num: '7',
-                title: 'Sell to a Cash Buyer',
-                desc: 'Sell your home quickly for cash ~ no repairs, no agents, 14-30 days.',
-              },
-              {
-                num: '?',
-                title: 'Not Sure?',
-                desc: 'Take our quiz to understand which options apply to your situation.',
-              },
-            ].map((option, idx) => (
-              <div key={idx} className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-blue-600 flex-shrink-0">{option.num}</div>
-                  <div>
-                    <h3 className="font-semibold text-lg text-gray-900">{option.title}</h3>
-                    <p className="text-gray-600">{option.desc}</p>
+            {/* Option Cards Grid */}
+            <div className="grid md:grid-cols-2 gap-6 mt-12">
+              {[
+                {
+                  num: '1',
+                  title: 'Loan Modification',
+                  desc: 'Reduce your monthly payment by modifying your existing loan terms.',
+                },
+                {
+                  num: '2',
+                  title: 'Refinancing',
+                  desc: 'Replace your current loan with a new one at better terms if you qualify.',
+                },
+                {
+                  num: '3',
+                  title: 'Forbearance or Deferment',
+                  desc: 'Temporarily pause or reduce payments while you get back on your feet.',
+                },
+                {
+                  num: '4',
+                  title: 'Short Sale',
+                  desc: 'Sell your home for less than owed with lender approval.',
+                },
+                {
+                  num: '5',
+                  title: 'Loan-to-Value Refinance',
+                  desc: 'Tap your home equity to pay off debt or cover expenses.',
+                },
+                {
+                  num: '6',
+                  title: 'Bankruptcy Protection',
+                  desc: 'Explore Chapter 13 bankruptcy to restructure debt and keep your home.',
+                },
+                {
+                  num: '7',
+                  title: 'Sell to a Cash Buyer',
+                  desc: 'Sell your home quickly for cash ~ no repairs, no agents, 14-30 days.',
+                },
+                {
+                  num: '?',
+                  title: 'Not Sure?',
+                  desc: 'Take our quiz to understand which options apply to your situation.',
+                },
+              ].map((option, idx) => (
+                <div key={idx} className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-200 hover:border-yellow-500 transition shadow-lg">
+                  <div className="flex items-start gap-4">
+                    <div className="text-3xl font-bold text-blue-600 flex-shrink-0 bg-white rounded-lg w-12 h-12 flex items-center justify-center">
+                      {option.num}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-blue-900">{option.title}</h3>
+                      <p className="text-gray-700">{option.desc}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Guides ~ LUXURY DESIGN */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <div className="mb-16 rounded-lg overflow-hidden shadow-lg">
+          <img src="/images/guide-cards.png" alt="Featured Educational Guides" className="w-full h-auto object-cover mb-8" />
+          <div className="px-8 pb-8">
+            <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">Our Most Popular Guides</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link href="/guides/foreclosure-101" className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg hover:shadow-lg transition border-2 border-blue-200 hover:border-blue-600">
+                <h3 className="font-semibold text-lg text-blue-900 mb-2">Foreclosure 101</h3>
+                <p className="text-gray-700">Understand what is happening, your rights, and your timeline.</p>
+                <div className="mt-4 text-blue-600 font-semibold">Read Guide →</div>
+              </Link>
+              <Link href="/guides/options" className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg hover:shadow-lg transition border-2 border-blue-200 hover:border-blue-600">
+                <h3 className="font-semibold text-lg text-blue-900 mb-2">7 Options Explained</h3>
+                <p className="text-gray-700">Detailed breakdown of each option to keep or sell your home.</p>
+                <div className="mt-4 text-blue-600 font-semibold">Read Guide →</div>
+              </Link>
+              <Link href="/guides/cash-sale" className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg hover:shadow-lg transition border-2 border-blue-200 hover:border-blue-600">
+                <h3 className="font-semibold text-lg text-blue-900 mb-2">Cash Sale Guide</h3>
+                <p className="text-gray-700">How to sell your home quickly for cash ~ the process explained.</p>
+                <div className="mt-4 text-blue-600 font-semibold">Read Guide →</div>
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Featured Guides */}
-        <div className="mb-16 bg-blue-50 p-8 rounded-lg">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6">Featured Guides</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/guides/foreclosure-101" className="bg-white p-6 rounded-lg hover:shadow-lg transition">
-              <h3 className="font-semibold text-lg text-blue-900 mb-2">Foreclosure 101</h3>
-              <p className="text-gray-600">Understand what's happening, your rights, and your timeline.</p>
-            </Link>
-            <Link href="/guides/options" className="bg-white p-6 rounded-lg hover:shadow-lg transition">
-              <h3 className="font-semibold text-lg text-blue-900 mb-2">7 Options Explained</h3>
-              <p className="text-gray-600">Detailed breakdown of each option to keep or sell your home.</p>
-            </Link>
-            <Link href="/guides/cash-sale" className="bg-white p-6 rounded-lg hover:shadow-lg transition">
-              <h3 className="font-semibold text-lg text-blue-900 mb-2">Cash Sale Guide</h3>
-              <p className="text-gray-600">How to sell your home quickly for cash ~ the process explained.</p>
-            </Link>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-gray-900 text-white p-12 rounded-lg text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Understand Your Options?</h2>
-          <p className="text-lg mb-6 text-gray-300">Take our 2-minute quiz to get personalized guidance based on your situation.</p>
+        {/* CTA Section ~ Luxury Style */}
+        <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-12 rounded-xl text-center shadow-2xl">
+          <h2 className="text-3xl font-bold mb-4">Ready to Take Control?</h2>
+          <p className="text-lg mb-6 text-blue-100">Get a personalized recommendation based on your unique situation with our 2-minute assessment.</p>
           <Link
             href="/quiz"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="inline-block bg-yellow-500 text-navy px-8 py-3 rounded-lg font-bold hover:bg-yellow-400 transition transform hover:scale-105 shadow-lg"
           >
-            Start the Quiz Now
+            Start Your Free Assessment
           </Link>
         </div>
       </section>

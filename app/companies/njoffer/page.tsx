@@ -158,11 +158,13 @@ export default function NJOfferPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">What Our Customers Say</h2>
+      {/* Testimonials ~ Professional Background */}
+      <section className="relative py-16 px-4 rounded-lg overflow-hidden">
+        <img src="/images/testimonials-bg.png" alt="Customer Testimonials Background" className="absolute inset-0 w-full h-full object-cover -z-10" />
+        <div className="max-w-6xl mx-auto relative z-10">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">What Our Customers Say</h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
           {[
             {
               name: 'Maria S.',
@@ -202,6 +204,7 @@ export default function NJOfferPage() {
               <p className="text-sm text-gray-600">{testimonial.situation}</p>
             </div>
           ))}
+          </div>
         </div>
       </section>
 
@@ -248,8 +251,14 @@ export default function NJOfferPage() {
 
       {/* Comparison with Other Options */}
       <section className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">NJOffer vs. Other Options</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Why NJOffer Stands Out</h2>
 
+        {/* Professional Comparison Infographic */}
+        <div className="mb-12 rounded-lg overflow-hidden shadow-lg bg-white p-4">
+          <img src="/images/comparison.png" alt="NJOffer vs Competitors Comparison" className="w-full h-auto object-cover rounded" />
+        </div>
+
+        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center mt-12">Detailed Comparison</h3>
         <div className="overflow-x-auto">
           <table className="w-full bg-white rounded-lg shadow border border-gray-200">
             <thead className="bg-gray-100">
