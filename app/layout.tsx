@@ -13,9 +13,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NJ Foreclosure Guide | Free Help for Distressed Homeowners",
-  description: "Free guidance for homeowners facing foreclosure, behind on mortgage payments, or in financial hardship in New Jersey. Understand your options and find vetted solutions.",
-  keywords: "foreclosure help NJ, mortgage assistance New Jersey, distressed homeowner resources",
+  title: "Foreclosure Help NJ | 7 Real Solutions to Stop Foreclosure in New Jersey",
+  description: "Stop foreclosure in New Jersey. Free guidance on 7 solutions: loan modification, refinancing, forbearance, short sale, cash sale, bankruptcy protection. Get a personalized plan in 2 minutes.",
+  keywords: "foreclosure help NJ, stop foreclosure New Jersey, mortgage assistance NJ, distressed homeowner NJ, cash buyer New Jersey",
+  metadataBase: new URL("https://njforeclosureguide.org"),
+  alternates: {
+    canonical: "https://njforeclosureguide.org",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://njforeclosureguide.org",
+    title: "Foreclosure Help NJ | 7 Real Solutions to Stop Foreclosure",
+    description: "Stop foreclosure in New Jersey. Free personalized guidance on 7 solutions. Get your options in 2 minutes.",
+    siteName: "NJ Foreclosure Guide",
+    images: [
+      {
+        url: "/images/logo-nj-foreclosure-guide.jpg",
+        width: 1200,
+        height: 1200,
+        alt: "NJ Foreclosure Guide Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Foreclosure Help NJ | Stop Foreclosure in New Jersey",
+    description: "Free guidance on 7 solutions to stop foreclosure. Get your personalized plan in 2 minutes.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
   icons: {
     icon: "/images/logo-favicon.png",
   },

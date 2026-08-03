@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://njforeclosureguide.org/sitemap.xml
+
+# Crawl delay (friendly to servers)
+Crawl-delay: 1

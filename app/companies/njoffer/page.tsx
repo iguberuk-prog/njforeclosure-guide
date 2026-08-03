@@ -14,8 +14,30 @@ export default function NJOfferPage() {
     setPhone('');
   };
 
+  const njofferSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "NJOffer",
+    "description": "Cash home buyer in New Jersey. Buy homes for cash in 7-14 days. No repairs needed, no agents.",
+    "areaServed": {
+      "@type": "State",
+      "name": "New Jersey"
+    },
+    "url": "https://njforeclosureguide.org/companies/njoffer",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "2300"
+    },
+    "image": "https://njforeclosureguide.org/images/logo-nj-foreclosure-guide.jpg"
+  };
+
   return (
     <div className="min-h-full bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(njofferSchema) }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">

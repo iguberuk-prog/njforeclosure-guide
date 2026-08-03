@@ -2,12 +2,15 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { FAQSchema, OrganizationSchema } from './schema';
 
 export default function Home() {
   const [email, setEmail] = useState('');
 
   return (
     <div className="min-h-full bg-white">
+      <FAQSchema />
+      <OrganizationSchema />
       {/* Navigation */}
       <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
         <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
