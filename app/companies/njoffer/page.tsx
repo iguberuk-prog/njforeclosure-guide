@@ -18,9 +18,10 @@ export default function NJOfferPage() {
     <div className="min-h-full bg-white">
       {/* Navigation */}
       <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-blue-900">
-            NJ Foreclosure Guide
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition">
+            <img src="/images/logo-nj-foreclosure-guide.jpg" alt="NJ Foreclosure Guide" className="h-10 w-auto" />
+            <span className="text-lg font-bold text-blue-900 hidden sm:block">NJ Foreclosure Guide</span>
           </Link>
           <Link href="/companies" className="text-gray-600 hover:text-blue-900">
             ← Back to Companies
