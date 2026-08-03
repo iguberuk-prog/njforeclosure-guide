@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 
+// Force rebuild - 2026-08-03
+
 const guides = [
   {
     slug: 'foreclosure-101',
