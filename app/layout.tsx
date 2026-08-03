@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "NJ Foreclosure Guide | Free Help for Distressed Homeowners",
   description: "Free guidance for homeowners facing foreclosure, behind on mortgage payments, or in financial hardship in New Jersey. Understand your options and find vetted solutions.",
   keywords: "foreclosure help NJ, mortgage assistance New Jersey, distressed homeowner resources",
+  icons: {
+    icon: "/images/logo-favicon.png",
+  },
 };
 
 export default function RootLayout({
