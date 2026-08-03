@@ -10,40 +10,40 @@ export default function Home() {
     <div className="min-h-full bg-white">
       {/* Navigation */}
       <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition">
-            <img src="/images/logo-nj-foreclosure-guide.jpg" alt="NJ Foreclosure Guide" className="h-12 w-auto" />
-            <span className="text-xl font-bold text-blue-900 hidden sm:block">NJ Foreclosure Guide</span>
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition min-w-0">
+            <img src="/images/logo-nj-foreclosure-guide.jpg" alt="NJ Foreclosure Guide" className="h-10 w-auto" />
+            <span className="text-lg font-bold text-blue-900 hidden sm:block">Guide</span>
           </Link>
-          <div className="flex gap-6">
-            <Link href="/quiz" className="text-gray-600 hover:text-blue-900">Quiz</Link>
-            <Link href="/guides" className="text-gray-600 hover:text-blue-900">Guides</Link>
-            <Link href="/resources" className="text-gray-600 hover:text-blue-900">Resources</Link>
+          <div className="flex gap-3 sm:gap-6 text-sm sm:text-base">
+            <Link href="/quiz" className="text-gray-600 hover:text-blue-900 font-medium">Quiz</Link>
+            <Link href="/guides" className="text-gray-600 hover:text-blue-900 font-medium">Guides</Link>
+            <Link href="/resources" className="text-gray-600 hover:text-blue-900 font-medium hidden sm:block">Resources</Link>
           </div>
         </div>
       </nav>
 
       {/* Hero Section ~ HIGH IMPACT */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-950 to-blue-900 py-24 px-4 text-white relative overflow-hidden">
+      <section className="bg-gradient-to-br from-blue-900 via-blue-950 to-blue-900 py-16 sm:py-24 px-4 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             Stop Foreclosure <span className="text-yellow-400">Before It's Too Late</span>
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 mb-4 leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-3 sm:mb-4 leading-relaxed">
             You have options. Real solutions that work in New Jersey.
           </p>
-          <p className="text-lg text-blue-200 mb-8">
+          <p className="text-base sm:text-lg text-blue-200 mb-6 sm:mb-8">
             Get a personalized plan in 2 minutes ~ no obligation, no pressure.
           </p>
           <Link
             href="/quiz"
-            className="inline-block bg-yellow-500 text-blue-900 px-12 py-4 rounded-lg font-bold hover:bg-yellow-400 transition text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105"
+            className="inline-block bg-yellow-500 text-blue-900 px-8 sm:px-12 py-3 sm:py-4 rounded-lg font-bold hover:bg-yellow-400 transition text-base sm:text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105"
           >
             See Your Options Now →
           </Link>
-          <p className="text-blue-200 text-sm mt-6">
-            ✓ Free Assessment  ✓ Confidential  ✓ Takes 2 Minutes
+          <p className="text-blue-200 text-xs sm:text-sm mt-4 sm:mt-6">
+            ✓ Free  ✓ Confidential  ✓ 2 Minutes
           </p>
         </div>
       </section>
@@ -51,22 +51,22 @@ export default function Home() {
       {/* Trust Indicators */}
       <section className="bg-gray-50 py-8 px-4 border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-900">2,300+</div>
-              <p className="text-gray-600 text-sm">Families Helped</p>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-900">2,300+</div>
+              <p className="text-gray-600 text-xs sm:text-sm">Families Helped</p>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-900">$180M+</div>
-              <p className="text-gray-600 text-sm">Paid to Homeowners</p>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-900">$180M+</div>
+              <p className="text-gray-600 text-xs sm:text-sm">Paid to Homeowners</p>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-900">14 Days</div>
-              <p className="text-gray-600 text-sm">Average Close Time</p>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-900">14 Days</div>
+              <p className="text-gray-600 text-xs sm:text-sm">Avg Close Time</p>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-900">4.9★</div>
-              <p className="text-gray-600 text-sm">Client Rating</p>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-900">4.9★</div>
+              <p className="text-gray-600 text-xs sm:text-sm">Client Rating</p>
             </div>
           </div>
         </div>
