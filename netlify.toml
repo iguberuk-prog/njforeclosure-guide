@@ -3,18 +3,6 @@
   functions = "netlify/functions"
   publish = "out"
 
-# Redirect routes without trailing slash to their .html files
-# This allows /guides/loan-modification to serve /guides/loan-modification.html
-[[redirects]]
-  from = "/guides/:slug"
-  to = "/guides/:slug.html"
-  status = 200
-
-[[redirects]]
-  from = "/companies/:slug"
-  to = "/companies/:slug.html"
-  status = 200
-
 [context.production]
   environment = { NODE_ENV = "production" }
 
