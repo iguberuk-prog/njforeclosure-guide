@@ -1,0 +1,2 @@
+Force rebuild timestamp: 2026-08-04
+Ensuring Netlify picks up latest guide changes
