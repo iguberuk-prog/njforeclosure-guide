@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-// Force rebuild - 2026-08-03
+// Force rebuild - 2026-08-04 - Fix guide routes
 
 const guides = [
   {
