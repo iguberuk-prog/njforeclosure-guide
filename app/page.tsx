@@ -62,6 +62,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition min-w-0 group">
             <img src="/images/logo-nj-foreclosure-guide.jpg" alt="NJ Foreclosure Guide" className="h-12 w-auto group-hover:shadow-lg transition" />
+            <img src="/images/icons/scales-of-justice.png" alt="Legal" className="h-10 w-auto" />
             <div className="hidden sm:block">
               <div className="text-sm font-semibold text-gray-500">NJ Foreclosure</div>
               <div className="text-lg font-bold text-blue-900">Guide</div>
@@ -83,6 +84,23 @@ export default function Home() {
           </div>
         </div>
       </nav>
+
+      {/* Legal Disclaimer Banner */}
+      <div className="bg-gradient-to-r from-blue-50 to-blue-100 border-b-2 border-blue-300 px-4 py-4 sm:py-3">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-start gap-3">
+            <span className="text-xl font-bold text-blue-900 flex-shrink-0 mt-0.5">⚖️</span>
+            <div className="text-sm">
+              <p className="font-bold text-blue-900 mb-1">
+                Legal Disclaimer ~ Not Legal Advice
+              </p>
+              <p className="text-blue-800">
+                We are NOT lawyers and do NOT provide legal advice. We recommend solutions based on what has worked for others facing foreclosure in NJ. <strong>You MUST consult with your own attorney before taking any action.</strong> This is an educational resource only.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* HERO SECTION ~ PREMIUM BACKGROUND */}
       <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-slate-900 py-20 sm:py-32 px-4 text-white overflow-hidden">
@@ -679,6 +697,17 @@ export default function Home() {
               <p className="text-sm mb-2">Confidential help 24/7</p>
               <a href="mailto:help@njforeclosureguide.org" className="block text-yellow-400 hover:text-yellow-300 font-bold mb-3 transition">help@njforeclosureguide.org</a>
               <p className="text-xs text-gray-500">We respond within 2 hours</p>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-700 pt-6 mt-6">
+            <div className="bg-blue-950/50 border border-blue-800 rounded-lg p-4 mb-6">
+              <p className="text-xs text-blue-300 font-semibold mb-2 flex items-center gap-2">
+                <span>⚖️</span> LEGAL DISCLAIMER
+              </p>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                NJ Foreclosure Guide is NOT a law firm and does NOT provide legal advice. We recommend solutions based on what has worked for others facing foreclosure. <strong className="text-blue-300">You MUST consult with your own attorney before taking any legal or financial action.</strong> This is an educational resource only. We are not responsible for outcomes of actions taken based on information provided.
+              </p>
             </div>
           </div>
 
