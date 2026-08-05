@@ -58,20 +58,16 @@ export default function Home() {
       <OrganizationSchema />
 
       {/* Navigation ~ Premium */}
-      <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b-2 border-blue-200 z-40 shadow-md">
+      <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-200 z-40 shadow-sm">
         <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition min-w-0 group">
-            {/* NJ Legal Scales Logo - Premium */}
-            <div className="relative flex-shrink-0">
-              <img src="/images/icons/nj-legal-scales-logo-large.png" alt="NJ Legal Scales" className="h-14 w-14 group-hover:drop-shadow-lg transition" />
-              <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-md group-hover:bg-yellow-400/40 transition"></div>
-            </div>
+          <Link href="/" className="flex items-center gap-2 hover:opacity-85 transition min-w-0 group">
+            {/* Professional Legal Scales Logo */}
+            <img src="/images/icons/professional-legal-scales-lg.png" alt="Legal" className="h-12 w-12 group-hover:drop-shadow-md transition" />
 
             {/* Branding Text */}
-            <div className="flex flex-col min-w-0">
-              <div className="text-xs font-bold text-blue-600 uppercase tracking-wider">Licensed Guide</div>
-              <div className="text-lg font-black text-blue-900">NJ Foreclosure Solutions</div>
-              <div className="text-xs text-gray-500">Legal Guidance & Resources</div>
+            <div className="hidden sm:flex flex-col min-w-0">
+              <div className="text-sm font-semibold text-gray-600">NJ Foreclosure</div>
+              <div className="text-lg font-bold text-blue-900">Guide</div>
             </div>
           </Link>
           <div className="flex gap-2 sm:gap-8 text-sm sm:text-base">
@@ -90,23 +86,6 @@ export default function Home() {
           </div>
         </div>
       </nav>
-
-      {/* Legal Disclaimer Banner */}
-      <div className="bg-gradient-to-r from-blue-50 to-blue-100 border-b-2 border-blue-300 px-4 py-4 sm:py-3">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-start gap-3">
-            <span className="text-xl font-bold text-blue-900 flex-shrink-0 mt-0.5">⚖️</span>
-            <div className="text-sm">
-              <p className="font-bold text-blue-900 mb-1">
-                Legal Disclaimer ~ Not Legal Advice
-              </p>
-              <p className="text-blue-800">
-                We are NOT lawyers and do NOT provide legal advice. We recommend solutions based on what has worked for others facing foreclosure in NJ. <strong>You MUST consult with your own attorney before taking any action.</strong> This is an educational resource only.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* HERO SECTION ~ PREMIUM BACKGROUND WITH BANNER */}
       <section
@@ -689,12 +668,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <img src="/images/icons/nj-legal-scales-logo-large.png" alt="NJ Legal Scales" className="h-12 w-12" />
-                <div>
-                  <div className="text-xs font-bold text-yellow-400 uppercase">Licensed</div>
-                  <div className="text-sm font-bold text-white">NJ Guide</div>
-                </div>
+              <div className="flex items-center gap-2 mb-4">
+                <img src="/images/icons/professional-legal-scales-lg.png" alt="Legal" className="h-10 w-10" />
+                <div className="text-sm font-bold text-white">NJ Foreclosure Guide</div>
               </div>
               <p className="text-sm leading-relaxed">NJ Foreclosure Guide provides honest, unbiased information and real solutions to help distressed homeowners in New Jersey avoid foreclosure.</p>
               <p className="text-xs mt-3 text-gray-500">Not a legal or financial advisor ~ educational resource only</p>
@@ -726,19 +702,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-gray-700 pt-6 mt-6">
-            <div className="bg-blue-950/50 border border-blue-800 rounded-lg p-4 mb-6">
-              <p className="text-xs text-blue-300 font-semibold mb-2 flex items-center gap-2">
-                <span>⚖️</span> LEGAL DISCLAIMER
-              </p>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                NJ Foreclosure Guide is NOT a law firm and does NOT provide legal advice. We recommend solutions based on what has worked for others facing foreclosure. <strong className="text-blue-300">You MUST consult with your own attorney before taking any legal or financial action.</strong> This is an educational resource only. We are not responsible for outcomes of actions taken based on information provided.
-              </p>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
-            <p>&copy; 2024 NJ Foreclosure Guide. Educational resource. Not legal or financial advice. Always consult qualified professionals.</p>
+          <div className="border-t border-gray-700 pt-8 text-center text-xs text-gray-500 space-y-3">
+            <p>&copy; 2024 NJ Foreclosure Guide. All rights reserved.</p>
+            <p className="text-gray-600 italic">
+              Disclaimer: NJ Foreclosure Guide is NOT a law firm and does NOT provide legal advice. We offer educational information based on solutions that have worked for others. You MUST consult with your own attorney before taking any action. This is an educational resource only and we are not responsible for outcomes of actions taken based on our information.
+            </p>
           </div>
         </div>
       </footer>
