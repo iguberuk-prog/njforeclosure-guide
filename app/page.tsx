@@ -87,11 +87,11 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* HERO SECTION ~ PREMIUM BACKGROUND WITH BANNER */}
+      {/* HERO SECTION ~ COLORFUL CANVA-STYLE BANNER */}
       <section
         className="relative py-20 sm:py-32 px-4 text-white overflow-hidden"
         style={{
-          backgroundImage: `url('/images/banners/hero-banner.jpg')`,
+          backgroundImage: `url('/images/canva/hero-colorful.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -149,10 +149,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TRUST INDICATORS ~ PREMIUM STATS */}
+      {/* TRUST INDICATORS ~ COLORFUL CANVA GRAPHICS */}
       <section className="relative py-20 px-4 border-b border-gray-200 overflow-hidden"
         style={{
-          backgroundImage: `url('/images/banners/trust-banner.jpg')`,
+          backgroundImage: `url('/images/canva/trust-graphics.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -197,16 +197,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOLUTIONS SECTION ~ PREMIUM DESIGN WITH IMAGES */}
+      {/* SOLUTIONS SECTION ~ COLORFUL CANVA INFOGRAPHIC */}
       <section className="py-24 px-4 relative overflow-hidden"
         style={{
-          backgroundImage: `url('/images/banners/solutions-banner.jpg')`,
+          backgroundImage: `url('/images/canva/solutions-infographic.jpg')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'top center',
+          backgroundPosition: 'center',
         }}
       >
         {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-white/85"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
 
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Section Header */}
@@ -341,10 +341,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials / Social Proof ~ PREMIUM */}
+      {/* Testimonials / Social Proof ~ COLORFUL CANVA BANNER */}
       <section className="relative py-20 px-4 overflow-hidden"
         style={{
-          backgroundImage: `url('/images/banners/testimonials-banner.jpg')`,
+          backgroundImage: `url('/images/canva/testimonials-banner.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -474,7 +474,7 @@ export default function Home() {
                 <div
                   className="absolute inset-0 opacity-60 group-hover:opacity-75 transition"
                   style={{
-                    backgroundImage: `url('/images/featured-guides-bg.jpg')`,
+                    backgroundImage: `url('/images/canva/guides-showcase.jpg')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
