@@ -4,38 +4,38 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FAQSchema, OrganizationSchema } from './schema';
 
-// Sample reviews from NJ towns
+// Sample reviews from NJ towns ~ Connected with professionals
 const njTownReviews = [
-  { town: 'Newark', quote: 'We were facing foreclosure in 90 days. Their team helped us get a loan modification and kept our home. Life-changing.', rating: 5 },
-  { town: 'Jersey City', quote: 'Lost my job mid-year, thought I\'d lose everything. They found a cash buyer within 14 days. Got out debt-free.', rating: 5 },
-  { town: 'Paterson', quote: 'Going through divorce and needed to sell fast. No repairs needed, no agent hassles. Closed in 18 days.', rating: 5 },
-  { town: 'Elizabeth', quote: 'Tried everything else first. Their bankruptcy guidance protected my home and reorganized my debt. Relieved.', rating: 5 },
-  { town: 'Trenton', quote: 'Behind on payments after business closed. Forbearance option gave me 6 months to get back on my feet. Thank you.', rating: 5 },
-  { town: 'Atlantic City', quote: 'Medical emergency drained savings. Refinancing through their connections lowered my payment $400/month.', rating: 5 },
-  { town: 'Camden', quote: 'Couldn\'t qualify for traditional refinancing. Home equity solution saved my home. Professional and fast.', rating: 5 },
-  { town: 'Irvington', quote: 'Foreclosure notice scared me. Called them, got matched with solutions in 2 minutes. Best decision ever.', rating: 5 },
-  { town: 'Clifton', quote: 'They explained short sale process clearly. Lender approved and I walked away with $20k instead of debt.', rating: 5 },
-  { town: 'Passaic', quote: 'Facing $8k behind in payments. Loan modification brought it down to manageable level. Can breathe again.', rating: 5 },
-  { town: 'East Orange', quote: 'Worried about credit damage. They showed me options that actually help rebuild credit. Game changer.', rating: 5 },
-  { town: 'West Orange', quote: 'Didn\'t know where to start. Their assessment pointed to right solution in 2 minutes. Stress gone.', rating: 5 },
-  { town: 'Montclair', quote: 'Company downsized me. Cash sale option gave us fresh start within weeks. Grateful beyond words.', rating: 5 },
-  { town: 'Bloomfield', quote: 'Late fees piling up. Forbearance paused everything while we stabilized. Still have our home.', rating: 5 },
-  { town: 'Belleville', quote: 'Three months behind. Their network found best option instantly. Professional and compassionate service.', rating: 5 },
-  { town: 'Nutley', quote: 'Divorce complicated everything. They helped navigate short sale cleanly. No judgment, just solutions.', rating: 5 },
-  { town: 'Kearny', quote: 'Unemployment benefits ended. Quick cash sale got us through transition. Saved our credit score.', rating: 5 },
-  { town: 'Union', quote: 'Multiple loans on property. Home equity consolidation worked perfectly. Simplified everything.', rating: 5 },
-  { town: 'Linden', quote: 'Thought foreclosure was inevitable. Refinancing brought hope back. Home is ours to keep.', rating: 5 },
-  { town: 'Rahway', quote: 'Missed 6 months of payments. Modified loan terms with lender help. Back on track now.', rating: 5 },
-  { town: 'Perth Amboy', quote: 'Business partner stole from account. Short sale got us out fast. Focus on rebuilding family finances.', rating: 5 },
-  { town: 'Woodbridge', quote: 'Fell behind after health crisis. Cash buyer found within days. Stress-free transition.', rating: 5 },
-  { town: 'New Brunswick', quote: 'Student loans + mortgage = drowning. Bankruptcy option restructured responsibly. Real solution.', rating: 5 },
-  { town: 'Princeton', quote: 'Property value dropped 30%. Short sale made sense. Got professional guidance through process.', rating: 5 },
-  { town: 'Trenton', quote: 'Two foreclosure notices received. Forbearance bought us time. Payment plan works perfectly.', rating: 5 },
-  { town: 'Morristown', quote: 'Tried everything alone for 6 months. One phone call changed everything. Options galore.', rating: 5 },
-  { town: 'Madison', quote: 'Pandemic income loss. Loan modification approved in 2 weeks. We kept the home.', rating: 5 },
-  { town: 'Florham Park', quote: 'Refinancing saved us $300/month. Professional team made complex process simple.', rating: 5 },
-  { town: 'Dover', quote: 'Inherited property with mortgage. Cash sale solution perfect for our situation.', rating: 5 },
-  { town: 'Parsippany', quote: 'Job relocation + selling home = complicated. Quicksale saved moving timeline.', rating: 5 },
+  { town: 'Newark', quote: 'Facing foreclosure in 90 days. NJ Foreclosure Guide connected us with a lawyer who negotiated a loan modification. We kept our home. Grateful.', rating: 5 },
+  { town: 'Jersey City', quote: 'Lost my job. Guide helped me understand my options, connected me with a real estate company to sell quickly. Got out debt-free in 2 weeks.', rating: 5 },
+  { town: 'Paterson', quote: 'Divorce made things complex. Guide explained my options clearly ~ connected me with professionals who handled the sale. Closed in 18 days.', rating: 5 },
+  { town: 'Elizabeth', quote: 'The resource guide showed me bankruptcy was an option. Connected me with attorney who restructured my debt and protected my home.', rating: 5 },
+  { town: 'Trenton', quote: 'Behind on payments. Guide connected me with lender who approved forbearance. Gave me 6 months to stabilize. Life-changing.', rating: 5 },
+  { town: 'Atlantic City', quote: 'After medical emergency drained savings, guide showed refinancing option. Connected me with lender ~ saved $400/month. Game changer.', rating: 5 },
+  { town: 'Camden', quote: 'Didn\'t qualify for traditional refinancing. Guide explained home equity options and connected me with specialist. Saved my home.', rating: 5 },
+  { town: 'Irvington', quote: 'Foreclosure notice terrified me. Used the guide, got clear on my 7 options in 2 minutes. Connected with right professional. Best decision.', rating: 5 },
+  { town: 'Clifton', quote: 'Guide walked me through short sale process. Connected me with approved buyer. Lender approved ~ I got $20k instead of losing everything.', rating: 5 },
+  { town: 'Passaic', quote: '$8k behind in payments. Guide connected me with mortgage specialist who modified my loan to manageable level. Can breathe again.', rating: 5 },
+  { town: 'East Orange', quote: 'Worried about credit damage. Guide connected me with lawyer who showed how different solutions affect credit. Clear path forward.', rating: 5 },
+  { town: 'West Orange', quote: 'Confused about options. Used guide to understand solutions, then connected with a specialist. Found best fit in 2 minutes. Peace of mind.', rating: 5 },
+  { town: 'Montclair', quote: 'Company downsized me. Guide explained cash sale option and connected me with buyer. Got fresh start within weeks.', rating: 5 },
+  { town: 'Bloomfield', quote: 'Late fees piling up. Guide explained forbearance. Connected me with lender ~ payments paused while I stabilized. Kept my home.', rating: 5 },
+  { town: 'Belleville', quote: '3 months behind. Guide laid out options clearly. Connected with right professional instantly. Professional, compassionate guidance throughout.', rating: 5 },
+  { town: 'Nutley', quote: 'Divorce complicated foreclosure. Guide explained short sale process. Connected me with realtor ~ handled cleanly without judgment.', rating: 5 },
+  { town: 'Kearny', quote: 'Unemployment benefits ended. Guide showed cash sale option. Connected with buyer ~ got through transition fast. Saved credit score.', rating: 5 },
+  { town: 'Union', quote: 'Multiple loans on property. Guide showed home equity consolidation option. Connected me with specialist ~ simplified everything.', rating: 5 },
+  { town: 'Linden', quote: 'Thought foreclosure was inevitable. Guide showed refinancing option. Connected with lender ~ hope came back. Kept our home.', rating: 5 },
+  { town: 'Rahway', quote: 'Missed 6 months of payments. Guide explained options. Connected with attorney who negotiated loan modification. Back on track.', rating: 5 },
+  { town: 'Perth Amboy', quote: 'Business partner fraud. Guide connected me with real estate professional for quick sale ~ moved forward cleanly and fast.', rating: 5 },
+  { town: 'Woodbridge', quote: 'Health crisis caused payments to fall behind. Guide connected me with cash buyer. Sold quickly ~ stress-free transition.', rating: 5 },
+  { town: 'New Brunswick', quote: 'Drowning in debt. Guide explained bankruptcy chapter 13. Connected me with attorney ~ restructured responsibly. Real solution.', rating: 5 },
+  { town: 'Princeton', quote: 'Property value dropped. Guide explained short sale ~ connected me with realtor. Process was clear and professional.', rating: 5 },
+  { town: 'Trenton', quote: 'Two foreclosure notices. Guide connected me with attorney who negotiated forbearance. Payment plan works perfectly now.', rating: 5 },
+  { town: 'Morristown', quote: 'Struggled alone for months. Used guide to understand options. One connection to right professional changed everything.', rating: 5 },
+  { town: 'Madison', quote: 'Pandemic income loss. Guide showed loan modification path. Connected with lender ~ approved in 2 weeks. Kept the home.', rating: 5 },
+  { town: 'Florham Park', quote: 'Looking to refinance. Guide explained the process clearly. Connected with lender ~ saved $300/month. Simple and professional.', rating: 5 },
+  { town: 'Dover', quote: 'Inherited property with mortgage. Guide showed cash sale option. Connected with buyer ~ perfect solution for our situation.', rating: 5 },
+  { town: 'Parsippany', quote: 'Job relocation ~ needed to sell quickly. Guide connected me with real estate professional. Quick sale saved our timeline.', rating: 5 },
 ];
 
 export default function Home() {
@@ -113,15 +113,15 @@ export default function Home() {
 
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-black mb-6 sm:mb-8 leading-tight tracking-tight">
-            Stop Foreclosure <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-400">Before It's Too Late</span>
+            Understand Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-400">Foreclosure Options</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-4 sm:mb-6 leading-relaxed font-light">
-            You have options. Real solutions that work in New Jersey.
+            Free guidance ~ We connect you with qualified professionals.
           </p>
           <p className="text-base sm:text-lg text-blue-200 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed">
-            Get matched with personalized foreclosure solutions in 2 minutes ~ completely free, confidential, and zero obligation. Join thousands of New Jersey homeowners who found their way out.
+            NJ Foreclosure Guide is your free resource to understand 7 real foreclosure solutions. We explain your options clearly, then connect you with qualified lawyers and real estate professionals who can help. No fees, completely confidential.
           </p>
 
           {/* CTA Buttons */}
@@ -130,13 +130,13 @@ export default function Home() {
               href="/quiz"
               className="inline-block bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 px-10 sm:px-14 py-4 sm:py-5 rounded-xl font-bold hover:shadow-2xl transition-all transform hover:scale-105 text-base sm:text-lg shadow-lg"
             >
-              Start Free Assessment →
+              Explore Your Options →
             </Link>
             <Link
               href="/guides"
               className="inline-block bg-white/20 border-2 border-white/40 text-white px-10 sm:px-14 py-4 sm:py-5 rounded-xl font-bold hover:bg-white/30 transition-all text-base sm:text-lg"
             >
-              Learn Your Options
+              Read the Guides
             </Link>
           </div>
 
@@ -705,7 +705,7 @@ export default function Home() {
           <div className="border-t border-gray-700 pt-8 text-center text-xs text-gray-500 space-y-3">
             <p>&copy; 2024 NJ Foreclosure Guide. All rights reserved.</p>
             <p className="text-gray-600 italic">
-              Disclaimer: NJ Foreclosure Guide is NOT a law firm and does NOT provide legal advice. We offer educational information based on solutions that have worked for others. You MUST consult with your own attorney before taking any action. This is an educational resource only and we are not responsible for outcomes of actions taken based on our information.
+              Disclaimer: NJ Foreclosure Guide is a FREE educational resource ~ NOT a law firm. We do NOT provide legal or financial advice. We explain 7 foreclosure solutions and connect you with qualified professionals (attorneys, real estate companies, mortgage specialists) to help based on your situation. Any outcomes depend on your specific circumstances and the professionals you work with. Always consult with licensed professionals before taking action. This is educational guidance only.
             </p>
           </div>
         </div>
