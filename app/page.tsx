@@ -102,15 +102,18 @@ export default function Home() {
         </div>
       </div>
 
-      {/* HERO SECTION ~ PREMIUM BACKGROUND */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-slate-900 py-20 sm:py-32 px-4 text-white overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
-
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 opacity-5" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 1px)', backgroundSize: '50px 50px'}}></div>
+      {/* HERO SECTION ~ PREMIUM BACKGROUND WITH BANNER */}
+      <section
+        className="relative py-20 sm:py-32 px-4 text-white overflow-hidden"
+        style={{
+          backgroundImage: `url('/images/banners/hero-banner.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      >
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/30"></div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
           {/* Badge ~ Clickable Reviews */}
@@ -162,9 +165,13 @@ export default function Home() {
       </section>
 
       {/* TRUST INDICATORS ~ PREMIUM STATS */}
-      <section className="relative py-20 px-4 border-b border-gray-200 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-blue-50"></div>
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+      <section className="relative py-20 px-4 border-b border-gray-200 overflow-hidden"
+        style={{
+          backgroundImage: `url('/images/banners/trust-banner.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
@@ -206,10 +213,15 @@ export default function Home() {
       </section>
 
       {/* SOLUTIONS SECTION ~ PREMIUM DESIGN WITH IMAGES */}
-      <section className="py-24 px-4 relative overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50 to-white"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+      <section className="py-24 px-4 relative overflow-hidden"
+        style={{
+          backgroundImage: `url('/images/banners/solutions-banner.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'top center',
+        }}
+      >
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-white/85"></div>
 
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Section Header */}
@@ -345,10 +357,14 @@ export default function Home() {
       </section>
 
       {/* Testimonials / Social Proof ~ PREMIUM */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute left-0 top-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-        <div className="absolute right-0 bottom-0 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
+      <section className="relative py-20 px-4 overflow-hidden"
+        style={{
+          backgroundImage: `url('/images/banners/testimonials-banner.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      >
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
