@@ -101,10 +101,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {[
-              { icon: '👨‍👩‍👧‍👦', value: '2,300+', label: 'Families Helped', highlight: true, color: 'from-blue-500 to-blue-600' },
-              { icon: '💰', value: '$180M+', label: 'Paid to Homeowners', highlight: false, color: 'from-green-500 to-green-600' },
-              { icon: '⚡', value: '14 Days', label: 'Avg Close Time', highlight: false, color: 'from-orange-500 to-orange-600' },
-              { icon: '⭐', value: '4.9★', label: 'Client Rating', highlight: true, color: 'from-yellow-400 to-yellow-500' },
+              { icon: '/images/icons/families-helped.png', value: '2,300+', label: 'Families Helped', highlight: true, color: 'from-blue-500 to-blue-600' },
+              { icon: '/images/icons/money-paid.png', value: '$180M+', label: 'Paid to Homeowners', highlight: false, color: 'from-green-500 to-green-600' },
+              { icon: '/images/icons/speed.png', value: '14 Days', label: 'Avg Close Time', highlight: false, color: 'from-orange-500 to-orange-600' },
+              { icon: '/images/icons/rating.png', value: '4.9★', label: 'Client Rating', highlight: true, color: 'from-yellow-400 to-yellow-500' },
             ].map((stat, idx) => (
               <div
                 key={idx}
@@ -118,9 +118,7 @@ export default function Home() {
 
                 {/* Content */}
                 <div className="relative z-10 text-center">
-                  <div className="text-5xl mb-3 transform group-hover:scale-125 transition duration-300">
-                    {stat.icon}
-                  </div>
+                  <img src={stat.icon} alt={stat.label} className="w-16 h-16 mx-auto mb-3 transform group-hover:scale-125 transition duration-300" />
                   <div className={`font-black text-3xl sm:text-4xl mb-2 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
                     {stat.value}
                   </div>
@@ -163,7 +161,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {[
               {
-                icon: '📋',
+                icon: '/images/icons/loan-modification.png',
                 title: 'Loan Modification',
                 desc: 'Lower your monthly payment by negotiating new terms with your lender.',
                 best: 'Best if: You can afford lower payments',
@@ -171,7 +169,7 @@ export default function Home() {
                 bgImage: '/images/solution-card-1.jpg',
               },
               {
-                icon: '🔄',
+                icon: '/images/icons/refinancing.png',
                 title: 'Refinancing',
                 desc: 'Replace your loan with better terms and potentially lower interest rates.',
                 best: 'Best if: Your credit and income qualify',
@@ -179,7 +177,7 @@ export default function Home() {
                 bgImage: '/images/solution-card-2.jpg',
               },
               {
-                icon: '⏸️',
+                icon: '/images/icons/forbearance.png',
                 title: 'Forbearance',
                 desc: 'Pause or reduce payments temporarily while you stabilize your finances.',
                 best: 'Best if: Your hardship is temporary',
@@ -187,7 +185,7 @@ export default function Home() {
                 bgImage: '/images/solution-card-3.jpg',
               },
               {
-                icon: '🏠',
+                icon: '/images/icons/short-sale.png',
                 title: 'Short Sale',
                 desc: 'Sell your home below market value with lender approval to avoid foreclosure.',
                 best: 'Best if: Home value decreased significantly',
@@ -195,7 +193,7 @@ export default function Home() {
                 bgImage: '/images/solution-card-4.jpg',
               },
               {
-                icon: '💰',
+                icon: '/images/icons/home-equity.png',
                 title: 'Home Equity Solutions',
                 desc: 'Leverage your equity to consolidate debt and stop foreclosure.',
                 best: 'Best if: You have substantial equity',
@@ -203,7 +201,7 @@ export default function Home() {
                 bgImage: '/images/solution-card-5.jpg',
               },
               {
-                icon: '⚖️',
+                icon: '/images/icons/bankruptcy.png',
                 title: 'Bankruptcy (Ch. 13)',
                 desc: 'Legal debt restructuring that protects your home while reorganizing debt.',
                 best: 'Best if: You want to keep the house',
@@ -211,7 +209,7 @@ export default function Home() {
                 bgImage: '/images/solution-card-6.jpg',
               },
               {
-                icon: '⚡',
+                icon: '/images/icons/cash-sale.png',
                 title: 'Cash Sale',
                 desc: 'Sell quickly for cash in 14-30 days with no repairs or agent fees.',
                 best: 'Best if: You need a fast exit',
@@ -220,7 +218,7 @@ export default function Home() {
                 bgImage: '/images/solution-card-7.jpg',
               },
               {
-                icon: '🎯',
+                icon: '/images/icons/quiz-match.png',
                 title: 'Find Your Match',
                 desc: 'Take our 2-minute assessment and get personalized recommendations.',
                 best: 'Best if: You need guidance',
@@ -250,9 +248,7 @@ export default function Home() {
 
                 <div className="relative z-10">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className={`text-4xl p-3 rounded-xl bg-white/90 group-hover:bg-blue-50 transition shadow-lg`}>
-                      {option.icon}
-                    </div>
+                    <img src={option.icon} alt={option.title} className="w-16 h-16 p-3 rounded-xl bg-white/90 group-hover:bg-blue-50 transition shadow-lg" />
                     {option.highlight && <span className="px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full shadow-lg">FAST</span>}
                   </div>
                   <h3 className="font-black text-xl text-white mb-2 group-hover:text-yellow-300 transition drop-shadow-lg">
@@ -300,7 +296,8 @@ export default function Home() {
                 situation: 'Was 90 days behind',
                 quote: 'I thought I was going to lose my home. Within 14 days of contacting them, I had an offer and cash. They saved my family.',
                 rating: 5,
-                icon: '👩',
+                initials: 'MS',
+                bgColor: 'from-pink-400 to-pink-500',
               },
               {
                 name: 'James R.',
@@ -308,7 +305,8 @@ export default function Home() {
                 situation: 'Lost his job',
                 quote: 'They understood my situation immediately ~ no judgment, just real help. Got me out of foreclosure and I walked away with money.',
                 rating: 5,
-                icon: '👨',
+                initials: 'JR',
+                bgColor: 'from-blue-400 to-blue-500',
               },
               {
                 name: 'Patricia M.',
@@ -316,7 +314,8 @@ export default function Home() {
                 situation: 'Going through divorce',
                 quote: 'Had to sell quickly and handle everything alone. They made it painless. No repairs needed, no agent hassles. Done in 18 days.',
                 rating: 5,
-                icon: '👩‍🦰',
+                initials: 'PM',
+                bgColor: 'from-purple-400 to-purple-500',
               },
             ].map((testimonial, idx) => (
               <div key={idx} className="group relative">
@@ -333,8 +332,8 @@ export default function Home() {
                 <div className="relative bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition border-2 border-white/50">
                   {/* Avatar */}
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center text-2xl shadow-lg">
-                      {testimonial.icon}
+                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${testimonial.bgColor} flex items-center justify-center text-white font-bold text-sm shadow-lg`}>
+                      {testimonial.initials}
                     </div>
                     <div>
                       <p className="font-bold text-gray-900">{testimonial.name}</p>
@@ -376,21 +375,21 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: '📚',
+                icon: '/images/icons/book.png',
                 title: 'Foreclosure 101',
                 desc: "What's actually happening to your mortgage, your legal rights, and what to expect.",
                 href: '/guides/foreclosure-101',
                 color: 'from-blue-500 to-blue-600',
               },
               {
-                icon: '🔍',
+                icon: '/images/icons/magnifying-glass.png',
                 title: 'All 7 Options Explained',
                 desc: 'Detailed breakdown of each solution ~ pros, cons, and who it works best for.',
                 href: '/guides/options',
                 color: 'from-indigo-500 to-indigo-600',
               },
               {
-                icon: '⚡',
+                icon: '/images/icons/lightning-bold.png',
                 title: 'Quick Cash Sale Guide',
                 desc: 'Step-by-step walkthrough of selling for cash in 14-30 days. What to expect, what to watch for.',
                 href: '/guides/cash-sale',
@@ -418,7 +417,7 @@ export default function Home() {
                 {/* Content */}
                 <div className="relative p-8 h-full flex flex-col justify-between z-10">
                   <div>
-                    <div className="text-5xl mb-4 drop-shadow-lg">{guide.icon}</div>
+                    <img src={guide.icon} alt={guide.title} className="w-20 h-20 mb-4 drop-shadow-lg" />
                     <h3 className="font-black text-2xl text-white mb-3 group-hover:text-yellow-300 transition drop-shadow-lg">
                       {guide.title}
                     </h3>
