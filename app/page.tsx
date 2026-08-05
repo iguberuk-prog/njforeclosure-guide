@@ -58,14 +58,20 @@ export default function Home() {
       <OrganizationSchema />
 
       {/* Navigation ~ Premium */}
-      <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-100 z-40 shadow-sm">
-        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition min-w-0 group">
-            <img src="/images/logo-nj-foreclosure-guide.jpg" alt="NJ Foreclosure Guide" className="h-12 w-auto group-hover:shadow-lg transition" />
-            <img src="/images/icons/scales-of-justice.png" alt="Legal" className="h-10 w-auto" />
-            <div className="hidden sm:block">
-              <div className="text-sm font-semibold text-gray-500">NJ Foreclosure</div>
-              <div className="text-lg font-bold text-blue-900">Guide</div>
+      <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b-2 border-blue-200 z-40 shadow-md">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition min-w-0 group">
+            {/* NJ Legal Scales Logo - Premium */}
+            <div className="relative flex-shrink-0">
+              <img src="/images/icons/nj-legal-scales-logo-large.png" alt="NJ Legal Scales" className="h-14 w-14 group-hover:drop-shadow-lg transition" />
+              <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-md group-hover:bg-yellow-400/40 transition"></div>
+            </div>
+
+            {/* Branding Text */}
+            <div className="flex flex-col min-w-0">
+              <div className="text-xs font-bold text-blue-600 uppercase tracking-wider">Licensed Guide</div>
+              <div className="text-lg font-black text-blue-900">NJ Foreclosure Solutions</div>
+              <div className="text-xs text-gray-500">Legal Guidance & Resources</div>
             </div>
           </Link>
           <div className="flex gap-2 sm:gap-8 text-sm sm:text-base">
@@ -683,8 +689,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <img src="/images/logo-nj-foreclosure-guide.jpg" alt="NJ Foreclosure Guide" className="h-10 w-auto" />
+              <div className="flex items-center gap-3 mb-4">
+                <img src="/images/icons/nj-legal-scales-logo-large.png" alt="NJ Legal Scales" className="h-12 w-12" />
+                <div>
+                  <div className="text-xs font-bold text-yellow-400 uppercase">Licensed</div>
+                  <div className="text-sm font-bold text-white">NJ Guide</div>
+                </div>
               </div>
               <p className="text-sm leading-relaxed">NJ Foreclosure Guide provides honest, unbiased information and real solutions to help distressed homeowners in New Jersey avoid foreclosure.</p>
               <p className="text-xs mt-3 text-gray-500">Not a legal or financial advisor ~ educational resource only</p>
