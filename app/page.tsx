@@ -154,6 +154,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PREMIUM TRUST BANNER */}
+      <section className="relative py-12 px-4 overflow-hidden bg-gradient-to-r from-gray-900 to-gray-950">
+        <div className="max-w-6xl mx-auto">
+          <img src="/images/trusted-badge-premium.png" alt="Trusted by 2300+ NJ Families" className="w-full max-w-4xl mx-auto rounded-lg shadow-2xl drop-shadow-2xl" />
+        </div>
+      </section>
+
       {/* TRUST INDICATORS ~ COLORFUL CANVA GRAPHICS */}
       <section className="relative py-20 px-4 border-b border-gray-200 overflow-hidden"
         style={{
@@ -373,7 +380,7 @@ export default function Home() {
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">Families we connected with qualified professionals. Here's what they say about working with our network partners.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
             {[
               {
                 name: 'Maria S.',
@@ -443,6 +450,11 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Family Badge Image */}
+          <div className="flex justify-center mt-12">
+            <img src="/images/trusted-badge-families.png" alt="Trusted by 2300+ NJ Families - Service Provider" className="w-full max-w-md rounded-lg shadow-xl" />
           </div>
         </div>
       </section>

@@ -23,6 +23,13 @@ export default function Professionals() {
         </div>
       </nav>
 
+      {/* Premium Trust Banner */}
+      <section className="relative py-12 px-4 overflow-hidden bg-gradient-to-r from-gray-900 to-gray-950">
+        <div className="max-w-6xl mx-auto">
+          <img src="/images/trusted-badge-premium.png" alt="Trusted by 2300+ NJ Families" className="w-full max-w-4xl mx-auto rounded-lg shadow-2xl drop-shadow-2xl" />
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-teal-50">
         <div className="max-w-4xl mx-auto text-center">
