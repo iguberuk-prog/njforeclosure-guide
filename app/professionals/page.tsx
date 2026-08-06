@@ -7,12 +7,12 @@ export default function Professionals() {
     <div className="min-h-full bg-white">
       {/* Navigation */}
       <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-200 z-40 shadow-sm">
-        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-85 transition">
-            <img src="/images/icons/professional-legal-scales-lg.png" alt="Legal" className="h-12 w-12" />
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-85 transition">
+            <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-16 w-16 sm:h-20 sm:w-20" />
             <div className="hidden sm:flex flex-col">
-              <div className="text-sm font-semibold text-gray-600">NJ Foreclosure</div>
-              <div className="text-lg font-bold text-blue-900">Guide</div>
+              <div className="text-sm font-bold text-blue-900 tracking-tight">NJ FORECLOSURE</div>
+              <div className="text-base font-semibold text-gray-500">GUIDE</div>
             </div>
           </Link>
           <div className="flex gap-2 sm:gap-8 text-sm sm:text-base">
@@ -219,12 +219,21 @@ export default function Professionals() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-12 mt-12 border-t border-gray-700">
-        <div className="max-w-6xl mx-auto px-4 text-center text-sm">
-          <p className="mb-3">© 2024 NJ Foreclosure Guide. All rights reserved.</p>
-          <p className="text-gray-500 italic text-xs">
-            Educational resource only. We are not attorneys or real estate companies. We refer you to qualified professionals in our network.
-          </p>
+      <footer className="bg-gray-900 text-gray-300 py-16 mt-12 border-t border-gray-700">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-20 w-20" />
+            <div>
+              <div className="text-lg font-bold text-white tracking-tight">NJ FORECLOSURE</div>
+              <div className="text-base font-semibold text-gray-400">GUIDE</div>
+            </div>
+          </div>
+          <div className="text-center text-sm border-t border-gray-700 pt-8">
+            <p className="mb-3">© 2024 NJ Foreclosure Guide. All rights reserved.</p>
+            <p className="text-gray-500 italic text-xs max-w-2xl mx-auto">
+              Educational resource only. We are not attorneys or real estate companies. We refer you to qualified professionals in our network.
+            </p>
+          </div>
         </div>
       </footer>
     </div>

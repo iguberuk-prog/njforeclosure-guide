@@ -59,15 +59,15 @@ export default function Home() {
 
       {/* Navigation ~ Premium */}
       <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-200 z-40 shadow-sm">
-        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-85 transition min-w-0 group">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-85 transition min-w-0 group">
             {/* Professional Legal Scales Logo */}
-            <img src="/images/icons/professional-legal-scales-lg.png" alt="Legal" className="h-12 w-12 group-hover:drop-shadow-md transition" />
+            <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-16 w-16 sm:h-20 sm:w-20 group-hover:drop-shadow-lg transition" />
 
             {/* Branding Text */}
             <div className="hidden sm:flex flex-col min-w-0">
-              <div className="text-sm font-semibold text-gray-600">NJ Foreclosure</div>
-              <div className="text-lg font-bold text-blue-900">Guide</div>
+              <div className="text-sm font-bold text-blue-900 tracking-tight">NJ FORECLOSURE</div>
+              <div className="text-base font-semibold text-gray-500">GUIDE</div>
             </div>
           </Link>
           <div className="flex gap-2 sm:gap-8 text-sm sm:text-base">
@@ -668,9 +668,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <img src="/images/icons/professional-legal-scales-lg.png" alt="Legal" className="h-10 w-10" />
-                <div className="text-sm font-bold text-white">NJ Foreclosure Guide</div>
+              <div className="flex items-center gap-3 mb-4">
+                <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-16 w-16" />
+                <div>
+                  <div className="text-sm font-bold text-white tracking-tight">NJ FORECLOSURE</div>
+                  <div className="text-xs font-semibold text-gray-400">GUIDE</div>
+                </div>
               </div>
               <p className="text-sm leading-relaxed">NJ Foreclosure Guide is a free educational resource that explains 7 foreclosure solutions and connects homeowners with qualified attorneys and real estate professionals in our network.</p>
               <p className="text-xs mt-3 text-gray-500">Educational resource only ~ Not a law firm, not a lender, not a real estate company</p>
