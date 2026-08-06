@@ -26,6 +26,9 @@ export default function Professionals() {
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-teal-50">
         <div className="max-w-4xl mx-auto text-center">
+          <div className="flex justify-center mb-8">
+            <img src="/images/verified-badge.png" alt="Verified - Trusted by 2300+ NJ Families" className="h-28 w-28 drop-shadow-lg" />
+          </div>
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Professional Network</h1>
           <p className="text-lg text-gray-600 mb-6">Qualified attorneys and real estate professionals ready to help</p>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -221,6 +224,11 @@ export default function Professionals() {
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-16 mt-12 border-t border-gray-700">
         <div className="max-w-6xl mx-auto px-4">
+          {/* Verification Badge */}
+          <div className="flex justify-center mb-8">
+            <img src="/images/verified-badge.png" alt="Verified - Trusted by 2300+ NJ Families" className="h-24 w-24 drop-shadow-lg" />
+          </div>
+
           <div className="flex items-center justify-center gap-4 mb-8">
             <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-20 w-20" />
             <div>

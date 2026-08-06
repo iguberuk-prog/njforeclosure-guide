@@ -101,13 +101,18 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/30"></div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
+          {/* Verification Badge */}
+          <div className="flex justify-center mb-8">
+            <img src="/images/verified-badge.png" alt="Verified - Trusted by 2300+ NJ Families" className="h-32 w-32 drop-shadow-lg" />
+          </div>
+
           {/* Badge ~ Clickable Reviews */}
           <button
             onClick={() => setShowReviews(true)}
             className="inline-block mb-6 sm:mb-8 px-4 py-2 bg-yellow-500/20 border border-yellow-400/40 rounded-full hover:bg-yellow-500/30 hover:border-yellow-400/60 transition cursor-pointer group"
           >
             <p className="text-yellow-300 text-sm font-semibold group-hover:text-yellow-200 transition">
-              🏆 Trusted by 2,300+ NJ Families
+              ⭐ See Real Reviews from Families We Connected
             </p>
           </button>
 
@@ -666,6 +671,11 @@ export default function Home() {
       {/* Footer ~ PREMIUM */}
       <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-gray-300 py-16 mt-12 border-t-2 border-yellow-500/20">
         <div className="max-w-6xl mx-auto px-4">
+          {/* Verification Badge */}
+          <div className="flex justify-center mb-12">
+            <img src="/images/verified-badge.png" alt="Verified - Trusted by 2300+ NJ Families" className="h-24 w-24 drop-shadow-lg" />
+          </div>
+
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-3 mb-4">
