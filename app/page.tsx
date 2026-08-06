@@ -118,10 +118,10 @@ export default function Home() {
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-4 sm:mb-6 leading-relaxed font-light">
-            Free guidance ~ We connect you with qualified professionals.
+            Free education ~ Connect with qualified professionals.
           </p>
           <p className="text-base sm:text-lg text-blue-200 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed">
-            NJ Foreclosure Guide is your free resource to understand 7 real foreclosure solutions. We explain your options clearly, then connect you with qualified lawyers and real estate professionals who can help. No fees, completely confidential.
+            NJ Foreclosure Guide is your free educational resource. We explain 7 real foreclosure solutions clearly ~ no jargon, no sales pitch. Then we connect you with qualified attorneys and real estate professionals in our network to help with your specific situation. Everything is free and confidential.
           </p>
 
           {/* CTA Buttons */}
@@ -161,10 +161,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {[
-              { icon: '/images/icons/families-helped.png', value: '2,300+', label: 'Families Helped', highlight: true, color: 'from-blue-500 to-blue-600' },
-              { icon: '/images/icons/money-paid.png', value: '$180M+', label: 'Paid to Homeowners', highlight: false, color: 'from-green-500 to-green-600' },
-              { icon: '/images/icons/speed.png', value: '14 Days', label: 'Avg Close Time', highlight: false, color: 'from-orange-500 to-orange-600' },
-              { icon: '/images/icons/rating.png', value: '4.9★', label: 'Client Rating', highlight: true, color: 'from-yellow-400 to-yellow-500' },
+              { icon: '/images/icons/families-helped.png', value: '2,300+', label: 'Families Connected', highlight: true, color: 'from-blue-500 to-blue-600' },
+              { icon: '/images/icons/money-paid.png', value: '$180M+', label: 'Through Our Network', highlight: false, color: 'from-green-500 to-green-600' },
+              { icon: '/images/icons/speed.png', value: '14 Days', label: 'Avg Professional Process', highlight: false, color: 'from-orange-500 to-orange-600' },
+              { icon: '/images/icons/rating.png', value: '4.9★', label: 'Client Satisfaction', highlight: true, color: 'from-yellow-400 to-yellow-500' },
             ].map((stat, idx) => (
               <div
                 key={idx}
@@ -354,7 +354,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Real People, Real Results</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Thousands of New Jersey families have found their way out. Here's what they have to say.</p>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Families we connected with qualified professionals. Here's what they say about working with our network partners.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -537,28 +537,28 @@ export default function Home() {
         <div className="space-y-4">
           {[
             {
-              q: 'Is this service really free?',
-              a: 'Yes. Our assessment and guidance are completely free. We make money when you work with one of our partner companies ~ not before.'
+              q: 'Is this really free?',
+              a: 'Yes. Our education and guidance are 100% free. We are a referral service ~ attorneys and real estate companies pay us referral fees when clients they work with connect through us. This means our advice is unbiased ~ we profit only if you choose to work with our partners, and only after you benefit.'
             },
             {
-              q: 'Will this hurt my credit?',
-              a: 'You already have a foreclosure notice, so your credit has been affected. Our solutions can help prevent further damage and some options actually help rebuild credit faster.'
+              q: 'Are you a law firm or real estate company?',
+              a: 'No. We are an educational resource. We do not provide legal advice, negotiate with lenders, or perform real estate services. We explain your options and connect you with qualified attorneys and real estate professionals who do this work every day.'
             },
             {
-              q: 'Do I have to sell my house?',
-              a: 'No. Most solutions help you keep your home. A cash sale is only one of seven options ~ and only if you choose it.'
+              q: 'Do I have to use one of your referral partners?',
+              a: 'No. You can find your own attorney or company anywhere. Our assessment helps you understand which solution fits your situation ~ then you can work with any professional you choose. We just make it easy if you want vetted options.'
             },
             {
-              q: 'How quickly can I get help?',
-              a: 'Take the assessment today (2 minutes) and get matched with solutions immediately. If you need a cash offer, qualified companies can provide one within 24 hours.'
+              q: 'How quickly can I get connected?',
+              a: 'Take our free assessment (2 minutes) and see which solutions match your situation. Then we can introduce you to qualified professionals in our network who handle this work. Timeline depends on your choice of solution.'
             },
             {
               q: 'Is my information confidential?',
-              a: 'Completely. We don\'t share your information without permission. Everything you tell us stays private.'
+              a: 'Completely. We never share your information without your permission. You control who sees your assessment results. Everything stays private and secure.'
             },
             {
-              q: 'What if I can\'t afford any solutions?',
-              a: 'We\'ll show you every option available ~ including government programs and non-profit assistance you might not know about.'
+              q: 'What if I want to explore all 7 solutions?',
+              a: 'Perfect. Read our detailed guides for each option. We explain pros, cons, timeline, and who it works best for ~ so you can make an informed decision about which direction is right for your situation.'
             },
           ].map((item, idx) => (
             <details key={idx} className="group bg-gradient-to-r from-white to-blue-50/30 rounded-xl p-6 border-2 border-gray-200 group-open:border-blue-400 cursor-pointer hover:border-blue-300 transition shadow-md hover:shadow-lg">
@@ -581,8 +581,8 @@ export default function Home() {
             {/* Header */}
             <div className="sticky top-0 bg-gradient-to-r from-blue-900 to-blue-950 text-white p-6 flex justify-between items-center border-b border-blue-800">
               <div>
-                <h2 className="text-2xl font-black">Happy Clients Across NJ</h2>
-                <p className="text-blue-200 text-sm mt-1">Real reviews from families we helped</p>
+                <h2 className="text-2xl font-black">Real Results From Our Network</h2>
+                <p className="text-blue-200 text-sm mt-1">Families we connected with qualified professionals</p>
               </div>
               <button
                 onClick={() => setShowReviews(false)}
@@ -656,7 +656,7 @@ export default function Home() {
                 onClick={() => setShowReviews(false)}
                 className="w-full mt-8 bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition"
               >
-                Ready to Get Your Solution? Start Assessment →
+                Understand Your Options ~ Start Free Assessment →
               </button>
             </div>
           </div>
@@ -672,16 +672,16 @@ export default function Home() {
                 <img src="/images/icons/professional-legal-scales-lg.png" alt="Legal" className="h-10 w-10" />
                 <div className="text-sm font-bold text-white">NJ Foreclosure Guide</div>
               </div>
-              <p className="text-sm leading-relaxed">NJ Foreclosure Guide provides honest, unbiased information and real solutions to help distressed homeowners in New Jersey avoid foreclosure.</p>
-              <p className="text-xs mt-3 text-gray-500">Not a legal or financial advisor ~ educational resource only</p>
+              <p className="text-sm leading-relaxed">NJ Foreclosure Guide is a free educational resource that explains 7 foreclosure solutions and connects homeowners with qualified attorneys and real estate professionals in our network.</p>
+              <p className="text-xs mt-3 text-gray-500">Educational resource only ~ Not a law firm, not a lender, not a real estate company</p>
             </div>
 
             <div>
-              <h3 className="font-black text-white mb-4 text-sm uppercase tracking-wider">Learn</h3>
+              <h3 className="font-black text-white mb-4 text-sm uppercase tracking-wider">Learn & Connect</h3>
               <ul className="text-sm space-y-3">
                 <li><Link href="/guides" className="text-gray-400 hover:text-yellow-400 transition font-medium">Educational Guides</Link></li>
                 <li><Link href="/quiz" className="text-gray-400 hover:text-yellow-400 transition font-medium">Free Assessment</Link></li>
-                <li><Link href="/companies" className="text-gray-400 hover:text-yellow-400 transition font-medium">Trusted Solutions</Link></li>
+                <li><Link href="/professionals" className="text-gray-400 hover:text-yellow-400 transition font-medium">Professional Network</Link></li>
               </ul>
             </div>
 
@@ -705,7 +705,7 @@ export default function Home() {
           <div className="border-t border-gray-700 pt-8 text-center text-xs text-gray-500 space-y-3">
             <p>&copy; 2024 NJ Foreclosure Guide. All rights reserved.</p>
             <p className="text-gray-600 italic">
-              Disclaimer: NJ Foreclosure Guide is a FREE educational resource ~ NOT a law firm. We do NOT provide legal or financial advice. We explain 7 foreclosure solutions and connect you with qualified professionals (attorneys, real estate companies, mortgage specialists) to help based on your situation. Any outcomes depend on your specific circumstances and the professionals you work with. Always consult with licensed professionals before taking action. This is educational guidance only.
+              IMPORTANT DISCLAIMER: NJ Foreclosure Guide is a FREE educational resource only. We are NOT a law firm, lender, or real estate company. We do NOT provide legal advice, financial advice, or negotiate with lenders. We do NOT perform any foreclosure solutions ourselves. We simply explain 7 options and connect you with vetted attorneys and real estate professionals who provide these services. We earn referral fees when clients work with our partners. All outcomes depend entirely on your situation and the professionals you work with. Always consult licensed professionals. This site is for education only.
             </p>
           </div>
         </div>
