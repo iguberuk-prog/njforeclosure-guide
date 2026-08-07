@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head><title>Forms</title></head>
+<body>
+  <!-- Hidden form definitions for Netlify Forms build-time detection -->
+  <form name="lead-quiz" netlify netlify-honeypot="bot-field" action="/" method="POST">
+    <input type="hidden" name="form-name" value="lead-quiz" />
+    <input type="text" name="bot-field" />
+    <input type="text" name="name" />
+    <input type="tel" name="phone" />
+    <input type="email" name="email" />
+    <input type="text" name="town" />
+    <input type="text" name="situation" />
+    <input type="text" name="timeline" />
+    <input type="text" name="goal" />
+    <input type="text" name="homeValue" />
+    <input type="text" name="ownerType" />
+    <input type="text" name="leadScore" />
+    <input type="text" name="recommendation" />
+    <textarea name="notes"></textarea>
+    <input type="text" name="sourcePage" />
+  </form>
+  <form name="ai-chat-lead" netlify netlify-honeypot="bot-field" action="/" method="POST">
+    <input type="hidden" name="form-name" value="ai-chat-lead" />
+    <input type="text" name="bot-field" />
+    <input type="text" name="name" />
+    <input type="tel" name="phone" />
+    <input type="email" name="email" />
+    <input type="text" name="leadScore" />
+    <textarea name="conversationSummary"></textarea>
+    <input type="text" name="sourcePage" />
+  </form>
+</body>
+</html>

@@ -22,289 +22,380 @@ interface QuizResult {
 }
 
 const quizResults: Record<string, QuizResult> = {
-  'foreclosure-asap-sell-any-homeowner': {
-    primary: 'NJOffer. The Fastest Rescue',
-    primaryUrl: '/companies/njoffer',
-    secondary: 'Home Equity Partners',
-    secondaryUrl: '/companies/home-equity-partners',
+  'foreclosure-urgent': {
+    primary: 'Fast Cash Sale Specialists',
+    primaryUrl: '/professionals',
+    secondary: 'Foreclosure Defense Attorneys',
+    secondaryUrl: '/professionals',
     guide: 'Foreclosure 101',
     guideUrl: '/guides/foreclosure-101',
-    explanation: 'Since you need cash immediately and foreclosure is in progress, NJOffer specializes in fast closings (7-14 days) with no repairs needed. They understand urgency.',
+    explanation: 'With foreclosure in progress and time short, your two strongest paths are a fast cash sale (14 to 30 days, stops the foreclosure and protects your credit) or an attorney who can negotiate with your lender. We can connect you with both so you can compare.',
   },
-  'behind-asap-sell-any-homeowner': {
-    primary: 'NJOffer. The Fastest Rescue',
-    primaryUrl: '/companies/njoffer',
-    secondary: 'Home Equity Partners',
-    secondaryUrl: '/companies/home-equity-partners',
-    guide: 'Behind on Payments Guide',
-    guideUrl: '/guides/behind-on-payments',
-    explanation: 'With payments behind and immediate need, a quick cash sale via NJOffer can stop foreclosure before it starts.',
+  'behind-urgent': {
+    primary: 'Loan Modification Attorneys',
+    primaryUrl: '/professionals',
+    secondary: 'Fast Cash Sale Specialists',
+    secondaryUrl: '/professionals',
+    guide: 'Loan Modification Guide',
+    guideUrl: '/guides/loan-modification',
+    explanation: 'You are behind but foreclosure has not been finalized. Acting now gives you the most options: a loan modification can lower your payment and keep you in the home, and a quick sale remains available as a backup.',
   },
-  'inherited-any-sell-any-homeowner': {
-    primary: 'Home Equity Partners',
-    primaryUrl: '/companies/home-equity-partners',
-    secondary: 'NJOffer. The Fastest Rescue',
-    secondaryUrl: '/companies/njoffer',
-    guide: 'Inherited Property Guide',
-    guideUrl: '/guides/inherited-property',
-    explanation: 'Inherited properties are Home Equity Partners\' specialty. They handle the complexity so you don\'t have to.',
+  'inherited-sell': {
+    primary: 'Real Estate Professionals',
+    primaryUrl: '/professionals',
+    secondary: 'Cash Buyers',
+    secondaryUrl: '/professionals',
+    guide: 'Cash Sale Guide',
+    guideUrl: '/guides/cash-buyer',
+    explanation: 'Inherited properties come with their own complexity: taxes, title, and sometimes an existing mortgage. The professionals in our network handle these situations every day and can walk you through a clean sale.',
   },
-  'inherited-any-sell-any-investor': {
-    primary: 'Property Investors NJ',
-    primaryUrl: '/companies/property-investors',
-    secondary: 'Home Equity Partners',
-    secondaryUrl: '/companies/home-equity-partners',
-    guide: 'Investor Property Guide',
-    guideUrl: '/guides/investor-property',
-    explanation: 'As an investor dealing with an inherited property, Property Investors NJ focuses on portfolio and rental property solutions.',
-  },
-  'financial-any-keep-any-homeowner': {
-    primary: 'Loan Modification Guide',
-    primaryUrl: '/guides/loan-modification',
-    secondary: 'HUD Counselor Directory',
-    secondaryUrl: '/resources#counselors',
+  'keep-home': {
+    primary: 'Loan Modification and Forbearance Attorneys',
+    primaryUrl: '/professionals',
+    secondary: 'HUD Housing Counselors (free)',
+    secondaryUrl: '/resources',
     guide: 'Options to Keep Your Home',
-    guideUrl: '/guides/options-keep-home',
-    explanation: 'Before selling, explore loan modification, forbearance, or refinancing. We\'ve linked HUD counselors who can help at no cost.',
+    guideUrl: '/guides/loan-modification',
+    explanation: 'Since keeping your home is the goal, start with loan modification, forbearance, or refinancing. A HUD-approved housing counselor is also free to talk to. We can connect you with attorneys who negotiate these solutions with lenders.',
   },
-  'financial-flexible-sell-any-homeowner': {
-    primary: 'Home Equity Partners',
-    primaryUrl: '/companies/home-equity-partners',
-    secondary: 'NJOffer. The Fastest Rescue',
-    secondaryUrl: '/companies/njoffer',
-    guide: 'Financial Crisis Solutions',
-    guideUrl: '/guides/financial-crisis',
-    explanation: 'Home Equity Partners handles financial stress situations with fair pricing and flexibility on timeline.',
+  'sell-flexible': {
+    primary: 'Real Estate Professionals',
+    primaryUrl: '/professionals',
+    secondary: 'Cash Buyers',
+    secondaryUrl: '/professionals',
+    guide: 'All 7 Options Explained',
+    guideUrl: '/guides/options',
+    explanation: 'With some flexibility on timing, you can compare a traditional sale, a short sale if you owe more than the home is worth, or a cash sale for speed. We can connect you with professionals for each path.',
   },
 };
+
+function scoreLeadUrgency(answers: QuizState): string {
+  if (answers.situation === 'foreclosure' && answers.timeline === 'asap') return 'HOT';
+  if (answers.situation === 'foreclosure') return 'HOT';
+  if (answers.situation === 'behind' && answers.timeline === 'asap') return 'HOT';
+  if (answers.situation === 'behind') return 'WARM';
+  if (answers.situation === 'financial' && (answers.timeline === 'asap' || answers.timeline === 'weeks')) return 'WARM';
+  return 'STANDARD';
+}
+
+function matchResult(answers: QuizState): QuizResult {
+  if (answers.situation === 'foreclosure') return quizResults['foreclosure-urgent'];
+  if (answers.situation === 'behind') return quizResults['behind-urgent'];
+  if (answers.situation === 'inherited') return quizResults['inherited-sell'];
+  if (answers.goal === 'keep') return quizResults['keep-home'];
+  return quizResults['sell-flexible'];
+}
 
 export default function QuizPage() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<QuizState>({});
   const [result, setResult] = useState<QuizResult | null>(null);
+  const [contact, setContact] = useState({ name: '', phone: '', email: '', town: '', notes: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [contactError, setContactError] = useState('');
 
   const handleAnswer = (key: string, value: string) => {
     const newAnswers = { ...answers, [key]: value };
     setAnswers(newAnswers);
-
-    if (step < 4) {
-      setStep(step + 1);
-    } else {
-      // Calculate result
-      const resultKey = `${newAnswers.situation}-${newAnswers.timeline}-${newAnswers.goal}-${newAnswers.homeValue}-${newAnswers.type}`;
-
-      // Simplified matching, in production, use more sophisticated logic
-      let matchedResult: QuizResult = quizResults['inherited-any-sell-any-homeowner']; // default
-
-      if (newAnswers.situation === 'foreclosure' && newAnswers.timeline === 'asap' && newAnswers.goal === 'sell') {
-        matchedResult = quizResults['foreclosure-asap-sell-any-homeowner'];
-      } else if (newAnswers.situation === 'behind' && newAnswers.timeline === 'asap') {
-        matchedResult = quizResults['behind-asap-sell-any-homeowner'];
-      } else if (newAnswers.situation === 'inherited' && newAnswers.goal === 'sell' && newAnswers.type === 'investor') {
-        matchedResult = quizResults['inherited-any-sell-any-investor'];
-      } else if (newAnswers.situation === 'inherited' && newAnswers.goal === 'sell') {
-        matchedResult = quizResults['inherited-any-sell-any-homeowner'];
-      } else if (newAnswers.situation === 'financial' && newAnswers.goal === 'keep') {
-        matchedResult = quizResults['financial-any-keep-any-homeowner'];
-      } else if (newAnswers.situation === 'financial' && newAnswers.goal === 'sell') {
-        matchedResult = quizResults['financial-flexible-sell-any-homeowner'];
-      }
-
-      setResult(matchedResult);
-    }
+    setStep(step + 1);
   };
 
+  const handleContactSubmit = async (skip: boolean) => {
+    if (!skip) {
+      if (!contact.name.trim() || (!contact.phone.trim() && !contact.email.trim())) {
+        setContactError('Please enter your name and at least a phone number or email so we can send your results.');
+        return;
+      }
+    }
+    setContactError('');
+    setSubmitting(true);
+    const matched = matchResult(answers);
+    const leadScore = scoreLeadUrgency(answers);
+
+    if (!skip) {
+      try {
+        const formData = new URLSearchParams();
+        formData.append('form-name', 'lead-quiz');
+        formData.append('name', contact.name);
+        formData.append('phone', contact.phone);
+        formData.append('email', contact.email);
+        formData.append('town', contact.town);
+        formData.append('notes', contact.notes);
+        formData.append('situation', answers.situation || '');
+        formData.append('timeline', answers.timeline || '');
+        formData.append('goal', answers.goal || '');
+        formData.append('homeValue', answers.homeValue || '');
+        formData.append('ownerType', answers.type || '');
+        formData.append('leadScore', leadScore);
+        formData.append('recommendation', matched.primary);
+        formData.append('sourcePage', '/quiz');
+        await fetch('/__forms.html', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formData.toString(),
+        });
+        setSubmitted(true);
+      } catch (e) {
+        // Still show results even if submission fails
+      }
+    }
+    setResult(matched);
+    setSubmitting(false);
+  };
+
+  const questions = [
+    {
+      key: 'situation',
+      title: "What's your current situation?",
+      options: [
+        { value: 'foreclosure', label: 'Foreclosure notice filed or in progress' },
+        { value: 'behind', label: 'Behind on mortgage payments' },
+        { value: 'inherited', label: 'Inherited a property' },
+        { value: 'financial', label: 'Financial hardship (medical, job loss, divorce)' },
+      ],
+    },
+    {
+      key: 'timeline',
+      title: 'How quickly do you need a solution?',
+      options: [
+        { value: 'asap', label: 'Immediately (days or weeks)' },
+        { value: 'weeks', label: 'Within 4 to 8 weeks' },
+        { value: 'flexible', label: 'Flexible (60 to 90 days)' },
+        { value: 'no-rush', label: 'No rush, exploring options' },
+      ],
+    },
+    {
+      key: 'goal',
+      title: 'Do you want to keep or sell your home?',
+      options: [
+        { value: 'keep', label: 'Keep the home (modify mortgage, refinance)' },
+        { value: 'sell', label: 'Sell (clean exit, protect credit)' },
+        { value: 'unsure', label: 'Not sure yet, want to compare' },
+      ],
+    },
+    {
+      key: 'homeValue',
+      title: "What's your approximate home value?",
+      options: [
+        { value: 'under250k', label: 'Under $250,000' },
+        { value: '250-500k', label: '$250,000 to $500,000' },
+        { value: '500-750k', label: '$500,000 to $750,000' },
+        { value: '750kplus', label: 'Over $750,000' },
+      ],
+    },
+    {
+      key: 'type',
+      title: 'What best describes you?',
+      options: [
+        { value: 'homeowner', label: 'Primary residence homeowner' },
+        { value: 'investor', label: 'Landlord or investor' },
+        { value: 'heir', label: 'Heir or estate representative' },
+        { value: 'mixed', label: 'Mixed (primary plus investment)' },
+      ],
+    },
+  ];
+
+  // Results screen
   if (result) {
     return (
-      <div className="min-h-full bg-gradient-to-br from-green-50 to-blue-50 py-12 px-4">
-        <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-          <h1 className="text-3xl font-bold text-green-900 mb-4">Your Personalized Solution</h1>
+      <div className="min-h-full bg-slate-50 py-14 px-4">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200">
+            <p className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Your Personalized Results</p>
+            <h1 className="font-serif text-3xl font-bold text-slate-900 mb-6">Here's Your Path Forward</h1>
 
-          <div className="bg-green-50 p-6 rounded-lg mb-8">
-            <p className="text-gray-700 text-lg">{result.explanation}</p>
-          </div>
+            {submitted && (
+              <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-lg px-5 py-4 mb-6 text-sm">
+                Got it. A member of our team will reach out shortly to make your introduction. Your information stays private.
+              </div>
+            )}
 
-          <div className="space-y-6">
-            <div className="border-l-4 border-blue-600 pl-6">
-              <h2 className="text-2xl font-bold text-blue-900 mb-2">Primary Recommendation</h2>
-              <p className="text-gray-600 mb-4">{result.primary}</p>
-              <Link
-                href={result.primaryUrl}
-                className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+            <div className="bg-slate-50 border border-slate-200 p-6 rounded-xl mb-8">
+              <p className="text-slate-700 leading-relaxed">{result.explanation}</p>
+            </div>
+
+            <div className="space-y-6">
+              <div className="border-l-4 border-slate-900 pl-6">
+                <h2 className="text-lg font-bold text-slate-900 mb-1">Best Match</h2>
+                <p className="text-slate-600 mb-3">{result.primary}</p>
+                <Link href={result.primaryUrl} className="inline-block bg-slate-900 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition text-sm">
+                  See Our Network
+                </Link>
+              </div>
+
+              <div className="border-l-4 border-slate-300 pl-6">
+                <h2 className="text-base font-bold text-slate-700 mb-1">Also Worth Comparing</h2>
+                <p className="text-slate-600 mb-3">{result.secondary}</p>
+                <Link href={result.secondaryUrl} className="inline-block border border-slate-300 text-slate-700 px-6 py-2.5 rounded-lg font-semibold hover:bg-slate-50 transition text-sm">
+                  Compare
+                </Link>
+              </div>
+
+              <div className="bg-amber-50 border border-amber-200 p-5 rounded-xl">
+                <h3 className="font-bold text-slate-900 mb-1 text-sm">Recommended Reading</h3>
+                <Link href={result.guideUrl} className="text-amber-700 hover:text-amber-800 font-semibold underline underline-offset-2">
+                  {result.guide}
+                </Link>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-slate-200 flex justify-between items-center">
+              <button
+                onClick={() => { setStep(0); setAnswers({}); setResult(null); setSubmitted(false); }}
+                className="text-slate-500 hover:text-slate-700 text-sm underline underline-offset-2"
               >
-                Learn More →
+                Retake Assessment
+              </button>
+              <Link href="/" className="text-slate-500 hover:text-slate-700 text-sm underline underline-offset-2">
+                Back to Home
               </Link>
             </div>
-
-            <div className="border-l-4 border-gray-400 pl-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">Alternative Option</h2>
-              <p className="text-gray-600 mb-4">{result.secondary}</p>
-              <Link
-                href={result.secondaryUrl}
-                className="inline-block bg-gray-400 text-white px-6 py-2 rounded-lg hover:bg-gray-500 transition"
-              >
-                Compare →
-              </Link>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-2">📖 Recommended Reading</h3>
-              <Link href={result.guideUrl} className="text-blue-600 hover:text-blue-700 underline">
-                {result.guide}
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <button
-              onClick={() => {
-                setStep(0);
-                setAnswers({});
-                setResult(null);
-              }}
-              className="text-blue-600 hover:text-blue-700 underline"
-            >
-              Retake Quiz
-            </button>
           </div>
         </div>
       </div>
     );
   }
 
-  return (
-    <div className="min-h-full bg-gradient-to-br from-blue-50 to-indigo-50 py-12 px-4">
-      <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-blue-900 mb-2">
-            Find Your Solution (Step {step + 1} of 5)
-          </h1>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div
-              className="bg-blue-600 h-2 rounded-full transition-all"
-              style={{ width: `${((step + 1) / 5) * 100}%` }}
-            />
+  // Contact capture step (after final question)
+  if (step >= questions.length) {
+    const leadScore = scoreLeadUrgency(answers);
+    return (
+      <div className="min-h-full bg-slate-50 py-14 px-4">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200">
+            <p className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Almost Done</p>
+            <h1 className="font-serif text-3xl font-bold text-slate-900 mb-3">Where Should We Send Your Results?</h1>
+            <p className="text-slate-600 mb-8">
+              {leadScore === 'HOT'
+                ? 'Based on your answers, time matters in your situation. Leave your details and we will prioritize your introduction to the right professional, usually within the hour during business hours.'
+                : 'Leave your details and we will send your personalized results plus a direct introduction to professionals matched to your situation. Free and confidential.'}
+            </p>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Your Name *</label>
+                <input
+                  type="text"
+                  value={contact.name}
+                  onChange={(e) => setContact({ ...contact, name: e.target.value })}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
+                  placeholder="First and last name"
+                />
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Phone</label>
+                  <input
+                    type="tel"
+                    value={contact.phone}
+                    onChange={(e) => setContact({ ...contact, phone: e.target.value })}
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
+                    placeholder="(555) 555-5555"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
+                  <input
+                    type="email"
+                    value={contact.email}
+                    onChange={(e) => setContact({ ...contact, email: e.target.value })}
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
+                    placeholder="you@email.com"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Town (optional)</label>
+                <input
+                  type="text"
+                  value={contact.town}
+                  onChange={(e) => setContact({ ...contact, town: e.target.value })}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
+                  placeholder="e.g. Newark"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Anything else we should know? (optional)</label>
+                <textarea
+                  value={contact.notes}
+                  onChange={(e) => setContact({ ...contact, notes: e.target.value })}
+                  rows={3}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
+                  placeholder="Sheriff sale date, months behind, anything relevant"
+                />
+              </div>
+            </div>
+
+            {contactError && (
+              <p className="text-red-600 text-sm mt-4">{contactError}</p>
+            )}
+
+            <button
+              onClick={() => handleContactSubmit(false)}
+              disabled={submitting}
+              className="w-full mt-6 bg-amber-400 text-slate-950 py-4 rounded-xl font-bold text-lg hover:bg-amber-300 transition disabled:opacity-60"
+            >
+              {submitting ? 'Sending...' : 'Get My Results and Free Introduction'}
+            </button>
+            <button
+              onClick={() => handleContactSubmit(true)}
+              disabled={submitting}
+              className="w-full mt-3 text-slate-500 hover:text-slate-700 text-sm underline underline-offset-2"
+            >
+              Skip, just show my results
+            </button>
+
+            <p className="text-xs text-slate-400 mt-6 text-center leading-relaxed">
+              Your information is confidential and never sold. We only share it with a professional if you ask us to make an introduction.
+            </p>
           </div>
         </div>
+      </div>
+    );
+  }
 
-        {step === 0 && (
-          <div>
-            <h2 className="text-2xl font-semibold mb-6 text-gray-900">
-              What's your current situation?
-            </h2>
-            <div className="space-y-3">
-              {[
-                { value: 'foreclosure', label: '⚠️ Foreclosure notice filed or in progress' },
-                { value: 'behind', label: '📉 Behind on mortgage payments' },
-                { value: 'inherited', label: '🏠 Inherited a property' },
-                { value: 'financial', label: '💰 Financial hardship (medical, job loss, divorce)' },
-              ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleAnswer('situation', option.value)}
-                  className="w-full text-left p-4 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition"
-                >
-                  {option.label}
-                </button>
-              ))}
+  // Question steps
+  const q = questions[step];
+  return (
+    <div className="min-h-full bg-slate-50 py-14 px-4">
+      <div className="max-w-2xl mx-auto">
+        <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200">
+          <div className="mb-8">
+            <div className="flex justify-between items-center mb-3">
+              <p className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase">Free Assessment</p>
+              <p className="text-slate-400 text-sm">Step {step + 1} of {questions.length}</p>
+            </div>
+            <div className="w-full bg-slate-100 rounded-full h-1.5">
+              <div
+                className="bg-amber-400 h-1.5 rounded-full transition-all"
+                style={{ width: `${((step + 1) / (questions.length + 1)) * 100}%` }}
+              />
             </div>
           </div>
-        )}
 
-        {step === 1 && (
-          <div>
-            <h2 className="text-2xl font-semibold mb-6 text-gray-900">
-              How quickly do you need a solution?
-            </h2>
-            <div className="space-y-3">
-              {[
-                { value: 'asap', label: '🚨 ASAP (days/weeks)' },
-                { value: 'weeks', label: '⏰ Within 4-8 weeks' },
-                { value: 'flexible', label: '📅 Flexible (60-90 days)' },
-                { value: 'no-rush', label: '😌 No rush' },
-              ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleAnswer('timeline', option.value)}
-                  className="w-full text-left p-4 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition"
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-8">{q.title}</h2>
+          <div className="space-y-3">
+            {q.options.map((option) => (
+              <button
+                key={option.value}
+                onClick={() => handleAnswer(q.key, option.value)}
+                className="w-full text-left px-6 py-4 border border-slate-200 rounded-xl hover:border-slate-900 hover:bg-slate-50 transition font-medium text-slate-800"
+              >
+                {option.label}
+              </button>
+            ))}
           </div>
-        )}
 
-        {step === 2 && (
-          <div>
-            <h2 className="text-2xl font-semibold mb-6 text-gray-900">
-              Do you want to keep or sell your home?
-            </h2>
-            <div className="space-y-3">
-              {[
-                { value: 'keep', label: '🏡 Keep the home (modify mortgage, refinance)' },
-                { value: 'sell', label: '💼 Sell for cash (quick exit)' },
-                { value: 'unsure', label: '🤔 Not sure yet' },
-              ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleAnswer('goal', option.value)}
-                  className="w-full text-left p-4 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition"
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {step === 3 && (
-          <div>
-            <h2 className="text-2xl font-semibold mb-6 text-gray-900">
-              What's your approximate home value?
-            </h2>
-            <div className="space-y-3">
-              {[
-                { value: 'under250k', label: 'Under $250,000' },
-                { value: '250-500k', label: '$250,000, $500,000' },
-                { value: '500-750k', label: '$500,000, $750,000' },
-                { value: '750kplus', label: '$750,000+' },
-              ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleAnswer('homeValue', option.value)}
-                  className="w-full text-left p-4 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition"
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {step === 4 && (
-          <div>
-            <h2 className="text-2xl font-semibold mb-6 text-gray-900">
-              What best describes you?
-            </h2>
-            <div className="space-y-3">
-              {[
-                { value: 'homeowner', label: '👤 Primary residence homeowner' },
-                { value: 'investor', label: '📊 Landlord / investor with rentals' },
-                { value: 'firsttime', label: '🔑 First-time homebuyer' },
-                { value: 'mixed', label: '🏢 Mixed (primary + investment)' },
-              ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleAnswer('type', option.value)}
-                  className="w-full text-left p-4 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition"
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+          {step > 0 && (
+            <button
+              onClick={() => setStep(step - 1)}
+              className="mt-8 text-slate-400 hover:text-slate-600 text-sm underline underline-offset-2"
+            >
+              Back
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
