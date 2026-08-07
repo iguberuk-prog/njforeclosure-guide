@@ -23,7 +23,7 @@ export default function Professionals() {
         </div>
       </nav>
 
-      {/* Hero Section ~ Professional team photo */}
+      {/* Hero Section. Professional team photo */}
       <section className="relative overflow-hidden">
         <div
           className="absolute inset-0"
@@ -188,12 +188,12 @@ export default function Professionals() {
             {
               step: '3',
               title: 'Connect With A Professional',
-              description: 'You decide if you want to speak with someone from our network. We make the introduction ~ everything else is up to you.'
+              description: 'You decide if you want to speak with someone from our network. We make the introduction, everything else is up to you.'
             },
             {
               step: '4',
               title: 'Work With Your Professional',
-              description: 'The attorney or company handles your case. We don\'t get involved ~ they provide the service, you make the decisions.'
+              description: 'The attorney or company handles your case. We don\'t get involved, they provide the service, you make the decisions.'
             },
             {
               step: '5',

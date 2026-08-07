@@ -101,7 +101,7 @@ export default function NJOfferPage() {
 
           <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-lg border-l-4 border-red-600">
             <div className="text-4xl mb-4">🏠</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Sell As-Is ~ Your Home, Any Condition</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Sell As-Is. Your Home, Any Condition</h3>
             <p className="text-gray-700 mb-3">
               Roof leaking? Foundation cracks? We buy it. No inspections, appraisals, or repair requirements. No costs come out of your proceeds.
             </p>
@@ -112,9 +112,9 @@ export default function NJOfferPage() {
 
           <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-lg border-l-4 border-red-600">
             <div className="text-4xl mb-4">🤝</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">We Understand ~ No Judgment</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">We Understand. No Judgment</h3>
             <p className="text-gray-700 mb-3">
-              We work with distressed homeowners every single day. Job loss, medical emergencies, life changes ~ we get it. We treat you like a person, not a transaction.
+              We work with distressed homeowners every single day. Job loss, medical emergencies, life changes, we get it. We treat you like a person, not a transaction.
             </p>
             <p className="text-sm text-gray-600 border-t pt-3">
               <strong>Why it matters:</strong> When you are stressed and scared, you deserve respect and clarity, not pressure.
@@ -123,7 +123,7 @@ export default function NJOfferPage() {
 
           <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-lg border-l-4 border-red-600">
             <div className="text-4xl mb-4">📋</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Full Transparency ~ No Hidden Fees</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Full Transparency. No Hidden Fees</h3>
             <p className="text-gray-700 mb-3">
               We tell you your offer, our offer, and the timeline upfront. No surprise deductions at closing. You know exactly what you walk away with.
             </p>
@@ -134,7 +134,7 @@ export default function NJOfferPage() {
 
           <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-lg border-l-4 border-red-600">
             <div className="text-4xl mb-4">🎯</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">All 21 NJ Counties ~ We Are Local</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">All 21 NJ Counties. We Are Local</h3>
             <p className="text-gray-700 mb-3">
               From Bergen to Cape May, we buy homes across New Jersey. We understand local markets, local courts, and local urgency.
             </p>
@@ -235,7 +235,7 @@ export default function NJOfferPage() {
                 situation: 'Lost job, 60 days from foreclosure sale',
                 stats: 'Received: $127,000 | Closed: 10 days',
                 quote:
-                  'I lost my job mid-pandemic. Couldn\'t make payments. Every day I was stressed about losing my home. NJOffer moved fast, was empathetic, and gave me real cash to restart. Literally life-changing.',
+                  'I lost my job mid-pandemic. Couldn\'t make payments. Every day I was stressed about losing my home. NJOffer moved fast, treated me with respect, and gave me real cash to restart.',
                 rating: 5,
               },
             ].map((testimonial, idx) => (
@@ -302,16 +302,16 @@ export default function NJOfferPage() {
 
           <div className="mt-6 pt-6 border-t border-gray-200 space-y-3 text-sm text-gray-600">
             <p className="flex items-center gap-2">
-              <span className="text-green-600 font-bold">✓</span> 100% Free ~ No fees, no obligations
+              <span className="text-green-600 font-bold">✓</span> 100% Free. No fees, no obligations
             </p>
             <p className="flex items-center gap-2">
               <span className="text-green-600 font-bold">✓</span> Offer in 24 hours
             </p>
             <p className="flex items-center gap-2">
-              <span className="text-green-600 font-bold">✓</span> Fully confidential ~ Your information is private
+              <span className="text-green-600 font-bold">✓</span> Fully confidential. Your information is private
             </p>
             <p className="flex items-center gap-2">
-              <span className="text-green-600 font-bold">✓</span> Close in 7-30 days ~ your timeline
+              <span className="text-green-600 font-bold">✓</span> Close in 7-30 days, your timeline
             </p>
           </div>
         </div>

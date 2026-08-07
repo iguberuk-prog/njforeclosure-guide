@@ -22,7 +22,7 @@ export default function Foreclosure101Page() {
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Foreclosure 101: What You Need to Know</h1>
           <p className="text-xl text-gray-700">
-            Understanding foreclosure ~ what it is, how it happens, your rights, and what your timeline looks like.
+            Understanding foreclosure, what it is, how it happens, your rights, and what your timeline looks like.
           </p>
         </div>
 

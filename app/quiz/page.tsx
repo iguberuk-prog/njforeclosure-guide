@@ -23,7 +23,7 @@ interface QuizResult {
 
 const quizResults: Record<string, QuizResult> = {
   'foreclosure-asap-sell-any-homeowner': {
-    primary: 'NJOffer ~ The Fastest Rescue',
+    primary: 'NJOffer. The Fastest Rescue',
     primaryUrl: '/companies/njoffer',
     secondary: 'Home Equity Partners',
     secondaryUrl: '/companies/home-equity-partners',
@@ -32,7 +32,7 @@ const quizResults: Record<string, QuizResult> = {
     explanation: 'Since you need cash immediately and foreclosure is in progress, NJOffer specializes in fast closings (7-14 days) with no repairs needed. They understand urgency.',
   },
   'behind-asap-sell-any-homeowner': {
-    primary: 'NJOffer ~ The Fastest Rescue',
+    primary: 'NJOffer. The Fastest Rescue',
     primaryUrl: '/companies/njoffer',
     secondary: 'Home Equity Partners',
     secondaryUrl: '/companies/home-equity-partners',
@@ -43,7 +43,7 @@ const quizResults: Record<string, QuizResult> = {
   'inherited-any-sell-any-homeowner': {
     primary: 'Home Equity Partners',
     primaryUrl: '/companies/home-equity-partners',
-    secondary: 'NJOffer ~ The Fastest Rescue',
+    secondary: 'NJOffer. The Fastest Rescue',
     secondaryUrl: '/companies/njoffer',
     guide: 'Inherited Property Guide',
     guideUrl: '/guides/inherited-property',
@@ -70,7 +70,7 @@ const quizResults: Record<string, QuizResult> = {
   'financial-flexible-sell-any-homeowner': {
     primary: 'Home Equity Partners',
     primaryUrl: '/companies/home-equity-partners',
-    secondary: 'NJOffer ~ The Fastest Rescue',
+    secondary: 'NJOffer. The Fastest Rescue',
     secondaryUrl: '/companies/njoffer',
     guide: 'Financial Crisis Solutions',
     guideUrl: '/guides/financial-crisis',
@@ -93,7 +93,7 @@ export default function QuizPage() {
       // Calculate result
       const resultKey = `${newAnswers.situation}-${newAnswers.timeline}-${newAnswers.goal}-${newAnswers.homeValue}-${newAnswers.type}`;
 
-      // Simplified matching ~ in production, use more sophisticated logic
+      // Simplified matching, in production, use more sophisticated logic
       let matchedResult: QuizResult = quizResults['inherited-any-sell-any-homeowner']; // default
 
       if (newAnswers.situation === 'foreclosure' && newAnswers.timeline === 'asap' && newAnswers.goal === 'sell') {
@@ -266,8 +266,8 @@ export default function QuizPage() {
             <div className="space-y-3">
               {[
                 { value: 'under250k', label: 'Under $250,000' },
-                { value: '250-500k', label: '$250,000 ~ $500,000' },
-                { value: '500-750k', label: '$500,000 ~ $750,000' },
+                { value: '250-500k', label: '$250,000, $500,000' },
+                { value: '500-750k', label: '$500,000, $750,000' },
                 { value: '750kplus', label: '$750,000+' },
               ].map((option) => (
                 <button

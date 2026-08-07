@@ -20,7 +20,7 @@ export default function ShortSalePage() {
       {/* Main Content */}
       <article className="max-w-3xl mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Short Sale ~ Sell Your Home for Less Than You Owe</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Short Sale. Sell Your Home for Less Than You Owe</h1>
           <p className="text-xl text-gray-700">
             A complete guide to selling your home for less than the mortgage amount owed, with lender approval. A short sale stops foreclosure and allows you to sell on your terms.
           </p>

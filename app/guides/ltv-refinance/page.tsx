@@ -20,7 +20,7 @@ export default function LTVRefinancePage() {
       {/* Main Content */}
       <article className="max-w-3xl mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Home Equity Refinance ~ Tap Your Home Equity to Stop Foreclosure</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Home Equity Refinance. Tap Your Home Equity to Stop Foreclosure</h1>
           <p className="text-xl text-gray-700">
             A complete guide to using a home equity refinance to pay off debts or arrears. This option works if you have significant equity in your home and can qualify for a new loan.
           </p>

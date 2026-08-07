@@ -8,7 +8,7 @@ export const FAQSchema = () => {
         "name": "Is this service really free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Our assessment and guidance are completely free. We make money when you work with one of our partner companies ~ not before."
+          "text": "Yes. Our assessment and guidance are completely free. We make money when you work with one of our partner companies, not before."
         }
       },
       {
@@ -24,7 +24,7 @@ export const FAQSchema = () => {
         "name": "Do I have to sell my house?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Most solutions help you keep your home. A cash sale is only one of seven options ~ and only if you choose it."
+          "text": "No. Most solutions help you keep your home. A cash sale is only one of seven options, and only if you choose it."
         }
       },
       {
@@ -48,7 +48,7 @@ export const FAQSchema = () => {
         "name": "What if I cannot afford any solutions?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We will show you every option available ~ including government programs and non-profit assistance you might not know about."
+          "text": "We will show you every option available, including government programs and non-profit assistance you might not know about."
         }
       }
     ]

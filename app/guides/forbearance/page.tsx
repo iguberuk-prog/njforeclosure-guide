@@ -20,7 +20,7 @@ export default function ForbearancePage() {
       {/* Main Content */}
       <article className="max-w-3xl mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Forbearance and Deferment ~ Pause or Reduce Payments While You Recover</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Forbearance and Deferment. Pause or Reduce Payments While You Recover</h1>
           <p className="text-xl text-gray-700">
             A complete guide to temporarily reducing or pausing mortgage payments. Forbearance gives you breathing room when facing a temporary financial hardship.
           </p>

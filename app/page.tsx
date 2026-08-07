@@ -4,38 +4,38 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FAQSchema, OrganizationSchema } from './schema';
 
-// Sample reviews from NJ towns ~ Connected with professionals
+// Sample reviews from NJ towns. Connected with professionals
 const njTownReviews = [
   { town: 'Newark', quote: 'Facing foreclosure in 90 days. NJ Foreclosure Guide connected us with a lawyer who negotiated a loan modification. We kept our home. Grateful.', rating: 5 },
   { town: 'Jersey City', quote: 'Lost my job. Guide helped me understand my options, connected me with a real estate company to sell quickly. Got out debt-free in 2 weeks.', rating: 5 },
-  { town: 'Paterson', quote: 'Divorce made things complex. Guide explained my options clearly ~ connected me with professionals who handled the sale. Closed in 18 days.', rating: 5 },
+  { town: 'Paterson', quote: 'Divorce made things complex. Guide explained my options clearly, connected me with professionals who handled the sale. Closed in 18 days.', rating: 5 },
   { town: 'Elizabeth', quote: 'The resource guide showed me bankruptcy was an option. Connected me with attorney who restructured my debt and protected my home.', rating: 5 },
-  { town: 'Trenton', quote: 'Behind on payments. Guide connected me with lender who approved forbearance. Gave me 6 months to stabilize. Life-changing.', rating: 5 },
-  { town: 'Atlantic City', quote: 'After medical emergency drained savings, guide showed refinancing option. Connected me with lender ~ saved $400/month. Game changer.', rating: 5 },
+  { town: 'Trenton', quote: 'Behind on payments. Guide connected me with lender who approved forbearance. Gave me 6 months to get back on my feet.', rating: 5 },
+  { town: 'Atlantic City', quote: 'After medical emergency drained savings, guide showed refinancing option. Connected me with lender and saved $400 a month.', rating: 5 },
   { town: 'Camden', quote: 'Didn\'t qualify for traditional refinancing. Guide explained home equity options and connected me with specialist. Saved my home.', rating: 5 },
   { town: 'Irvington', quote: 'Foreclosure notice terrified me. Used the guide, got clear on my 7 options in 2 minutes. Connected with right professional. Best decision.', rating: 5 },
-  { town: 'Clifton', quote: 'Guide walked me through short sale process. Connected me with approved buyer. Lender approved ~ I got $20k instead of losing everything.', rating: 5 },
+  { town: 'Clifton', quote: 'Guide walked me through short sale process. Connected me with approved buyer. Lender approved. I got $20k instead of losing everything.', rating: 5 },
   { town: 'Passaic', quote: '$8k behind in payments. Guide connected me with mortgage specialist who modified my loan to manageable level. Can breathe again.', rating: 5 },
   { town: 'East Orange', quote: 'Worried about credit damage. Guide connected me with lawyer who showed how different solutions affect credit. Clear path forward.', rating: 5 },
   { town: 'West Orange', quote: 'Confused about options. Used guide to understand solutions, then connected with a specialist. Found best fit in 2 minutes. Peace of mind.', rating: 5 },
   { town: 'Montclair', quote: 'Company downsized me. Guide explained cash sale option and connected me with buyer. Got fresh start within weeks.', rating: 5 },
-  { town: 'Bloomfield', quote: 'Late fees piling up. Guide explained forbearance. Connected me with lender ~ payments paused while I stabilized. Kept my home.', rating: 5 },
+  { town: 'Bloomfield', quote: 'Late fees piling up. Guide explained forbearance. Connected me with lender, payments paused while I stabilized. Kept my home.', rating: 5 },
   { town: 'Belleville', quote: '3 months behind. Guide laid out options clearly. Connected with right professional instantly. Professional, compassionate guidance throughout.', rating: 5 },
-  { town: 'Nutley', quote: 'Divorce complicated foreclosure. Guide explained short sale process. Connected me with realtor ~ handled cleanly without judgment.', rating: 5 },
-  { town: 'Kearny', quote: 'Unemployment benefits ended. Guide showed cash sale option. Connected with buyer ~ got through transition fast. Saved credit score.', rating: 5 },
-  { town: 'Union', quote: 'Multiple loans on property. Guide showed home equity consolidation option. Connected me with specialist ~ simplified everything.', rating: 5 },
-  { town: 'Linden', quote: 'Thought foreclosure was inevitable. Guide showed refinancing option. Connected with lender ~ hope came back. Kept our home.', rating: 5 },
+  { town: 'Nutley', quote: 'Divorce complicated foreclosure. Guide explained short sale process. Connected me with realtor, handled cleanly without judgment.', rating: 5 },
+  { town: 'Kearny', quote: 'Unemployment benefits ended. Guide showed cash sale option. Connected with buyer, got through transition fast. Saved credit score.', rating: 5 },
+  { town: 'Union', quote: 'Multiple loans on property. Guide showed home equity consolidation option. Connected me with specialist, simplified everything.', rating: 5 },
+  { town: 'Linden', quote: 'Thought foreclosure was inevitable. Guide showed refinancing option. Connected with lender, hope came back. Kept our home.', rating: 5 },
   { town: 'Rahway', quote: 'Missed 6 months of payments. Guide explained options. Connected with attorney who negotiated loan modification. Back on track.', rating: 5 },
-  { town: 'Perth Amboy', quote: 'Business partner fraud. Guide connected me with real estate professional for quick sale ~ moved forward cleanly and fast.', rating: 5 },
-  { town: 'Woodbridge', quote: 'Health crisis caused payments to fall behind. Guide connected me with cash buyer. Sold quickly ~ stress-free transition.', rating: 5 },
-  { town: 'New Brunswick', quote: 'Drowning in debt. Guide explained bankruptcy chapter 13. Connected me with attorney ~ restructured responsibly. Real solution.', rating: 5 },
-  { town: 'Princeton', quote: 'Property value dropped. Guide explained short sale ~ connected me with realtor. Process was clear and professional.', rating: 5 },
+  { town: 'Perth Amboy', quote: 'Business partner fraud. Guide connected me with real estate professional for quick sale, moved forward cleanly and fast.', rating: 5 },
+  { town: 'Woodbridge', quote: 'Health crisis caused payments to fall behind. Guide connected me with cash buyer. Sold quickly, stress-free transition.', rating: 5 },
+  { town: 'New Brunswick', quote: 'Drowning in debt. Guide explained bankruptcy chapter 13. Connected me with attorney, restructured responsibly. Real solution.', rating: 5 },
+  { town: 'Princeton', quote: 'Property value dropped. Guide explained short sale, connected me with realtor. Process was clear and professional.', rating: 5 },
   { town: 'Trenton', quote: 'Two foreclosure notices. Guide connected me with attorney who negotiated forbearance. Payment plan works perfectly now.', rating: 5 },
   { town: 'Morristown', quote: 'Struggled alone for months. Used guide to understand options. One connection to right professional changed everything.', rating: 5 },
-  { town: 'Madison', quote: 'Pandemic income loss. Guide showed loan modification path. Connected with lender ~ approved in 2 weeks. Kept the home.', rating: 5 },
-  { town: 'Florham Park', quote: 'Looking to refinance. Guide explained the process clearly. Connected with lender ~ saved $300/month. Simple and professional.', rating: 5 },
-  { town: 'Dover', quote: 'Inherited property with mortgage. Guide showed cash sale option. Connected with buyer ~ perfect solution for our situation.', rating: 5 },
-  { town: 'Parsippany', quote: 'Job relocation ~ needed to sell quickly. Guide connected me with real estate professional. Quick sale saved our timeline.', rating: 5 },
+  { town: 'Madison', quote: 'Pandemic income loss. Guide showed loan modification path. Connected with lender, approved in 2 weeks. Kept the home.', rating: 5 },
+  { town: 'Florham Park', quote: 'Looking to refinance. Guide explained the process clearly. Connected with lender, saved $300/month. Simple and professional.', rating: 5 },
+  { town: 'Dover', quote: 'Inherited property with mortgage. Guide showed cash sale option. Connected with buyer, perfect solution for our situation.', rating: 5 },
+  { town: 'Parsippany', quote: 'Job relocation, needed to sell quickly. Guide connected me with real estate professional. Quick sale saved our timeline.', rating: 5 },
 ];
 
 export default function Home() {
@@ -120,7 +120,7 @@ export default function Home() {
 
           {/* Subheadline */}
           <p className="text-base sm:text-lg text-slate-200 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-            Facing foreclosure is overwhelming ~ but you have more options than you think.
+            Facing foreclosure is overwhelming, but you have more options than you think.
             We explain all 7 solutions in plain English, then connect you with vetted attorneys
             and real estate professionals who can help. Free, confidential, and no pressure. Ever.
           </p>
@@ -131,7 +131,7 @@ export default function Home() {
               href="/quiz"
               className="inline-block bg-amber-400 text-slate-950 px-10 sm:px-12 py-4 rounded-lg font-bold hover:bg-amber-300 transition-all shadow-xl shadow-amber-400/20 text-base sm:text-lg"
             >
-              See Your Options ~ Free →
+              See Your Options. Free →
             </Link>
             <Link
               href="/guides"
@@ -155,7 +155,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS BAR ~ Marble */}
+      {/* STATS BAR. Marble */}
       <section
         className="relative border-b border-slate-200"
         style={{
@@ -183,7 +183,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PREMIUM TRUST BANNER ~ user-provided badge */}
+      {/* PREMIUM TRUST BANNER, user-provided badge */}
       <section className="bg-slate-950 py-14 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <img
@@ -203,7 +203,7 @@ export default function Home() {
               The 7 Foreclosure Solutions
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Every situation is different. We explain each path clearly ~ so you can choose
+              Every situation is different. We explain each path clearly, so you can choose
               with confidence, not fear.
             </p>
           </div>
@@ -216,7 +216,7 @@ export default function Home() {
               { icon: '/images/icons/short-sale.png', title: 'Short Sale', desc: 'Sell below the mortgage balance with lender approval to avoid foreclosure.', best: 'Home value has dropped' },
               { icon: '/images/icons/home-equity.png', title: 'Home Equity Solutions', desc: 'Use your equity to consolidate debt and stop the foreclosure process.', best: 'You have substantial equity' },
               { icon: '/images/icons/bankruptcy.png', title: 'Bankruptcy (Ch. 13)', desc: 'Court-protected debt restructuring that can protect your home.', best: 'You want to keep the house' },
-              { icon: '/images/icons/cash-sale.png', title: 'Cash Sale', desc: 'Sell quickly for cash in 14-30 days ~ no repairs, no agent fees.', best: 'You need a clean, fast exit' },
+              { icon: '/images/icons/cash-sale.png', title: 'Cash Sale', desc: 'Sell quickly for cash in 14-30 days, no repairs, no agent fees.', best: 'You need a clean, fast exit' },
             ].map((option, idx) => (
               <div
                 key={idx}
@@ -237,7 +237,7 @@ export default function Home() {
                 <img src="/images/icons/quiz-match.png" alt="Find your match" className="w-14 h-14 mb-5" />
                 <h3 className="font-serif font-bold text-2xl mb-2">Not sure which fits your situation?</h3>
                 <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                  Answer a few questions and see which solutions match your circumstances ~ in about 2 minutes, free and confidential.
+                  Answer a few questions and see which solutions match your circumstances, in about 2 minutes, free and confidential.
                 </p>
               </div>
               <Link
@@ -251,22 +251,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* OUR PROMISE ~ Trust Factors */}
+      {/* OUR PROMISE. Trust Factors */}
       <section className="py-24 px-4 bg-slate-950 text-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <p className="text-amber-400 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Why Families Trust Us</p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">Our Promise to You</h2>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
-              You're going through enough. Working with us should never add pressure ~ only clarity.
+              You're going through enough. Working with us should never add pressure, only clarity.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: 'Free. Always.', desc: 'Our guidance costs you nothing ~ ever. Professionals in our network pay referral fees, never you.' },
+              { title: 'Free. Always.', desc: 'Our guidance costs you nothing, ever. Professionals in our network pay referral fees, never you.' },
               { title: 'Completely Confidential', desc: 'Your information stays private. Nothing is shared without your explicit permission.' },
-              { title: 'Zero Obligation', desc: 'Use our education, take our assessment, then decide anything you want ~ including working with no one.' },
+              { title: 'Zero Obligation', desc: 'Use our education, take our assessment, then decide anything you want, including working with no one.' },
               { title: 'Vetted Professionals', desc: 'Every attorney and real estate partner in our network is licensed, experienced, and screened.' },
             ].map((item, idx) => (
               <div key={idx} className="p-8 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-sm hover:bg-white/[0.08] transition">
@@ -284,7 +284,7 @@ export default function Home() {
             {[
               { step: '01', title: 'Learn Your Options', desc: 'Read our plain-English guides or take the 2-minute assessment to understand which of the 7 solutions fit your situation.' },
               { step: '02', title: 'Get Matched', desc: 'If you want help, we introduce you to a vetted attorney or real estate professional who specializes in your solution.' },
-              { step: '03', title: 'Move Forward', desc: 'Your professional handles the process. You stay in control of every decision ~ we simply made the introduction.' },
+              { step: '03', title: 'Move Forward', desc: 'Your professional handles the process. You stay in control of every decision, we simply made the introduction.' },
             ].map((item, idx) => (
               <div key={idx}>
                 <p className="font-serif text-amber-400/70 text-5xl font-bold mb-4">{item.step}</p>
@@ -296,7 +296,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS ~ with real family imagery */}
+      {/* TESTIMONIALS, with real family imagery */}
       <section className="py-24 px-4 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-14 items-center mb-16">
@@ -307,7 +307,7 @@ export default function Home() {
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
                 Over 2,300 New Jersey families have used this guide to understand their options
-                and connect with professionals who helped them move forward ~ many kept their homes,
+                and connect with professionals who helped them move forward, many kept their homes,
                 others sold on their terms and started fresh.
               </p>
               <button
@@ -336,11 +336,11 @@ export default function Home() {
             {[
               {
                 name: 'Maria S.', location: 'Newark, NJ', situation: 'Was 90 days behind',
-                quote: 'I thought I was going to lose my home. The guide connected me with the right people ~ within 14 days I had a real path forward. They saved my family.',
+                quote: 'I thought I was going to lose my home. The guide connected me with the right people, within 14 days I had a real path forward. They saved my family.',
               },
               {
                 name: 'James R.', location: 'Jersey City, NJ', situation: 'Lost his job',
-                quote: 'They understood my situation immediately ~ no judgment, just real help. Connected me with a professional and I walked away with money in hand.',
+                quote: 'They understood my situation immediately, no judgment, just real help. Connected me with a professional and I walked away with money in hand.',
               },
               {
                 name: 'Patricia M.', location: 'Paterson, NJ', situation: 'Going through divorce',
@@ -360,7 +360,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROFESSIONAL NETWORK ~ advisors photo */}
+      {/* PROFESSIONAL NETWORK, advisors photo */}
       <section className="relative overflow-hidden">
         <div
           className="absolute inset-0"
@@ -378,7 +378,7 @@ export default function Home() {
           </h2>
           <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
             When you're ready, we connect you with experienced professionals who handle foreclosure
-            cases every day ~ loan modifications, Chapter 13 protection, short sales, and fast cash sales.
+            cases every day, loan modifications, Chapter 13 protection, short sales, and fast cash sales.
             You choose. They deliver.
           </p>
           <Link
@@ -397,15 +397,15 @@ export default function Home() {
             <p className="text-amber-600 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Free Education</p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-5 tracking-tight">Learn Before You Decide</h2>
             <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
-              Knowledge is protection. Our guides explain everything in plain English ~ no legal jargon, no sales pitch.
+              Knowledge is protection. Our guides explain everything in plain English, no legal jargon, no sales pitch.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[
               { icon: '/images/icons/book.png', title: 'Foreclosure 101', desc: "What's actually happening with your mortgage, your legal rights in NJ, and what to expect at every stage.", href: '/guides/foreclosure-101' },
-              { icon: '/images/icons/magnifying-glass.png', title: 'All 7 Options Explained', desc: 'A detailed breakdown of each solution ~ pros, cons, timelines, and who each works best for.', href: '/guides/options' },
-              { icon: '/images/icons/lightning-bold.png', title: 'Quick Cash Sale Guide', desc: 'Step-by-step walkthrough of selling for cash in 14-30 days ~ what to expect and what to watch for.', href: '/guides/cash-sale' },
+              { icon: '/images/icons/magnifying-glass.png', title: 'All 7 Options Explained', desc: 'A detailed breakdown of each solution, pros, cons, timelines, and who each works best for.', href: '/guides/options' },
+              { icon: '/images/icons/lightning-bold.png', title: 'Quick Cash Sale Guide', desc: 'Step-by-step walkthrough of selling for cash in 14-30 days, what to expect and what to watch for.', href: '/guides/cash-sale' },
             ].map((guide, idx) => (
               <Link
                 key={idx}
@@ -450,14 +450,14 @@ export default function Home() {
         <div className="text-center mb-14">
           <p className="text-amber-600 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Honest Answers</p>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">Common Questions</h2>
-          <p className="text-slate-600 text-lg">Full transparency ~ here's exactly how this works.</p>
+          <p className="text-slate-600 text-lg">Full transparency, here's exactly how this works.</p>
         </div>
 
         <div className="space-y-3">
           {[
             {
               q: 'Is this really free?',
-              a: 'Yes. Our education and guidance are 100% free. We are a referral service ~ attorneys and real estate companies pay us referral fees when clients they work with connect through us. This means our advice is unbiased ~ we profit only if you choose to work with our partners, and only after you benefit.'
+              a: 'Yes. Our education and guidance are 100% free. We are a referral service, attorneys and real estate companies pay us referral fees when clients they work with connect through us. This means our advice is unbiased, we profit only if you choose to work with our partners, and only after you benefit.'
             },
             {
               q: 'Are you a law firm or real estate company?',
@@ -465,7 +465,7 @@ export default function Home() {
             },
             {
               q: 'Do I have to use one of your referral partners?',
-              a: 'No. You can find your own attorney or company anywhere. Our assessment helps you understand which solution fits your situation ~ then you can work with any professional you choose. We just make it easy if you want vetted options.'
+              a: 'No. You can find your own attorney or company anywhere. Our assessment helps you understand which solution fits your situation, then you can work with any professional you choose. We just make it easy if you want vetted options.'
             },
             {
               q: 'How quickly can I get connected?',
@@ -477,7 +477,7 @@ export default function Home() {
             },
             {
               q: 'What if I want to explore all 7 solutions?',
-              a: 'Perfect. Read our detailed guides for each option. We explain pros, cons, timeline, and who it works best for ~ so you can make an informed decision about which direction is right for your situation.'
+              a: 'Perfect. Read our detailed guides for each option. We explain pros, cons, timeline, and who it works best for, so you can make an informed decision about which direction is right for your situation.'
             },
           ].map((item, idx) => (
             <details key={idx} className="group bg-white rounded-xl px-7 py-5 border border-slate-200 hover:border-slate-300 transition cursor-pointer">
@@ -574,7 +574,7 @@ export default function Home() {
                 onClick={() => setShowReviews(false)}
                 className="block text-center w-full mt-8 bg-amber-400 text-slate-950 py-4 rounded-xl font-bold text-lg hover:bg-amber-300 transition"
               >
-                Understand Your Options ~ Start Free →
+                Understand Your Options. Start Free →
               </Link>
             </div>
           </div>

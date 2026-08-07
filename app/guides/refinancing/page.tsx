@@ -20,7 +20,7 @@ export default function RefinancingPage() {
       {/* Main Content */}
       <article className="max-w-3xl mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Refinancing ~ Replace Your Mortgage with Better Terms</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Refinancing. Replace Your Mortgage with Better Terms</h1>
           <p className="text-xl text-gray-700">
             A complete guide to getting a new loan at better interest rates or terms. Refinancing differs from loan modification by giving you an entirely new mortgage instead of modifying your existing one.
           </p>

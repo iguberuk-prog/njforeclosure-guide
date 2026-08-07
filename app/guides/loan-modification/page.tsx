@@ -20,7 +20,7 @@ export default function LoanModificationPage() {
       {/* Main Content */}
       <article className="max-w-3xl mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Loan Modification ~ Keep Your Home by Changing Your Mortgage Terms</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Loan Modification. Keep Your Home by Changing Your Mortgage Terms</h1>
           <p className="text-xl text-gray-700">
             A complete guide to modifying your loan to make payments affordable again. Thousands of New Jersey homeowners have used this option to stop foreclosure while keeping their homes.
           </p>

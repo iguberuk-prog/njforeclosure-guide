@@ -54,7 +54,7 @@ export default function CompaniesPage() {
             Trusted Cash Home Buyers
           </h1>
           <p className="text-lg text-gray-700">
-            Compare three vetted companies specializing in distressed situations. Each has different strengths ~ choose the best fit for your needs.
+            Compare three vetted companies specializing in distressed situations. Each has different strengths, choose the best fit for your needs.
           </p>
         </div>
       </section>
