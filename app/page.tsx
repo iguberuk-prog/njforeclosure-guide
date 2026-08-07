@@ -87,18 +87,10 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* HERO SECTION ~ COLORFUL CANVA-STYLE BANNER */}
-      <section
-        className="relative py-20 sm:py-32 px-4 text-white overflow-hidden"
-        style={{
-          backgroundImage: `url('/images/canva/hero-colorful.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
-      >
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/30"></div>
+      {/* HERO SECTION */}
+      <section className="relative py-24 sm:py-40 px-4 text-white overflow-hidden bg-gradient-to-b from-blue-900 via-blue-800 to-slate-900">
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-5" style={{backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(68, 68, 68, .05) 25%, rgba(68, 68, 68, .05) 26%, transparent 27%, transparent 74%, rgba(68, 68, 68, .05) 75%, rgba(68, 68, 68, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(68, 68, 68, .05) 25%, rgba(68, 68, 68, .05) 26%, transparent 27%, transparent 74%, rgba(68, 68, 68, .05) 75%, rgba(68, 68, 68, .05) 76%, transparent 77%, transparent)', backgroundSize: '50px 50px'}}></div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
           {/* Verification Badge */}
@@ -155,20 +147,14 @@ export default function Home() {
       </section>
 
       {/* PREMIUM TRUST BANNER */}
-      <section className="relative py-12 px-4 overflow-hidden bg-gradient-to-r from-gray-900 to-gray-950">
+      <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 border-y border-yellow-500/20">
         <div className="max-w-6xl mx-auto">
-          <img src="/images/trusted-badge-premium.png" alt="Trusted by 2300+ NJ Families" className="w-full max-w-4xl mx-auto rounded-lg shadow-2xl drop-shadow-2xl" />
+          <img src="/images/trusted-badge-premium.png" alt="Trusted by 2300+ NJ Families" className="w-full max-w-3xl mx-auto rounded-lg shadow-2xl" />
         </div>
       </section>
 
-      {/* TRUST INDICATORS ~ COLORFUL CANVA GRAPHICS */}
-      <section className="relative py-20 px-4 border-b border-gray-200 overflow-hidden"
-        style={{
-          backgroundImage: `url('/images/canva/trust-graphics.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+      {/* TRUST INDICATORS */}
+      <section className="relative py-20 px-4 bg-white border-b border-gray-100">
 
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Verification Badge */}
@@ -214,16 +200,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOLUTIONS SECTION ~ COLORFUL CANVA INFOGRAPHIC */}
-      <section className="py-24 px-4 relative overflow-hidden"
-        style={{
-          backgroundImage: `url('/images/canva/solutions-infographic.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-black/20"></div>
+      {/* SOLUTIONS SECTION */}
+      <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-slate-50 to-white">
 
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Section Header */}
@@ -361,15 +339,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials / Social Proof ~ COLORFUL CANVA BANNER */}
-      <section className="relative py-20 px-4 overflow-hidden"
-        style={{
-          backgroundImage: `url('/images/canva/testimonials-banner.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
-      >
+      {/* Testimonials / Social Proof */}
+      <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-blue-50 to-white">
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
