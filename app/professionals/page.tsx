@@ -23,24 +23,30 @@ export default function Professionals() {
         </div>
       </nav>
 
-      {/* Premium Trust Banner */}
-      <section className="relative py-12 px-4 overflow-hidden bg-gradient-to-r from-gray-900 to-gray-950">
-        <div className="max-w-6xl mx-auto">
-          <img src="/images/trusted-badge-premium.png" alt="Trusted by 2300+ NJ Families" className="w-full max-w-4xl mx-auto rounded-lg shadow-2xl drop-shadow-2xl" />
+      {/* Hero Section ~ Professional team photo */}
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url('/images/canva/advisors-team.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 25%',
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-slate-950/80"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10 py-28 px-4 text-white">
+          <p className="text-amber-400 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Vetted. Licensed. Experienced.</p>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">Our Professional Network</h1>
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            When you're ready to move forward, we connect you with vetted professionals who specialize in foreclosure solutions. Every attorney and real estate partner in our network is licensed, experienced, and committed to helping homeowners navigate their options.
+          </p>
         </div>
       </section>
 
-      {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-teal-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex justify-center mb-8">
-            <img src="/images/verified-badge.png" alt="Verified - Trusted by 2300+ NJ Families" className="h-28 w-28 drop-shadow-lg" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Professional Network</h1>
-          <p className="text-lg text-gray-600 mb-6">Qualified attorneys and real estate professionals ready to help</p>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            When you're ready to move forward, we connect you with vetted professionals who specialize in foreclosure solutions. All professionals in our network are licensed, experienced, and committed to helping homeowners navigate their options.
-          </p>
+      {/* Trust banner */}
+      <section className="bg-slate-950 py-12 px-4 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <img src="/images/trusted-badge-premium.png" alt="Trusted by 2300+ NJ Families" className="w-full max-w-2xl mx-auto rounded-xl shadow-2xl ring-1 ring-amber-400/30" />
         </div>
       </section>
 
@@ -81,9 +87,7 @@ export default function Professionals() {
             ].map((attorney, idx) => (
               <div key={idx} className="p-8 border-2 border-gray-200 rounded-xl hover:border-blue-400 hover:shadow-lg transition">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-2xl font-bold text-blue-900">
-                    ⚖️
-                  </div>
+                  <img src="/images/icons/professional-legal-scales-lg.png" alt="Attorney" className="w-14 h-14 rounded-full bg-blue-50 p-2" />
                   <div className="flex-1">
                     <h3 className="text-xl font-black text-gray-900">{attorney.name}</h3>
                     <p className="text-blue-600 font-semibold text-sm">{attorney.specialty}</p>
@@ -143,9 +147,7 @@ export default function Professionals() {
             ].map((company, idx) => (
               <div key={idx} className="p-8 border-2 border-gray-200 rounded-xl hover:border-teal-400 hover:shadow-lg transition">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-full bg-teal-100 flex items-center justify-center text-2xl font-bold text-teal-900">
-                    🏠
-                  </div>
+                  <img src="/images/icons/cash-sale.png" alt="Real estate company" className="w-14 h-14 rounded-full bg-teal-50 p-2" />
                   <div className="flex-1">
                     <h3 className="text-xl font-black text-gray-900">{company.name}</h3>
                     <p className="text-teal-600 font-semibold text-sm">{company.specialty}</p>
