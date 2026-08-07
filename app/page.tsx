@@ -74,10 +74,10 @@ export default function Home() {
       <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200 z-40 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition min-w-0">
-            <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-14 w-14 sm:h-16 sm:w-16" />
+            <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-20 w-20 sm:h-24 sm:w-24" />
             <div className="flex flex-col min-w-0 leading-tight">
-              <span className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">NJ Foreclosure Guide</span>
-              <span className="text-[11px] sm:text-xs text-slate-500 font-medium tracking-widest uppercase">Free Homeowner Resource</span>
+              <span className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">NJ Foreclosure Guide</span>
+              <span className="text-xs sm:text-base text-slate-500 font-medium tracking-widest uppercase">Free Homeowner Resource</span>
             </div>
           </Link>
           <div className="flex items-center gap-5 sm:gap-8 text-sm sm:text-[15px]">
