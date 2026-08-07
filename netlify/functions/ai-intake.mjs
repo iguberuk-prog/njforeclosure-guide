@@ -55,7 +55,7 @@ export default async (req) => {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-3-5-haiku-latest',
+        model: 'claude-haiku-4-5',
         max_tokens: 400,
         system: SYSTEM_PROMPT,
         messages,
@@ -63,7 +63,12 @@ export default async (req) => {
     });
 
     if (!anthropicRes.ok) {
-      return new Response(JSON.stringify({ error: 'upstream_error' }), {
+      let detail = '';
+      try {
+        const errBody = await anthropicRes.json();
+        detail = errBody?.error?.type || '';
+      } catch {}
+      return new Response(JSON.stringify({ error: 'upstream_error', status: anthropicRes.status, detail }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
       });
