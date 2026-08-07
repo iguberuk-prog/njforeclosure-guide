@@ -13,6 +13,32 @@ const WELCOME: Msg = {
     "Hi, I'm here to help you understand your options if you're behind on your mortgage or facing foreclosure in New Jersey. Everything here is free and confidential. What's going on with your situation?",
 };
 
+const EMAIL_RE = /[\w.+-]+@[\w-]+\.[\w.-]{2,}/;
+const PHONE_RE = /(\+?1[\s.-]?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/;
+const NAME_RE = /(?:my name is|i'm|i am|this is|call me)\s+([A-Za-z][a-z]+(?:\s[A-Za-z][a-z]+)?)/i;
+
+function extractContact(messages: Msg[]) {
+  let email = '';
+  let phone = '';
+  let name = '';
+  for (const m of messages) {
+    if (m.role !== 'user') continue;
+    const e = m.content.match(EMAIL_RE);
+    if (e && !email) email = e[0];
+    const p = m.content.match(PHONE_RE);
+    if (p && !phone) phone = p[0].trim();
+    const n = m.content.match(NAME_RE);
+    if (n && !name) name = n[1];
+  }
+  return { email, phone, name };
+}
+
+function buildTranscript(messages: Msg[]): string {
+  return messages
+    .map((m) => `${m.role === 'user' ? 'VISITOR' : 'ASSISTANT'}: ${m.content}`)
+    .join('\n\n');
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([WELCOME]);
@@ -20,10 +46,42 @@ export default function ChatWidget() {
   const [loading, setLoading] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const lastSubmittedCount = useRef(0);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, open]);
+
+  const submitTranscript = async (msgs: Msg[], reason: string) => {
+    const { email, phone, name } = extractContact(msgs);
+    // Only send transcripts that contain contact info, so the inbox gets leads, not noise
+    if (!email && !phone) return;
+    if (msgs.length <= lastSubmittedCount.current) return;
+    lastSubmittedCount.current = msgs.length;
+    try {
+      const formData = new URLSearchParams();
+      formData.append('form-name', 'ai-chat-lead');
+      formData.append('name', name || 'Chat visitor (see transcript)');
+      formData.append('phone', phone);
+      formData.append('email', email);
+      formData.append('leadScore', reason);
+      formData.append('conversationSummary', buildTranscript(msgs));
+      formData.append('sourcePage', typeof window !== 'undefined' ? window.location.pathname : '');
+      await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString(),
+      });
+    } catch {
+      // Silent: never disrupt the visitor's conversation
+    }
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    // Final transcript on close if the conversation grew since last submission
+    submitTranscript(messages, 'CHAT-FINAL');
+  };
 
   const send = async () => {
     const text = input.trim();
@@ -40,7 +98,10 @@ export default function ChatWidget() {
       });
       const data = await res.json();
       if (data.reply) {
-        setMessages([...next, { role: 'assistant', content: data.reply }]);
+        const withReply: Msg[] = [...next, { role: 'assistant', content: data.reply }];
+        setMessages(withReply);
+        // Submit transcript as soon as contact info appears in the conversation
+        submitTranscript(withReply, 'CHAT-LEAD');
       } else {
         setUnavailable(true);
         setMessages([
@@ -89,7 +150,7 @@ export default function ChatWidget() {
               <p className="font-bold text-sm">NJ Foreclosure Guide</p>
               <p className="text-slate-400 text-xs mt-0.5">Free, confidential, no pressure</p>
             </div>
-            <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-white transition p-1" aria-label="Close chat">
+            <button onClick={handleClose} className="text-slate-400 hover:text-white transition p-1" aria-label="Close chat">
               ✕
             </button>
           </div>
