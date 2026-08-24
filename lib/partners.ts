@@ -13,6 +13,8 @@ export type Timeline = 'asap' | 'weeks' | 'flexible' | 'no-rush';
 export type OwnerType = 'homeowner' | 'investor' | 'heir' | 'mixed';
 /** Physical condition of the property. Drives damage-specialist routing. */
 export type Condition = 'none' | 'fire' | 'water' | 'mold' | 'major-repairs';
+/** Approximate value band. Drives price-tier routing (e.g. luxury specialists). */
+export type HomeValue = 'under250k' | '250-500k' | '500-800k' | '800k-1.5m' | 'over1.5m';
 
 // What kind of help a destination provides. This drives ordering: help that
 // lets someone KEEP the home is always offered before help that sells it.
@@ -43,6 +45,8 @@ export interface Partner {
     ownerTypes?: OwnerType[];
     /** Property damage this partner specializes in. */
     conditions?: Condition[];
+    /** Price bands this partner works in. */
+    homeValues?: HomeValue[];
     /** County slugs, e.g. ['essex-county']. Omit for statewide. */
     counties?: string[];
   };
@@ -116,22 +120,28 @@ export const PARTNERS: Partner[] = [
     active: true,
   },
   {
-    id: 'partner-market-sale',
-    name: 'Partner Site 2',
-    url: 'https://example.com',
-    headline: 'Traditional or short sale with a licensed agent.',
+    id: 'nj-offer',
+    name: 'NJ Offer',
+    url: 'https://www.njoffer.com',
+    headline: 'Cash offers on New Jersey homes, with a focus on higher-value property.',
     description:
-      'Replace with the real description. Use this slot for a partner who lists on the open market or handles short sales, where the homeowner has more time and wants a higher price.',
-    kind: 'sell-market',
-    bestFor: ['You have some time', 'You want market value', 'You may owe more than the home is worth'],
-    timeline: 'Confirm with partner',
+      'NJ Offer buys homes across all twenty-one New Jersey counties without listing, showings, or repair work. You request an offer online, they respond within 24 hours, and you choose a closing date between 10 and 60 days out. At higher price points this matters more than most people expect, because expensive homes take longer to sell on the open market and a foreclosure timeline does not pause while you wait for the right buyer.',
+    kind: 'sell-fast',
+    bestFor: [
+      'Higher-value or luxury property',
+      'You want certainty on the closing date',
+      'A long listing period is a risk you cannot take',
+      'You would rather not hold open houses while in foreclosure',
+    ],
+    timeline: 'Offer within 24 hours, closing 10 to 60 days',
     match: {
-      situations: ['behind', 'financial', 'inherited'],
+      // Scoped to the $800k+ tier per the partnership. Widen this array if
+      // NJ Offer should also receive mid-market leads.
+      homeValues: ['800k-1.5m', 'over1.5m'],
       goals: ['sell', 'unsure'],
-      timelines: ['weeks', 'flexible', 'no-rush'],
     },
     compensation: 'paid-referral',
-    active: false,
+    active: true,
   },
   {
     id: 'partner-investor',
@@ -175,6 +185,7 @@ export interface Answers {
   timeline?: Timeline;
   ownerType?: OwnerType;
   condition?: Condition;
+  homeValue?: HomeValue;
   county?: string;
 }
 
@@ -233,6 +244,12 @@ export function matchPartners(answers: Answers): Match[] {
       if (m.conditions.includes(answers.condition)) {
         score += 6;
         reasons.push('Specializes in your type of property damage');
+      } else disqualified = true;
+    }
+    if (m.homeValues && answers.homeValue) {
+      if (m.homeValues.includes(answers.homeValue)) {
+        score += 5;
+        reasons.push('Works in your price range');
       } else disqualified = true;
     }
     if (m.counties && m.counties.length > 0 && answers.county) {

@@ -195,8 +195,9 @@ export default function QuizPage() {
       options: [
         { value: 'under250k', label: 'Under $250,000' },
         { value: '250-500k', label: '$250,000 to $500,000' },
-        { value: '500-750k', label: '$500,000 to $750,000' },
-        { value: '750kplus', label: 'Over $750,000' },
+        { value: '500-800k', label: '$500,000 to $800,000' },
+        { value: '800k-1.5m', label: '$800,000 to $1.5 million' },
+        { value: 'over1.5m', label: 'Over $1.5 million' },
       ],
     },
     {
@@ -263,6 +264,7 @@ export default function QuizPage() {
                 timeline: answers.timeline as Answers['timeline'],
                 ownerType: answers.type as Answers['ownerType'],
                 condition: answers.condition as Answers['condition'],
+                homeValue: answers.homeValue as Answers['homeValue'],
               });
               if (matches.length === 0) return null;
               return (
