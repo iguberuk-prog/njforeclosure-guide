@@ -11,6 +11,8 @@ export type Situation = 'foreclosure' | 'behind' | 'inherited' | 'financial';
 export type Goal = 'keep' | 'sell' | 'unsure';
 export type Timeline = 'asap' | 'weeks' | 'flexible' | 'no-rush';
 export type OwnerType = 'homeowner' | 'investor' | 'heir' | 'mixed';
+/** Physical condition of the property. Drives damage-specialist routing. */
+export type Condition = 'none' | 'fire' | 'water' | 'mold' | 'major-repairs';
 
 // What kind of help a destination provides. This drives ordering: help that
 // lets someone KEEP the home is always offered before help that sells it.
@@ -39,6 +41,8 @@ export interface Partner {
     goals?: Goal[];
     timelines?: Timeline[];
     ownerTypes?: OwnerType[];
+    /** Property damage this partner specializes in. */
+    conditions?: Condition[];
     /** County slugs, e.g. ['essex-county']. Omit for statewide. */
     counties?: string[];
   };
@@ -90,23 +94,26 @@ export const PARTNERS: Partner[] = [
   // Keep `active: false` until the agreement is signed and details verified.
   // -------------------------------------------------------------------------
   {
-    id: 'partner-cash-fast',
-    name: 'Partner Site 1',
-    url: 'https://example.com',
-    headline: 'Cash offer with a fast closing timeline.',
+    id: 'fire-home-buyers',
+    name: 'Fire Home Buyers',
+    url: 'https://www.firehomebuyers.com',
+    headline: 'Buys fire and smoke damaged homes in New Jersey, as-is, for cash.',
     description:
-      'Replace this with what this partner actually does, in plain language. Describe the process the homeowner will go through, not marketing claims.',
+      'Fire Home Buyers purchases fire damaged property throughout New Jersey in whatever condition it is in, so there are no repairs, no cleanup, and no showings. You request an offer online, they respond within 24 hours, and you pick the closing date. If you are behind on the mortgage and the home was damaged, an insurance settlement plus a sale can sometimes clear the loan balance entirely.',
     kind: 'sell-fast',
-    bestFor: ['You need to sell quickly', 'Repairs are not realistic', 'A sale date is approaching'],
-    timeline: 'Confirm with partner',
+    bestFor: [
+      'Fire or smoke damage',
+      'Repairs would cost more than you can carry',
+      'You want to close on your own timeline',
+      'Insurance settlement may cover the loan balance',
+    ],
+    timeline: 'Offer within 24 hours, closing date is your choice',
     match: {
-      situations: ['foreclosure', 'behind', 'financial'],
+      conditions: ['fire'],
       goals: ['sell', 'unsure'],
-      timelines: ['asap', 'weeks'],
-      ownerTypes: ['homeowner', 'heir', 'mixed'],
     },
     compensation: 'paid-referral',
-    active: false,
+    active: true,
   },
   {
     id: 'partner-market-sale',
@@ -167,6 +174,7 @@ export interface Answers {
   goal?: Goal;
   timeline?: Timeline;
   ownerType?: OwnerType;
+  condition?: Condition;
   county?: string;
 }
 
@@ -219,6 +227,12 @@ export function matchPartners(answers: Answers): Match[] {
       if (m.ownerTypes.includes(answers.ownerType)) {
         score += 1;
         reasons.push('Handles your type of property');
+      } else disqualified = true;
+    }
+    if (m.conditions && answers.condition) {
+      if (m.conditions.includes(answers.condition)) {
+        score += 6;
+        reasons.push('Specializes in your type of property damage');
       } else disqualified = true;
     }
     if (m.counties && m.counties.length > 0 && answers.county) {

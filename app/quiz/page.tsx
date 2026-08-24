@@ -6,6 +6,7 @@ import { matchPartners, COMPENSATION_LABEL, type Answers } from '../../lib/partn
 
 interface QuizState {
   situation?: string;
+  condition?: string;
   timeline?: string;
   goal?: string;
   homeValue?: string;
@@ -128,6 +129,7 @@ export default function QuizPage() {
         formData.append('goal', answers.goal || '');
         formData.append('homeValue', answers.homeValue || '');
         formData.append('ownerType', answers.type || '');
+        formData.append('propertyCondition', answers.condition || '');
         formData.append('leadScore', leadScore);
         formData.append('recommendation', matched.primary);
         formData.append('sourcePage', '/quiz');
@@ -173,6 +175,18 @@ export default function QuizPage() {
         { value: 'keep', label: 'Keep the home (modify mortgage, refinance)' },
         { value: 'sell', label: 'Sell (clean exit, protect credit)' },
         { value: 'unsure', label: 'Not sure yet, want to compare' },
+      ],
+    },
+    {
+      key: 'condition',
+      title: 'Has the property been damaged?',
+      subtitle: 'Damage changes which options are realistic, and some buyers specialize in it.',
+      options: [
+        { value: 'none', label: 'No major damage' },
+        { value: 'fire', label: 'Fire or smoke damage' },
+        { value: 'water', label: 'Flood or water damage' },
+        { value: 'mold', label: 'Mold' },
+        { value: 'major-repairs', label: 'Other major repairs needed (roof, structural, systems)' },
       ],
     },
     {
@@ -248,6 +262,7 @@ export default function QuizPage() {
                 goal: answers.goal as Answers['goal'],
                 timeline: answers.timeline as Answers['timeline'],
                 ownerType: answers.type as Answers['ownerType'],
+                condition: answers.condition as Answers['condition'],
               });
               if (matches.length === 0) return null;
               return (
@@ -442,7 +457,11 @@ export default function QuizPage() {
             </div>
           </div>
 
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-8">{q.title}</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-2">{q.title}</h2>
+          {(q as { subtitle?: string }).subtitle && (
+            <p className="text-slate-500 text-sm mb-6">{(q as { subtitle?: string }).subtitle}</p>
+          )}
+          <div className="mb-6" />
           <div className="space-y-3">
             {q.options.map((option) => (
               <button

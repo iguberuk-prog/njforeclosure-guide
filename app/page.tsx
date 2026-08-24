@@ -457,7 +457,7 @@ export default function Home() {
           {[
             {
               q: 'Is this really free?',
-              a: 'Yes. Our education and guidance are 100% free. We are a referral service, attorneys and real estate companies pay us referral fees when clients they work with connect through us. This means our advice is unbiased, we profit only if you choose to work with our partners, and only after you benefit.'
+              a: 'Yes, and here is exactly how we make money so you can judge for yourself. Some of the home-buying companies we refer you to pay us a referral fee if you sell to them. We are not paid by attorneys, and we are not paid by the free resources we point you to, such as HUD-approved housing counselors or the New Jersey court mediation program. You are never charged anything, and every set of recommendations we give you includes at least one option that earns us nothing.'
             },
             {
               q: 'Are you a law firm or real estate company?',
@@ -627,7 +627,7 @@ export default function Home() {
           <div className="border-t border-white/5 pt-8 text-center text-xs text-slate-600 space-y-3">
             <p>&copy; 2026 NJ Foreclosure Guide. All rights reserved.</p>
             <p className="italic leading-relaxed max-w-4xl mx-auto">
-              IMPORTANT DISCLAIMER: NJ Foreclosure Guide is a FREE educational resource only. We are NOT a law firm, lender, or real estate company. We do NOT provide legal advice, financial advice, or negotiate with lenders. We do NOT perform any foreclosure solutions ourselves. We simply explain 7 options and connect you with vetted attorneys and real estate professionals who provide these services. We earn referral fees when clients work with our partners. All outcomes depend entirely on your situation and the professionals you work with. Always consult licensed professionals. This site is for education only.
+              IMPORTANT DISCLAIMER: NJ Foreclosure Guide is a FREE educational resource only. We are NOT a law firm, lender, or real estate company. We do NOT provide legal advice, financial advice, or negotiate with lenders. We do NOT perform any foreclosure solutions ourselves. We simply explain 7 options and connect you with attorneys and real estate professionals who provide these services. Some home-buying partners pay us a referral fee if you sell to them; we are not paid by attorneys or by the free resources we recommend, and you are never charged. All outcomes depend entirely on your situation and the professionals you work with. Always consult licensed professionals. This site is for education only.
             </p>
           </div>
         </div>

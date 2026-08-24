@@ -45,7 +45,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     },
     {
       q: `Is this service really free for ${displayName} homeowners?`,
-      a: `Yes. Our education, assessment, and introductions are 100% free for homeowners. We are a referral service: professionals in our network pay us referral fees, never you. You are free to work with any attorney or company you choose.`,
+      a: `Yes. Our education, assessment, and introductions are 100% free for homeowners. Some home-buying partners pay us a referral fee if you sell to them. We are not paid by attorneys, and we are not paid by the free resources we point you to, such as HUD-approved counselors. You are never charged, and you are free to work with any attorney or company you choose.`,
     },
   ];
 
