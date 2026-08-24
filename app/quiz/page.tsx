@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { matchPartners, COMPENSATION_LABEL, type Answers } from '../../lib/partners';
 
 interface QuizState {
   situation?: string;
@@ -239,6 +240,73 @@ export default function QuizPage() {
                 </Link>
               </div>
             </div>
+
+            {/* Matched destinations, ranked by the routing engine */}
+            {(() => {
+              const matches = matchPartners({
+                situation: answers.situation as Answers['situation'],
+                goal: answers.goal as Answers['goal'],
+                timeline: answers.timeline as Answers['timeline'],
+                ownerType: answers.type as Answers['ownerType'],
+              });
+              if (matches.length === 0) return null;
+              return (
+                <div className="mt-10 pt-8 border-t border-slate-200">
+                  <h2 className="font-serif text-2xl font-bold text-slate-900 mb-2">
+                    Where To Go From Here
+                  </h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    Ranked for your situation. You are free to use any, all, or none of these.
+                  </p>
+                  <div className="space-y-4">
+                    {matches.map(({ partner, reasons }) => (
+                      <div
+                        key={partner.id}
+                        className={`rounded-xl border p-6 ${
+                          partner.compensation === 'no-compensation'
+                            ? 'border-emerald-200 bg-emerald-50/40'
+                            : 'border-slate-200 bg-white'
+                        }`}
+                      >
+                        <div className="flex items-start justify-between gap-4 mb-1">
+                          <h3 className="font-bold text-slate-900">{partner.name}</h3>
+                          {partner.compensation === 'no-compensation' && (
+                            <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 border border-emerald-300 rounded-full px-2.5 py-1">
+                              Free · We earn nothing
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-slate-700 text-sm mb-3">{partner.headline}</p>
+                        <p className="text-slate-600 text-sm mb-4 leading-relaxed">{partner.description}</p>
+
+                        {reasons.length > 0 && (
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {reasons.map((r, i) => (
+                              <span key={i} className="text-xs text-slate-600 bg-slate-100 rounded-full px-3 py-1">
+                                {r}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+
+                        <a
+                          href={partner.url}
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="inline-block bg-slate-900 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition text-sm"
+                        >
+                          Go to {partner.name}
+                        </a>
+
+                        <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">
+                          {COMPENSATION_LABEL[partner.compensation]}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
 
             <div className="mt-8 pt-6 border-t border-slate-200 flex justify-between items-center">
               <button
