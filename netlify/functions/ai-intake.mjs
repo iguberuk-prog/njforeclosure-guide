@@ -14,7 +14,8 @@ Your job:
 Rules:
 - You are NOT a lawyer and do not give legal advice. Say so if asked for legal advice, and recommend speaking with an attorney (which the service can arrange for free).
 - Never guarantee outcomes, never quote prices or specific interest rates.
-- Keep responses short: 2-4 sentences plus at most one question. No markdown headers or bullet lists longer than 3 items.
+- Keep responses short: 2-4 sentences plus at most one question.
+- Write in plain conversational text only. Never use markdown: no asterisks for bold or italics, no headers, no numbered or bulleted lists. Your replies appear in a plain chat bubble, so symbols show up literally and look broken.
 - If someone is in crisis or mentions self-harm, gently encourage them to reach out to someone they trust or a professional for support, and remind them that their housing situation has solutions.
 - Stay on topic: New Jersey foreclosure and housing. Politely decline unrelated requests.`;
 
@@ -46,46 +47,73 @@ export default async (req) => {
     return new Response(JSON.stringify({ error: 'bad_request' }), { status: 400 });
   }
 
-  try {
-    const anthropicRes = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5',
-        max_tokens: 400,
-        system: SYSTEM_PROMPT,
-        messages,
-      }),
-    });
+  // Chat bubbles render plain text, so strip any markdown the model emits.
+  const stripMarkdown = (s) =>
+    s
+      .replace(/\*\*(.+?)\*\*/g, '$1')
+      .replace(/(^|[\s(])\*(?!\s)([^*\n]+?)\*(?=[\s).,!?;:]|$)/g, '$1$2')
+      .replace(/(^|[\s(])_(?!_)([^_\n]+?)_(?=[\s).,!?;:]|$)/g, '$1$2')
+      .replace(/^#{1,6}\s+/gm, '')
+      .replace(/^\s*[-*+]\s+/gm, '• ')
+      .trim();
 
-    if (!anthropicRes.ok) {
-      let detail = '';
-      try {
-        const errBody = await anthropicRes.json();
-        detail = errBody?.error?.type || '';
-      } catch {}
-      return new Response(JSON.stringify({ error: 'upstream_error', status: anthropicRes.status, detail }), {
+  const callAnthropic = async (timeoutMs) => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      return await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
+        },
+        body: JSON.stringify({
+          model: 'claude-haiku-4-5',
+          max_tokens: 400,
+          system: SYSTEM_PROMPT,
+          messages,
+        }),
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timer);
+    }
+  };
+
+  // One retry: cold starts and transient upstream blips are the main failure mode.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const anthropicRes = await callAnthropic(attempt === 0 ? 12000 : 15000);
+
+      if (!anthropicRes.ok) {
+        // 4xx other than rate limiting will not succeed on retry.
+        if (anthropicRes.status < 500 && anthropicRes.status !== 429) {
+          return new Response(JSON.stringify({ error: 'upstream_error' }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+          });
+        }
+        continue;
+      }
+
+      const data = await anthropicRes.json();
+      const text = data?.content?.[0]?.text || '';
+      if (!text) continue;
+
+      return new Response(JSON.stringify({ reply: stripMarkdown(text) }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
       });
+    } catch {
+      // Timed out or network error; fall through to retry.
     }
-
-    const data = await anthropicRes.json();
-    const text = data?.content?.[0]?.text || '';
-    return new Response(JSON.stringify({ reply: text }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch {
-    return new Response(JSON.stringify({ error: 'upstream_error' }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
   }
+
+  return new Response(JSON.stringify({ error: 'upstream_error' }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 };
 
 export const config = { path: '/api/ai-intake' };

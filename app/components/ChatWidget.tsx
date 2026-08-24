@@ -90,16 +90,22 @@ export default function ChatWidget() {
     setMessages(next);
     setInput('');
     setLoading(true);
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 35000);
+
     try {
       const res = await fetch('/api/ai-intake', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: next.map(({ role, content }) => ({ role, content })) }),
+        signal: controller.signal,
       });
       const data = await res.json();
       if (data.reply) {
         const withReply: Msg[] = [...next, { role: 'assistant', content: data.reply }];
         setMessages(withReply);
+        setUnavailable(false);
         // Submit transcript as soon as contact info appears in the conversation
         submitTranscript(withReply, 'CHAT-LEAD');
       } else {
@@ -109,7 +115,7 @@ export default function ChatWidget() {
           {
             role: 'assistant',
             content:
-              "I'm having trouble connecting right now. The fastest way to get help is our free 2-minute assessment. It shows which of the 7 solutions fit your situation and we can introduce you to the right professional.",
+              "Sorry, that one did not go through on my end. Please send your message again and I will pick right back up. If you would rather not wait, the free 2-minute assessment below covers the same ground.",
           },
         ]);
       }
@@ -120,9 +126,11 @@ export default function ChatWidget() {
         {
           role: 'assistant',
           content:
-            "I'm having trouble connecting right now. The fastest way to get help is our free 2-minute assessment at the link below.",
+            "Sorry, that took longer than it should have. Please send your message again and I will pick right back up. If you would rather not wait, the free 2-minute assessment below covers the same ground.",
         },
       ]);
+    } finally {
+      clearTimeout(timer);
     }
     setLoading(false);
   };
