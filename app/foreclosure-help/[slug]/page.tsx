@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { getAllLocations, getLocation, townSlug } from '../../../lib/nj-locations';
 
 export function generateStaticParams() {
   return getAllLocations().map((loc) => ({ slug: loc.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const loc = getLocation(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const loc = getLocation(slug);
   if (!loc) return {};
   const title = `Foreclosure Help in ${loc.name}, NJ | Stop Foreclosure ${loc.name}`;
   const description = `Facing foreclosure in ${loc.name}, New Jersey? Free guide to all 7 solutions: loan modification, forbearance, short sale, cash sale, Chapter 13 and more. Get a personalized plan in 2 minutes and connect with vetted local professionals.`;
@@ -19,9 +21,10 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function LocationPage({ params }: { params: { slug: string } }) {
-  const loc = getLocation(params.slug);
-  if (!loc) return null;
+export default async function LocationPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const loc = getLocation(slug);
+  if (!loc) notFound();
 
   const isCounty = loc.type === 'county';
   const displayName = loc.name;
