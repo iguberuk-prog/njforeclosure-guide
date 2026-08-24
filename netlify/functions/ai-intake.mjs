@@ -81,10 +81,12 @@ export default async (req) => {
     }
   };
 
-  // One retry: cold starts and transient upstream blips are the main failure mode.
+  // Netlify caps synchronous functions at ~10s, so the whole budget (first
+  // attempt + retry) must fit inside that. Otherwise the function is killed
+  // mid-flight and the visitor sees a hang instead of the friendly retry message.
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      const anthropicRes = await callAnthropic(attempt === 0 ? 12000 : 15000);
+      const anthropicRes = await callAnthropic(attempt === 0 ? 5500 : 3000);
 
       if (!anthropicRes.ok) {
         // 4xx other than rate limiting will not succeed on retry.
