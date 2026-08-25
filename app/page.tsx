@@ -40,6 +40,7 @@ export default function Home() {
           </Link>
           <div className="flex items-center gap-5 sm:gap-8 text-sm sm:text-[15px]">
             <Link href="/guides" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden sm:block">Guides</Link>
+            <Link href="/scenarios" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Case Studies</Link>
             <Link href="/answers" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Answers</Link>
             <Link href="/companies" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Get an Offer</Link>
             <Link href="/resources" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Resources</Link>
