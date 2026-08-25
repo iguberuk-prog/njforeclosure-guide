@@ -82,6 +82,7 @@ export default function Home() {
           </Link>
           <div className="flex items-center gap-5 sm:gap-8 text-sm sm:text-[15px]">
             <Link href="/guides" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden sm:block">Guides</Link>
+            <Link href="/answers" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Answers</Link>
             <Link href="/companies" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Get an Offer</Link>
             <Link href="/resources" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Resources</Link>
             <Link
@@ -660,6 +661,7 @@ export default function Home() {
                 <li><Link href="/quiz" className="hover:text-amber-400 transition">Free Assessment</Link></li>
                 <li><Link href="/companies" className="hover:text-amber-400 transition">Where to Get Help</Link></li>
                 <li><Link href="/professionals" className="hover:text-amber-400 transition">Professional Network</Link></li>
+                <li><Link href="/answers" className="hover:text-amber-400 transition">NJ Foreclosure Questions Answered</Link></li>
                 <li><Link href="/tools/timeline" className="hover:text-amber-400 transition">NJ Foreclosure Timeline Tool</Link></li>
                 <li><Link href="/premium-properties" className="hover:text-amber-400 transition">Premium Property Program ($800k+)</Link></li>
                 <li><Link href="/foreclosure-help" className="hover:text-amber-400 transition">Local Help by County and Town</Link></li>

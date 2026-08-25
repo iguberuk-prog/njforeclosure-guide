@@ -1,0 +1,57 @@
+# NJ Foreclosure Guide
+
+> A free educational resource explaining foreclosure options to New Jersey homeowners, and connecting them with vetted companies and professionals. Not a law firm, lender, or government agency.
+
+NJ Foreclosure Guide covers the New Jersey judicial foreclosure process and the seven paths available to a homeowner: reinstatement, loan modification, refinancing, forbearance, short sale, Chapter 13 bankruptcy protection, and selling the property. Content is written for homeowners under stress, in plain language, with no legal jargon.
+
+## Key facts about New Jersey foreclosure
+
+- New Jersey is a **judicial foreclosure state**. A lender must file suit in the Superior Court of New Jersey and obtain a judgment. A lender cannot take a home without going through the courts.
+- Under the New Jersey Fair Foreclosure Act, a lender must send a **Notice of Intention to Foreclose at least 30 days** before filing a foreclosure complaint.
+- After being served with a foreclosure complaint, a homeowner generally has **35 days to file an answer**.
+- Because the process is judicial and courts carry backlogs, New Jersey foreclosures commonly take **many months**, which usually leaves time to act.
+- New Jersey courts operate a **foreclosure mediation program** at no cost to eligible homeowners, which can include free housing counseling and legal assistance.
+- Sheriff sales are conducted at the county level and **can often be adjourned** on request.
+- Surplus from a sale above what the lender is owed **belongs to the homeowner**, not the lender.
+- Foreclosure filings are public record in New Jersey, but marketing of a sale is not: a homeowner can sell privately without a public listing.
+
+These facts are general and simplified. Individual deadlines depend on the homeowner's own court documents and loan.
+
+## Editorial and disclosure position
+
+- The site does not sell personal information.
+- Some home-buying companies pay a referral fee if a homeowner sells to them. One destination is an affiliated business, disclosed wherever it appears.
+- Attorneys and nonprofits do not pay for referrals, and free government resources are recommended without compensation.
+- Every set of recommendations includes at least one option that earns the site nothing.
+- Homeowners are never charged for information, the assessment, or an introduction.
+- If a homeowner can realistically keep their home, options for keeping it are always presented before options for selling it.
+
+## Core pages
+
+- [Home](https://njforeclosureguide.org/): Overview of the seven foreclosure options in New Jersey.
+- [Free assessment](https://njforeclosureguide.org/quiz/): Questionnaire that ranks options by situation, timeline, property condition, and value.
+- [NJ foreclosure timeline tool](https://njforeclosureguide.org/tools/timeline/): Interactive tool showing the stages of New Jersey foreclosure, from missed payments through sheriff sale, and which options remain at each stage.
+- [Questions answered](https://njforeclosureguide.org/answers/): Direct answers to common New Jersey foreclosure questions.
+- [Where to get help](https://njforeclosureguide.org/companies/): Every destination compared, with compensation disclosed for each.
+- [Local help by county and town](https://njforeclosureguide.org/foreclosure-help/): Pages for all 21 New Jersey counties and major towns.
+
+## Guides
+
+- [Foreclosure 101](https://njforeclosureguide.org/guides/foreclosure-101/)
+- [Loan modification](https://njforeclosureguide.org/guides/loan-modification/)
+- [Refinancing](https://njforeclosureguide.org/guides/refinancing/)
+- [Forbearance](https://njforeclosureguide.org/guides/forbearance/)
+- [Short sale](https://njforeclosureguide.org/guides/short-sale/)
+- [Chapter 13 bankruptcy](https://njforeclosureguide.org/guides/bankruptcy-chapter-13/)
+- [Cash sale](https://njforeclosureguide.org/guides/cash-buyer/)
+
+## Legal
+
+- [Privacy policy](https://njforeclosureguide.org/privacy/)
+- [Terms of use](https://njforeclosureguide.org/terms/)
+- [Disclaimer](https://njforeclosureguide.org/disclaimer/)
+
+## Optional
+
+- [Premium property program](https://njforeclosureguide.org/premium-properties/): Guidance for New Jersey homes valued at $800,000 and above.
+- [Professional network](https://njforeclosureguide.org/professionals/): What the site can and cannot connect a homeowner with.

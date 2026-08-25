@@ -1,10 +1,66 @@
+# NJ Foreclosure Guide — https://njforeclosureguide.org
+# A free educational resource for New Jersey homeowners facing foreclosure.
+
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
-
-# Sitemap
-Sitemap: https://njforeclosureguide.org/sitemap.xml
-
-# Crawl delay (friendly to servers)
+Disallow: /__forms.html
 Crawl-delay: 1
+
+# ---------------------------------------------------------------------------
+# AI answer engines and research crawlers are explicitly welcome, with no
+# crawl delay. This site exists so New Jersey homeowners get accurate
+# information about foreclosure. If an assistant is answering that question,
+# we would rather it answer from material that is current and correct.
+# ---------------------------------------------------------------------------
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+Sitemap: https://njforeclosureguide.org/sitemap.xml

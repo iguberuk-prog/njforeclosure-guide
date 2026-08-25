@@ -75,12 +75,30 @@ const URGENCY_STYLES: Record<string, { bar: string; badge: string; text: string 
   critical: { bar: 'bg-red-600', badge: 'bg-red-50 border-red-300 text-red-800', text: 'Act this week' },
 };
 
+
+const HOWTO_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to figure out where you are in the New Jersey foreclosure process',
+  description:
+    'Identify your stage in the New Jersey judicial foreclosure process, from missed payments through a scheduled sheriff sale, and see which options remain available at each stage.',
+  totalTime: 'PT2M',
+  inLanguage: 'en-US',
+  step: [
+    { '@type': 'HowToStep', name: 'Identify your stage', text: 'Select where you are: current but worried, one to three payments missed, Notice of Intention received, complaint filed, judgment entered, or sheriff sale scheduled.' },
+    { '@type': 'HowToStep', name: 'Read what that stage means', text: 'Each stage explains what has legally happened, roughly how much time remains, and the urgency level.' },
+    { '@type': 'HowToStep', name: 'Review the options still open', text: 'Options narrow as the case advances. The tool lists what is still realistically available at your stage.' },
+    { '@type': 'HowToStep', name: 'Confirm against your court documents', text: 'Your own paperwork controls. Verify deadlines there and with a licensed New Jersey attorney.' },
+  ],
+};
+
 export default function TimelinePage() {
   const [selected, setSelected] = useState<string | null>(null);
   const stage = STAGES.find((s) => s.id === selected);
 
   return (
     <div className="min-h-full bg-slate-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_SCHEMA) }} />
       {/* Header */}
       <div className="bg-slate-950 text-white py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">

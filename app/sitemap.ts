@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/guides/cash-buyer',
     '/guides/ltv-refinance',
     '/professionals',
+    '/answers',
     '/tools/timeline',
     '/premium-properties',
     '/companies',
