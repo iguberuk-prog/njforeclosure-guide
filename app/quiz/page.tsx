@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { matchPartners, COMPENSATION_LABEL, type Answers } from '../../lib/partners';
 import { SITE_EMAIL, RESPONSE_PROMISE } from '../../lib/contact';
+import RecommendationBasis from '../components/RecommendationBasis';
 
 /**
  * Escape hatch. Someone with a sale date next week should not have to finish
@@ -375,7 +376,11 @@ export default function QuizPage() {
               );
             })()}
 
-            <CallInstead note="Questions about any of these, or want help deciding between them? Call and ask." />
+            <div className="mt-8">
+              <RecommendationBasis />
+            </div>
+
+            <CallInstead note="Questions about any of these, or want help deciding between them? Email and ask." />
 
             <div className="mt-8 pt-6 border-t border-slate-200 flex justify-between items-center">
               <button

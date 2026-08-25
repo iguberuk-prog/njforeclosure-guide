@@ -423,7 +423,31 @@ export const COMPENSATION_LABEL: Record<Partner['compensation'], string> = {
  * from this, so the claim cannot drift between pages.
  */
 export const INDEPENDENCE_STATEMENT =
-  'We are not paid by anyone listed on this site. No referral fees, no commissions, no advertising money, and no ownership or affiliation with any company we mention. We have nothing to gain from which option you choose, which is the entire reason this resource exists.';
+  'Every company listed on this site is independently owned and operated and has no affiliation with NJ Foreclosure Guide. We are not paid by any of them. No referral fees, no commissions, no advertising money, and no ownership stake. We have nothing to gain from which option you choose, which is the entire reason this resource exists.';
+
+/**
+ * How a recommendation is actually produced.
+ *
+ * This wording is deliberate and should not be softened into anything that
+ * implies outcomes, success rates, or the experience of past homeowners. This
+ * site is new and has no body of client results to draw on. Claiming otherwise
+ * would be an unsubstantiated performance claim, which is the exact category of
+ * content that was stripped out of this site once already: invented review
+ * counts, invented sales volume, an invented star rating.
+ *
+ * When there IS real outcome data, gathered with consent and actually counted,
+ * this constant can change and a substantiated results section can be added.
+ * Not before.
+ */
+export const RECOMMENDATION_BASIS =
+  'Recommendations come from matching your answers against what each company publicly states it handles: property condition, price range, service area, and how quickly it can close. We verify those details against each company\'s own website. Nothing is ranked by payment, because nobody pays us. These are starting points for your own comparison, not vetting, endorsement, or a prediction of what any company will offer you.';
+
+/**
+ * Why we do not publish outcome statistics. Shown wherever a visitor might
+ * reasonably expect testimonials or success numbers and find none.
+ */
+export const NO_OUTCOME_DATA_NOTE =
+  'We do not publish testimonials, star ratings, or success statistics. This resource is new and we have not helped enough homeowners to report honest numbers. When we have, we will publish what actually happened, including the cases that did not work out. Until then we would rather show you nothing than show you something we made up.';
 
 /**
  * Every place the independence claim appears. If the compensation model ever

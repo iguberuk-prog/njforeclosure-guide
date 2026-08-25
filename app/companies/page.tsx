@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import RecommendationBasis from '../components/RecommendationBasis';
 import type { Metadata } from 'next';
 import { PARTNERS, COMPENSATION_LABEL, type Partner } from '../../lib/partners';
 
@@ -190,6 +191,11 @@ export default function CompaniesPage() {
           </div>
         </section>
       )}
+
+      {/* What a recommendation means */}
+      <section className="max-w-3xl mx-auto px-4 pt-4">
+        <RecommendationBasis />
+      </section>
 
       {/* Honesty block */}
       <section className="max-w-3xl mx-auto px-4 py-14">

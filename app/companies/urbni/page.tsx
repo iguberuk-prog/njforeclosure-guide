@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import RecommendationBasis from '../../components/RecommendationBasis';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -44,6 +45,10 @@ export default function UrbniPage() {
           <p className="text-sm text-emerald-900 leading-relaxed">
             <span className="font-bold">Our relationship with them: none.</span> Urbni is a nonprofit. We receive no referral fee, no commission, and no compensation of any kind if you donate to them, and we are not affiliated with them. They are listed here because for some property owners this is genuinely the best outcome available, not because it earns us anything. That is true of everything on this site.</p>
         </div>
+      </section>
+
+      <section className="max-w-3xl mx-auto px-4 pt-8">
+        <RecommendationBasis />
       </section>
 
       {/* The critical caveat, first */}

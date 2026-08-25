@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import RecommendationBasis from '../../components/RecommendationBasis';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -44,6 +45,10 @@ export default function ClikOfferPage() {
           <p className="text-sm text-amber-900 leading-relaxed">
             <span className="font-bold">Our relationship with them: none.</span> We are not paid by Clik Offer, we are not affiliated with them, and we receive nothing whether you contact them or not. They are listed because they may fit some situations. Get more than one offer before you commit. Nothing on this page is an appraisal, a valuation, or advice to accept any particular offer.</p>
         </div>
+      </section>
+
+      <section className="max-w-3xl mx-auto px-4 pt-8">
+        <RecommendationBasis />
       </section>
 
       {/* Call this partner directly */}
