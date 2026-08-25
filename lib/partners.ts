@@ -67,7 +67,7 @@ export interface Partner {
    * REQUIRED. Exact compensation relationship, shown to the homeowner on the
    * recommendation card. If you are paid, it says so, in plain words.
    */
-  compensation: 'paid-referral' | 'paid-advertising' | 'no-compensation';
+  compensation: 'paid-referral' | 'paid-advertising' | 'no-compensation' | 'affiliated';
   /** Set true only when the agreement is signed and details are verified. */
   active: boolean;
 }
@@ -223,8 +223,34 @@ export const PARTNERS: Partner[] = [
     match: {
       situations: ['inherited', 'financial'],
       goals: ['sell', 'unsure'],
+      // Donation only makes sense when the property is a burden rather than an
+      // asset. With real equity, selling nets the owner far more than a
+      // deduction, so higher value bands are deliberately excluded.
+      homeValues: ['under250k', '250-500k'],
     },
     compensation: 'no-compensation',
+    active: true,
+  },
+  {
+    id: 'brc-corcoran-sawyer-smith',
+    name: 'Corcoran Sawyer Smith x Builders Resource Center',
+    url: 'https://brcnj.com',
+    headline: 'Licensed brokerage for a home valuation and a traditional listing on the open market.',
+    description:
+      'A full-service New Jersey brokerage headquartered in Livingston and working in every county, covering residential sales, land and development, and new construction. Start with a consultation and a valuation of your home. Knowing what the property is actually worth is the foundation of every other decision you make, because it tells you whether you have equity worth protecting, whether a short sale is even relevant, and whether listing beats a cash offer.',
+    kind: 'sell-market',
+    bestFor: [
+      'You want to know what your home is really worth',
+      'You have time to sell on the open market',
+      'You want the highest likely price, not the fastest close',
+      'Land, new construction, or development property',
+    ],
+    timeline: 'Consultation and valuation first, then a market listing',
+    match: {
+      goals: ['sell', 'unsure'],
+      timelines: ['weeks', 'flexible', 'no-rush'],
+    },
+    compensation: 'affiliated',
     active: true,
   },
   {
@@ -375,6 +401,8 @@ export function matchPartners(answers: Answers): Match[] {
 }
 
 export const COMPENSATION_LABEL: Record<Partner['compensation'], string> = {
+  affiliated:
+    'Common ownership: the people behind this guide are affiliated with this company. Disclosed so you can weigh the recommendation accordingly.',
   'paid-referral': 'We receive a referral fee if you work with them. You are never charged.',
   'paid-advertising': 'They pay a flat advertising fee to appear here. You are never charged.',
   'no-compensation': 'We receive nothing if you contact them. Listed because it may help you.',

@@ -297,6 +297,11 @@ export default function QuizPage() {
                               Free · We earn nothing
                             </span>
                           )}
+                          {partner.compensation === 'affiliated' && (
+                            <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wider text-blue-800 bg-blue-100 border border-blue-300 rounded-full px-2.5 py-1">
+                              Affiliated with us
+                            </span>
+                          )}
                         </div>
                         <p className="text-slate-700 text-sm mb-3">{partner.headline}</p>
                         <p className="text-slate-600 text-sm mb-4 leading-relaxed">{partner.description}</p>
