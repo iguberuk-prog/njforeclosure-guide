@@ -253,6 +253,44 @@ export const PARTNERS: Partner[] = [
     compensation: 'affiliated',
     active: true,
   },
+
+  // ---------------------------------------------------------------------------
+  // RESERVED SLOT: foreclosure defense attorney.
+  //
+  // Deliberately commented out rather than left as an inactive object, so the
+  // placeholder text never reaches the client JavaScript bundle. Uncomment,
+  // replace every CONFIRM value with the real firm's details, and it goes live.
+  //
+  // On compensation: leave 'no-compensation'. In New Jersey, as in nearly every
+  // state, lawyers are barred from paying non-lawyers for client referrals and
+  // from splitting fees with them. If a payment arrangement is ever proposed,
+  // have a New Jersey attorney review it first, and update the field to reflect
+  // reality rather than leaving it inaccurate.
+  //
+  // {
+  //   id: 'attorney-partner',
+  //   name: 'CONFIRM: firm name',
+  //   url: 'CONFIRM: firm website',
+  //   headline: 'CONFIRM: one plain sentence describing what they do.',
+  //   description:
+  //     'CONFIRM: what this firm actually handles, in plain language. No outcome
+  //      guarantees, no success rates, nothing that cannot be substantiated.',
+  //   kind: 'keep-home',
+  //   bestFor: [
+  //     'CONFIRM: who this firm is right for',
+  //     'CONFIRM: e.g. you were served and must respond in court',
+  //     'CONFIRM: e.g. you want to negotiate a modification',
+  //   ],
+  //   timeline: 'CONFIRM: typical consultation or response timing',
+  //   match: {
+  //     situations: ['foreclosure', 'behind', 'financial'],
+  //     goals: ['keep', 'unsure'],
+  //     // Add `counties` if the firm does not cover the whole state.
+  //   },
+  //   compensation: 'no-compensation',
+  //   active: true,
+  // },
+  // ---------------------------------------------------------------------------
 ];
 
 export interface Answers {
