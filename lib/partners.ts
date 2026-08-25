@@ -23,7 +23,8 @@ export type PartnerKind =
   | 'free-counsel'   // HUD-approved counseling, legal aid (never paid, always shown)
   | 'sell-fast'      // cash buyers
   | 'sell-market'    // agents, listing, short sale
-  | 'investor';      // portfolio / rental focused
+  | 'investor'       // portfolio / rental focused
+  | 'donate';        // nonprofit property donation, not a sale
 
 export interface Partner {
   id: string;
@@ -178,6 +179,52 @@ export const PARTNERS: Partner[] = [
       goals: ['sell', 'unsure'],
     },
     compensation: 'paid-referral',
+    active: true,
+  },
+  {
+    id: 'click-offer',
+    name: 'ClickOffer',
+    url: 'https://www.clickoffer.com',
+    headline: 'Very fast cash close, typically in under 7 days.',
+    description:
+      'ClickOffer is positioned for the most urgent situations, where a sale needs to close in days rather than weeks. Replace this description with their verified process once the site is live.',
+    kind: 'sell-fast',
+    bestFor: [
+      'A sale date is days away',
+      'You need the fastest possible close',
+      'Certainty matters more than price',
+    ],
+    timeline: 'Under 7 days',
+    match: {
+      goals: ['sell', 'unsure'],
+      timelines: ['asap'],
+    },
+    compensation: 'paid-referral',
+    // INACTIVE: clickoffer.com currently redirects to a GoDaddy domain-for-sale
+    // parking page rather than a live site. Do not activate until it resolves
+    // to a real, working site, or homeowners will land on a domain listing.
+    active: false,
+  },
+  {
+    id: 'urbni',
+    name: 'Urbni',
+    url: 'https://www.urbni.org',
+    headline: 'Nonprofit that accepts donated homes and land, and turns them into affordable housing.',
+    description:
+      'Urbni is a nonprofit that acquires vacant, abandoned, and tax-delinquent properties and restores them as affordable housing for veterans, seniors, people in recovery, and families leaving homelessness. If a property has become a burden you cannot carry, donating it can be a genuine alternative to letting it go to a sheriff sale, and land donations are tax-deductible. They state they handle the paperwork at no cost to you.',
+    kind: 'donate',
+    bestFor: [
+      'A vacant, inherited, or unused property',
+      'Repairs cost more than the property is worth',
+      'You would rather it help someone than sit empty',
+      'A vacant lot or unused parcel of land',
+    ],
+    timeline: 'They guide you through the donation process',
+    match: {
+      situations: ['inherited', 'financial'],
+      goals: ['sell', 'unsure'],
+    },
+    compensation: 'no-compensation',
     active: true,
   },
   {
