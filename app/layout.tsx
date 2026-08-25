@@ -4,6 +4,7 @@ import "./globals.css";
 import ChatWidget from "./components/ChatWidget";
 import { LocalBusinessSchema } from "./schema";
 import CallBand from "./components/CallBand";
+import MarsNotice from "./components/MarsNotice";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -72,6 +73,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <LocalBusinessSchema />
         {children}
+        <MarsNotice />
         <CallBand />
         <ChatWidget />
       </body>

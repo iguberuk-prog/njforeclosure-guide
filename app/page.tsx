@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { FAQSchema, OrganizationSchema } from './schema';
-import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL, RESPONSE_PROMISE } from '../lib/contact';
+import { RESPONSE_PROMISE } from '../lib/contact';
 
 
 export default function Home() {
@@ -16,9 +16,6 @@ export default function Home() {
       <div className="bg-slate-950 text-slate-300 text-xs sm:text-sm py-2.5 px-4">
         <div className="max-w-6xl mx-auto flex justify-center sm:justify-between items-center gap-4">
           <p className="hidden sm:block tracking-wide">Serving homeowners in all 21 New Jersey counties</p>
-          <a href={`tel:${SITE_PHONE_TEL}`} className="sm:hidden font-semibold text-amber-400 hover:text-amber-300 transition">
-            Call {SITE_PHONE_DISPLAY}
-          </a>
           <p className="tracking-wide">
             <span className="text-amber-400 font-semibold">100% Free</span>
             <span className="mx-2 text-slate-600">|</span>
@@ -44,16 +41,6 @@ export default function Home() {
             <Link href="/answers" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Answers</Link>
             <Link href="/companies" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Get an Offer</Link>
             <Link href="/resources" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Resources</Link>
-            <a
-              href={`tel:${SITE_PHONE_TEL}`}
-              className="flex items-center gap-2 text-slate-900 font-bold hover:text-amber-600 transition whitespace-nowrap"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 border border-amber-300 text-amber-700 text-sm">
-                &#9742;
-              </span>
-              <span className="hidden lg:inline">{SITE_PHONE_DISPLAY}</span>
-              <span className="lg:hidden">Call</span>
-            </a>
             <Link
               href="/quiz"
               className="bg-slate-900 text-white px-5 sm:px-6 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition shadow-sm whitespace-nowrap"
@@ -103,13 +90,12 @@ export default function Home() {
             >
               See Your Options. Free →
             </Link>
-            <a
-              href={`tel:${SITE_PHONE_TEL}`}
+            <Link
+              href="/tools/timeline"
               className="inline-flex items-center justify-center gap-3 border border-white/30 bg-white/5 backdrop-blur-sm text-white px-10 sm:px-12 py-4 rounded-lg font-semibold hover:bg-white/15 transition-all text-base sm:text-lg"
             >
-              <span className="text-amber-400">&#9742;</span>
-              Call {SITE_PHONE_DISPLAY}
-            </a>
+              Where Am I in the Process?
+            </Link>
           </div>
 
           {/* Transparency badge */}
@@ -119,7 +105,7 @@ export default function Home() {
           >
             <span className="text-emerald-400 text-lg leading-none">&#10003;</span>
             <span className="text-sm text-slate-200 group-hover:text-white transition">
-              Every recommendation shows <span className="font-semibold text-white">exactly how we are paid</span>
+              We are paid by <span className="font-semibold text-white">none of the companies we recommend</span>
             </span>
             <span className="text-amber-400 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
           </Link>
@@ -224,10 +210,10 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: 'Free. Always.', desc: 'Our guidance costs you nothing, ever. Professionals in our network pay referral fees, never you.' },
+              { title: 'Free. Always.', desc: 'Our guidance costs you nothing, ever. Nobody else pays us either, so there is no hidden side to the transaction.' },
               { title: 'Completely Confidential', desc: 'Your information stays private. Nothing is shared without your explicit permission.' },
               { title: 'Zero Obligation', desc: 'Use our education, take our assessment, then decide anything you want, including working with no one.' },
-              { title: 'Vetted Professionals', desc: 'Every attorney and real estate partner in our network is licensed, experienced, and screened.' },
+              { title: 'No Stake in Your Choice', desc: 'We earn the same whatever you decide, which is nothing. Keeping the home, selling, or walking away all pay us equally.' },
             ].map((item, idx) => (
               <div key={idx} className="p-8 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-sm hover:bg-white/[0.08] transition">
                 <div className="w-10 h-10 rounded-full bg-amber-400/15 border border-amber-400/40 flex items-center justify-center mb-5">
@@ -266,13 +252,13 @@ export default function Home() {
                 Judge Us by What We Disclose
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                Anyone can post glowing reviews. What is harder, and more useful to you, is telling you exactly how the
-                money moves before you decide anything.
+                Anyone can post glowing reviews. What is harder, and more useful to you, is having no financial reason to
+                push you in any direction at all.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
-                Every recommendation on this site says whether we are paid for it. Some home-buying companies pay us a
-                referral fee. One destination is a business we are affiliated with, and it is labeled as such. Attorneys,
-                nonprofits, and the free government resources pay us nothing. You are never charged anything.
+                We take no referral fees, no commissions, and no advertising money from anything on this site, and we have
+                no ownership of or affiliation with any company we mention. Whether you keep your home, sell to a cash
+                buyer, donate the property, or do nothing at all, we receive exactly the same amount, which is nothing.
               </p>
               <Link
                 href="/companies"
@@ -298,8 +284,8 @@ export default function Home() {
                 d: 'Every set of recommendations includes at least one route that earns us nothing, such as HUD-approved counseling or the New Jersey court mediation program. If keeping your home is realistic, we say so before anything else.',
               },
               {
-                t: 'Backed by a real brokerage',
-                d: 'We are affiliated with Corcoran Sawyer Smith x Builders Resource Center, a licensed New Jersey brokerage headquartered in Livingston working in every county. Their published figures include $480M+ in sales volume and 620 homes sold.',
+                t: 'Paid by nobody',
+                d: 'We take no referral fees, no commissions, and no advertising money from anything on this site, and we have no ownership or affiliation with any company we mention. There is no version of your situation where we earn more by steering you one way.',
               },
               {
                 t: 'Specific, checkable information',
@@ -314,9 +300,8 @@ export default function Home() {
           </div>
 
           <p className="text-xs text-slate-400 mt-8 text-center max-w-2xl mx-auto leading-relaxed">
-            Figures cited for Corcoran Sawyer Smith x Builders Resource Center are published by that brokerage. We do not
-            publish homeowner testimonials or aggregate outcome statistics, because we will not print numbers we cannot
-            substantiate.
+            We do not publish homeowner testimonials or aggregate outcome statistics, because we will not print numbers we
+            cannot substantiate.
           </p>
         </div>
       </section>
@@ -370,7 +355,6 @@ export default function Home() {
               { n: 'NJ Offer', w: 'You have a few weeks', d: 'Cash offer in 24 hours, closing 10 to 60 days, on your date.', h: '/companies/njoffer', t: 'Flexible' },
               { n: 'Fire Home Buyers', w: 'Fire or smoke damage', d: 'Buys damaged property as-is, no repairs or cleanup.', h: '/companies/fire-home-buyers', t: 'Damage' },
               { n: 'Private Sale Group', w: 'Home is $800k+', d: 'Discreet off-market sale. No listing, no showings, no commissions.', h: '/companies/private-sale-group', t: 'Luxury' },
-              { n: 'Corcoran Sawyer Smith', w: 'You want its true value', d: 'Licensed brokerage. Free valuation, then list on the open market.', h: '/companies/brc-corcoran-sawyer-smith', t: 'Listing' },
               { n: 'Urbni', w: 'Property is a burden', d: 'Nonprofit that takes donated homes and land. We earn nothing.', h: '/companies/urbni', t: 'Donate' },
             ].map((c, i) => (
               <Link
@@ -475,15 +459,15 @@ export default function Home() {
           {[
             {
               q: 'Is this really free?',
-              a: 'Yes, and here is exactly how we make money so you can judge for yourself. Some of the home-buying companies we refer you to pay us a referral fee if you sell to them. We are not paid by attorneys, and we are not paid by the free resources we point you to, such as HUD-approved housing counselors or the New Jersey court mediation program. You are never charged anything, and every set of recommendations we give you includes at least one option that earns us nothing.'
+              a: 'Yes, and there is no catch on the other side either. We are paid by nobody. No referral fees, no commissions, no advertising money, and no ownership or affiliation with any company on this site. You are never charged anything, and neither is anyone else on your behalf. Because no outcome pays us more than another, the recommendations reflect what we think fits your situation and nothing else.'
             },
             {
               q: 'Are you a law firm or real estate company?',
-              a: 'No. We are an educational resource. We do not provide legal advice, negotiate with lenders, or perform real estate services. We explain your options and connect you with qualified attorneys and real estate professionals who do this work every day.'
+              a: 'No. We are an independent educational resource. We do not provide legal advice, negotiate with lenders, or perform real estate services, and we are not affiliated with any company we mention. We explain your options and point you toward people who do this work.'
             },
             {
-              q: 'Do I have to use one of your referral partners?',
-              a: 'No. You can find your own attorney or company anywhere. Our assessment helps you understand which solution fits your situation, then you can work with any professional you choose. We just make it easy if you want vetted options.'
+              q: 'Do I have to use any of the companies you list?',
+              a: 'No, and we have no financial reason to prefer that you do. You can find your own attorney or company anywhere, and we would encourage you to compare. The assessment is there to help you understand which type of solution fits your situation. What you do with that is entirely yours.'
             },
             {
               q: 'How quickly can I get connected?',
@@ -560,7 +544,7 @@ export default function Home() {
           <div className="border-t border-white/5 pt-8 text-center text-xs text-slate-600 space-y-3">
             <p>&copy; 2026 NJ Foreclosure Guide. All rights reserved.</p>
             <p className="italic leading-relaxed max-w-4xl mx-auto">
-              IMPORTANT DISCLAIMER: NJ Foreclosure Guide is a FREE educational resource only. We are NOT a law firm, lender, or real estate company. We do NOT provide legal advice, financial advice, or negotiate with lenders. We do NOT perform any foreclosure solutions ourselves. We simply explain 7 options and connect you with attorneys and real estate professionals who provide these services. Some home-buying partners pay us a referral fee if you sell to them; we are not paid by attorneys or by the free resources we recommend, and you are never charged. All outcomes depend entirely on your situation and the professionals you work with. Always consult licensed professionals. This site is for education only.
+              IMPORTANT DISCLAIMER: NJ Foreclosure Guide is a FREE educational resource only. We are NOT a law firm, lender, or real estate company. We do NOT provide legal advice, financial advice, or negotiate with lenders. We do NOT perform any foreclosure solutions ourselves. We simply explain 7 options and connect you with attorneys and real estate professionals who provide these services. We are paid by nobody: no referral fees, no commissions, no advertising money, and no affiliation with any company mentioned. You are never charged. All outcomes depend entirely on your situation and the professionals you work with. Always consult licensed professionals. This site is for education only.
             </p>
           </div>
         </div>

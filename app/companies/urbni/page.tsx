@@ -42,8 +42,7 @@ export default function UrbniPage() {
       <section className="max-w-3xl mx-auto px-4 pt-10">
         <div className="rounded-xl border border-emerald-300 bg-emerald-50 p-5">
           <p className="text-sm text-emerald-900 leading-relaxed">
-            <span className="font-bold">How we are paid on this one: we are not.</span> Urbni is a nonprofit and we receive no referral fee, no commission, and no compensation of any kind if you donate to them. They are listed here because for some property owners this is genuinely the best outcome available, not because it earns us anything.
-          </p>
+            <span className="font-bold">Our relationship with them: none.</span> Urbni is a nonprofit. We receive no referral fee, no commission, and no compensation of any kind if you donate to them, and we are not affiliated with them. They are listed here because for some property owners this is genuinely the best outcome available, not because it earns us anything. That is true of everything on this site.</p>
         </div>
       </section>
 
@@ -172,7 +171,7 @@ export default function UrbniPage() {
       <footer className="bg-slate-950 text-slate-500 py-10 px-4 text-center text-xs">
         <p className="mb-2">&copy; 2026 NJ Foreclosure Guide. All rights reserved.</p>
         <p className="max-w-2xl mx-auto leading-relaxed">
-          Educational resource only. Not a law firm, lender, or real estate company. Some home-buying partners pay us a referral fee; we are not paid by attorneys or by nonprofits, and you are never charged.
+          Independent educational resource. Not a law firm, lender, or real estate company. We are paid by nobody: no referral fees, no commissions, no advertising money, and no affiliation with any company listed. You are never charged.
         </p>
       </footer>
     </div>

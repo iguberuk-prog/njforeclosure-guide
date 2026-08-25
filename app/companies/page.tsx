@@ -5,7 +5,7 @@ import { PARTNERS, COMPENSATION_LABEL, type Partner } from '../../lib/partners';
 export const metadata: Metadata = {
   title: 'Where to Get Help With a NJ Foreclosure | Every Option Compared',
   description:
-    'Every destination we refer New Jersey homeowners to, compared side by side: fast cash buyers, fire damage specialists, luxury off-market sales, a licensed brokerage valuation, nonprofit donation, and free government help. What each is for and exactly how we are paid.',
+    'Where New Jersey homeowners facing foreclosure can get help, compared side by side: fast cash buyers, fire damage specialists, luxury off-market sales, nonprofit donation, and free government counseling and court mediation. What each is actually for. We are paid by none of them.',
   alternates: { canonical: 'https://njforeclosureguide.org/companies/' },
 };
 
@@ -17,7 +17,6 @@ const PAGE_PATHS: Record<string, string> = {
   'private-sale-group': '/companies/private-sale-group',
   'clik-offer': '/companies/clik-offer',
   urbni: '/companies/urbni',
-  'brc-corcoran-sawyer-smith': '/companies/brc-corcoran-sawyer-smith',
 };
 
 const WHEN_TO_USE: Record<string, string> = {
@@ -25,30 +24,19 @@ const WHEN_TO_USE: Record<string, string> = {
   'nj-offer': 'You need certainty but have a few weeks',
   'fire-home-buyers': 'The property has fire or smoke damage',
   'private-sale-group': 'Home is $800k+ and privacy matters',
-  'brc-corcoran-sawyer-smith': 'You want to know what it is worth first',
   urbni: 'The property is a burden with little or no equity',
   'hud-counseling': 'You want free, unbiased help before deciding',
   'nj-foreclosure-mediation': 'A foreclosure complaint has been filed',
 };
 
 function Badge({ p }: { p: Partner }) {
-  if (p.compensation === 'no-compensation') {
-    return (
-      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 border border-emerald-300 rounded-full px-2.5 py-1 whitespace-nowrap">
-        Free · We earn nothing
-      </span>
-    );
-  }
-  if (p.compensation === 'affiliated') {
-    return (
-      <span className="text-[10px] font-bold uppercase tracking-wider text-blue-800 bg-blue-100 border border-blue-300 rounded-full px-2.5 py-1 whitespace-nowrap">
-        Affiliated with us
-      </span>
-    );
-  }
+  // Every destination on this site is unpaid and unaffiliated, so there is only
+  // one badge. It stays a function so the card layout does not change if that
+  // ever needs to vary again.
+  void p;
   return (
-    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 bg-slate-100 border border-slate-300 rounded-full px-2.5 py-1 whitespace-nowrap">
-      Referral partner
+    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 border border-emerald-300 rounded-full px-2.5 py-1 whitespace-nowrap">
+      We earn nothing
     </span>
   );
 }
@@ -58,7 +46,7 @@ function Card({ p }: { p: Partner }) {
   return (
     <div
       className={`rounded-2xl border p-7 flex flex-col ${
-        p.compensation === 'no-compensation' ? 'border-emerald-200 bg-emerald-50/40' : 'border-slate-200 bg-white'
+        'border-emerald-200 bg-emerald-50/40'
       }`}
     >
       <div className="flex items-start justify-between gap-3 mb-3">
@@ -146,7 +134,7 @@ export default function CompaniesPage() {
           <p className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase mb-4">Every Option, Side by Side</p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">Where to Get Help</h1>
           <p className="text-slate-300 text-lg leading-relaxed mb-8">
-            These are the places we send New Jersey homeowners. They are not interchangeable, and choosing the right one is most of the decision. Here is what each is actually for, and exactly how we are paid in each case.
+            These are places New Jersey homeowners can go for help. They are not interchangeable, and choosing the right one is most of the decision. Here is what each is actually for. We are paid by none of them.
           </p>
           <Link
             href="/quiz"
@@ -209,11 +197,11 @@ export default function CompaniesPage() {
           <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">How We Make Money, Plainly</h2>
           <div className="space-y-3 text-slate-600 text-sm leading-relaxed">
             <p>
-              Some of the home-buying companies above pay us a referral fee if you sell to them. One is an affiliated business, meaning the people behind this guide are connected to it, and that is labeled on its card and on its page. We are not paid by attorneys, we are not paid by the nonprofit, and we are not paid by the free government resources.
+              We do not. Not from anything on this page. No referral fees, no commissions, no advertising money, and no ownership or affiliation with any company listed here. If you sell to one of these buyers, we receive nothing. If you never contact any of them, we receive nothing. It is the same either way.
             </p>
             <p>You are never charged anything by us, at any point, for anything.</p>
             <p className="text-slate-900 font-semibold">
-              Every set of recommendations we give you includes at least one option that earns us nothing. That is deliberate, and it is the reason you can trust the rest of the list.
+              That is the entire design. Because no outcome pays us more than any other, the ordering reflects what we think fits your situation and nothing else. Compare these against options you find on your own, and get more than one offer before you commit to anything.
             </p>
           </div>
         </div>
@@ -224,7 +212,7 @@ export default function CompaniesPage() {
         <div className="rounded-2xl bg-slate-950 text-white px-8 py-12 text-center">
           <h2 className="font-serif text-2xl font-bold mb-3">Not Sure Which One Fits?</h2>
           <p className="text-slate-300 mb-8 text-sm leading-relaxed max-w-xl mx-auto">
-            Answer a few questions and we will rank these for your exact situation, starting with how much time you actually have.
+            Answer a few questions and we will rank these for your situation, starting with how much time you actually have. We earn nothing regardless of which you pick.
           </p>
           <Link href="/quiz" className="inline-block bg-amber-400 text-slate-950 px-12 py-4 rounded-lg font-bold hover:bg-amber-300 transition text-lg">
             Get My Recommendations
@@ -235,7 +223,7 @@ export default function CompaniesPage() {
       <footer className="bg-slate-950 text-slate-500 py-10 px-4 text-center text-xs">
         <p className="mb-2">&copy; 2026 NJ Foreclosure Guide. All rights reserved.</p>
         <p className="max-w-2xl mx-auto leading-relaxed">
-          Educational resource only. Not a law firm, lender, or real estate company. Some partners pay us a referral fee and one is an affiliated business, both disclosed. We are not paid by attorneys or nonprofits, and you are never charged.
+          Independent educational resource. Not a law firm, lender, or real estate company. We are paid by nobody: no referral fees, no commissions, no advertising money, and no affiliation with any company listed. You are never charged.
         </p>
       </footer>
     </div>

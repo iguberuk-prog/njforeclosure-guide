@@ -74,10 +74,9 @@ export default function DisclaimerPage() {
 
       <Section title="Referrals and compensation">
         <p>
-          Some home-buying companies we refer you to pay us a referral fee if you sell to them, and one destination is an
-          affiliated business, labeled wherever it appears. We are not paid by attorneys, nonprofits, or the free
-          resources we recommend. Every set of recommendations we give includes at least one option that earns us
-          nothing. The full breakdown is on the{' '}
+          We are paid by nobody. No referral fees, no commissions, no advertising money, and no ownership or affiliation
+          with any company, attorney, nonprofit, or government resource mentioned on this site. We receive nothing
+          regardless of what you decide to do. The full breakdown is on the{' '}
           <Link href="/companies" className="text-amber-700 font-semibold underline underline-offset-2">
             options page
           </Link>

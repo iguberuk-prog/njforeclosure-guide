@@ -35,10 +35,10 @@ export default function Professionals() {
         ></div>
         <div className="absolute inset-0 bg-slate-950/80"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10 py-28 px-4 text-white">
-          <p className="text-amber-400 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Vetted. Licensed. Experienced.</p>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">Our Professional Network</h1>
+          <p className="text-amber-400 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Independent. Unpaid. No Stake in Your Choice.</p>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">Where to Get Help</h1>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            When you're ready to move forward, we connect you with vetted professionals who specialize in foreclosure solutions. We only list destinations that are real and currently available, and we tell you on every one whether we are paid for the referral.
+            When you're ready to move forward, here are the places that handle this work. We only list destinations that are real and currently available, and we are not paid by any of them.
           </p>
         </div>
       </section>
@@ -125,7 +125,7 @@ export default function Professionals() {
             {
               step: '5',
               title: 'You Control the Process',
-              description: 'You can work with our referral partners, find your own professional elsewhere, or explore solutions on your own. It\'s always your choice.'
+              description: 'You can contact anyone listed here, find your own professional elsewhere, or explore solutions on your own. We earn nothing either way, so it is genuinely your choice.'
             },
           ].map((item, idx) => (
             <div key={idx} className="flex gap-6">

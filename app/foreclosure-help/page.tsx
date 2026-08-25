@@ -83,7 +83,7 @@ export default function ForeclosureHelpIndex() {
       <footer className="bg-slate-950 text-slate-500 py-10 px-4 text-center text-xs">
         <p className="mb-2">© 2026 NJ Foreclosure Guide. All rights reserved.</p>
         <p className="max-w-2xl mx-auto leading-relaxed">
-          Educational resource only. Not a law firm, lender, or real estate company. We connect homeowners with licensed professionals and earn referral fees from partners.
+          Independent educational resource. Not a law firm, lender, or real estate company. We are paid by nobody: no referral fees, no commissions, no advertising money, and no affiliation with any company listed. You are never charged.
         </p>
       </footer>
     </div>

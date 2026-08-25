@@ -27,7 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/companies/private-sale-group',
     '/companies/urbni',
     '/companies/clik-offer',
-    '/companies/brc-corcoran-sawyer-smith',
     '/privacy',
     '/terms',
     '/disclaimer',

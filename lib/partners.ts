@@ -64,10 +64,18 @@ export interface Partner {
     counties?: string[];
   };
   /**
-   * REQUIRED. Exact compensation relationship, shown to the homeowner on the
-   * recommendation card. If you are paid, it says so, in plain words.
+   * Deliberately narrowed to a single value.
+   *
+   * This site takes no referral fees, no commissions, and no advertising money
+   * from anything it recommends, and says so on every page. Narrowing the type
+   * means that promise cannot be quietly broken by editing one entry: adding a
+   * paid destination would be a compile error, forcing whoever does it to also
+   * change the sitewide disclosures. That is the point.
+   *
+   * If the model ever changes, widen this type AND update every disclosure
+   * surface listed in DISCLOSURE_SURFACES below. Not one without the other.
    */
-  compensation: 'paid-referral' | 'paid-advertising' | 'no-compensation' | 'affiliated';
+  compensation: 'no-compensation';
   /** Set true only when the agreement is signed and details are verified. */
   active: boolean;
 }
@@ -131,7 +139,7 @@ export const PARTNERS: Partner[] = [
       conditions: ['fire'],
       goals: ['sell', 'unsure'],
     },
-    compensation: 'paid-referral',
+    compensation: 'no-compensation',
     active: true,
   },
   {
@@ -155,7 +163,7 @@ export const PARTNERS: Partner[] = [
       goals: ['sell', 'unsure'],
       timelines: ['asap', 'weeks', 'flexible'],
     },
-    compensation: 'paid-referral',
+    compensation: 'no-compensation',
     active: true,
   },
   {
@@ -180,7 +188,7 @@ export const PARTNERS: Partner[] = [
       homeValues: ['800k-1.5m', 'over1.5m'],
       goals: ['sell', 'unsure'],
     },
-    compensation: 'paid-referral',
+    compensation: 'no-compensation',
     active: true,
   },
   {
@@ -202,7 +210,7 @@ export const PARTNERS: Partner[] = [
       goals: ['sell', 'unsure'],
       timelines: ['asap'],
     },
-    compensation: 'paid-referral',
+    compensation: 'no-compensation',
     active: true,
   },
   {
@@ -231,28 +239,19 @@ export const PARTNERS: Partner[] = [
     compensation: 'no-compensation',
     active: true,
   },
-  {
-    id: 'brc-corcoran-sawyer-smith',
-    name: 'Corcoran Sawyer Smith x Builders Resource Center',
-    url: 'https://brcnj.com',
-    headline: 'Licensed brokerage for a home valuation and a traditional listing on the open market.',
-    description:
-      'A full-service New Jersey brokerage headquartered in Livingston and working in every county, covering residential sales, land and development, and new construction. Start with a consultation and a valuation of your home. Knowing what the property is actually worth is the foundation of every other decision you make, because it tells you whether you have equity worth protecting, whether a short sale is even relevant, and whether listing beats a cash offer.',
-    kind: 'sell-market',
-    bestFor: [
-      'You want to know what your home is really worth',
-      'You have time to sell on the open market',
-      'You want the highest likely price, not the fastest close',
-      'Land, new construction, or development property',
-    ],
-    timeline: 'Consultation and valuation first, then a market listing',
-    match: {
-      goals: ['sell', 'unsure'],
-      timelines: ['weeks', 'flexible', 'no-rush'],
-    },
-    compensation: 'affiliated',
-    active: true,
-  },
+  // -------------------------------------------------------------------------
+  // REMOVED: Corcoran Sawyer Smith x Builders Resource Center.
+  //
+  // This site states plainly that it has no affiliation with anything it
+  // recommends. The people running this site are affiliated with that
+  // brokerage, so recommending it would have made that statement false.
+  // Removed rather than disclosed, because the independence claim is the
+  // whole point of this resource.
+  //
+  // Homeowners who need a valuation or a market listing are now pointed at
+  // the CATEGORY of help and told how to choose an agent themselves, which
+  // is in getMarketListingGuidance() below.
+  // -------------------------------------------------------------------------
 
   // ---------------------------------------------------------------------------
   // RESERVED SLOT: foreclosure defense attorney.
@@ -415,11 +414,55 @@ export function matchPartners(answers: Answers): Match[] {
 }
 
 export const COMPENSATION_LABEL: Record<Partner['compensation'], string> = {
-  affiliated:
-    'Common ownership: the people behind this guide are affiliated with this company. Disclosed so you can weigh the recommendation accordingly.',
-  'paid-referral': 'We receive a referral fee if you work with them. You are never charged.',
-  'paid-advertising': 'They pay a flat advertising fee to appear here. You are never charged.',
-  'no-compensation': 'We receive nothing if you contact them. Listed because it may help you.',
+  'no-compensation':
+    'We are not paid by them, not affiliated with them, and receive nothing if you contact them. Listed only because it may help you.',
+};
+
+/**
+ * The single independence statement. Every page that recommends anything reads
+ * from this, so the claim cannot drift between pages.
+ */
+export const INDEPENDENCE_STATEMENT =
+  'We are not paid by anyone listed on this site. No referral fees, no commissions, no advertising money, and no ownership or affiliation with any company we mention. We have nothing to gain from which option you choose, which is the entire reason this resource exists.';
+
+/**
+ * Every place the independence claim appears. If the compensation model ever
+ * changes, all of these have to change together.
+ */
+export const DISCLOSURE_SURFACES = [
+  'app/components/CallBand.tsx',
+  'app/components/MarsNotice.tsx',
+  'app/page.tsx',
+  'app/quiz/page.tsx',
+  'app/companies/page.tsx',
+  'app/companies/*/page.tsx',
+  'app/professionals/page.tsx',
+  'app/privacy/page.tsx',
+  'app/terms/page.tsx',
+  'app/disclaimer/page.tsx',
+  'public/llms.txt',
+] as const;
+
+/**
+ * Guidance for someone who wants a traditional market listing.
+ *
+ * There is deliberately no brokerage recommended here. The site previously
+ * pointed at a brokerage the operators are affiliated with, which contradicted
+ * the independence claim, so it was removed. Homeowners get the criteria to
+ * choose an agent themselves instead.
+ */
+export const MARKET_LISTING_GUIDANCE = {
+  title: 'Listing on the open market',
+  summary:
+    'If you have equity and enough time before a sale date, listing normally almost always nets more than a cash offer, even after commission. We do not recommend a specific brokerage and we are not paid by any agent.',
+  howToChoose: [
+    'Interview at least three agents and ask each for a written comparative market analysis, not a verbal estimate.',
+    'Ask directly how many foreclosure or pre-foreclosure sales they have closed and how they handled the timeline.',
+    'Ask what happens if the home does not sell before your sale date, and get the answer before you sign.',
+    'Confirm the listing agreement length and how to cancel it. A short initial term protects you.',
+    'Verify the license at the New Jersey Real Estate Commission before signing anything.',
+  ],
+  verifyUrl: 'https://www.nj.gov/dobi/division_rec/index.htm',
 };
 
 // ---------------------------------------------------------------------------

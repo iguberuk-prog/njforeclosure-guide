@@ -43,10 +43,14 @@ export default function TermsPage() {
 
       <Section title="Referrals and how we are paid">
         <p>
-          Some home-buying companies we refer you to pay us a referral fee if you sell to them. One destination is an
-          affiliated business, meaning the people behind this guide are connected to it, and that is labeled wherever it
-          appears. We are not paid by attorneys, nonprofits, or the free government resources we recommend. You are never
-          charged anything by us.
+          We are paid by nobody. We take no referral fees, no commissions, and no advertising money from any company,
+          attorney, nonprofit, or government resource mentioned on this site, and we have no ownership interest in or
+          affiliation with any of them. If you sell to a company listed here, we receive nothing. If you never contact
+          any of them, we receive nothing. You are never charged anything by us either.
+        </p>
+        <p>
+          Because no outcome compensates us more than another, nothing on this site is ordered or worded to move you
+          toward a particular choice. You should still compare any offer against alternatives you find independently.
         </p>
         <p>
           We do not charge you any fee, at any point, for anything, including for information, the assessment, or an

@@ -42,8 +42,7 @@ export default function NJOfferPage() {
       <section className="max-w-3xl mx-auto px-4 pt-10">
         <div className="rounded-xl border border-amber-300 bg-amber-50 p-5">
           <p className="text-sm text-amber-900 leading-relaxed">
-            <span className="font-bold">How we are paid:</span> NJ Offer is a referral partner, which means we receive a fee if you sell to them. You are never charged anything. Get more than one number before you commit. Nothing on this page is an appraisal, a valuation, or advice to accept any particular offer.
-          </p>
+            <span className="font-bold">Our relationship with them: none.</span> We are not paid by NJ Offer, we are not affiliated with them, and we receive nothing whether you contact them or not. They are listed because they may fit some situations. Get more than one number before you commit. Nothing on this page is an appraisal, a valuation, or advice to accept any particular offer.</p>
         </div>
       </section>
 
@@ -188,14 +187,14 @@ export default function NJOfferPage() {
         </div>
 
         <p className="text-xs text-slate-400 mt-8 leading-relaxed text-center max-w-2xl mx-auto">
-          NJ Foreclosure Guide is an educational resource and is not affiliated with NJ Offer beyond a referral relationship. We are not a law firm, lender, or real estate brokerage, and nothing here is legal, tax, or financial advice. Details are drawn from NJ Offer&apos;s public website and may change. Confirm all terms directly with them and have an attorney review any offer before you sign.
+          NJ Foreclosure Guide is an independent educational resource. We have no affiliation, referral relationship, or financial arrangement of any kind with NJ Offer. We are not a law firm, lender, or real estate brokerage, and nothing here is legal, tax, or financial advice. Details are drawn from NJ Offer&apos;s public website and may change. Confirm all terms directly with them and have an attorney review any offer before you sign.
         </p>
       </section>
 
       <footer className="bg-slate-950 text-slate-500 py-10 px-4 text-center text-xs">
         <p className="mb-2">&copy; 2026 NJ Foreclosure Guide. All rights reserved.</p>
         <p className="max-w-2xl mx-auto leading-relaxed">
-          Educational resource only. Not a law firm, lender, or real estate company. Some home-buying partners pay us a referral fee; we are not paid by attorneys, and you are never charged.
+          Independent educational resource. Not a law firm, lender, or real estate company. We are paid by nobody: no referral fees, no commissions, no advertising money, and no affiliation with any company listed. You are never charged.
         </p>
       </footer>
     </div>

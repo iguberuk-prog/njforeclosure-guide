@@ -8,7 +8,7 @@ export const FAQSchema = () => {
         "name": "Is this service really free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Our assessment and guidance are completely free. We make money when you work with one of our partner companies, not before."
+          "text": "Yes, and there is no catch. We are paid by nobody. No referral fees, no commissions, no advertising money, and no affiliation with any company we mention. Nothing is ever charged to you."
         }
       },
       {
@@ -16,7 +16,7 @@ export const FAQSchema = () => {
         "name": "Will this hurt my credit?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You already have a foreclosure notice, so your credit has been affected. Our solutions can help prevent further damage and some options actually help rebuild credit faster."
+          "text": "Missed payments and a foreclosure filing affect credit on their own. Acting earlier generally limits further damage, but the effect depends on your specific situation and none of the options here erase what has already been reported."
         }
       },
       {
@@ -24,7 +24,7 @@ export const FAQSchema = () => {
         "name": "Do I have to sell my house?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Most solutions help you keep your home. A cash sale is only one of seven options, and only if you choose it."
+          "text": "No. Several options are aimed at keeping the home, including loan modification, forbearance, reinstatement, the New Jersey court mediation program, and Chapter 13. Selling is one path among several and only if you choose it."
         }
       },
       {
@@ -32,7 +32,7 @@ export const FAQSchema = () => {
         "name": "How quickly can I get help?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Take the assessment today (2 minutes) and get matched with solutions immediately. If you need a cash offer, qualified companies can provide one within 24 hours."
+          "text": "The assessment takes about two minutes and shows your options immediately. A free HUD-approved housing counselor can usually be reached the same week, and the New Jersey court mediation program runs alongside a filed case."
         }
       },
       {
@@ -40,7 +40,7 @@ export const FAQSchema = () => {
         "name": "Is my information confidential?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Completely. We don't share your information without permission. Everything you tell us stays private."
+          "text": "We do not sell your information and we do not share it with anyone unless you specifically ask us to make an introduction. See the privacy policy for exactly what is collected and how long it is kept."
         }
       },
       {
@@ -48,7 +48,7 @@ export const FAQSchema = () => {
         "name": "What if I cannot afford any solutions?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We will show you every option available, including government programs and non-profit assistance you might not know about."
+          "text": "Several of the strongest options cost nothing. HUD-approved housing counseling is free, the New Jersey foreclosure mediation program is free for eligible homeowners, and free legal assistance may be available alongside it."
         }
       }
     ]
@@ -70,8 +70,7 @@ export const OrganizationSchema = () => {
     "name": "NJ Foreclosure Guide",
     "url": "https://njforeclosureguide.org",
     "logo": "https://njforeclosureguide.org/images/logo-nj-foreclosure-guide.jpg",
-    "description": "Free guidance and solutions for New Jersey homeowners facing foreclosure",
-    "telephone": "+1-908-603-1100",
+    "description": "Independent educational resource for New Jersey homeowners facing foreclosure. Paid by nobody and affiliated with nobody.",
     "email": "help@njforeclosureguide.org",
     "sameAs": [
       "https://njforeclosureguide.org"
@@ -84,7 +83,6 @@ export const OrganizationSchema = () => {
       {
         "@type": "ContactPoint",
         "contactType": "Customer Service",
-        "telephone": "+1-908-603-1100",
         "email": "help@njforeclosureguide.org",
         "areaServed": "US-NJ",
         "availableLanguage": ["English", "Spanish"]
@@ -100,9 +98,9 @@ export const OrganizationSchema = () => {
   );
 };
 
-// ProfessionalService carries the phone, service area, and hours that local and
-// AI search surfaces read. No street address is claimed, because this is a
-// statewide online resource rather than a walk-in office.
+// ProfessionalService carries the service area and topic expertise that local
+// and AI search surfaces read. No telephone and no street address are claimed,
+// because this is a statewide online resource with no phone line and no office.
 export const LocalBusinessSchema = () => {
   const data = {
     "@context": "https://schema.org",
@@ -113,8 +111,7 @@ export const LocalBusinessSchema = () => {
     "image": "https://njforeclosureguide.org/images/logo-nj-foreclosure-guide.jpg",
     "logo": "https://njforeclosureguide.org/images/logo-nj-foreclosure-guide.jpg",
     "description":
-      "Free educational resource for New Jersey homeowners facing foreclosure. Explains the NJ judicial foreclosure timeline and connects homeowners with HUD counselors, the state mediation program, attorneys, cash buyers, and listing agents.",
-    "telephone": "+1-908-603-1100",
+      "Independent, free educational resource for New Jersey homeowners facing foreclosure. Explains the New Jersey judicial foreclosure timeline and the options available at each stage. Takes no referral fees, commissions, or advertising money, and has no affiliation with any company it mentions.",
     "email": "help@njforeclosureguide.org",
     "priceRange": "Free",
     "areaServed": {
@@ -126,20 +123,6 @@ export const LocalBusinessSchema = () => {
       "addressRegion": "NJ",
       "addressCountry": "US"
     },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Saturday"],
-        "opens": "10:00",
-        "closes": "14:00"
-      }
-    ],
     "knowsAbout": [
       "New Jersey Fair Foreclosure Act",
       "Notice of Intention to Foreclose",

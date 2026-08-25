@@ -85,14 +85,14 @@ export default function PrivacyPage() {
 
       <Section title="How we make money">
         <p>
-          Some home-buying companies we refer you to pay us a referral fee if you sell to them. One destination on this
-          site is an affiliated business, which is labeled wherever it appears. We are not paid by attorneys, we are not
-          paid by nonprofits, and we are not paid by the free government resources we point you to. You are never charged
-          anything by us.
+          We are paid by nobody. No referral fees, no commissions, no advertising money, and no ownership or affiliation
+          with any company, attorney, nonprofit, or government resource mentioned on this site. You are never charged
+          anything by us either.
         </p>
         <p>
           We tell you this in a privacy policy because how a company earns its money is the clearest signal of what it
-          might do with your information. Ours comes from partners who succeed with you, not from selling your data.
+          might do with your information. A site that is paid per lead has a reason to pass your details around. We are
+          not paid per lead, or at all, so we have no such reason. We do not sell your data.
         </p>
       </Section>
 

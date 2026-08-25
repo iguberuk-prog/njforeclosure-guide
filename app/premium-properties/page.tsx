@@ -215,7 +215,7 @@ export default function PremiumPropertiesPage() {
 
         <div className="rounded-xl border border-amber-400/30 bg-amber-400/[0.06] p-5 mb-8">
           <p className="text-sm text-amber-200/90 leading-relaxed">
-            <span className="font-bold">How we are paid:</span> Private Sale Group is a referral partner and we receive a fee if you sell through them. You are never charged. At this price point, get more than one number before you commit. Nothing here is an appraisal, a valuation, or advice to accept any offer.
+            <span className="font-bold">Our relationship with them: none.</span> We are not paid by Private Sale Group, we are not affiliated with them, and we receive nothing whether you contact them or not. At this price point especially, get more than one number before you commit. Nothing here is an appraisal, a valuation, or advice to accept any offer.
           </p>
         </div>
 

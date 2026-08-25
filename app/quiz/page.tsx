@@ -3,28 +3,41 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { matchPartners, COMPENSATION_LABEL, type Answers } from '../../lib/partners';
-import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL, RESPONSE_PROMISE } from '../../lib/contact';
+import { SITE_EMAIL, RESPONSE_PROMISE } from '../../lib/contact';
 
 /**
- * Escape hatch. Someone with a sale date next week should not have to finish six
- * questions to reach a human. Shown on every step of the assessment.
+ * Escape hatch. Someone with a sale date next week should not have to finish
+ * six questions to get help. There is no phone line on this site, so this
+ * routes to email and to the free options that need no introduction from us.
  */
 function CallInstead({ note }: { note?: string }) {
   return (
     <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 px-5 py-4">
       <p className="text-sm text-slate-700 leading-relaxed mb-3">
-        {note ?? 'In a hurry, or would rather just talk to someone? Skip the questions and call.'}
+        {note ?? 'In a hurry, or would rather not answer questions? Two things you can do right now.'}
       </p>
-      <a
-        href={`tel:${SITE_PHONE_TEL}`}
-        className="inline-flex items-center gap-2 font-bold text-slate-900 hover:text-amber-700 transition"
-      >
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-100 border border-amber-300 text-amber-700">
-          &#9742;
-        </span>
-        {SITE_PHONE_DISPLAY}
-      </a>
-      <p className="text-xs text-slate-500 mt-2">{RESPONSE_PROMISE}</p>
+      <div className="space-y-2 text-sm">
+        <p>
+          <a
+            href="https://www.hud.gov/i_want_to/talk_to_a_housing_counselor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-slate-900 underline underline-offset-2 hover:text-amber-700"
+          >
+            Call a free HUD-approved counselor
+          </a>{' '}
+          <span className="text-slate-500">Government approved, free, and not selling anything.</span>
+        </p>
+        <p>
+          <a
+            href={`mailto:${SITE_EMAIL}`}
+            className="font-bold text-slate-900 underline underline-offset-2 hover:text-amber-700"
+          >
+            Email us directly
+          </a>{' '}
+          <span className="text-slate-500">{RESPONSE_PROMISE}</span>
+        </p>
+      </div>
     </div>
   );
 }
@@ -317,16 +330,9 @@ export default function QuizPage() {
                         )}
                         <div className="flex items-start justify-between gap-4 mb-1">
                           <h3 className="font-bold text-slate-900">{partner.name}</h3>
-                          {partner.compensation === 'no-compensation' && (
-                            <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 border border-emerald-300 rounded-full px-2.5 py-1">
-                              Free · We earn nothing
-                            </span>
-                          )}
-                          {partner.compensation === 'affiliated' && (
-                            <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wider text-blue-800 bg-blue-100 border border-blue-300 rounded-full px-2.5 py-1">
-                              Affiliated with us
-                            </span>
-                          )}
+                          <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 border border-emerald-300 rounded-full px-2.5 py-1">
+                            We earn nothing
+                          </span>
                         </div>
                         <p className="text-slate-700 text-sm mb-3">{partner.headline}</p>
                         <p className="text-slate-600 text-sm mb-4 leading-relaxed">{partner.description}</p>
