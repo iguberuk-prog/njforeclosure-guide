@@ -38,17 +38,12 @@ export default function Professionals() {
           <p className="text-amber-400 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Vetted. Licensed. Experienced.</p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">Our Professional Network</h1>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            When you're ready to move forward, we connect you with vetted professionals who specialize in foreclosure solutions. Every attorney and real estate partner in our network is licensed, experienced, and committed to helping homeowners navigate their options.
+            When you're ready to move forward, we connect you with vetted professionals who specialize in foreclosure solutions. We only list destinations that are real and currently available, and we tell you on every one whether we are paid for the referral.
           </p>
         </div>
       </section>
 
       {/* Trust banner */}
-      <section className="bg-slate-950 py-12 px-4 border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <img src="/images/trusted-badge-premium.png" alt="Trusted by 2300+ NJ Families" className="w-full max-w-2xl mx-auto rounded-xl shadow-2xl ring-1 ring-amber-400/30" />
-        </div>
-      </section>
 
       {/* Honest state of the network */}
       <section className="max-w-4xl mx-auto px-4 py-16">
@@ -166,9 +161,6 @@ export default function Professionals() {
       <footer className="bg-gray-900 text-gray-300 py-16 mt-12 border-t border-gray-700">
         <div className="max-w-6xl mx-auto px-4">
           {/* Verification Badge */}
-          <div className="flex justify-center mb-8">
-            <img src="/images/verified-badge.png" alt="Verified - Trusted by 2300+ NJ Families" className="h-24 w-24 drop-shadow-lg" />
-          </div>
 
           <div className="flex items-center justify-center gap-4 mb-8">
             <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-20 w-20" />

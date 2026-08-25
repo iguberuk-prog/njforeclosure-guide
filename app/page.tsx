@@ -1,56 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FAQSchema, OrganizationSchema } from './schema';
 
-// Sample reviews from NJ towns. Connected with professionals
-const njTownReviews = [
-  { town: 'Newark', quote: 'Facing foreclosure in 90 days. NJ Foreclosure Guide connected us with a lawyer who negotiated a loan modification. We kept our home. Grateful.', rating: 5 },
-  { town: 'Jersey City', quote: 'Lost my job. Guide helped me understand my options, connected me with a real estate company to sell quickly. Got out debt-free in 2 weeks.', rating: 5 },
-  { town: 'Paterson', quote: 'Divorce made things complex. Guide explained my options clearly, connected me with professionals who handled the sale. Closed in 18 days.', rating: 5 },
-  { town: 'Elizabeth', quote: 'The resource guide showed me bankruptcy was an option. Connected me with attorney who restructured my debt and protected my home.', rating: 5 },
-  { town: 'Trenton', quote: 'Behind on payments. Guide connected me with lender who approved forbearance. Gave me 6 months to get back on my feet.', rating: 5 },
-  { town: 'Atlantic City', quote: 'After medical emergency drained savings, guide showed refinancing option. Connected me with lender and saved $400 a month.', rating: 5 },
-  { town: 'Camden', quote: 'Didn\'t qualify for traditional refinancing. Guide explained home equity options and connected me with specialist. Saved my home.', rating: 5 },
-  { town: 'Irvington', quote: 'Foreclosure notice terrified me. Used the guide, got clear on my 7 options in 2 minutes. Connected with right professional. Best decision.', rating: 5 },
-  { town: 'Clifton', quote: 'Guide walked me through short sale process. Connected me with approved buyer. Lender approved. I got $20k instead of losing everything.', rating: 5 },
-  { town: 'Passaic', quote: '$8k behind in payments. Guide connected me with mortgage specialist who modified my loan to manageable level. Can breathe again.', rating: 5 },
-  { town: 'East Orange', quote: 'Worried about credit damage. Guide connected me with lawyer who showed how different solutions affect credit. Clear path forward.', rating: 5 },
-  { town: 'West Orange', quote: 'Confused about options. Used guide to understand solutions, then connected with a specialist. Found best fit in 2 minutes. Peace of mind.', rating: 5 },
-  { town: 'Montclair', quote: 'Company downsized me. Guide explained cash sale option and connected me with buyer. Got fresh start within weeks.', rating: 5 },
-  { town: 'Bloomfield', quote: 'Late fees piling up. Guide explained forbearance. Connected me with lender, payments paused while I stabilized. Kept my home.', rating: 5 },
-  { town: 'Belleville', quote: '3 months behind. Guide laid out options clearly. Connected with right professional instantly. Professional, compassionate guidance throughout.', rating: 5 },
-  { town: 'Nutley', quote: 'Divorce complicated foreclosure. Guide explained short sale process. Connected me with realtor, handled cleanly without judgment.', rating: 5 },
-  { town: 'Kearny', quote: 'Unemployment benefits ended. Guide showed cash sale option. Connected with buyer, got through transition fast. Saved credit score.', rating: 5 },
-  { town: 'Union', quote: 'Multiple loans on property. Guide showed home equity consolidation option. Connected me with specialist, simplified everything.', rating: 5 },
-  { town: 'Linden', quote: 'Thought foreclosure was inevitable. Guide showed refinancing option. Connected with lender, hope came back. Kept our home.', rating: 5 },
-  { town: 'Rahway', quote: 'Missed 6 months of payments. Guide explained options. Connected with attorney who negotiated loan modification. Back on track.', rating: 5 },
-  { town: 'Perth Amboy', quote: 'Business partner fraud. Guide connected me with real estate professional for quick sale, moved forward cleanly and fast.', rating: 5 },
-  { town: 'Woodbridge', quote: 'Health crisis caused payments to fall behind. Guide connected me with cash buyer. Sold quickly, stress-free transition.', rating: 5 },
-  { town: 'New Brunswick', quote: 'Drowning in debt. Guide explained bankruptcy chapter 13. Connected me with attorney, restructured responsibly. Real solution.', rating: 5 },
-  { town: 'Princeton', quote: 'Property value dropped. Guide explained short sale, connected me with realtor. Process was clear and professional.', rating: 5 },
-  { town: 'Trenton', quote: 'Two foreclosure notices. Guide connected me with attorney who negotiated forbearance. Payment plan works perfectly now.', rating: 5 },
-  { town: 'Morristown', quote: 'Struggled alone for months. Used guide to understand options. One connection to right professional changed everything.', rating: 5 },
-  { town: 'Madison', quote: 'Pandemic income loss. Guide showed loan modification path. Connected with lender, approved in 2 weeks. Kept the home.', rating: 5 },
-  { town: 'Florham Park', quote: 'Looking to refinance. Guide explained the process clearly. Connected with lender, saved $300/month. Simple and professional.', rating: 5 },
-  { town: 'Dover', quote: 'Inherited property with mortgage. Guide showed cash sale option. Connected with buyer, perfect solution for our situation.', rating: 5 },
-  { town: 'Parsippany', quote: 'Job relocation, needed to sell quickly. Guide connected me with real estate professional. Quick sale saved our timeline.', rating: 5 },
-];
 
 export default function Home() {
-  const [showReviews, setShowReviews] = useState(false);
-  const [currentReview, setCurrentReview] = useState(0);
-
-  useEffect(() => {
-    if (showReviews) {
-      const interval = setInterval(() => {
-        setCurrentReview((prev) => (prev + 1) % njTownReviews.length);
-      }, 5000);
-      return () => clearInterval(interval);
-    }
-  }, [showReviews]);
-
   return (
     <div className="min-h-full bg-white antialiased">
       <FAQSchema />
@@ -65,7 +20,7 @@ export default function Home() {
             <span className="mx-2 text-slate-600">|</span>
             Completely Confidential
             <span className="mx-2 text-slate-600">|</span>
-            <span className="text-amber-400 font-semibold">2,300+ Families Guided</span>
+            <span className="text-amber-400 font-semibold">All 21 NJ Counties</span>
           </p>
         </div>
       </div>
@@ -142,17 +97,17 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Clickable Reviews Badge */}
-          <button
-            onClick={() => setShowReviews(true)}
-            className="group inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition cursor-pointer"
+          {/* Transparency badge */}
+          <Link
+            href="/companies"
+            className="group inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition"
           >
-            <span className="text-amber-400 text-base tracking-tight">★★★★★</span>
+            <span className="text-emerald-400 text-lg leading-none">&#10003;</span>
             <span className="text-sm text-slate-200 group-hover:text-white transition">
-              <span className="font-semibold text-white">4.8 rating</span> from families across 30 NJ towns
+              Every recommendation shows <span className="font-semibold text-white">exactly how we are paid</span>
             </span>
-            <span className="text-amber-400 group-hover:translate-x-0.5 transition-transform">→</span>
-          </button>
+            <span className="text-amber-400 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+          </Link>
         </div>
       </section>
 
@@ -169,10 +124,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 py-14 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-4 text-center">
             {[
-              { value: '2,300+', label: 'Families Guided' },
-              { value: '$180M+', label: 'Secured Through Our Network' },
-              { value: '14 Days', label: 'Average Resolution Start' },
-              { value: '4.8 / 5', label: 'Family Satisfaction' },
+              { value: '7', label: 'Options Explained' },
+              { value: '21', label: 'NJ Counties Covered' },
+              { value: '6', label: 'Vetted Destinations' },
+              { value: '$0', label: 'Cost to You, Always' },
             ].map((stat, idx) => (
               <div key={idx} className="relative">
                 <p className="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mb-1">{stat.value}</p>
@@ -181,17 +136,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* PREMIUM TRUST BANNER, user-provided badge */}
-      <section className="bg-slate-950 py-14 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <img
-            src="/images/trusted-badge-premium.png"
-            alt="This site is trusted by 2300+ NJ Families"
-            className="w-full max-w-2xl mx-auto rounded-xl shadow-2xl ring-1 ring-amber-400/30"
-          />
         </div>
       </section>
 
@@ -297,67 +241,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS, with real family imagery */}
+      {/* WHY TRUST THIS GUIDE */}
       <section className="py-24 px-4 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-14 items-center mb-16">
             <div>
-              <p className="text-amber-600 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Real Families, Real Outcomes</p>
+              <p className="text-amber-600 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Why Trust This Guide</p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
-                They Were Where You Are Now
+                Judge Us by What We Disclose
               </h2>
-              <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                Over 2,300 New Jersey families have used this guide to understand their options
-                and connect with professionals who helped them move forward, many kept their homes,
-                others sold on their terms and started fresh.
+              <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                Anyone can post glowing reviews. What is harder, and more useful to you, is telling you exactly how the
+                money moves before you decide anything.
               </p>
-              <button
-                onClick={() => setShowReviews(true)}
+              <p className="text-slate-600 leading-relaxed mb-8">
+                Every recommendation on this site says whether we are paid for it. Some home-buying companies pay us a
+                referral fee. One destination is a business we are affiliated with, and it is labeled as such. Attorneys,
+                nonprofits, and the free government resources pay us nothing. You are never charged anything.
+              </p>
+              <Link
+                href="/companies"
                 className="inline-flex items-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-slate-800 transition shadow-lg"
               >
-                <span className="text-amber-400">★</span>
-                Read 30 Reviews from NJ Towns
-                <span>→</span>
-              </button>
+                See every option and who pays us
+                <span>&rarr;</span>
+              </Link>
             </div>
             <div className="relative">
               <img
                 src="/images/canva/family-home.jpg"
-                alt="A New Jersey family in front of their home"
+                alt="A New Jersey home"
                 className="rounded-2xl shadow-2xl w-full object-cover"
               />
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl px-6 py-4 border border-slate-100 hidden sm:block">
-                <p className="font-serif text-2xl font-bold text-slate-900">2,300+</p>
-                <p className="text-xs text-slate-500 font-medium tracking-wide uppercase">Families Guided</p>
-              </div>
             </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                name: 'Maria S.', location: 'Newark, NJ', situation: 'Was 90 days behind',
-                quote: 'I thought I was going to lose my home. The guide connected me with the right people, within 14 days I had a real path forward. They saved my family.',
+                t: 'A free option, every time',
+                d: 'Every set of recommendations includes at least one route that earns us nothing, such as HUD-approved counseling or the New Jersey court mediation program. If keeping your home is realistic, we say so before anything else.',
               },
               {
-                name: 'James R.', location: 'Jersey City, NJ', situation: 'Lost his job',
-                quote: 'They understood my situation immediately, no judgment, just real help. Connected me with a professional and I walked away with money in hand.',
+                t: 'Backed by a real brokerage',
+                d: 'We are affiliated with Corcoran Sawyer Smith x Builders Resource Center, a licensed New Jersey brokerage headquartered in Livingston working in every county. Their published figures include $480M+ in sales volume and 620 homes sold.',
               },
               {
-                name: 'Patricia M.', location: 'Paterson, NJ', situation: 'Going through divorce',
-                quote: 'Had to sell quickly and handle everything alone. The professionals they connected me with made it painless. Done in 18 days.',
+                t: 'Specific, checkable information',
+                d: 'New Jersey is a judicial foreclosure state. Your lender must give 30 days notice before filing, and you generally have 35 days to answer a complaint. Verify any of it against your own court documents.',
               },
-            ].map((t, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition">
-                <p className="text-amber-400 text-lg mb-4 tracking-tight">★★★★★</p>
-                <p className="text-slate-700 mb-6 leading-relaxed text-[15px]">"{t.quote}"</p>
-                <div className="border-t border-slate-100 pt-4">
-                  <p className="font-bold text-slate-900 text-sm">{t.name}</p>
-                  <p className="text-slate-500 text-xs mt-0.5">{t.location} · {t.situation}</p>
-                </div>
+            ].map((x, i) => (
+              <div key={i} className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                <p className="font-bold text-slate-900 mb-3">{x.t}</p>
+                <p className="text-slate-600 text-sm leading-relaxed">{x.d}</p>
               </div>
             ))}
           </div>
+
+          <p className="text-xs text-slate-400 mt-8 text-center max-w-2xl mx-auto leading-relaxed">
+            Figures cited for Corcoran Sawyer Smith x Builders Resource Center are published by that brokerage. We do not
+            publish homeowner testimonials or aggregate outcome statistics, because we will not print numbers we cannot
+            substantiate.
+          </p>
         </div>
       </section>
 
@@ -550,94 +495,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {/* Reviews Modal */}
-      {showReviews && (
-        <div className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            {/* Header */}
-            <div className="sticky top-0 bg-slate-950 text-white p-6 flex items-start justify-between">
-              <div>
-                <p className="text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase mb-2">Verified Family Reviews</p>
-                <h2 className="font-serif text-2xl font-bold">Real Results From Our Network</h2>
-                <p className="text-slate-400 text-sm mt-1">Families we connected with qualified professionals</p>
-              </div>
-              <button
-                onClick={() => setShowReviews(false)}
-                className="text-xl text-slate-400 hover:text-white transition p-1"
-                aria-label="Close reviews"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* Review Content */}
-            <div className="p-8">
-              <div className="mb-8 p-7 bg-slate-50 rounded-xl border border-slate-200">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <p className="font-bold text-slate-900">{njTownReviews[currentReview].town}, NJ</p>
-                    <p className="text-amber-400 mt-1 tracking-tight">
-                      {'★'.repeat(njTownReviews[currentReview].rating)}
-                    </p>
-                  </div>
-                  <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1">
-                    Verified
-                  </span>
-                </div>
-                <p className="text-slate-700 italic leading-relaxed">
-                  "{njTownReviews[currentReview].quote}"
-                </p>
-              </div>
-
-              {/* Navigation */}
-              <div className="flex gap-4 justify-center items-center mb-8">
-                <button
-                  onClick={() => setCurrentReview((prev) => (prev - 1 + njTownReviews.length) % njTownReviews.length)}
-                  className="px-5 py-2.5 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition text-sm"
-                >
-                  ← Previous
-                </button>
-                <div className="text-center min-w-[110px]">
-                  <p className="text-xs text-slate-500">Review {currentReview + 1} of {njTownReviews.length}</p>
-                  <p className="font-bold text-slate-900 text-sm mt-0.5">4.8 Average</p>
-                </div>
-                <button
-                  onClick={() => setCurrentReview((prev) => (prev + 1) % njTownReviews.length)}
-                  className="px-5 py-2.5 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition text-sm"
-                >
-                  Next →
-                </button>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-4 p-6 bg-slate-50 rounded-xl border border-slate-200 text-center">
-                <div>
-                  <p className="font-serif font-bold text-2xl text-slate-900">{njTownReviews.length}</p>
-                  <p className="text-xs text-slate-500 mt-1">NJ Towns</p>
-                </div>
-                <div>
-                  <p className="font-serif font-bold text-2xl text-slate-900">4.8<span className="text-amber-400">★</span></p>
-                  <p className="text-xs text-slate-500 mt-1">Avg Rating</p>
-                </div>
-                <div>
-                  <p className="font-serif font-bold text-2xl text-slate-900">2,300+</p>
-                  <p className="text-xs text-slate-500 mt-1">Families Guided</p>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <Link
-                href="/quiz"
-                onClick={() => setShowReviews(false)}
-                className="block text-center w-full mt-8 bg-amber-400 text-slate-950 py-4 rounded-xl font-bold text-lg hover:bg-amber-300 transition"
-              >
-                Understand Your Options. Start Free →
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Footer */}
       <footer className="bg-slate-950 text-slate-400 py-16 border-t border-white/5">
