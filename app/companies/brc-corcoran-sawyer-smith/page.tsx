@@ -50,6 +50,27 @@ export default function BRCPage() {
         </div>
       </section>
 
+      {/* Call this brokerage directly */}
+      <section className="max-w-3xl mx-auto px-4 pt-8">
+        <a
+          href="tel:+19086031100"
+          className="flex items-center justify-between gap-4 rounded-xl border border-slate-300 bg-white px-6 py-5 hover:border-slate-900 hover:shadow-md transition"
+        >
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
+              Call the brokerage directly
+            </p>
+            <p className="font-bold text-xl text-slate-900">(908) 603-1100</p>
+          </div>
+          <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 border border-amber-300 text-amber-700 text-xl">
+            &#9742;
+          </span>
+        </a>
+        <p className="text-xs text-slate-500 mt-2">
+          This is the affiliated brokerage&apos;s own line, the same number listed on their site. Ask for a valuation and say you are calling about a foreclosure timeline.
+        </p>
+      </section>
+
       {/* Why a valuation matters */}
       <section className="max-w-3xl mx-auto px-4 py-14">
         <h2 className="font-serif text-3xl font-bold text-slate-900 mb-6">Start With the Number You Do Not Have Yet</h2>

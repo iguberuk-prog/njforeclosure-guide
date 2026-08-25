@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { FAQSchema, OrganizationSchema } from './schema';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL, RESPONSE_PROMISE } from '../lib/contact';
 
 
 export default function Home() {
@@ -15,6 +16,9 @@ export default function Home() {
       <div className="bg-slate-950 text-slate-300 text-xs sm:text-sm py-2.5 px-4">
         <div className="max-w-6xl mx-auto flex justify-center sm:justify-between items-center gap-4">
           <p className="hidden sm:block tracking-wide">Serving homeowners in all 21 New Jersey counties</p>
+          <a href={`tel:${SITE_PHONE_TEL}`} className="sm:hidden font-semibold text-amber-400 hover:text-amber-300 transition">
+            Call {SITE_PHONE_DISPLAY}
+          </a>
           <p className="tracking-wide">
             <span className="text-amber-400 font-semibold">100% Free</span>
             <span className="mx-2 text-slate-600">|</span>
@@ -40,6 +44,16 @@ export default function Home() {
             <Link href="/answers" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Answers</Link>
             <Link href="/companies" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Get an Offer</Link>
             <Link href="/resources" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Resources</Link>
+            <a
+              href={`tel:${SITE_PHONE_TEL}`}
+              className="flex items-center gap-2 text-slate-900 font-bold hover:text-amber-600 transition whitespace-nowrap"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 border border-amber-300 text-amber-700 text-sm">
+                &#9742;
+              </span>
+              <span className="hidden lg:inline">{SITE_PHONE_DISPLAY}</span>
+              <span className="lg:hidden">Call</span>
+            </a>
             <Link
               href="/quiz"
               className="bg-slate-900 text-white px-5 sm:px-6 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition shadow-sm whitespace-nowrap"
@@ -89,12 +103,13 @@ export default function Home() {
             >
               See Your Options. Free →
             </Link>
-            <Link
-              href="/guides"
-              className="inline-block border border-white/30 bg-white/5 backdrop-blur-sm text-white px-10 sm:px-12 py-4 rounded-lg font-semibold hover:bg-white/15 transition-all text-base sm:text-lg"
+            <a
+              href={`tel:${SITE_PHONE_TEL}`}
+              className="inline-flex items-center justify-center gap-3 border border-white/30 bg-white/5 backdrop-blur-sm text-white px-10 sm:px-12 py-4 rounded-lg font-semibold hover:bg-white/15 transition-all text-base sm:text-lg"
             >
-              Read the Guides
-            </Link>
+              <span className="text-amber-400">&#9742;</span>
+              Call {SITE_PHONE_DISPLAY}
+            </a>
           </div>
 
           {/* Transparency badge */}

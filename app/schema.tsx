@@ -66,10 +66,13 @@ export const OrganizationSchema = () => {
   const orgData = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://njforeclosureguide.org/#organization",
     "name": "NJ Foreclosure Guide",
     "url": "https://njforeclosureguide.org",
     "logo": "https://njforeclosureguide.org/images/logo-nj-foreclosure-guide.jpg",
     "description": "Free guidance and solutions for New Jersey homeowners facing foreclosure",
+    "telephone": "+1-908-603-1100",
+    "email": "help@njforeclosureguide.org",
     "sameAs": [
       "https://njforeclosureguide.org"
     ],
@@ -77,17 +80,81 @@ export const OrganizationSchema = () => {
       "@type": "State",
       "name": "New Jersey"
     },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Service",
-      "email": "help@njforeclosureguide.org"
-    }
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "telephone": "+1-908-603-1100",
+        "email": "help@njforeclosureguide.org",
+        "areaServed": "US-NJ",
+        "availableLanguage": ["English", "Spanish"]
+      }
+    ]
   };
 
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(orgData) }}
+    />
+  );
+};
+
+// ProfessionalService carries the phone, service area, and hours that local and
+// AI search surfaces read. No street address is claimed, because this is a
+// statewide online resource rather than a walk-in office.
+export const LocalBusinessSchema = () => {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://njforeclosureguide.org/#localbusiness",
+    "name": "NJ Foreclosure Guide",
+    "url": "https://njforeclosureguide.org",
+    "image": "https://njforeclosureguide.org/images/logo-nj-foreclosure-guide.jpg",
+    "logo": "https://njforeclosureguide.org/images/logo-nj-foreclosure-guide.jpg",
+    "description":
+      "Free educational resource for New Jersey homeowners facing foreclosure. Explains the NJ judicial foreclosure timeline and connects homeowners with HUD counselors, the state mediation program, attorneys, cash buyers, and listing agents.",
+    "telephone": "+1-908-603-1100",
+    "email": "help@njforeclosureguide.org",
+    "priceRange": "Free",
+    "areaServed": {
+      "@type": "State",
+      "name": "New Jersey"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "NJ",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "knowsAbout": [
+      "New Jersey Fair Foreclosure Act",
+      "Notice of Intention to Foreclose",
+      "Sheriff sale adjournment",
+      "New Jersey foreclosure mediation program",
+      "Loan modification",
+      "Short sale",
+      "Cash home sale before a sheriff sale"
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );
 };

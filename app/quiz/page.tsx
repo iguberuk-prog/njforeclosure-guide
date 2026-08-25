@@ -3,6 +3,31 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { matchPartners, COMPENSATION_LABEL, type Answers } from '../../lib/partners';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL, RESPONSE_PROMISE } from '../../lib/contact';
+
+/**
+ * Escape hatch. Someone with a sale date next week should not have to finish six
+ * questions to reach a human. Shown on every step of the assessment.
+ */
+function CallInstead({ note }: { note?: string }) {
+  return (
+    <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 px-5 py-4">
+      <p className="text-sm text-slate-700 leading-relaxed mb-3">
+        {note ?? 'In a hurry, or would rather just talk to someone? Skip the questions and call.'}
+      </p>
+      <a
+        href={`tel:${SITE_PHONE_TEL}`}
+        className="inline-flex items-center gap-2 font-bold text-slate-900 hover:text-amber-700 transition"
+      >
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-100 border border-amber-300 text-amber-700">
+          &#9742;
+        </span>
+        {SITE_PHONE_DISPLAY}
+      </a>
+      <p className="text-xs text-slate-500 mt-2">{RESPONSE_PROMISE}</p>
+    </div>
+  );
+}
 
 interface QuizState {
   situation?: string;
@@ -344,6 +369,8 @@ export default function QuizPage() {
               );
             })()}
 
+            <CallInstead note="Questions about any of these, or want help deciding between them? Call and ask." />
+
             <div className="mt-8 pt-6 border-t border-slate-200 flex justify-between items-center">
               <button
                 onClick={() => { setStep(0); setAnswers({}); setResult(null); setSubmitted(false); }}
@@ -470,6 +497,8 @@ export default function QuizPage() {
             <p className="text-xs text-slate-400 mt-4 text-center leading-relaxed">
               Prefer not to share contact details? Skip above and your results still appear.
             </p>
+
+            <CallInstead note="Would rather explain your situation out loud than type it? Call and we will walk through it with you." />
           </div>
         </div>
       </div>
@@ -520,6 +549,8 @@ export default function QuizPage() {
               Back
             </button>
           )}
+
+          <CallInstead />
         </div>
       </div>
     </div>

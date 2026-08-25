@@ -47,6 +47,25 @@ export default function FireHomeBuyersPage() {
         </div>
       </section>
 
+      {/* Call this partner directly */}
+      <section className="max-w-3xl mx-auto px-4 pt-8">
+        <a
+          href="tel:+18662978976"
+          className="flex items-center justify-between gap-4 rounded-xl border border-slate-300 bg-white px-6 py-5 hover:border-slate-900 hover:shadow-md transition"
+        >
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Call Fire Home Buyers directly</p>
+            <p className="font-bold text-xl text-slate-900">1-866-297-8976</p>
+          </div>
+          <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 border border-amber-300 text-amber-700 text-xl">
+            &#9742;
+          </span>
+        </a>
+        <p className="text-xs text-slate-500 mt-2">
+          This is Fire Home Buyers&apos;s own number, published on their site. You will reach them, not us.
+        </p>
+      </section>
+
       {/* Who it fits */}
       <section className="max-w-3xl mx-auto px-4 py-14">
         <h2 className="font-serif text-3xl font-bold text-slate-900 mb-6">Who This Is Actually For</h2>
