@@ -27,6 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/companies/urbni',
     '/companies/clik-offer',
     '/companies/brc-corcoran-sawyer-smith',
+    '/privacy',
+    '/terms',
+    '/disclaimer',
     '/foreclosure-help',
   ].map((p) => ({
     url: `${base}${p}/`.replace(/\/\/$/, '/'),

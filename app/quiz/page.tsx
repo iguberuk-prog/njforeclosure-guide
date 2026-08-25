@@ -450,8 +450,25 @@ export default function QuizPage() {
               Skip, just show my results
             </button>
 
-            <p className="text-xs text-slate-400 mt-6 text-center leading-relaxed">
-              Your information is confidential and never sold. We only share it with a professional if you ask us to make an introduction.
+            <div className="mt-6 rounded-lg bg-slate-50 border border-slate-200 px-5 py-4">
+              <p className="text-[11px] text-slate-500 leading-relaxed">
+                By submitting, you agree that NJ Foreclosure Guide and, if you request an introduction, the professional
+                we connect you with, may contact you at the phone number and email you provided, including by automated
+                dialing or text message, about your inquiry. Consent is not a condition of any purchase or of using this
+                site, and you can opt out at any time by replying STOP or emailing us. Message and data rates may apply.
+                We do not sell your information and we share it only when you ask us to make an introduction. See our{' '}
+                <Link href="/privacy" className="text-slate-700 font-semibold underline underline-offset-2">
+                  Privacy Policy
+                </Link>{' '}
+                and{' '}
+                <Link href="/terms" className="text-slate-700 font-semibold underline underline-offset-2">
+                  Terms of Use
+                </Link>
+                .
+              </p>
+            </div>
+            <p className="text-xs text-slate-400 mt-4 text-center leading-relaxed">
+              Prefer not to share contact details? Skip above and your results still appear.
             </p>
           </div>
         </div>
