@@ -182,28 +182,26 @@ export const PARTNERS: Partner[] = [
     active: true,
   },
   {
-    id: 'click-offer',
-    name: 'ClickOffer',
-    url: 'https://www.clickoffer.com',
-    headline: 'Very fast cash close, typically in under 7 days.',
+    id: 'clik-offer',
+    name: 'Clik Offer',
+    url: 'https://clikoffer.com',
+    headline: 'Local New Jersey cash buyer that can close in as little as 7 days.',
     description:
-      'ClickOffer is positioned for the most urgent situations, where a sale needs to close in days rather than weeks. Replace this description with their verified process once the site is live.',
+      'Clik Offer is a local cash homebuyer working in Hillsborough, Bridgewater, Somerset County, and across New Jersey. They buy as-is with no repairs, no commissions, and state they cover typical closing costs and will clear the property out if needed. They present an offer promptly, often during the first conversation, and state they can close in as little as 7 days while accommodating a longer timeline if you need one.',
     kind: 'sell-fast',
     bestFor: [
-      'A sale date is days away',
-      'You need the fastest possible close',
-      'Certainty matters more than price',
+      'A sale date is close and you need to move now',
+      'Inherited or probate property you cannot maintain',
+      'Difficult tenants or a property that has sat empty',
+      'Repairs and code violations are piling up',
     ],
-    timeline: 'Under 7 days',
+    timeline: 'Offer often on the first call, closing in as little as 7 days',
     match: {
       goals: ['sell', 'unsure'],
       timelines: ['asap'],
     },
     compensation: 'paid-referral',
-    // INACTIVE: clickoffer.com currently redirects to a GoDaddy domain-for-sale
-    // parking page rather than a live site. Do not activate until it resolves
-    // to a real, working site, or homeowners will land on a domain listing.
-    active: false,
+    active: true,
   },
   {
     id: 'urbni',
@@ -342,6 +340,16 @@ export function matchPartners(answers: Answers): Match[] {
       if (m.timelines.includes(answers.timeline)) {
         score += 2;
         reasons.push('Matches your timeline');
+        // Specificity bonus: a partner who serves only this one timeline is a
+        // specialist for it, and should outrank a generalist who merely
+        // overlaps. This is what puts a 7-day closer above a 10-to-60-day one
+        // when the homeowner says they need to move immediately.
+        if (m.timelines.length === 1) {
+          score += 2;
+          if (answers.timeline === 'asap') {
+            reasons.push('Built for the tightest deadlines');
+          }
+        }
       } else disqualified = true;
     }
     if (m.ownerTypes && answers.ownerType) {
