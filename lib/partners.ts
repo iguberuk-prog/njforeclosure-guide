@@ -135,23 +135,45 @@ export const PARTNERS: Partner[] = [
     id: 'nj-offer',
     name: 'NJ Offer',
     url: 'https://www.njoffer.com',
-    headline: 'Cash offers on New Jersey homes, with a focus on higher-value property.',
+    headline: 'Fast cash offer on a New Jersey home, with a closing date you choose.',
     description:
-      'NJ Offer buys homes across all twenty-one New Jersey counties without listing, showings, or repair work. You request an offer online, they respond within 24 hours, and you choose a closing date between 10 and 60 days out. At higher price points this matters more than most people expect, because expensive homes take longer to sell on the open market and a foreclosure timeline does not pause while you wait for the right buyer.',
+      'NJ Offer buys homes across all twenty-one New Jersey counties without listing, showings, or repair work. You request an offer online, they respond within 24 hours, and you pick a closing date between 10 and 60 days out. When a sale date is approaching, that certainty is usually worth more than squeezing out the last few percent of price.',
     kind: 'sell-fast',
     bestFor: [
-      'Higher-value or luxury property',
-      'You want certainty on the closing date',
-      'A long listing period is a risk you cannot take',
-      'You would rather not hold open houses while in foreclosure',
+      'You need to sell quickly',
+      'A sheriff sale date is approaching',
+      'Repairs or showings are not realistic',
+      'You want a firm closing date rather than a maybe',
     ],
     timeline: 'Offer within 24 hours, closing 10 to 60 days',
-    programBadge: 'Premium Property Program',
-    handoffNote:
-      'NJ Offer serves New Jersey homeowners at every price point, so their website speaks to a general audience rather than to luxury sellers specifically. That is expected. When you request your offer, enter your property details and price expectation as normal, and mention that you were referred through our Premium Property Program so it reaches the right desk.',
     match: {
-      // Scoped to the $800k+ tier per the partnership. Widen this array if
-      // NJ Offer should also receive mid-market leads.
+      // General-market cash buyer. No price restriction: speed is the fit here,
+      // not property value.
+      goals: ['sell', 'unsure'],
+      timelines: ['asap', 'weeks', 'flexible'],
+    },
+    compensation: 'paid-referral',
+    active: true,
+  },
+  {
+    id: 'private-sale-group',
+    name: 'Private Sale Group',
+    url: 'https://privatesalegroup.com',
+    headline: 'Discreet off-market sale for higher-value homes, without listing publicly.',
+    description:
+      'Private Sale Group handles luxury and high-value property as an off-market transaction rather than a public listing. No sign, no open houses, no MLS exposure. They evaluate the property privately, present it to a network of qualified buyers, and let you set the timeline and terms. They state there are no commissions and no repairs required, and they are active in high-value New Jersey neighborhoods including Short Hills, Summit, Westfield, Chatham, and Madison.',
+    kind: 'sell-market',
+    bestFor: [
+      'Higher-value or luxury property',
+      'Privacy matters as much as price',
+      'You want to avoid commissions and repair credits',
+      'You would rather not announce the sale to the market',
+    ],
+    timeline: 'You set the timeline and terms',
+    programBadge: 'Premium Property Program',
+    match: {
+      // Their site cites a typical range starting near $600k. Scoped here to
+      // the $800k+ luxury tier; add '500-800k' to widen.
       homeValues: ['800k-1.5m', 'over1.5m'],
       goals: ['sell', 'unsure'],
     },

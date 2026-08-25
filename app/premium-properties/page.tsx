@@ -198,40 +198,51 @@ export default function PremiumPropertiesPage() {
       {/* Referral partner */}
       <section className="max-w-3xl mx-auto px-4 py-24">
         <p className="text-amber-400 text-[11px] font-semibold tracking-[0.3em] uppercase mb-4">If You Decide to Sell</p>
-        <h2 className="font-serif text-3xl font-bold text-white mb-6 tracking-tight">Our Direct Sale Partner</h2>
+        <h2 className="font-serif text-3xl font-bold text-white mb-6 tracking-tight">Our Off-Market Partner</h2>
+        <p className="text-slate-400 leading-relaxed mb-5">
+          For homeowners at this level, we refer to Private Sale Group, which handles luxury property as an off-market transaction rather than a public listing. They evaluate the home privately, present it to a network of qualified buyers, and let you set the timeline and terms. No sign, no open houses, no MLS exposure.
+        </p>
         <p className="text-slate-400 leading-relaxed mb-8">
-          For homeowners at this level who choose a private sale, we refer to NJ Offer, a New Jersey cash buyer operating in all twenty-one counties. They make an offer within 24 hours and let you set a closing date between 10 and 60 days out, which is what makes a direct sale workable against a foreclosure calendar.
+          They state there are no commissions and no repairs required, which at this price point is the difference that tends to matter most. On an $850,000 sale, standard commission alone runs into the tens of thousands before repairs, credits, or holding costs. They are active in Short Hills, Summit, Westfield, Chatham, and Madison, among other high-value areas.
         </p>
 
         <div className="rounded-xl border border-white/10 bg-white/[0.03] p-6 mb-6">
           <p className="text-sm text-slate-400 leading-relaxed">
-            <span className="font-bold text-white">What to expect when you click through: </span>
-            NJ Offer serves New Jersey homeowners at every price point, so their website speaks to a general audience rather than to luxury sellers specifically. That is normal and not a sign you are in the wrong place. Enter your property details as usual and mention that you came through our Premium Property Program so your inquiry reaches the right desk.
+            <span className="font-bold text-white">Worth knowing: </span>
+            Private Sale Group reviews each property individually and states that not every property qualifies. If yours does not fit an off-market sale, that is useful information rather than a dead end, and a conventional listing or a direct cash sale may serve you better. Our assessment covers those paths too.
           </p>
         </div>
 
         <div className="rounded-xl border border-amber-400/30 bg-amber-400/[0.06] p-5 mb-8">
           <p className="text-sm text-amber-200/90 leading-relaxed">
-            <span className="font-bold">How we are paid:</span> NJ Offer is a referral partner and we receive a fee if you sell to them. You are never charged. At this price point, get more than one number before you commit. Nothing here is an appraisal, a valuation, or advice to accept any offer.
+            <span className="font-bold">How we are paid:</span> Private Sale Group is a referral partner and we receive a fee if you sell through them. You are never charged. At this price point, get more than one number before you commit. Nothing here is an appraisal, a valuation, or advice to accept any offer.
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3">
           <Link
-            href="/companies/njoffer"
+            href="/companies/private-sale-group"
             className="flex-1 text-center border border-white/25 bg-white/5 text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-white/10 transition"
           >
             Read Our Full Review First
           </Link>
           <a
-            href="https://www.njoffer.com"
+            href="https://privatesalegroup.com"
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="flex-1 text-center bg-amber-400 text-slate-950 px-8 py-3.5 rounded-lg font-bold hover:bg-amber-300 transition"
           >
-            Go to NJ Offer
+            Go to Private Sale Group
           </a>
         </div>
+
+        <p className="text-slate-500 text-sm leading-relaxed mt-8">
+          If speed matters more than price, for example when a sheriff sale date is close, a direct cash buyer such as{' '}
+          <Link href="/companies/njoffer" className="text-amber-400/90 underline underline-offset-2 hover:text-amber-300">
+            NJ Offer
+          </Link>{' '}
+          can close faster, typically 10 to 60 days. That path trades price for certainty.
+        </p>
       </section>
 
       {/* CTA */}

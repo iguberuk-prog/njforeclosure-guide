@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/premium-properties',
     '/companies/njoffer',
     '/companies/fire-home-buyers',
+    '/companies/private-sale-group',
     '/foreclosure-help',
   ].map((p) => ({
     url: `${base}${p}/`.replace(/\/\/$/, '/'),

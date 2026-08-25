@@ -2,9 +2,9 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'NJ Offer Review | Selling a High-Value NJ Home Facing Foreclosure',
+  title: 'NJ Offer Review | Fast Cash Home Sale in New Jersey',
   description:
-    'What to know about NJ Offer, a New Jersey cash buyer working with higher-value and luxury property. Why foreclosure works differently above $800,000, how a cash sale compares to listing, and what to ask before accepting an offer.',
+    'What to know about NJ Offer, a New Jersey cash buyer that makes an offer within 24 hours and closes in 10 to 60 days. When a fast cash sale beats listing, what it costs you, and what to ask before accepting an offer.',
   alternates: { canonical: 'https://njforeclosureguide.org/companies/njoffer/' },
 };
 
@@ -30,10 +30,10 @@ export default function NJOfferPage() {
       {/* Hero */}
       <section className="bg-gradient-to-b from-slate-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <p className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase mb-4">Higher-Value Property</p>
+          <p className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase mb-4">Fast Cash Sale</p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">NJ Offer</h1>
           <p className="text-slate-300 text-lg leading-relaxed">
-            A New Jersey cash buyer working across all twenty-one counties, including higher-value and luxury property. If your home is worth more than most and you are facing foreclosure, your situation is genuinely different from the typical case, and the differences cut both ways.
+            A New Jersey cash buyer working across all twenty-one counties. They make an offer within 24 hours and let you choose a closing date between 10 and 60 days out. When a sale date is coming and certainty matters more than the last few percent of price, that is the trade this exists to make.
           </p>
         </div>
       </section>
@@ -42,28 +42,25 @@ export default function NJOfferPage() {
       <section className="max-w-3xl mx-auto px-4 pt-10">
         <div className="rounded-xl border border-amber-300 bg-amber-50 p-5">
           <p className="text-sm text-amber-900 leading-relaxed">
-            <span className="font-bold">How we are paid:</span> NJ Offer is a referral partner, which means we receive a fee if you sell to them. You are never charged anything. At this price point especially, get more than one number before you commit. Nothing on this page is an appraisal, a valuation, or advice to accept any particular offer.
+            <span className="font-bold">How we are paid:</span> NJ Offer is a referral partner, which means we receive a fee if you sell to them. You are never charged anything. Get more than one number before you commit. Nothing on this page is an appraisal, a valuation, or advice to accept any particular offer.
           </p>
         </div>
       </section>
 
-      {/* Why high-value foreclosure is different */}
+      {/* What you are actually buying */}
       <section className="max-w-3xl mx-auto px-4 py-14">
         <h2 className="font-serif text-3xl font-bold text-slate-900 mb-6">
-          Why Foreclosure Is Different Above $800,000
+          Speed Is the Product You Are Buying
         </h2>
         <div className="space-y-4 text-slate-600 leading-relaxed">
           <p>
-            Most foreclosure advice is written for a homeowner with modest equity and a conventional loan. If your home is worth well above the state average, much of that advice does not fit cleanly, and some of it can actively mislead you.
+            A cash buyer does not pay what an open-market buyer pays, and no honest page should tell you otherwise. What you get instead is certainty: a firm number within 24 hours, no financing contingency that can collapse three weeks in, no inspection renegotiation, no repairs, and a closing date you choose.
           </p>
           <p>
-            The advantage is equity. Expensive homes in foreclosure frequently carry real equity, sometimes hundreds of thousands of dollars. That equity is yours, not the lender&apos;s. A lender is entitled to what it is owed plus costs, and surplus from a sale belongs to the homeowner. This is the single most important thing for a high-value homeowner to understand, because the worst outcome is letting a property go to sheriff sale and losing equity that was legally yours the entire time.
-          </p>
-          <p>
-            The disadvantage is liquidity. The buyer pool shrinks sharply as price rises. A $350,000 house in New Jersey has a deep pool of buyers. A $1.4 million house has a fraction of that, many of them financing through jumbo loans with longer underwriting and more fall-through risk. Higher-end property routinely sits on the market for months, and a foreclosure timeline does not pause while you wait for the right buyer to appear.
+            In foreclosure that certainty has real value, because the risk is not just getting a lower price. It is running out of time entirely. A listing that falls through at day forty is worse than a cash sale that closed at day twenty, because a sheriff sale does not wait for your buyer&apos;s underwriting.
           </p>
           <p className="text-slate-900 font-semibold">
-            That combination, real equity paired with slow liquidity, is exactly the squeeze a cash buyer is built for. It is also exactly the situation where accepting the first offer without checking it can be an expensive mistake.
+            So the honest question is not whether a cash offer is lower. It usually is. The question is whether the time you gain is worth more than the difference, and that depends entirely on how much time you actually have.
           </p>
         </div>
       </section>
@@ -139,9 +136,12 @@ export default function NJOfferPage() {
       {/* Equity warning */}
       <section className="max-w-3xl mx-auto px-4 pb-14">
         <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50/60 p-6">
-          <p className="font-bold text-slate-900 mb-2">One thing worth repeating</p>
+          <p className="font-bold text-slate-900 mb-2">If your home is worth more than you owe</p>
           <p className="text-slate-700 text-sm leading-relaxed">
-            If you have substantial equity, speak with a New Jersey attorney before accepting any offer, and do it early rather than late. Not because anyone here is untrustworthy, but because the amount of money at stake easily justifies an hour of independent advice. An attorney can confirm what you owe, what surplus you are entitled to, and whether a sale, a reinstatement, or a Chapter 13 filing leaves you better off. We are not paid by attorneys, so we have nothing to gain by telling you this.
+            Any surplus after your lender is paid belongs to you, not to them. Before accepting a cash offer, make sure you know what you owe, what the offer nets you, and what is left over. If the equity is significant, an hour with a New Jersey attorney is worth it. We are not paid by attorneys, so we gain nothing by telling you this. If your home is above roughly $800,000, an off-market private sale may net you more than a cash offer while still avoiding a public listing.{' '}
+            <Link href="/premium-properties" className="text-amber-700 font-semibold underline underline-offset-2">
+              See the Premium Property Program
+            </Link>.
           </p>
         </div>
       </section>
