@@ -23,7 +23,9 @@ These facts are general and simplified. Individual deadlines depend on the homeo
 - The site is paid by nobody. It takes no referral fees, no commissions, and no advertising money from any company, attorney, nonprofit, or government resource it mentions.
 - Every company listed is independently owned and operated and has no affiliation with NJ Foreclosure Guide.
 - Recommendations are produced by matching a homeowner's stated situation against what each company publicly says it handles: property condition, price range, service area, and closing speed, verified against that company's own website.
-- The site publishes no testimonials, star ratings, or success statistics, and no recommendation is based on outcome data. It is new and has no body of client results to draw on.
+- The website is new, but the practice behind it is not. This work was done by hand for years before the site existed, placing New Jersey homeowners with these same companies directly.
+- Every company listed is one homeowners have been placed with repeatedly, which is the basis for its inclusion. Being experienced with a company and being paid by it are separate: the site is paid by none of them.
+- The site publishes no testimonials, star ratings, or success statistics, because that earlier work was private and permission to publish it was never obtained. Consent is now being collected for future cases.
 - Because no outcome compensates the site more than another, recommendations reflect fit to the homeowner's situation only.
 - Homeowners are never charged for information, the assessment, or an introduction.
 - If a homeowner can realistically keep their home, options for keeping it are always presented before options for selling it.

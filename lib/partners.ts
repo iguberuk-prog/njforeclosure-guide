@@ -425,29 +425,81 @@ export const COMPENSATION_LABEL: Record<Partner['compensation'], string> = {
 export const INDEPENDENCE_STATEMENT =
   'Every company listed on this site is independently owned and operated and has no affiliation with NJ Foreclosure Guide. We are not paid by any of them. No referral fees, no commissions, no advertising money, and no ownership stake. We have nothing to gain from which option you choose, which is the entire reason this resource exists.';
 
+// ---------------------------------------------------------------------------
+// TRACK RECORD
+//
+// The website is new. The practice behind it is not. This work was done by
+// hand for years before the site existed, and every company listed here is one
+// homeowners were actually placed with during that time.
+//
+// FILL THESE IN. Both are deliberately left unset rather than estimated,
+// because a number you cannot produce records for is worse than no number.
+// Set them only to figures you could defend if a regulator or a journalist
+// asked, then the copy below picks them up automatically.
+// ---------------------------------------------------------------------------
+
+/** First year homeowners were helped. e.g. 2019. Leave null until confirmed. */
+export const SERVICE_START_YEAR: number | null = null;
+
+/** Documented count of homeowners helped. Leave null until it can be evidenced. */
+export const HOMEOWNERS_HELPED: number | null = null;
+
+/**
+ * Years of operation, derived. Returns null until SERVICE_START_YEAR is set, so
+ * no page can print a duration we have not confirmed.
+ */
+export function yearsOfService(): number | null {
+  if (SERVICE_START_YEAR === null) return null;
+  return new Date().getFullYear() - SERVICE_START_YEAR;
+}
+
+/**
+ * The track record statement. Uses the specific figures above when they are
+ * set, and stays truthful without them: "years" is defensible on its own,
+ * a count is not.
+ */
+export function serviceHistoryStatement(): string {
+  const years = yearsOfService();
+  const opener =
+    years !== null
+      ? `For ${years} years before this website existed, we did this work by hand.`
+      : 'For years before this website existed, we did this work by hand.';
+  const count =
+    HOMEOWNERS_HELPED !== null
+      ? ` We have walked more than ${HOMEOWNERS_HELPED} New Jersey homeowners through it.`
+      : '';
+  return (
+    `${opener}${count} Sitting with New Jersey homeowners facing foreclosure, working out what` +
+    ' options they actually had, and connecting them to the companies that could help. This site is' +
+    ' that same process, written down so people can find it without having to know us first.'
+  );
+}
+
 /**
  * How a recommendation is actually produced.
  *
- * This wording is deliberate and should not be softened into anything that
- * implies outcomes, success rates, or the experience of past homeowners. This
- * site is new and has no body of client results to draw on. Claiming otherwise
- * would be an unsubstantiated performance claim, which is the exact category of
- * content that was stripped out of this site once already: invented review
- * counts, invented sales volume, an invented star rating.
+ * The experience claim here is real: every company in this registry is one
+ * homeowners have been placed with directly, repeatedly, over years of doing
+ * this by hand. That is what makes this different from a directory.
  *
- * When there IS real outcome data, gathered with consent and actually counted,
- * this constant can change and a substantiated results section can be added.
- * Not before.
+ * What this must NOT become is a performance claim. "We have used them" is
+ * substantiated by the operator's own history. "They get good results" or
+ * "homeowners save X" is not, and would need evidence for typical outcomes.
+ * Keep the line on the correct side of that.
  */
 export const RECOMMENDATION_BASIS =
-  'Recommendations come from matching your answers against what each company publicly states it handles: property condition, price range, service area, and how quickly it can close. We verify those details against each company\'s own website. Nothing is ranked by payment, because nobody pays us. These are starting points for your own comparison, not vetting, endorsement, or a prediction of what any company will offer you.';
+  'Recommendations come from two things. First, years of placing New Jersey homeowners with these specific companies by hand and seeing how each one actually handled the situation. Second, matching your answers against what each company handles: property condition, price range, service area, and how quickly it can close, verified against their own site. Nothing is ranked by payment, because nobody pays us. This is our judgement from experience, not a guarantee of what any company will offer you, so compare before you commit.';
 
 /**
- * Why we do not publish outcome statistics. Shown wherever a visitor might
- * reasonably expect testimonials or success numbers and find none.
+ * Why no testimonials or statistics appear yet.
+ *
+ * Note the distinction: we are not claiming a lack of experience, we are
+ * declining to publish figures that were never formally collected. Once the
+ * consent capture in the assessment has run for a while, real outcomes can be
+ * published and this note can be replaced with them.
  */
 export const NO_OUTCOME_DATA_NOTE =
-  'We do not publish testimonials, star ratings, or success statistics. This resource is new and we have not helped enough homeowners to report honest numbers. When we have, we will publish what actually happened, including the cases that did not work out. Until then we would rather show you nothing than show you something we made up.';
+  'You will not find testimonials, star ratings, or success statistics here yet. Not for lack of homeowners helped, but because that work was done privately over years and we never asked permission to publish anyone\'s story. We are collecting that permission properly from now on. When there is enough, we will publish what actually happened, including the cases that did not work out.';
 
 /**
  * Every place the independence claim appears. If the compensation model ever

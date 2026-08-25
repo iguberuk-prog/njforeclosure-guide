@@ -132,6 +132,10 @@ export default function QuizPage() {
   const [answers, setAnswers] = useState<QuizState>({});
   const [result, setResult] = useState<QuizResult | null>(null);
   const [contact, setContact] = useState({ name: '', phone: '', email: '', town: '', notes: '' });
+  // Separate, opt-in, and unchecked by default. Consent to be contacted about
+  // your own case is NOT consent to have your story published, so it is asked
+  // for on its own rather than bundled into the submit button.
+  const [outcomeConsent, setOutcomeConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [contactError, setContactError] = useState('');
@@ -171,6 +175,7 @@ export default function QuizPage() {
         formData.append('propertyCondition', answers.condition || '');
         formData.append('leadScore', leadScore);
         formData.append('recommendation', matched.primary);
+        formData.append('outcomeConsent', outcomeConsent ? 'YES' : 'no');
         formData.append('sourcePage', '/quiz');
         await fetch('/__forms.html', {
           method: 'POST',
@@ -467,6 +472,21 @@ export default function QuizPage() {
                   placeholder="Sheriff sale date, months behind, anything relevant"
                 />
               </div>
+
+              <label className="flex gap-3 items-start rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 cursor-pointer hover:border-slate-400 transition">
+                <input
+                  type="checkbox"
+                  checked={outcomeConsent}
+                  onChange={(e) => setOutcomeConsent(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 flex-shrink-0 accent-slate-900"
+                />
+                <span className="text-xs text-slate-600 leading-relaxed">
+                  <span className="font-semibold text-slate-800">Optional:</span> you may follow up later
+                  to ask how things turned out, and I am open to letting you share what happened to help
+                  other homeowners. Nothing is ever published without asking me again first, and I can say
+                  no then. Leaving this unchecked changes nothing about the help you give me.
+                </span>
+              </label>
             </div>
 
             {contactError && (

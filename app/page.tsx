@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FAQSchema, OrganizationSchema } from './schema';
 import { RESPONSE_PROMISE } from '../lib/contact';
+import TrackRecord from './components/TrackRecord';
 
 
 export default function Home() {
@@ -241,6 +242,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* TRACK RECORD: established practice, new website */}
+      <TrackRecord />
 
       {/* WHY TRUST THIS GUIDE */}
       <section className="py-24 px-4 bg-gradient-to-b from-slate-50 to-white">
