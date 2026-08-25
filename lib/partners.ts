@@ -438,11 +438,23 @@ export const INDEPENDENCE_STATEMENT =
 // asked, then the copy below picks them up automatically.
 // ---------------------------------------------------------------------------
 
-/** First year homeowners were helped. e.g. 2019. Leave null until confirmed. */
-export const SERVICE_START_YEAR: number | null = null;
+/**
+ * First year homeowners were helped. Confirmed by the operator as seven years
+ * of practice as of 2026. Stored as a start year rather than a duration so the
+ * figure stays correct as time passes instead of silently going stale.
+ */
+export const SERVICE_START_YEAR: number | null = 2019;
 
-/** Documented count of homeowners helped. Leave null until it can be evidenced. */
-export const HOMEOWNERS_HELPED: number | null = null;
+/**
+ * Homeowners helped. Confirmed by the operator as over 1,500 across the years
+ * above. Rendered as "more than 1,500", so the published claim stays at or
+ * below the real figure rather than above it.
+ *
+ * This is now a public, specific claim. Keep whatever evidences it, case
+ * files, a CRM export, closing records, somewhere it can be produced on
+ * request, and raise this number only when the records support the new one.
+ */
+export const HOMEOWNERS_HELPED: number | null = 1500;
 
 /**
  * Years of operation, derived. Returns null until SERVICE_START_YEAR is set, so
@@ -466,7 +478,7 @@ export function serviceHistoryStatement(): string {
       : 'For years before this website existed, we did this work by hand.';
   const count =
     HOMEOWNERS_HELPED !== null
-      ? ` We have walked more than ${HOMEOWNERS_HELPED} New Jersey homeowners through it.`
+      ? ` We have walked more than ${HOMEOWNERS_HELPED.toLocaleString('en-US')} New Jersey homeowners through it.`
       : '';
   return (
     `${opener}${count} Sitting with New Jersey homeowners facing foreclosure, working out what` +

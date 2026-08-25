@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { FAQSchema, OrganizationSchema } from './schema';
 import { RESPONSE_PROMISE } from '../lib/contact';
 import TrackRecord from './components/TrackRecord';
+import { HOMEOWNERS_HELPED, yearsOfService } from '../lib/partners';
 
 
 export default function Home() {
@@ -126,9 +127,15 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 py-14 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-4 text-center">
             {[
-              { value: '7', label: 'Options Explained' },
+              // Only figures that can be evidenced. The first two come from the
+              // operator's own records; the last two are facts about the site.
+              ...(HOMEOWNERS_HELPED !== null
+                ? [{ value: `${HOMEOWNERS_HELPED.toLocaleString('en-US')}+`, label: 'NJ Homeowners Helped' }]
+                : []),
+              ...(yearsOfService() !== null
+                ? [{ value: String(yearsOfService()), label: 'Years Doing This Work' }]
+                : []),
               { value: '21', label: 'NJ Counties Covered' },
-              { value: '6', label: 'Vetted Destinations' },
               { value: '$0', label: 'Cost to You, Always' },
             ].map((stat, idx) => (
               <div key={idx} className="relative">
