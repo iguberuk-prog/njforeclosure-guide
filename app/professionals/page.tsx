@@ -50,123 +50,55 @@ export default function Professionals() {
         </div>
       </section>
 
-      {/* Attorneys Section */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
-        <div className="mb-16">
-          <h2 className="text-4xl font-black text-gray-900 mb-4">Foreclosure Attorneys</h2>
-          <p className="text-gray-600 text-lg mb-12">
-            Our network includes experienced attorneys who specialize in loan modifications, forbearance, bankruptcy (Chapter 13), and other legal foreclosure solutions.
-          </p>
+      {/* Honest state of the network */}
+      <section className="max-w-4xl mx-auto px-4 py-16">
+        <h2 className="text-4xl font-black text-gray-900 mb-4">Who We Can Connect You With Today</h2>
+        <p className="text-gray-600 text-lg mb-10">
+          We only list destinations that are real and available right now. Here is exactly what that is.
+        </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                name: 'Coming Soon',
-                specialty: 'Loan Modification & Forbearance',
-                description: 'Attorneys who negotiate directly with lenders to modify terms and create manageable payment plans.',
-                services: ['Loan Modification', 'Forbearance', 'Reinstatement']
-              },
-              {
-                name: 'Coming Soon',
-                specialty: 'Bankruptcy Protection (Chapter 13)',
-                description: 'Attorneys experienced in Chapter 13 bankruptcy to restructure debt while keeping your home.',
-                services: ['Chapter 13 Bankruptcy', 'Debt Restructuring', 'Home Protection']
-              },
-              {
-                name: 'Coming Soon',
-                specialty: 'Short Sale Representation',
-                description: 'Attorneys who handle short sale negotiations and ensure fair terms with your lender.',
-                services: ['Short Sale Negotiation', 'Lender Communication', 'Legal Protection']
-              },
-              {
-                name: 'Coming Soon',
-                specialty: 'General Foreclosure Defense',
-                description: 'Attorneys who evaluate your entire situation and recommend the best legal approach.',
-                services: ['Case Evaluation', 'Defense Strategy', 'Lender Negotiation']
-              },
-            ].map((attorney, idx) => (
-              <div key={idx} className="p-8 border-2 border-gray-200 rounded-xl hover:border-blue-400 hover:shadow-lg transition">
-                <div className="flex items-start gap-4 mb-4">
-                  <img src="/images/icons/professional-legal-scales-lg.png" alt="Attorney" className="w-14 h-14 rounded-full bg-blue-50 p-2" />
-                  <div className="flex-1">
-                    <h3 className="text-xl font-black text-gray-900">{attorney.name}</h3>
-                    <p className="text-blue-600 font-semibold text-sm">{attorney.specialty}</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-4">{attorney.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {attorney.services.map((service, i) => (
-                    <span key={i} className="px-3 py-1 bg-blue-50 text-blue-900 text-xs font-semibold rounded-full border border-blue-200">
-                      {service}
-                    </span>
-                  ))}
-                </div>
-                <button className="w-full bg-blue-900 text-white py-2 rounded-lg font-bold hover:bg-blue-950 transition">
-                  Contact Attorney
-                </button>
-              </div>
-            ))}
-          </div>
+        <div className="rounded-2xl border-2 border-emerald-200 bg-emerald-50/50 p-8 mb-6">
+          <h3 className="text-xl font-black text-gray-900 mb-3">Free help, if you want to keep your home</h3>
+          <p className="text-gray-700 mb-5 leading-relaxed">
+            HUD-approved housing counselors are free to speak with and are not selling anything. If a foreclosure
+            complaint has been filed against you, New Jersey also runs a court mediation program at no cost, which can
+            include free housing counseling and legal assistance. These are the strongest first calls for most
+            homeowners, and we earn nothing when you use them.
+          </p>
+          <Link
+            href="/companies"
+            className="inline-block bg-emerald-700 text-white px-6 py-3 rounded-lg font-bold hover:bg-emerald-800 transition"
+          >
+            See the free options
+          </Link>
         </div>
-      </section>
 
-      {/* Real Estate Companies Section */}
-      <section className="max-w-6xl mx-auto px-4 py-20 border-t border-gray-200">
-        <div className="mb-16">
-          <h2 className="text-4xl font-black text-gray-900 mb-4">Real Estate & Cash Buy Companies</h2>
-          <p className="text-gray-600 text-lg mb-12">
-            Our network includes real estate professionals and cash buy companies that specialize in quick sales and alternative solutions.
+        <div className="rounded-2xl border-2 border-gray-200 bg-white p-8 mb-6">
+          <h3 className="text-xl font-black text-gray-900 mb-3">If selling is the right move</h3>
+          <p className="text-gray-700 mb-5 leading-relaxed">
+            We work with five destinations covering genuinely different situations: a 7-day fast close, a flexible cash
+            sale, a fire and smoke damage specialist, a discreet off-market sale for higher-value homes, and a licensed
+            brokerage that will value your home and list it on the open market. Which one fits depends mostly on how
+            much time you have.
           </p>
+          <Link
+            href="/companies"
+            className="inline-block bg-blue-900 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-950 transition"
+          >
+            Compare all options
+          </Link>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                name: 'Coming Soon',
-                specialty: 'Cash Home Buyers',
-                description: 'Professional cash buyers who close quickly (14-30 days) with no repairs, inspections, or agent fees required.',
-                services: ['Cash Offers', 'Quick Closing', 'No Repairs Needed']
-              },
-              {
-                name: 'Coming Soon',
-                specialty: 'Real Estate Specialists',
-                description: 'Licensed real estate professionals experienced in short sales, traditional sales, and distressed property situations.',
-                services: ['Short Sale', 'Quick Sale', 'Traditional Sale']
-              },
-              {
-                name: 'Coming Soon',
-                specialty: 'Equity Release Solutions',
-                description: 'Companies that help homeowners access home equity to consolidate debt or stabilize finances.',
-                services: ['Home Equity Loans', 'Debt Consolidation', 'Cash Release']
-              },
-              {
-                name: 'Coming Soon',
-                specialty: 'Alternative Solutions',
-                description: 'Specialists in deed-in-lieu, loan payoffs, and other creative solutions tailored to your circumstances.',
-                services: ['Deed-in-Lieu', 'Loan Payoff', 'Custom Solutions']
-              },
-            ].map((company, idx) => (
-              <div key={idx} className="p-8 border-2 border-gray-200 rounded-xl hover:border-teal-400 hover:shadow-lg transition">
-                <div className="flex items-start gap-4 mb-4">
-                  <img src="/images/icons/cash-sale.png" alt="Real estate company" className="w-14 h-14 rounded-full bg-teal-50 p-2" />
-                  <div className="flex-1">
-                    <h3 className="text-xl font-black text-gray-900">{company.name}</h3>
-                    <p className="text-teal-600 font-semibold text-sm">{company.specialty}</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-4">{company.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {company.services.map((service, i) => (
-                    <span key={i} className="px-3 py-1 bg-teal-50 text-teal-900 text-xs font-semibold rounded-full border border-teal-200">
-                      {service}
-                    </span>
-                  ))}
-                </div>
-                <button className="w-full bg-teal-600 text-white py-2 rounded-lg font-bold hover:bg-teal-700 transition">
-                  Contact Company
-                </button>
-              </div>
-            ))}
-          </div>
+        <div className="rounded-2xl border-2 border-amber-300 bg-amber-50 p-8">
+          <h3 className="text-xl font-black text-gray-900 mb-3">Attorneys, and why we do not refer them</h3>
+          <p className="text-gray-700 leading-relaxed">
+            We do not have a paid attorney partner, and we would tell you if we did. In New Jersey, as in nearly every
+            state, lawyers are barred from paying non-lawyers for client referrals, so any site charging a fee to send
+            you to an attorney raises a real question. If you need legal representation, the New Jersey State Bar
+            Association runs a lawyer referral service, and the court mediation program above can include free legal
+            assistance for eligible homeowners. We earn nothing from either, which is precisely why we can recommend
+            them without hesitation.
+          </p>
         </div>
       </section>
 

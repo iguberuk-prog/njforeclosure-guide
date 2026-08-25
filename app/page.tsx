@@ -82,7 +82,7 @@ export default function Home() {
           </Link>
           <div className="flex items-center gap-5 sm:gap-8 text-sm sm:text-[15px]">
             <Link href="/guides" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden sm:block">Guides</Link>
-            <Link href="/professionals" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Our Network</Link>
+            <Link href="/companies" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Get an Offer</Link>
             <Link href="/resources" className="text-slate-600 hover:text-slate-900 font-semibold transition hidden md:block">Resources</Link>
             <Link
               href="/quiz"
@@ -390,6 +390,63 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHERE TO GET HELP: the real destinations */}
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="text-amber-600 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Real Places, Real Offers</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-5 tracking-tight">
+              Where People Actually Get Out
+            </h2>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+              Understanding your options is the first half. This is the second half: the specific places New Jersey homeowners go to end a foreclosure. Which one fits depends mostly on how much time you have left.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+            {[
+              { n: 'Clik Offer', w: 'A sale date is days away', d: 'Local NJ cash buyer that can close in as little as 7 days.', h: '/companies/clik-offer', t: 'Fastest' },
+              { n: 'NJ Offer', w: 'You have a few weeks', d: 'Cash offer in 24 hours, closing 10 to 60 days, on your date.', h: '/companies/njoffer', t: 'Flexible' },
+              { n: 'Fire Home Buyers', w: 'Fire or smoke damage', d: 'Buys damaged property as-is, no repairs or cleanup.', h: '/companies/fire-home-buyers', t: 'Damage' },
+              { n: 'Private Sale Group', w: 'Home is $800k+', d: 'Discreet off-market sale. No listing, no showings, no commissions.', h: '/companies/private-sale-group', t: 'Luxury' },
+              { n: 'Corcoran Sawyer Smith', w: 'You want its true value', d: 'Licensed brokerage. Free valuation, then list on the open market.', h: '/companies/brc-corcoran-sawyer-smith', t: 'Listing' },
+              { n: 'Urbni', w: 'Property is a burden', d: 'Nonprofit that takes donated homes and land. We earn nothing.', h: '/companies/urbni', t: 'Donate' },
+            ].map((c, i) => (
+              <Link
+                key={i}
+                href={c.h}
+                className="group rounded-xl border border-slate-200 bg-white p-6 hover:border-slate-900 hover:shadow-xl transition-all flex flex-col"
+              >
+                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2.5 py-1 self-start mb-3">
+                  {c.t}
+                </span>
+                <h3 className="font-bold text-slate-900 mb-1.5 group-hover:text-slate-950">{c.n}</h3>
+                <p className="text-sm font-semibold text-slate-800 mb-2">Use when: {c.w}</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1">{c.d}</p>
+                <span className="text-sm font-semibold text-slate-900 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                  Learn more <span className="text-amber-500">→</span>
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="rounded-2xl bg-slate-950 text-white px-8 py-12 text-center">
+            <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4">Which One Is Right for You?</h3>
+            <p className="text-slate-300 mb-8 max-w-xl mx-auto leading-relaxed">
+              Answer a few questions and we will rank these for your exact situation. If keeping your home is realistic, we will tell you that first, and every result includes at least one option that earns us nothing.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/quiz" className="bg-amber-400 text-slate-950 px-10 py-4 rounded-lg font-bold hover:bg-amber-300 transition">
+                Get My Recommendations
+              </Link>
+              <Link href="/companies" className="border border-white/30 bg-white/5 text-white px-10 py-4 rounded-lg font-semibold hover:bg-white/15 transition">
+                Compare All Options
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* GUIDES */}
       <section className="py-24 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -601,6 +658,7 @@ export default function Home() {
               <ul className="text-sm space-y-3">
                 <li><Link href="/guides" className="hover:text-amber-400 transition">Educational Guides</Link></li>
                 <li><Link href="/quiz" className="hover:text-amber-400 transition">Free Assessment</Link></li>
+                <li><Link href="/companies" className="hover:text-amber-400 transition">Where to Get Help</Link></li>
                 <li><Link href="/professionals" className="hover:text-amber-400 transition">Professional Network</Link></li>
                 <li><Link href="/tools/timeline" className="hover:text-amber-400 transition">NJ Foreclosure Timeline Tool</Link></li>
                 <li><Link href="/premium-properties" className="hover:text-amber-400 transition">Premium Property Program ($800k+)</Link></li>

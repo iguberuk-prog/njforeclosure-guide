@@ -1,152 +1,242 @@
-'use client';
-
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { PARTNERS, COMPENSATION_LABEL, type Partner } from '../../lib/partners';
 
-const companies = [
-  {
-    name: 'NJOffer',
-    slug: 'njoffer',
-    tagline: 'The Fastest Rescue',
-    description: 'When you need cash in 14 days or less',
-    timeline: '7-14 days',
-    offer: '60-70% of market value',
-    best_for: 'Pre-foreclosure, urgent situations',
-    icon: '⚡',
-  },
-  {
-    name: 'Home Equity Partners',
-    slug: 'home-equity-partners',
-    tagline: 'The Fair Deal Specialist',
-    description: 'Fair prices with flexibility',
-    timeline: '15-30 days',
-    offer: '70-80% of market value',
-    best_for: 'Flexible timeline, inherited properties',
-    icon: '🏠',
-  },
-  {
-    name: 'Property Investors NJ',
-    slug: 'property-investors',
-    tagline: 'The Investor Solution',
-    description: 'Designed for landlords and portfolios',
-    timeline: '30-60 days',
-    offer: '50-85% (varies by investment)',
-    best_for: 'Investment properties, rental homes',
-    icon: '📊',
-  },
-];
+export const metadata: Metadata = {
+  title: 'Where to Get Help With a NJ Foreclosure | Every Option Compared',
+  description:
+    'Every destination we refer New Jersey homeowners to, compared side by side: fast cash buyers, fire damage specialists, luxury off-market sales, a licensed brokerage valuation, nonprofit donation, and free government help. What each is for and exactly how we are paid.',
+  alternates: { canonical: 'https://njforeclosureguide.org/companies/' },
+};
+
+// Single source of truth: this page renders from the partner registry, so a
+// destination can never appear here unless it is real and active.
+const PAGE_PATHS: Record<string, string> = {
+  'fire-home-buyers': '/companies/fire-home-buyers',
+  'nj-offer': '/companies/njoffer',
+  'private-sale-group': '/companies/private-sale-group',
+  'clik-offer': '/companies/clik-offer',
+  urbni: '/companies/urbni',
+  'brc-corcoran-sawyer-smith': '/companies/brc-corcoran-sawyer-smith',
+};
+
+const WHEN_TO_USE: Record<string, string> = {
+  'clik-offer': 'A sale date is days or a few weeks away',
+  'nj-offer': 'You need certainty but have a few weeks',
+  'fire-home-buyers': 'The property has fire or smoke damage',
+  'private-sale-group': 'Home is $800k+ and privacy matters',
+  'brc-corcoran-sawyer-smith': 'You want to know what it is worth first',
+  urbni: 'The property is a burden with little or no equity',
+  'hud-counseling': 'You want free, unbiased help before deciding',
+  'nj-foreclosure-mediation': 'A foreclosure complaint has been filed',
+};
+
+function Badge({ p }: { p: Partner }) {
+  if (p.compensation === 'no-compensation') {
+    return (
+      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 border border-emerald-300 rounded-full px-2.5 py-1 whitespace-nowrap">
+        Free · We earn nothing
+      </span>
+    );
+  }
+  if (p.compensation === 'affiliated') {
+    return (
+      <span className="text-[10px] font-bold uppercase tracking-wider text-blue-800 bg-blue-100 border border-blue-300 rounded-full px-2.5 py-1 whitespace-nowrap">
+        Affiliated with us
+      </span>
+    );
+  }
+  return (
+    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 bg-slate-100 border border-slate-300 rounded-full px-2.5 py-1 whitespace-nowrap">
+      Referral partner
+    </span>
+  );
+}
+
+function Card({ p }: { p: Partner }) {
+  const internal = PAGE_PATHS[p.id];
+  return (
+    <div
+      className={`rounded-2xl border p-7 flex flex-col ${
+        p.compensation === 'no-compensation' ? 'border-emerald-200 bg-emerald-50/40' : 'border-slate-200 bg-white'
+      }`}
+    >
+      <div className="flex items-start justify-between gap-3 mb-3">
+        <div className="min-w-0">
+          {p.programBadge && (
+            <span className="inline-block text-[10px] font-bold uppercase tracking-[0.15em] text-amber-800 bg-amber-100 border border-amber-300 rounded-full px-3 py-1 mb-2">
+              {p.programBadge}
+            </span>
+          )}
+          <h3 className="font-bold text-lg text-slate-900 leading-tight">{p.name}</h3>
+        </div>
+        <Badge p={p} />
+      </div>
+
+      {WHEN_TO_USE[p.id] && (
+        <p className="text-sm font-semibold text-slate-900 mb-2">Use when: {WHEN_TO_USE[p.id]}</p>
+      )}
+      <p className="text-slate-600 text-sm leading-relaxed mb-4">{p.headline}</p>
+
+      {p.timeline && (
+        <p className="text-xs text-slate-500 mb-4">
+          <span className="font-semibold text-slate-700">Timeline:</span> {p.timeline}
+        </p>
+      )}
+
+      <div className="flex flex-wrap gap-2 mb-5">
+        {p.bestFor.slice(0, 3).map((b, i) => (
+          <span key={i} className="text-xs text-slate-600 bg-slate-100 rounded-full px-3 py-1">
+            {b}
+          </span>
+        ))}
+      </div>
+
+      <div className="flex flex-col sm:flex-row gap-2 mt-auto">
+        {internal && (
+          <Link
+            href={internal}
+            className="flex-1 text-center border border-slate-300 text-slate-800 px-5 py-2.5 rounded-lg font-semibold hover:bg-slate-50 transition text-sm"
+          >
+            Read our review
+          </Link>
+        )}
+        <a
+          href={p.url}
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          className="flex-1 text-center bg-slate-900 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition text-sm"
+        >
+          Go to site
+        </a>
+      </div>
+
+      <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">{COMPENSATION_LABEL[p.compensation]}</p>
+    </div>
+  );
+}
 
 export default function CompaniesPage() {
+  const active = PARTNERS.filter((p) => p.active);
+  const sell = active.filter((p) => p.kind === 'sell-fast' || p.kind === 'sell-market');
+  const donate = active.filter((p) => p.kind === 'donate');
+  const free = active.filter((p) => p.kind === 'free-counsel');
+
   return (
     <div className="min-h-full bg-white">
-      {/* Navigation */}
-      <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Link href="/" className="text-2xl font-bold text-blue-900">
-            NJ Foreclosure Guide
+      {/* Nav */}
+      <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200 z-40 shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition">
+            <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-14 w-14" />
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-bold text-slate-900 tracking-tight">NJ Foreclosure Guide</span>
+              <span className="text-[10px] text-slate-500 font-medium tracking-widest uppercase">Free Homeowner Resource</span>
+            </div>
+          </Link>
+          <Link href="/quiz" className="bg-slate-900 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition text-sm">
+            Free Assessment
           </Link>
         </div>
       </nav>
 
-      {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-50 py-12 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-blue-900 mb-4">
-            Trusted Cash Home Buyers
-          </h1>
-          <p className="text-lg text-gray-700">
-            Compare three vetted companies specializing in distressed situations. Each has different strengths, choose the best fit for your needs.
+      {/* Hero */}
+      <section className="bg-gradient-to-b from-slate-950 to-slate-900 text-white py-16 px-4 text-center">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase mb-4">Every Option, Side by Side</p>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">Where to Get Help</h1>
+          <p className="text-slate-300 text-lg leading-relaxed mb-8">
+            These are the places we send New Jersey homeowners. They are not interchangeable, and choosing the right one is most of the decision. Here is what each is actually for, and exactly how we are paid in each case.
+          </p>
+          <Link
+            href="/quiz"
+            className="inline-block bg-amber-400 text-slate-950 px-10 py-4 rounded-lg font-bold hover:bg-amber-300 transition"
+          >
+            Not sure? Take the 2-minute assessment
+          </Link>
+        </div>
+      </section>
+
+      {/* Free first */}
+      <section className="max-w-5xl mx-auto px-4 py-14">
+        <div className="mb-8">
+          <p className="text-emerald-700 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Start Here · Costs Nothing</p>
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-3">Free Help, and We Earn Nothing From It</h2>
+          <p className="text-slate-600 leading-relaxed max-w-2xl">
+            If you want to keep your home, or you simply want unbiased advice before deciding anything, start here. We are not paid a cent if you use these.
           </p>
         </div>
-      </section>
-
-      {/* Comparison Table */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <div className="overflow-x-auto">
-          <table className="w-full bg-white rounded-lg shadow">
-            <thead className="bg-gray-100 border-b-2 border-gray-300">
-              <tr>
-                <th className="px-6 py-4 text-left font-semibold text-gray-900">Company</th>
-                <th className="px-6 py-4 text-left font-semibold text-gray-900">Timeline</th>
-                <th className="px-6 py-4 text-left font-semibold text-gray-900">Offer Range</th>
-                <th className="px-6 py-4 text-left font-semibold text-gray-900">Best For</th>
-                <th className="px-6 py-4 text-center font-semibold text-gray-900">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {companies.map((company) => (
-                <tr key={company.slug} className="border-b border-gray-200 hover:bg-gray-50 transition">
-                  <td className="px-6 py-4">
-                    <div className="flex items-center gap-3">
-                      <span className="text-3xl">{company.icon}</span>
-                      <div>
-                        <p className="font-semibold text-blue-900">{company.name}</p>
-                        <p className="text-sm text-gray-600">{company.tagline}</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 text-gray-900">{company.timeline}</td>
-                  <td className="px-6 py-4 text-gray-900">{company.offer}</td>
-                  <td className="px-6 py-4 text-gray-700">{company.best_for}</td>
-                  <td className="px-6 py-4 text-center">
-                    <Link
-                      href={`/companies/${company.slug}`}
-                      className="text-blue-600 hover:text-blue-700 font-semibold"
-                    >
-                      Learn More →
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="grid md:grid-cols-2 gap-6">
+          {free.map((p) => <Card key={p.id} p={p} />)}
         </div>
       </section>
 
-      {/* Individual Company Cards */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-3 gap-8">
-          {companies.map((company) => (
-            <div key={company.slug} className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 text-center">
-                <div className="text-5xl mb-4">{company.icon}</div>
-                <h2 className="text-2xl font-bold text-blue-900 mb-1">{company.name}</h2>
-                <p className="text-indigo-600 font-semibold">{company.tagline}</p>
-              </div>
-              <div className="p-6">
-                <p className="text-gray-700 mb-6">{company.description}</p>
-
-                <div className="space-y-4 mb-6 text-sm">
-                  <div className="bg-gray-50 p-3 rounded">
-                    <p className="text-gray-600">Timeline</p>
-                    <p className="font-semibold text-gray-900">{company.timeline}</p>
-                  </div>
-                  <div className="bg-gray-50 p-3 rounded">
-                    <p className="text-gray-600">Typical Offer</p>
-                    <p className="font-semibold text-gray-900">{company.offer}</p>
-                  </div>
-                  <div className="bg-gray-50 p-3 rounded">
-                    <p className="text-gray-600">Best For</p>
-                    <p className="font-semibold text-gray-900">{company.best_for}</p>
-                  </div>
-                </div>
-
-                <Link
-                  href={`/companies/${company.slug}`}
-                  className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-          ))}
+      {/* Selling */}
+      <section className="bg-slate-50 py-14 px-4 border-y border-slate-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-8">
+            <p className="text-amber-700 text-xs font-semibold tracking-[0.25em] uppercase mb-3">If Selling Is the Right Move</p>
+            <h2 className="font-serif text-3xl font-bold text-slate-900 mb-3">Five Ways to Sell, and They Are Not the Same</h2>
+            <p className="text-slate-600 leading-relaxed max-w-2xl">
+              Which one fits depends almost entirely on how much time you have and what condition the property is in. Speed costs you price. Time earns it back.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {sell.map((p) => <Card key={p.id} p={p} />)}
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-12 mt-16">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p>&copy; 2024 NJ Foreclosure Guide. Educational resource, not legal or financial advice.</p>
+      {/* Donation */}
+      {donate.length > 0 && (
+        <section className="max-w-5xl mx-auto px-4 py-14">
+          <div className="mb-8">
+            <p className="text-emerald-700 text-xs font-semibold tracking-[0.25em] uppercase mb-3">When the Property Is a Burden</p>
+            <h2 className="font-serif text-3xl font-bold text-slate-900 mb-3">Donation</h2>
+            <p className="text-slate-600 leading-relaxed max-w-2xl">
+              For a property with little or no equity that costs more to keep than it will ever return. Note that donating does not erase a mortgage.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {donate.map((p) => <Card key={p.id} p={p} />)}
+          </div>
+        </section>
+      )}
+
+      {/* Honesty block */}
+      <section className="max-w-3xl mx-auto px-4 py-14">
+        <div className="rounded-2xl border border-slate-300 bg-white p-8">
+          <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">How We Make Money, Plainly</h2>
+          <div className="space-y-3 text-slate-600 text-sm leading-relaxed">
+            <p>
+              Some of the home-buying companies above pay us a referral fee if you sell to them. One is an affiliated business, meaning the people behind this guide are connected to it, and that is labeled on its card and on its page. We are not paid by attorneys, we are not paid by the nonprofit, and we are not paid by the free government resources.
+            </p>
+            <p>You are never charged anything by us, at any point, for anything.</p>
+            <p className="text-slate-900 font-semibold">
+              Every set of recommendations we give you includes at least one option that earns us nothing. That is deliberate, and it is the reason you can trust the rest of the list.
+            </p>
+          </div>
         </div>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-3xl mx-auto px-4 pb-16">
+        <div className="rounded-2xl bg-slate-950 text-white px-8 py-12 text-center">
+          <h2 className="font-serif text-2xl font-bold mb-3">Not Sure Which One Fits?</h2>
+          <p className="text-slate-300 mb-8 text-sm leading-relaxed max-w-xl mx-auto">
+            Answer a few questions and we will rank these for your exact situation, starting with how much time you actually have.
+          </p>
+          <Link href="/quiz" className="inline-block bg-amber-400 text-slate-950 px-12 py-4 rounded-lg font-bold hover:bg-amber-300 transition text-lg">
+            Get My Recommendations
+          </Link>
+        </div>
+      </section>
+
+      <footer className="bg-slate-950 text-slate-500 py-10 px-4 text-center text-xs">
+        <p className="mb-2">&copy; 2026 NJ Foreclosure Guide. All rights reserved.</p>
+        <p className="max-w-2xl mx-auto leading-relaxed">
+          Educational resource only. Not a law firm, lender, or real estate company. Some partners pay us a referral fee and one is an affiliated business, both disclosed. We are not paid by attorneys or nonprofits, and you are never charged.
+        </p>
       </footer>
     </div>
   );

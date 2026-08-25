@@ -97,7 +97,7 @@ export default function RefinancingPage() {
                   </li>
                   <li className="flex gap-2">
                     <span className="text-green-600 font-bold">•</span>
-                    <span>60-70% approval rate</span>
+                    <span>Often easier to qualify for than a new purchase loan</span>
                   </li>
                 </ul>
               </div>
@@ -405,7 +405,7 @@ export default function RefinancingPage() {
                 </li>
                 <li className="flex gap-3">
                   <span className="text-green-600 font-bold">+</span>
-                  <span className="text-gray-700">Higher approval rate (60-70%)</span>
+                  <span className="text-gray-700">Generally easier to qualify for</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-green-600 font-bold">+</span>

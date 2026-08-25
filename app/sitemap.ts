@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/professionals',
     '/tools/timeline',
     '/premium-properties',
+    '/companies',
     '/companies/njoffer',
     '/companies/fire-home-buyers',
     '/companies/private-sale-group',

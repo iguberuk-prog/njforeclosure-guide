@@ -107,8 +107,10 @@ export const PARTNERS: Partner[] = [
   },
 
   // -------------------------------------------------------------------------
-  // YOUR PARTNER SITES. One object each. Copy this template.
-  // Keep `active: false` until the agreement is signed and details verified.
+  // PARTNER SITES. Every entry below is a real, verified destination.
+  // Never add a placeholder here. If a partnership is not signed and the
+  // details are not verified against the partner's live site, it does not
+  // belong in this file at all.
   // -------------------------------------------------------------------------
   {
     id: 'fire-home-buyers',
@@ -250,40 +252,6 @@ export const PARTNERS: Partner[] = [
     },
     compensation: 'affiliated',
     active: true,
-  },
-  {
-    id: 'partner-investor',
-    name: 'Partner Site 3',
-    url: 'https://example.com',
-    headline: 'Buyer focused on rental and investment property.',
-    description:
-      'Replace with the real description. Use this slot for a partner who works with landlords, multi-unit, or tenant-occupied property.',
-    kind: 'investor',
-    bestFor: ['Rental or investment property', 'Tenants in place', 'Multiple properties'],
-    timeline: 'Confirm with partner',
-    match: {
-      goals: ['sell', 'unsure'],
-      ownerTypes: ['investor', 'mixed'],
-    },
-    compensation: 'paid-referral',
-    active: false,
-  },
-  {
-    id: 'partner-attorney',
-    name: 'Partner Site 4',
-    url: 'https://example.com',
-    headline: 'Foreclosure defense and loan modification attorney.',
-    description:
-      'Replace with the real firm. IMPORTANT: see the note at the bottom of this file about attorney referral fees before setting compensation to paid-referral.',
-    kind: 'keep-home',
-    bestFor: ['You want to keep the home', 'You were served with papers', 'You need to respond in court'],
-    timeline: 'Confirm with partner',
-    match: {
-      situations: ['foreclosure', 'behind', 'financial'],
-      goals: ['keep', 'unsure'],
-    },
-    compensation: 'no-compensation',
-    active: false,
   },
 ];
 
