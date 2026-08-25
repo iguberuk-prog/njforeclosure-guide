@@ -37,6 +37,18 @@ export interface Partner {
   /** Human-readable, shown on the card. Keep factual. */
   bestFor: string[];
   timeline?: string;
+  /**
+   * Optional badge naming OUR program this destination sits inside. Lets us
+   * position a partner (e.g. as a luxury offering) without asking them to
+   * change anything on their own site.
+   */
+  programBadge?: string;
+  /**
+   * Shown immediately above the outbound link. Use it to tell the homeowner
+   * what they will actually see when they land, so a general-audience partner
+   * site does not feel like a mismatch after specialized framing on our side.
+   */
+  handoffNote?: string;
   /** Matching criteria. Omit a field to mean "no restriction". */
   match: {
     situations?: Situation[];
@@ -134,6 +146,9 @@ export const PARTNERS: Partner[] = [
       'You would rather not hold open houses while in foreclosure',
     ],
     timeline: 'Offer within 24 hours, closing 10 to 60 days',
+    programBadge: 'Premium Property Program',
+    handoffNote:
+      'NJ Offer serves New Jersey homeowners at every price point, so their website speaks to a general audience rather than to luxury sellers specifically. That is expected. When you request your offer, enter your property details and price expectation as normal, and mention that you were referred through our Premium Property Program so it reaches the right desk.',
     match: {
       // Scoped to the $800k+ tier per the partnership. Widen this array if
       // NJ Offer should also receive mid-market leads.

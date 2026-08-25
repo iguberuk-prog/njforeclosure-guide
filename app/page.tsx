@@ -603,6 +603,7 @@ export default function Home() {
                 <li><Link href="/quiz" className="hover:text-amber-400 transition">Free Assessment</Link></li>
                 <li><Link href="/professionals" className="hover:text-amber-400 transition">Professional Network</Link></li>
                 <li><Link href="/tools/timeline" className="hover:text-amber-400 transition">NJ Foreclosure Timeline Tool</Link></li>
+                <li><Link href="/premium-properties" className="hover:text-amber-400 transition">Premium Property Program ($800k+)</Link></li>
                 <li><Link href="/foreclosure-help" className="hover:text-amber-400 transition">Local Help by County and Town</Link></li>
               </ul>
             </div>

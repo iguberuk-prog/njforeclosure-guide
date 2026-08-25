@@ -285,6 +285,11 @@ export default function QuizPage() {
                             : 'border-slate-200 bg-white'
                         }`}
                       >
+                        {partner.programBadge && (
+                          <span className="inline-block text-[10px] font-bold uppercase tracking-[0.15em] text-amber-800 bg-amber-100 border border-amber-300 rounded-full px-3 py-1 mb-3">
+                            {partner.programBadge}
+                          </span>
+                        )}
                         <div className="flex items-start justify-between gap-4 mb-1">
                           <h3 className="font-bold text-slate-900">{partner.name}</h3>
                           {partner.compensation === 'no-compensation' && (
@@ -303,6 +308,15 @@ export default function QuizPage() {
                                 {r}
                               </span>
                             ))}
+                          </div>
+                        )}
+
+                        {partner.handoffNote && (
+                          <div className="rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 mb-4">
+                            <p className="text-xs text-slate-600 leading-relaxed">
+                              <span className="font-bold text-slate-800">Before you click: </span>
+                              {partner.handoffNote}
+                            </p>
                           </div>
                         )}
 

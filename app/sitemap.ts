@@ -19,6 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/guides/ltv-refinance',
     '/professionals',
     '/tools/timeline',
+    '/premium-properties',
+    '/companies/njoffer',
+    '/companies/fire-home-buyers',
     '/foreclosure-help',
   ].map((p) => ({
     url: `${base}${p}/`.replace(/\/\/$/, '/'),
