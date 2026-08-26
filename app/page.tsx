@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import HowItWorks from './components/HowItWorks';
 import Logo from './components/Logo';
 import SiteHeader from './components/SiteHeader';
 import { useState } from 'react';
@@ -212,22 +213,11 @@ export default function Home() {
             ))}
           </div>
 
-          {/* How it works inline */}
-          <div className="mt-20 grid md:grid-cols-3 gap-10 border-t border-white/10 pt-16">
-            {[
-              { step: '01', title: 'Learn Your Options', desc: 'Read our plain-English guides or take the 2-minute assessment to understand which of the 7 solutions fit your situation.' },
-              { step: '02', title: 'Get Matched', desc: 'If you want help, we introduce you to a vetted attorney or real estate professional who specializes in your solution.' },
-              { step: '03', title: 'Move Forward', desc: 'Your professional handles the process. You stay in control of every decision, we simply made the introduction.' },
-            ].map((item, idx) => (
-              <div key={idx}>
-                <p className="font-serif text-amber-400/70 text-5xl font-bold mb-4">{item.step}</p>
-                <h3 className="font-bold text-xl mb-3">{item.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
+
+      {/* HOW IT WORKS, drawn */}
+      <HowItWorks />
 
       {/* TRACK RECORD: established practice, new website */}
       <TrackRecord />
