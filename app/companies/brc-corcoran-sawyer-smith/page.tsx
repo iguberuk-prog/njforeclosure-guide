@@ -41,11 +41,26 @@ export default function BRCPage() {
         </div>
       </section>
 
-      {/* Affiliation disclosure, prominent and first */}
+      {/*
+        Affiliation disclosure.
+
+        Styling may change. Placement and legibility may not. This has to sit
+        above the pitch, be readable without a click or a hover, and state the
+        material connection in the first sentence. Those three things are what
+        put an affiliated referral inside the RESPA safe harbor; lose them and
+        the referral itself becomes the exposure. Calm is fine. Quiet is not.
+      */}
       <section className="max-w-3xl mx-auto px-4 pt-10">
-        <div className="rounded-xl border-2 border-blue-300 bg-blue-50 p-5">
-          <p className="text-sm text-blue-900 leading-relaxed">
-            <span className="font-bold">Disclosure, and it matters here:</span> the people behind NJ Foreclosure Guide are affiliated with Corcoran Sawyer Smith x Builders Resource Center. This is not an arm&apos;s-length referral to an unrelated company, it is a related business. We are telling you plainly so you can weigh this recommendation with that in mind. Every other option on this site remains available to you, including the free ones that earn us nothing, and you are under no obligation to use this brokerage.
+        <div className="border-l-2 border-slate-900 pl-5 sm:pl-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-500 mb-2">
+            How we are connected to them
+          </p>
+          <p className="text-slate-700 leading-relaxed">
+            This one is ours. The people behind NJ Foreclosure Guide hold an ownership interest in
+            Corcoran Sawyer Smith x Builders Resource Center, so we do benefit if you list with them.
+            Everything else on this site is unconnected to us, including the free options, and you are
+            never required to use this one. Better you know that before you read the rest of the page
+            than after.
           </p>
         </div>
       </section>
