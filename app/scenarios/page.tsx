@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SiteHeader from '../components/SiteHeader';
 import type { Metadata } from 'next';
 import { INDEPENDENCE_STATEMENT } from '../../lib/partners';
 
@@ -468,20 +469,7 @@ const TONE: Record<Tone, { chip: string; border: string }> = {
 export default function ScenariosPage() {
   return (
     <div className="min-h-full bg-white">
-      <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200 z-40 shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition">
-            <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-14 w-14" />
-            <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold text-slate-900 tracking-tight">NJ Foreclosure Guide</span>
-              <span className="text-[10px] text-slate-500 font-medium tracking-widest uppercase">Free Homeowner Resource</span>
-            </div>
-          </Link>
-          <Link href="/quiz" className="bg-slate-900 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition text-sm">
-            Free Assessment
-          </Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <section className="bg-gradient-to-b from-slate-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">

@@ -1,21 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import SiteHeader from '../../components/SiteHeader';
 
 export default function LTVRefinancePage() {
   return (
     <div className="min-h-full bg-white">
-      {/* Navigation */}
-      <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-blue-900">
-            NJ Foreclosure Guide
-          </Link>
-          <Link href="/guides" className="text-gray-600 hover:text-blue-900">
-            ← Back to Guides
-          </Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* Main Content */}
       <article className="max-w-3xl mx-auto px-4 py-12">

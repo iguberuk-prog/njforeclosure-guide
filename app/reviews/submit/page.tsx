@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import SiteHeader from '../../components/SiteHeader';
 import Link from 'next/link';
 
 /**
@@ -57,8 +58,9 @@ export default function SubmitReviewPage() {
 
   if (done) {
     return (
-      <div className="min-h-full bg-slate-50 py-20 px-4">
-        <div className="max-w-2xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200">
+      <div className="min-h-full bg-slate-50">
+        <SiteHeader />
+        <div className="max-w-2xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200 py-20 px-4">
           <h1 className="font-serif text-3xl font-bold text-slate-900 mb-4">Thank you.</h1>
           <p className="text-slate-600 leading-relaxed mb-4">
             That genuinely helps, and we read every one of these.
@@ -77,8 +79,9 @@ export default function SubmitReviewPage() {
   }
 
   return (
-    <div className="min-h-full bg-slate-50 py-14 px-4">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-full bg-slate-50">
+      <SiteHeader />
+      <div className="max-w-2xl mx-auto py-14 px-4">
         <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200">
           <p className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase mb-3">
             For homeowners we have worked with

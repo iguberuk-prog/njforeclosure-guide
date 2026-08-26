@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import SiteHeader from '../components/SiteHeader';
 
 // Force rebuild - 2026-08-04 - Fix guide routes
 
@@ -58,14 +59,7 @@ const guides = [
 export default function GuidesPage() {
   return (
     <div className="min-h-full bg-white">
-      {/* Navigation */}
-      <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Link href="/" className="text-2xl font-bold text-blue-900">
-            NJ Foreclosure Guide
-          </Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-blue-50 to-indigo-50 py-12 px-4">

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import SiteHeader from '../components/SiteHeader';
 import Link from 'next/link';
 import { matchPartners, COMPENSATION_LABEL, type Answers } from '../../lib/partners';
 import { SITE_EMAIL, RESPONSE_PROMISE } from '../../lib/contact';
@@ -259,8 +260,9 @@ export default function QuizPage() {
   // Results screen
   if (result) {
     return (
-      <div className="min-h-full bg-slate-50 py-14 px-4">
-        <div className="max-w-2xl mx-auto">
+      <div className="min-h-full bg-slate-50">
+        <SiteHeader />
+        <div className="max-w-2xl mx-auto py-14 px-4">
           <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200">
             <p className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Your Personalized Results</p>
             <h1 className="font-serif text-3xl font-bold text-slate-900 mb-6">Here's Your Path Forward</h1>
@@ -414,8 +416,9 @@ export default function QuizPage() {
   if (step >= questions.length) {
     const leadScore = scoreLeadUrgency(answers);
     return (
-      <div className="min-h-full bg-slate-50 py-14 px-4">
-        <div className="max-w-2xl mx-auto">
+      <div className="min-h-full bg-slate-50">
+        <SiteHeader />
+        <div className="max-w-2xl mx-auto py-14 px-4">
           <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200">
             <p className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Almost Done</p>
             <h1 className="font-serif text-3xl font-bold text-slate-900 mb-3">Where Should We Send Your Results?</h1>
@@ -545,8 +548,9 @@ export default function QuizPage() {
   // Question steps
   const q = questions[step];
   return (
-    <div className="min-h-full bg-slate-50 py-14 px-4">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-full bg-slate-50">
+      <SiteHeader />
+      <div className="max-w-2xl mx-auto py-14 px-4">
         <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200">
           <div className="mb-8">
             <div className="flex justify-between items-center mb-3">

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import SiteHeader from '../../components/SiteHeader';
 import Link from 'next/link';
 
 const STAGES = [
@@ -98,6 +99,7 @@ export default function TimelinePage() {
 
   return (
     <div className="min-h-full bg-slate-50">
+      <SiteHeader />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_SCHEMA) }} />
       {/* Header */}
       <div className="bg-slate-950 text-white py-16 px-4">

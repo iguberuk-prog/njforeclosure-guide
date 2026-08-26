@@ -1,27 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Logo from '../components/Logo';
+import SiteHeader from '../components/SiteHeader';
 
 export default function Professionals() {
   return (
     <div className="min-h-full bg-white">
-      {/* Navigation */}
-      <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-200 z-40 shadow-sm">
-        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-85 transition">
-            <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-16 w-16 sm:h-20 sm:w-20" />
-            <div className="hidden sm:flex flex-col">
-              <div className="text-sm font-bold text-blue-900 tracking-tight">NJ FORECLOSURE</div>
-              <div className="text-base font-semibold text-gray-500">GUIDE</div>
-            </div>
-          </Link>
-          <div className="flex gap-2 sm:gap-8 text-sm sm:text-base">
-            <Link href="/" className="text-gray-600 hover:text-blue-900 font-semibold transition">Home</Link>
-            <Link href="/guides" className="text-gray-600 hover:text-blue-900 font-semibold transition">Guides</Link>
-            <Link href="/quiz" className="text-gray-600 hover:text-blue-900 font-semibold transition">Quiz</Link>
-          </div>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* Hero Section. Professional team photo */}
       <section className="relative overflow-hidden">
@@ -163,7 +149,7 @@ export default function Professionals() {
           {/* Verification Badge */}
 
           <div className="flex items-center justify-center gap-4 mb-8">
-            <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-20 w-20" />
+            <Logo className="h-16 w-16 text-white" />
             <div>
               <div className="text-lg font-bold text-white tracking-tight">NJ FORECLOSURE</div>
               <div className="text-base font-semibold text-gray-400">GUIDE</div>

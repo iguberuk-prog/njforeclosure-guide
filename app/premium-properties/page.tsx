@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SiteHeader from '../components/SiteHeader';
 import RecommendationBasis from '../components/RecommendationBasis';
 import type { Metadata } from 'next';
 
@@ -18,24 +19,7 @@ export const metadata: Metadata = {
 export default function PremiumPropertiesPage() {
   return (
     <div className="min-h-full bg-[#0B1120]">
-      {/* Nav */}
-      <nav className="sticky top-0 bg-[#0B1120]/95 backdrop-blur-md border-b border-white/10 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition">
-            <img src="/images/icons/professional-legal-scales-lg.png" alt="NJ Foreclosure Guide" className="h-12 w-12" />
-            <div className="flex flex-col leading-tight">
-              <span className="text-base font-bold text-white tracking-tight">NJ Foreclosure Guide</span>
-              <span className="text-[10px] text-amber-400/80 font-medium tracking-[0.2em] uppercase">Premium Property Program</span>
-            </div>
-          </Link>
-          <Link
-            href="/quiz"
-            className="bg-amber-400 text-slate-950 px-5 py-2.5 rounded-lg font-bold hover:bg-amber-300 transition text-sm whitespace-nowrap"
-          >
-            Confidential Assessment
-          </Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/10">
