@@ -64,18 +64,22 @@ export interface Partner {
     counties?: string[];
   };
   /**
-   * Deliberately narrowed to a single value.
+   * Deliberately narrow. Only two values are permitted.
    *
-   * This site takes no referral fees, no commissions, and no advertising money
-   * from anything it recommends, and says so on every page. Narrowing the type
-   * means that promise cannot be quietly broken by editing one entry: adding a
-   * paid destination would be a compile error, forcing whoever does it to also
-   * change the sitewide disclosures. That is the point.
+   * 'no-compensation' means exactly that: no referral fee, no commission, no
+   * advertising money, no ownership, no connection of any kind.
    *
-   * If the model ever changes, widen this type AND update every disclosure
-   * surface listed in DISCLOSURE_SURFACES below. Not one without the other.
+   * 'affiliated' means the people behind this guide have an ownership or
+   * employment interest in that business, so they benefit if you use it. That
+   * is a material connection and it must be disclosed at or before the
+   * referral, on the card, on the page, and in the assessment results.
+   *
+   * There is deliberately no 'paid-referral' option. Adding one would be a
+   * compile error, which forces whoever wants it to also rewrite every
+   * disclosure surface in DISCLOSURE_SURFACES rather than quietly leaving
+   * those pages saying something that is no longer true.
    */
-  compensation: 'no-compensation';
+  compensation: 'no-compensation' | 'affiliated';
   /** Set true only when the agreement is signed and details are verified. */
   active: boolean;
 }
@@ -239,19 +243,28 @@ export const PARTNERS: Partner[] = [
     compensation: 'no-compensation',
     active: true,
   },
-  // -------------------------------------------------------------------------
-  // REMOVED: Corcoran Sawyer Smith x Builders Resource Center.
-  //
-  // This site states plainly that it has no affiliation with anything it
-  // recommends. The people running this site are affiliated with that
-  // brokerage, so recommending it would have made that statement false.
-  // Removed rather than disclosed, because the independence claim is the
-  // whole point of this resource.
-  //
-  // Homeowners who need a valuation or a market listing are now pointed at
-  // the CATEGORY of help and told how to choose an agent themselves, which
-  // is in getMarketListingGuidance() below.
-  // -------------------------------------------------------------------------
+  {
+    id: 'brc-corcoran-sawyer-smith',
+    name: 'Corcoran Sawyer Smith x Builders Resource Center',
+    url: 'https://brcnj.com',
+    headline: 'Licensed brokerage for a home valuation and a traditional listing on the open market.',
+    description:
+      'A full-service New Jersey brokerage headquartered in Livingston and working in every county, covering residential sales, land and development, and new construction. Start with a consultation and a valuation of your home. Knowing what the property is actually worth is the foundation of every other decision you make, because it tells you whether you have equity worth protecting, whether a short sale is even relevant, and whether listing beats a cash offer.',
+    kind: 'sell-market',
+    bestFor: [
+      'You want to know what your home is really worth',
+      'You have time to sell on the open market',
+      'You want the highest likely price, not the fastest close',
+      'Land, new construction, or development property',
+    ],
+    timeline: 'Consultation and valuation first, then a market listing',
+    match: {
+      goals: ['sell', 'unsure'],
+      timelines: ['weeks', 'flexible', 'no-rush'],
+    },
+    compensation: 'affiliated',
+    active: true,
+  },
 
   // ---------------------------------------------------------------------------
   // RESERVED SLOT: foreclosure defense attorney.
@@ -416,6 +429,8 @@ export function matchPartners(answers: Answers): Match[] {
 export const COMPENSATION_LABEL: Record<Partner['compensation'], string> = {
   'no-compensation':
     'We are not paid by them, not affiliated with them, and receive nothing if you contact them. Listed only because it may help you.',
+  affiliated:
+    'Related business: the people behind NJ Foreclosure Guide have an ownership interest in this company, so we benefit if you list with them. Told to you up front so you can weigh this recommendation accordingly. Every other option here remains open to you, including the free ones, and you are under no obligation to use them.',
 };
 
 /**
@@ -423,7 +438,7 @@ export const COMPENSATION_LABEL: Record<Partner['compensation'], string> = {
  * from this, so the claim cannot drift between pages.
  */
 export const INDEPENDENCE_STATEMENT =
-  'Every company listed on this site is independently owned and operated and has no affiliation with NJ Foreclosure Guide. We are not paid by any of them. No referral fees, no commissions, no advertising money, and no ownership stake. We have nothing to gain from which option you choose, which is the entire reason this resource exists.';
+  'We take no referral fees, no commissions, and no advertising money from anything on this site. Every cash buyer, nonprofit and government program listed is independently owned and operated with no connection to us. The one exception is Corcoran Sawyer Smith x Builders Resource Center, a brokerage the people behind this guide have an ownership interest in, which is labeled as a related business everywhere it appears so you can weigh it accordingly.';
 
 // ---------------------------------------------------------------------------
 // TRACK RECORD
@@ -534,15 +549,14 @@ export const DISCLOSURE_SURFACES = [
 /**
  * Guidance for someone who wants a traditional market listing.
  *
- * There is deliberately no brokerage recommended here. The site previously
- * pointed at a brokerage the operators are affiliated with, which contradicted
- * the independence claim, so it was removed. Homeowners get the criteria to
- * choose an agent themselves instead.
+ * We DO name a brokerage here, and it is one we are affiliated with, so this
+ * block leads with how to choose an agent generally and treats ours as one
+ * option among several rather than the answer. Keep it that way.
  */
 export const MARKET_LISTING_GUIDANCE = {
   title: 'Listing on the open market',
   summary:
-    'If you have equity and enough time before a sale date, listing normally almost always nets more than a cash offer, even after commission. We do not recommend a specific brokerage and we are not paid by any agent.',
+    'If you have equity and enough time before a sale date, listing normally almost always nets more than a cash offer, even after commission. Interview more than one agent before you sign anything, including ours.',
   howToChoose: [
     'Interview at least three agents and ask each for a written comparative market analysis, not a verbal estimate.',
     'Ask directly how many foreclosure or pre-foreclosure sales they have closed and how they handled the timeline.',

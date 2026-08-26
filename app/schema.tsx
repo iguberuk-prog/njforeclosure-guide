@@ -8,7 +8,7 @@ export const FAQSchema = () => {
         "name": "Is this service really free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, and there is no catch. We are paid by nobody. No referral fees, no commissions, no advertising money, and no affiliation with any company we mention. Nothing is ever charged to you."
+          "text": "Yes. We take no referral fees, no commissions and no advertising money from anyone, and nothing is ever charged to you. One destination on the site is a brokerage the people behind this guide have an ownership interest in, which is labeled as a related business wherever it appears."
         }
       },
       {
@@ -70,7 +70,7 @@ export const OrganizationSchema = () => {
     "name": "NJ Foreclosure Guide",
     "url": "https://njforeclosureguide.org",
     "logo": "https://njforeclosureguide.org/images/logo-nj-foreclosure-guide.jpg",
-    "description": "Independent educational resource for New Jersey homeowners facing foreclosure. Paid by nobody and affiliated with nobody.",
+    "description": "Independent educational resource for New Jersey homeowners facing foreclosure. Takes no referral fees, commissions or advertising money; one listed destination is a disclosed related business.",
     "email": "help@njforeclosureguide.org",
     "sameAs": [
       "https://njforeclosureguide.org"
@@ -111,7 +111,7 @@ export const LocalBusinessSchema = () => {
     "image": "https://njforeclosureguide.org/images/logo-nj-foreclosure-guide.jpg",
     "logo": "https://njforeclosureguide.org/images/logo-nj-foreclosure-guide.jpg",
     "description":
-      "Independent, free educational resource for New Jersey homeowners facing foreclosure. Explains the New Jersey judicial foreclosure timeline and the options available at each stage. Takes no referral fees, commissions, or advertising money, and has no affiliation with any company it mentions.",
+      "Independent, free educational resource for New Jersey homeowners facing foreclosure. Explains the New Jersey judicial foreclosure timeline and the options available at each stage. Takes no referral fees, commissions or advertising money; one listed destination is a brokerage the operators are affiliated with, disclosed wherever it appears.",
     "email": "help@njforeclosureguide.org",
     "priceRange": "Free",
     "areaServed": {

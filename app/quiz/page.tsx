@@ -336,8 +336,14 @@ export default function QuizPage() {
                         )}
                         <div className="flex items-start justify-between gap-4 mb-1">
                           <h3 className="font-bold text-slate-900">{partner.name}</h3>
-                          <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 border border-emerald-300 rounded-full px-2.5 py-1">
-                            We earn nothing
+                          <span
+                            className={`flex-shrink-0 text-[10px] font-bold uppercase tracking-wider border rounded-full px-2.5 py-1 ${
+                              partner.compensation === 'affiliated'
+                                ? 'text-blue-800 bg-blue-100 border-blue-300'
+                                : 'text-emerald-800 bg-emerald-100 border-emerald-300'
+                            }`}
+                          >
+                            {partner.compensation === 'affiliated' ? 'Related business' : 'We earn nothing'}
                           </span>
                         </div>
                         <p className="text-slate-700 text-sm mb-3">{partner.headline}</p>

@@ -297,7 +297,7 @@ export default function Home() {
               },
               {
                 t: 'Paid by nobody',
-                d: 'We take no referral fees, no commissions, and no advertising money from anything on this site, and we have no ownership or affiliation with any company we mention. There is no version of your situation where we earn more by steering you one way.',
+                d: 'We take no referral fees, no commissions, and no advertising money from anything on this site. One destination, a brokerage we have an ownership interest in, is labeled as a related business everywhere it appears so you can weigh it accordingly. Everything else is unconnected to us entirely.',
               },
               {
                 t: 'Specific, checkable information',
@@ -471,11 +471,11 @@ export default function Home() {
           {[
             {
               q: 'Is this really free?',
-              a: 'Yes, and there is no catch on the other side either. We are paid by nobody. No referral fees, no commissions, no advertising money, and no ownership or affiliation with any company on this site. You are never charged anything, and neither is anyone else on your behalf. Because no outcome pays us more than another, the recommendations reflect what we think fits your situation and nothing else.'
+              a: 'Yes, and here is the full picture so you can judge it yourself. We take no referral fees, no commissions and no advertising money from anyone. You are never charged anything. One destination on this site, Corcoran Sawyer Smith x Builders Resource Center, is a brokerage the people behind this guide have an ownership interest in, so we do benefit if you list with them. It is labeled as a related business on its card, on its page and in your assessment results, and every other option remains open to you, including the free ones that earn us nothing.'
             },
             {
               q: 'Are you a law firm or real estate company?',
-              a: 'No. We are an independent educational resource. We do not provide legal advice, negotiate with lenders, or perform real estate services, and we are not affiliated with any company we mention. We explain your options and point you toward people who do this work.'
+              a: 'The guide itself is an educational resource. We do not provide legal advice, negotiate with lenders, or perform real estate services. The people behind it are affiliated with a licensed New Jersey brokerage, which is disclosed wherever that brokerage appears. Everything else we point you toward is unconnected to us.'
             },
             {
               q: 'Do I have to use any of the companies you list?',
@@ -556,7 +556,7 @@ export default function Home() {
           <div className="border-t border-white/5 pt-8 text-center text-xs text-slate-600 space-y-3">
             <p>&copy; 2026 NJ Foreclosure Guide. All rights reserved.</p>
             <p className="italic leading-relaxed max-w-4xl mx-auto">
-              IMPORTANT DISCLAIMER: NJ Foreclosure Guide is a FREE educational resource only. We are NOT a law firm, lender, or real estate company. We do NOT provide legal advice, financial advice, or negotiate with lenders. We do NOT perform any foreclosure solutions ourselves. We simply explain 7 options and connect you with attorneys and real estate professionals who provide these services. We are paid by nobody: no referral fees, no commissions, no advertising money, and no affiliation with any company mentioned. You are never charged. All outcomes depend entirely on your situation and the professionals you work with. Always consult licensed professionals. This site is for education only.
+              IMPORTANT DISCLAIMER: NJ Foreclosure Guide is a FREE educational resource only. We are NOT a law firm, lender, or real estate company. We do NOT provide legal advice, financial advice, or negotiate with lenders. We do NOT perform any foreclosure solutions ourselves. We simply explain 7 options and connect you with attorneys and real estate professionals who provide these services. We take no referral fees, no commissions or advertising money from anything listed. One destination is a related business, labeled wherever it appears. You are never charged. All outcomes depend entirely on your situation and the professionals you work with. Always consult licensed professionals. This site is for education only.
             </p>
           </div>
         </div>

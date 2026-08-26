@@ -28,4 +28,6 @@ export const PARTNER_PHONES: Record<string, { display: string; tel: string }> = 
   // Their site shows (732) 541-1121 once and (732) 354-1121 five times.
   // Treating the single instance as a typo on their end.
   'clik-offer': { display: '(732) 354-1121', tel: '+17323541121' },
+  // Shown ONLY on the brokerage's own page, never as the site's contact number.
+  'brc-corcoran-sawyer-smith': { display: '(908) 603-1100', tel: '+19086031100' },
 };

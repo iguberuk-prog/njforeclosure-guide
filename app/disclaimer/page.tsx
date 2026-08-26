@@ -74,9 +74,10 @@ export default function DisclaimerPage() {
 
       <Section title="Referrals and compensation">
         <p>
-          We are paid by nobody. No referral fees, no commissions, no advertising money, and no ownership or affiliation
-          with any company, attorney, nonprofit, or government resource mentioned on this site. We receive nothing
-          regardless of what you decide to do. The full breakdown is on the{' '}
+          We take no referral fees, no commissions and no advertising money from any company, attorney, nonprofit or
+          government resource mentioned on this site. One destination, Corcoran Sawyer Smith x Builders Resource Center,
+          is a brokerage the people behind this guide have an ownership interest in, so we benefit if you list with them.
+          It is labeled as a related business wherever it appears. The full breakdown is on the{' '}
           <Link href="/companies" className="text-amber-700 font-semibold underline underline-offset-2">
             options page
           </Link>

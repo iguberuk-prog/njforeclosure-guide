@@ -45,7 +45,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     },
     {
       q: `Is this service really free for ${displayName} homeowners?`,
-      a: `Yes, and nobody pays us on the other side either. We take no referral fees, no commissions, and no advertising money, and we are not affiliated with any company we mention. You are never charged, and you are free to work with any attorney or company you choose.`,
+      a: `Yes. We take no referral fees, no commissions and no advertising money from anyone. One destination on the site is a brokerage the people behind this guide have an ownership interest in, and it is labeled as a related business wherever it appears. You are never charged, and you are free to work with any attorney or company you choose.`,
     },
   ];
 
@@ -201,7 +201,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       <footer className="bg-slate-950 text-slate-500 py-10 px-4 text-center text-xs">
         <p className="mb-2">© 2026 NJ Foreclosure Guide. All rights reserved.</p>
         <p className="max-w-2xl mx-auto leading-relaxed">
-          Independent educational resource. Not a law firm, lender, or real estate company. We are paid by nobody: no referral fees, no commissions, no advertising money, and no affiliation with any company listed. You are never charged. Always consult licensed professionals about your specific situation.
+          Independent educational resource. Not a law firm, lender, or real estate company. We take no referral fees, no commissions and no advertising money from anything listed. One destination is a related business, labeled wherever it appears. You are never charged. Always consult licensed professionals about your specific situation.
         </p>
       </footer>
     </div>

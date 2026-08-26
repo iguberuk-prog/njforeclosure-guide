@@ -43,10 +43,12 @@ export default function TermsPage() {
 
       <Section title="Referrals and how we are paid">
         <p>
-          We are paid by nobody. We take no referral fees, no commissions, and no advertising money from any company,
-          attorney, nonprofit, or government resource mentioned on this site, and we have no ownership interest in or
-          affiliation with any of them. If you sell to a company listed here, we receive nothing. If you never contact
-          any of them, we receive nothing. You are never charged anything by us either.
+          We take no referral fees, no commissions, and no advertising money from any company, attorney, nonprofit or
+          government resource mentioned on this site. If you sell to one of the cash buyers listed here, we receive
+          nothing. One exception is disclosed throughout: Corcoran Sawyer Smith x Builders Resource Center is a licensed
+          New Jersey brokerage in which the people behind this guide hold an ownership interest, so we benefit if you
+          list with them. You are never required to use them, every other option remains available to you, and you are
+          never charged anything by us.
         </p>
         <p>
           Because no outcome compensates us more than another, nothing on this site is ordered or worded to move you

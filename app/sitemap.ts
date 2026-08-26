@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/companies/fire-home-buyers',
     '/companies/private-sale-group',
     '/companies/urbni',
+    '/companies/brc-corcoran-sawyer-smith',
     '/companies/clik-offer',
     '/privacy',
     '/terms',

@@ -18,6 +18,7 @@ const PAGE_PATHS: Record<string, string> = {
   'private-sale-group': '/companies/private-sale-group',
   'clik-offer': '/companies/clik-offer',
   urbni: '/companies/urbni',
+  'brc-corcoran-sawyer-smith': '/companies/brc-corcoran-sawyer-smith',
 };
 
 const WHEN_TO_USE: Record<string, string> = {
@@ -26,15 +27,19 @@ const WHEN_TO_USE: Record<string, string> = {
   'fire-home-buyers': 'The property has fire or smoke damage',
   'private-sale-group': 'Home is $800k+ and privacy matters',
   urbni: 'The property is a burden with little or no equity',
+  'brc-corcoran-sawyer-smith': 'You want to know what it is worth first',
   'hud-counseling': 'You want free, unbiased help before deciding',
   'nj-foreclosure-mediation': 'A foreclosure complaint has been filed',
 };
 
 function Badge({ p }: { p: Partner }) {
-  // Every destination on this site is unpaid and unaffiliated, so there is only
-  // one badge. It stays a function so the card layout does not change if that
-  // ever needs to vary again.
-  void p;
+  if (p.compensation === 'affiliated') {
+    return (
+      <span className="text-[10px] font-bold uppercase tracking-wider text-blue-800 bg-blue-100 border border-blue-300 rounded-full px-2.5 py-1 whitespace-nowrap">
+        Related business
+      </span>
+    );
+  }
   return (
     <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 border border-emerald-300 rounded-full px-2.5 py-1 whitespace-nowrap">
       We earn nothing
@@ -47,7 +52,7 @@ function Card({ p }: { p: Partner }) {
   return (
     <div
       className={`rounded-2xl border p-7 flex flex-col ${
-        'border-emerald-200 bg-emerald-50/40'
+        p.compensation === 'affiliated' ? 'border-blue-200 bg-blue-50/40' : 'border-emerald-200 bg-emerald-50/40'
       }`}
     >
       <div className="flex items-start justify-between gap-3 mb-3">
@@ -203,7 +208,7 @@ export default function CompaniesPage() {
           <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">How We Make Money, Plainly</h2>
           <div className="space-y-3 text-slate-600 text-sm leading-relaxed">
             <p>
-              We do not. Not from anything on this page. No referral fees, no commissions, no advertising money, and no ownership or affiliation with any company listed here. If you sell to one of these buyers, we receive nothing. If you never contact any of them, we receive nothing. It is the same either way.
+              Not from any of the cash buyers, the nonprofit, or the free government programs. No referral fees, no commissions, no advertising money, and no connection to us. If you sell to one of them we receive nothing. One exception, stated plainly: Corcoran Sawyer Smith x Builders Resource Center is a brokerage the people behind this guide have an ownership interest in, so we do benefit if you list with them. It carries a related business label on its card and on its page for exactly that reason.
             </p>
             <p>You are never charged anything by us, at any point, for anything.</p>
             <p className="text-slate-900 font-semibold">
@@ -229,7 +234,7 @@ export default function CompaniesPage() {
       <footer className="bg-slate-950 text-slate-500 py-10 px-4 text-center text-xs">
         <p className="mb-2">&copy; 2026 NJ Foreclosure Guide. All rights reserved.</p>
         <p className="max-w-2xl mx-auto leading-relaxed">
-          Independent educational resource. Not a law firm, lender, or real estate company. We are paid by nobody: no referral fees, no commissions, no advertising money, and no affiliation with any company listed. You are never charged.
+          Independent educational resource. Not a law firm, lender, or real estate company. We take no referral fees, no commissions and no advertising money from anything listed. One destination is a related business, labeled wherever it appears. You are never charged.
         </p>
       </footer>
     </div>

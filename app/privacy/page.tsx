@@ -85,9 +85,10 @@ export default function PrivacyPage() {
 
       <Section title="How we make money">
         <p>
-          We are paid by nobody. No referral fees, no commissions, no advertising money, and no ownership or affiliation
-          with any company, attorney, nonprofit, or government resource mentioned on this site. You are never charged
-          anything by us either.
+          We take no referral fees, no commissions and no advertising money from any company, attorney, nonprofit or
+          government resource mentioned on this site. One destination, Corcoran Sawyer Smith x Builders Resource Center,
+          is a brokerage the people behind this guide have an ownership interest in, disclosed wherever it appears. You
+          are never charged anything by us.
         </p>
         <p>
           We tell you this in a privacy policy because how a company earns its money is the clearest signal of what it
