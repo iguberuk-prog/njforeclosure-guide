@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Solutions from './components/Solutions';
 import HowItWorks from './components/HowItWorks';
 import Logo from './components/Logo';
 import SiteHeader from './components/SiteHeader';
@@ -129,61 +130,7 @@ export default function Home() {
       </section>
 
       {/* SOLUTIONS */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 text-center">
-            <p className="text-amber-600 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Know Every Option</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-5 tracking-tight">
-              The 7 Foreclosure Solutions
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Every situation is different. We explain each path clearly, so you can choose
-              with confidence, not fear.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: '/images/icons/loan-modification.png', title: 'Loan Modification', desc: 'Negotiate new loan terms with your lender to lower your monthly payment.', best: 'You can afford reduced payments' },
-              { icon: '/images/icons/refinancing.png', title: 'Refinancing', desc: 'Replace your current loan with better terms and a lower interest rate.', best: 'Your credit and income qualify' },
-              { icon: '/images/icons/forbearance.png', title: 'Forbearance', desc: 'Pause or reduce payments temporarily while you stabilize your finances.', best: 'Your hardship is temporary' },
-              { icon: '/images/icons/short-sale.png', title: 'Short Sale', desc: 'Sell below the mortgage balance with lender approval to avoid foreclosure.', best: 'Home value has dropped' },
-              { icon: '/images/icons/home-equity.png', title: 'Home Equity Solutions', desc: 'Use your equity to consolidate debt and stop the foreclosure process.', best: 'You have substantial equity' },
-              { icon: '/images/icons/bankruptcy.png', title: 'Bankruptcy (Ch. 13)', desc: 'Court-protected debt restructuring that can protect your home.', best: 'You want to keep the house' },
-              { icon: '/images/icons/cash-sale.png', title: 'Cash Sale', desc: 'Sell quickly for cash in 14-30 days, no repairs, no agent fees.', best: 'You need a clean, fast exit' },
-            ].map((option, idx) => (
-              <div
-                key={idx}
-                className="group p-8 rounded-xl border border-slate-200 bg-white hover:border-amber-400/60 hover:shadow-xl hover:shadow-slate-200/60 transition-all duration-300"
-              >
-                <img src={option.icon} alt={option.title} className="w-14 h-14 mb-5" />
-                <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-slate-950">{option.title}</h3>
-                <p className="text-slate-600 text-sm mb-4 leading-relaxed">{option.desc}</p>
-                <p className="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-3 py-1.5 inline-block">
-                  Best if: {option.best}
-                </p>
-              </div>
-            ))}
-
-            {/* Featured CTA card */}
-            <div className="group p-8 rounded-xl bg-slate-900 text-white flex flex-col justify-between hover:bg-slate-950 transition-all duration-300 shadow-xl sm:col-span-2 lg:col-span-2">
-              <div>
-                <img src="/images/icons/quiz-match.png" alt="Find your match" className="w-14 h-14 mb-5" />
-                <h3 className="font-serif font-bold text-2xl mb-2">Not sure which fits your situation?</h3>
-                <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                  Answer a few questions and see which solutions match your circumstances, in about 2 minutes, free and confidential.
-                </p>
-              </div>
-              <Link
-                href="/quiz"
-                className="inline-block bg-amber-400 text-slate-950 px-8 py-3.5 rounded-lg font-bold hover:bg-amber-300 transition text-center"
-              >
-                Take the Free Assessment →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Solutions />
 
       {/* OUR PROMISE. Trust Factors */}
       <section className="py-24 px-4 bg-slate-950 text-white relative overflow-hidden">
