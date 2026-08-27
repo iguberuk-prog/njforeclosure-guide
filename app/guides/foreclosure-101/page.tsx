@@ -98,7 +98,7 @@ export default function Foreclosure101Page() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Your Options to Stop Foreclosure</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Your Options Once Foreclosure Starts</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {

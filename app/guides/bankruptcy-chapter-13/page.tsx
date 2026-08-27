@@ -13,7 +13,7 @@ export default function BankruptcyChapter13Page() {
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Chapter 13 Bankruptcy. Legal Debt Protection and Restructuring</h1>
           <p className="text-xl text-gray-700">
-            A complete guide to Chapter 13 bankruptcy as an option to stop foreclosure, restructure debt, and keep your home. This is a powerful but complex legal option.
+            A complete guide to Chapter 13 bankruptcy. Filing triggers an automatic stay that pauses the foreclosure while you restructure debt and work to keep your home. This is a powerful but complex legal option.
           </p>
         </div>
 

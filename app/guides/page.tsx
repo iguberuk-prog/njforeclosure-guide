@@ -32,7 +32,7 @@ const guides = [
   },
   {
     slug: 'ltv-refinance',
-    title: 'Home Equity Refinance. Tap Your Equity to Stop Foreclosure',
+    title: 'Home Equity Refinance. Tap Your Equity to Catch Up on the Mortgage',
     description: 'Borrow against your home equity to pay off high-interest debt and catch up on payments.',
     category: 'Keep Your Home',
   },
@@ -44,14 +44,14 @@ const guides = [
   },
   {
     slug: 'cash-buyer',
-    title: 'Sell to a Cash Buyer. Fastest Way to Stop Foreclosure',
-    description: 'Close in 7-30 days with a cash buyer. No contingencies, no complications, guaranteed sale.',
+    title: 'Sell to a Cash Buyer. Selling Before the Sheriff Sale',
+    description: 'Close in 7-30 days with a cash buyer. Few contingencies and a fast close, at a price below market.',
     category: 'Sell Your Home',
   },
   {
     slug: 'bankruptcy-chapter-13',
     title: 'Chapter 13 Bankruptcy. Legal Protection and Debt Restructuring',
-    description: 'File for bankruptcy protection to stop foreclosure and reorganize debt over 3-5 years while keeping your home.',
+    description: 'Filing triggers an automatic stay that pauses the foreclosure while you reorganize debt over 3-5 years and keep your home.',
     category: 'Legal Protection',
   },
 ];

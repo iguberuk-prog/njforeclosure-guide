@@ -376,7 +376,7 @@ export default function RefinancingPage() {
               <ul className="space-y-3">
                 <li className="flex gap-3">
                   <span className="text-green-600 font-bold">+</span>
-                  <span className="text-gray-700">Stop foreclosure immediately</span>
+                  <span className="text-gray-700">Paying off the defaulted loan ends that foreclosure case</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-green-600 font-bold">+</span>

@@ -11,9 +11,9 @@ export default function CashBuyerPage() {
       {/* Main Content */}
       <article className="max-w-3xl mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Sell to a Cash Buyer. The Fastest Way to Stop Foreclosure</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Sell to a Cash Buyer. Selling Before the Sheriff Sale</h1>
           <p className="text-xl text-gray-700">
-            A complete guide to selling your home to a cash buyer. This is the fastest option for stopping foreclosure, often in 7-30 days instead of 90+ days with traditional sales.
+            A complete guide to selling your home to a cash buyer. This is usually the fastest sale, often closing in 7-30 days instead of 90+ days with a traditional listing, in exchange for a price below market.
           </p>
         </div>
 

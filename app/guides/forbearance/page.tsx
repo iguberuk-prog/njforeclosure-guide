@@ -328,7 +328,7 @@ export default function ForbearancePage() {
 
           <div className="mt-6 bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded">
             <p className="text-gray-700">
-              <strong>Fastest Solution:</strong> Forbearance is the fastest way to stop foreclosure. Approval typically takes 1-2 weeks, compared to 4-6 months for modification or 5-6 weeks for refinancing.
+              <strong>Quickest to arrange:</strong> Forbearance usually gets an answer in 1-2 weeks, compared to 4-6 months for modification or 5-6 weeks for refinancing. It pauses payments while you regroup; it does not erase what you owe.
             </p>
           </div>
         </section>

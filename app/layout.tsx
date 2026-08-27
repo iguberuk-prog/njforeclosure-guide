@@ -18,9 +18,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Foreclosure Help NJ | 7 Real Solutions to Stop Foreclosure in New Jersey",
-  description: "Stop foreclosure in New Jersey. Free guidance on 7 solutions: loan modification, refinancing, forbearance, short sale, cash sale, bankruptcy protection. Get a personalized plan in 2 minutes.",
-  keywords: "foreclosure help NJ, stop foreclosure New Jersey, mortgage assistance NJ, distressed homeowner NJ, cash buyer New Jersey",
+  // "Guide" and "help", never "stop foreclosure". The site's own pages are
+  // careful to present options rather than promise outcomes (MARS/Reg O);
+  // the title is not the place to make the one claim everything else avoids.
+  title: "NJ Foreclosure Guide | Free Help for New Jersey Homeowners",
+  description: "Facing foreclosure in New Jersey? A free, independent guide to every option you have, including the ones that keep you in your home. See where you stand in 2 minutes.",
+  keywords: "foreclosure help NJ, New Jersey foreclosure options, mortgage assistance NJ, foreclosure guide NJ, keep my home NJ",
   metadataBase: new URL("https://njforeclosureguide.org"),
   alternates: {
     canonical: "https://njforeclosureguide.org",
@@ -29,8 +32,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://njforeclosureguide.org",
-    title: "Foreclosure Help NJ | 7 Real Solutions to Stop Foreclosure",
-    description: "Stop foreclosure in New Jersey. Free personalized guidance on 7 solutions. Get your options in 2 minutes.",
+    title: "NJ Foreclosure Guide | Free Help for New Jersey Homeowners",
+    description: "A free, independent guide to every option a New Jersey homeowner has in foreclosure, including the ones that keep you in your home.",
     siteName: "NJ Foreclosure Guide",
     // 1200x630 is the size Facebook, LinkedIn and X actually crop to. The
     // previous file was a square logo carrying visible registration
@@ -46,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Foreclosure Help NJ | Stop Foreclosure in New Jersey",
-    description: "Free guidance on 7 solutions to stop foreclosure. Get your personalized plan in 2 minutes.",
+    title: "NJ Foreclosure Guide | Free Help for New Jersey Homeowners",
+    description: "A free, independent guide to every foreclosure option in New Jersey. See where you stand in 2 minutes.",
     images: ["/images/og-image.png"],
   },
   robots: {

@@ -13,7 +13,7 @@ export default function LoanModificationPage() {
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Loan Modification. Keep Your Home by Changing Your Mortgage Terms</h1>
           <p className="text-xl text-gray-700">
-            A complete guide to modifying your loan to make payments affordable again. Thousands of New Jersey homeowners have used this option to stop foreclosure while keeping their homes.
+            A complete guide to modifying your loan to make payments affordable again. Thousands of New Jersey homeowners have used this option to resolve a foreclosure and keep their homes.
           </p>
         </div>
 
@@ -288,7 +288,7 @@ export default function LoanModificationPage() {
               <ul className="space-y-3">
                 <li className="flex gap-3">
                   <span className="text-green-600 font-bold">+</span>
-                  <span className="text-gray-700">Stop foreclosure process immediately</span>
+                  <span className="text-gray-700">A complete application generally puts the sale on hold during review</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-green-600 font-bold">+</span>

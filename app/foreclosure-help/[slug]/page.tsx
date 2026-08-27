@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const loc = getLocation(slug);
   if (!loc) return {};
-  const title = `Foreclosure Help in ${loc.name}, NJ | Stop Foreclosure ${loc.name}`;
-  const description = `Facing foreclosure in ${loc.name}, New Jersey? Free guide to all 7 solutions: loan modification, forbearance, short sale, cash sale, Chapter 13 and more. Get a personalized plan in 2 minutes and connect with vetted local professionals.`;
+  const title = `Foreclosure Help in ${loc.name}, NJ | Free Guide to Your Options`;
+  const description = `Facing foreclosure in ${loc.name}, New Jersey? A free, independent guide to all 7 options: loan modification, forbearance, short sale, cash sale, Chapter 13 and more. See where you stand in 2 minutes.`;
   return {
     title,
     description,
