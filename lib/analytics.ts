@@ -10,7 +10,9 @@
 // change needed; the loader and every event call check this constant.
 // ---------------------------------------------------------------------------
 
-export const GA_MEASUREMENT_ID: string | null = null;
+// GA4 property "NJ Foreclosure Guide" (created 2026-08-27), web stream
+// https://njforeclosureguide.org, stream ID 15513603569.
+export const GA_MEASUREMENT_ID: string | null = 'G-J1ZBSH6SQL';
 
 // Conversion events this site fires. Names follow GA4's recommended-event
 // vocabulary where one fits (generate_lead is what Google Ads imports as a
