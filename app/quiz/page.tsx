@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { matchPartners, COMPENSATION_LABEL, type Answers } from '../../lib/partners';
 import { SITE_EMAIL, RESPONSE_PROMISE } from '../../lib/contact';
 import RecommendationBasis from '../components/RecommendationBasis';
+import { trackEvent } from '../../lib/analytics';
 
 /**
  * Escape hatch. Someone with a sale date next week should not have to finish
@@ -184,10 +185,22 @@ export default function QuizPage() {
           body: formData.toString(),
         });
         setSubmitted(true);
+        // PRIMARY conversion for Google Ads: a homeowner asked to be
+        // contacted. generate_lead is GA4's recommended name for exactly
+        // this, so Ads can import it as a conversion with no mapping.
+        trackEvent('generate_lead', {
+          lead_score: leadScore,
+          recommendation: matched.primary,
+          source_page: '/quiz',
+        });
       } catch (e) {
         // Still show results even if submission fails
       }
     }
+    trackEvent('quiz_complete', {
+      recommendation: matched.primary,
+      contact_left: skip ? 'no' : 'yes',
+    });
     setResult(matched);
     setSubmitting(false);
   };

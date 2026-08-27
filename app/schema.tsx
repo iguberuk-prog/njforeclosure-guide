@@ -1,3 +1,25 @@
+import { SITE_ADDRESS } from '../lib/contact';
+
+// Built from SITE_ADDRESS in lib/contact.ts. While that constant is null this
+// stays region-only, which is the honest claim for a statewide online
+// resource; once the real business address is filled in, the full
+// PostalAddress appears here and in the footer automatically.
+const postalAddress = () =>
+  SITE_ADDRESS
+    ? {
+        "@type": "PostalAddress",
+        "streetAddress": [SITE_ADDRESS.line1, SITE_ADDRESS.line2].filter(Boolean).join(', '),
+        "addressLocality": SITE_ADDRESS.city,
+        "addressRegion": SITE_ADDRESS.state,
+        "postalCode": SITE_ADDRESS.zip,
+        "addressCountry": "US",
+      }
+    : {
+        "@type": "PostalAddress",
+        "addressRegion": "NJ",
+        "addressCountry": "US",
+      };
+
 export const FAQSchema = () => {
   const faqData = {
     "@context": "https://schema.org",
@@ -79,6 +101,7 @@ export const OrganizationSchema = () => {
       "@type": "State",
       "name": "New Jersey"
     },
+    "address": postalAddress(),
     "contactPoint": [
       {
         "@type": "ContactPoint",
@@ -118,11 +141,7 @@ export const LocalBusinessSchema = () => {
       "@type": "State",
       "name": "New Jersey"
     },
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "NJ",
-      "addressCountry": "US"
-    },
+    "address": postalAddress(),
     "knowsAbout": [
       "New Jersey Fair Foreclosure Act",
       "Notice of Intention to Foreclose",

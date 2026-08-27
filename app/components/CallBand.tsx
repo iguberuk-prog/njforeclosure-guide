@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SITE_EMAIL, RESPONSE_PROMISE } from '../../lib/contact';
+import { SITE_EMAIL, RESPONSE_PROMISE, formattedAddress, ADDRESS_NOTE } from '../../lib/contact';
 import { INDEPENDENCE_STATEMENT } from '../../lib/partners';
 
 /**
@@ -23,6 +23,14 @@ export default function CallBand() {
             {SITE_EMAIL}
           </a>
           <p className="text-slate-400 text-sm mt-2">{RESPONSE_PROMISE}</p>
+          {formattedAddress() && (
+            <p className="text-slate-400 text-sm mt-3">
+              {formattedAddress()}
+              {ADDRESS_NOTE && (
+                <span className="block text-slate-500 text-xs mt-1">{ADDRESS_NOTE}</span>
+              )}
+            </p>
+          )}
         </div>
         <div className="flex flex-col gap-3 sm:items-end sm:justify-start">
           <Link

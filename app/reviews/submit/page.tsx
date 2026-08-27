@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import SiteHeader from '../../components/SiteHeader';
 import Link from 'next/link';
+import { trackEvent } from '../../../lib/analytics';
 
 /**
  * Review submission with explicit publication consent.
@@ -46,6 +47,7 @@ export default function SubmitReviewPage() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: data.toString(),
       });
+      trackEvent('review_submit', { publish_consent: consent ? 'yes' : 'no' });
     } catch {
       // Show the thank-you either way. Their words are not lost on our end.
     }

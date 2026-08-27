@@ -15,6 +15,42 @@ export const SITE_EMAIL = 'help@njforeclosureguide.org';
 export const RESPONSE_PROMISE = 'We read every message and reply within one business day.';
 
 // ---------------------------------------------------------------------------
+// BUSINESS ADDRESS
+//
+// Google's financial-products ad policy expects a verifiable physical
+// address for the advertiser. Fill this in with the real business address
+// and it appears automatically in the sitewide footer band and in the
+// ProfessionalService schema. While it is null, nothing renders and the
+// schema stays state-level only.
+//
+// Must be an address that is actually associated with the business (the
+// address used for Google Ads advertiser verification), not a mailbox
+// picked for looks. If the office belongs to the affiliated brokerage,
+// say so in ADDRESS_NOTE so the footer stays consistent with the
+// independence statement.
+// ---------------------------------------------------------------------------
+export interface SiteAddress {
+  line1: string;
+  line2?: string;
+  city: string;
+  state: string; // two letters, e.g. 'NJ'
+  zip: string;
+}
+
+export const SITE_ADDRESS: SiteAddress | null = null;
+
+/** Optional one-line context shown under the address, e.g. that the office
+ *  is the affiliated brokerage's and visits are by appointment. */
+export const ADDRESS_NOTE: string | null = null;
+
+/** "123 Main St, Suite 4, Trenton, NJ 08601" or null when unset. */
+export function formattedAddress(): string | null {
+  if (!SITE_ADDRESS) return null;
+  const a = SITE_ADDRESS;
+  return [a.line1, a.line2, `${a.city}, ${a.state} ${a.zip}`].filter(Boolean).join(', ');
+}
+
+// ---------------------------------------------------------------------------
 // PARTNER PHONE NUMBERS
 //
 // Each is that company's OWN published number, shown only on that company's

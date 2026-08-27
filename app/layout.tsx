@@ -5,6 +5,7 @@ import ChatWidget from "./components/ChatWidget";
 import { LocalBusinessSchema } from "./schema";
 import CallBand from "./components/CallBand";
 import MarsNotice from "./components/MarsNotice";
+import Analytics from "./components/Analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -87,6 +88,7 @@ export default function RootLayout({
         <MarsNotice />
         <CallBand />
         <ChatWidget />
+        <Analytics />
       </body>
     </html>
   );
