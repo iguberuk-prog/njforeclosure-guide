@@ -471,8 +471,12 @@ export default function ScenariosPage() {
     <div className="min-h-full bg-white">
       <SiteHeader />
 
-      <section className="bg-gradient-to-b from-slate-950 to-slate-900 text-white py-16 px-4">
-        <div className="max-w-3xl mx-auto">
+      <section
+        className="relative text-white py-16 px-4 overflow-hidden"
+        style={{ backgroundImage: `url('/images/canva/gold-dust-rays.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 to-slate-900/60"></div>
+        <div className="max-w-3xl mx-auto relative z-10">
           <p className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase mb-4">Eighteen Situations, Walked Through</p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">What Usually Happens</h1>
           <p className="text-slate-300 text-lg leading-relaxed">

@@ -26,7 +26,7 @@ export default function PremiumPropertiesPage() {
         <div
           className="absolute inset-0 opacity-40"
           style={{
-            backgroundImage: `url('/images/brand/hero-dark.svg')`,
+            backgroundImage: `url('/images/canva/hero-premium.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

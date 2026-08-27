@@ -14,7 +14,7 @@ export default function Professionals() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url('/images/brand/section-dark.svg')`,
+            backgroundImage: `url('/images/canva/advisors-team.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center 25%',
           }}
