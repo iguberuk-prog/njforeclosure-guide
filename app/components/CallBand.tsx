@@ -39,6 +39,12 @@ export default function CallBand() {
           >
             Take the Free Assessment
           </Link>
+          <Link
+            href="/reviews/submit"
+            className="text-slate-300 text-sm text-center sm:text-right underline underline-offset-4 decoration-slate-600 hover:text-amber-300 transition"
+          >
+            Worked with us before? Leave a review
+          </Link>
           <p className="text-slate-500 text-xs sm:text-right max-w-xs leading-relaxed">
             Free, no obligation, nothing to sell you. We are not a law firm, a lender, or a real
             estate brokerage, and nothing here is legal advice.
