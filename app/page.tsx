@@ -39,7 +39,7 @@ export default function Home() {
       <section
         className="relative px-4 text-white overflow-hidden"
         style={{
-          backgroundImage: `url('/images/canva/hero-premium.jpg')`,
+          backgroundImage: `url('/images/brand/hero-dark.svg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -100,7 +100,7 @@ export default function Home() {
       <section
         className="relative border-b border-slate-200"
         style={{
-          backgroundImage: `url('/images/canva/trust-light.jpg')`,
+          backgroundImage: `url('/images/brand/texture-light.svg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -198,8 +198,8 @@ export default function Home() {
             </div>
             <div className="relative">
               <img
-                src="/images/canva/family-home.jpg"
-                alt="A New Jersey home"
+                src="/images/brand/home-illustration.svg"
+                alt="Illustration of a New Jersey home at dusk with warm lit windows and an amber path leading to the door"
                 className="rounded-2xl shadow-2xl w-full object-cover"
               />
             </div>
@@ -239,7 +239,7 @@ export default function Home() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url('/images/canva/advisors-team.jpg')`,
+            backgroundImage: `url('/images/brand/section-dark.svg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center 25%',
           }}
@@ -336,7 +336,7 @@ export default function Home() {
           {/* Final CTA */}
           <div className="relative rounded-2xl overflow-hidden">
             <div className="absolute inset-0 bg-slate-950"></div>
-            <div className="absolute inset-0 opacity-40" style={{ backgroundImage: `url('/images/canva/hero-premium.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+            <div className="absolute inset-0 opacity-40" style={{ backgroundImage: `url('/images/brand/hero-dark.svg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
             <div className="relative z-10 text-center text-white px-8 py-16">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 tracking-tight">Your Next Step Starts Here</h2>
               <p className="text-slate-300 text-lg mb-8 max-w-xl mx-auto">

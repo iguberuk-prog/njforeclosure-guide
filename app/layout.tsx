@@ -56,8 +56,15 @@ export const metadata: Metadata = {
     "max-snippet": -1,
     "max-video-preview": -1,
   },
+  // The previous favicon file was a 512px template sheet showing FOUR
+  // different logos, one of them a boat anchor. That sheet, scaled to 16px,
+  // was the browser-tab icon. These are rendered from the actual mark.
   icons: {
-    icon: "/images/logo-favicon.png",
+    icon: [
+      { url: "/images/brand/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/brand/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/images/brand/apple-icon.png",
   },
   verification: {
     google: "8fc4eA-ZCuoqq4GwMPyiE6PDIkSeymT4iPBasg_G_I8",

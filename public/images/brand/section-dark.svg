@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="g2" cx="0.5" cy="0.05" r="0.8">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg2)"/>
+  <rect width="1600" height="900" fill="url(#g2)"/>
+  <!-- quiet street of rooflines along the bottom, barely lighter than the bg -->
+  <g fill="#141f3c">
+    <path d="M-20 900 V800 L60 750 L140 800 V900 Z"/>
+    <path d="M180 900 V820 L280 758 L380 820 V900 Z"/>
+    <path d="M420 900 V790 L510 735 L600 790 V900 Z"/>
+    <path d="M640 900 V825 L750 760 L860 825 V900 Z"/>
+    <path d="M900 900 V795 L990 738 L1080 795 V900 Z"/>
+    <path d="M1120 900 V822 L1225 756 L1330 822 V900 Z"/>
+    <path d="M1370 900 V792 L1460 740 L1550 792 V900 Z"/>
+    <path d="M1580 900 V830 L1600 818 V900 Z"/>
+  </g>
+  <!-- a few warm windows -->
+  <g fill="#f59e0b">
+    <rect x="90" y="812" width="14" height="18" rx="2" fill-opacity="0.55"/>
+    <rect x="300" y="835" width="13" height="17" rx="2" fill-opacity="0.4"/>
+    <rect x="530" y="810" width="14" height="18" rx="2" fill-opacity="0.5"/>
+    <rect x="770" y="842" width="13" height="16" rx="2" fill-opacity="0.35"/>
+    <rect x="1010" y="815" width="14" height="18" rx="2" fill-opacity="0.55"/>
+    <rect x="1245" y="838" width="13" height="17" rx="2" fill-opacity="0.4"/>
+    <rect x="1478" y="812" width="14" height="18" rx="2" fill-opacity="0.5"/>
+  </g>
+</svg>
