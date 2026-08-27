@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import GuideCards from './components/GuideCards';
 import Solutions from './components/Solutions';
 import HowItWorks from './components/HowItWorks';
 import Logo from './components/Logo';
@@ -330,26 +331,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[
-              { icon: '/images/icons/book.png', title: 'Foreclosure 101', desc: "What's actually happening with your mortgage, your legal rights in NJ, and what to expect at every stage.", href: '/guides/foreclosure-101' },
-              { icon: '/images/icons/magnifying-glass.png', title: 'All 7 Options Explained', desc: 'A detailed breakdown of each solution, pros, cons, timelines, and who each works best for.', href: '/guides/options' },
-              { icon: '/images/icons/lightning-bold.png', title: 'Quick Cash Sale Guide', desc: 'Step-by-step walkthrough of selling for cash in 14-30 days, what to expect and what to watch for.', href: '/guides/cash-sale' },
-            ].map((guide, idx) => (
-              <Link
-                key={idx}
-                href={guide.href}
-                className="group block p-8 rounded-xl border border-slate-200 bg-white hover:border-slate-900 hover:shadow-xl transition-all duration-300"
-              >
-                <img src={guide.icon} alt={guide.title} className="w-14 h-14 mb-5" />
-                <h3 className="font-bold text-xl text-slate-900 mb-3">{guide.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">{guide.desc}</p>
-                <span className="text-sm font-semibold text-slate-900 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                  Read Guide <span className="text-amber-500">→</span>
-                </span>
-              </Link>
-            ))}
-          </div>
+          <GuideCards />
 
           {/* Final CTA */}
           <div className="relative rounded-2xl overflow-hidden">

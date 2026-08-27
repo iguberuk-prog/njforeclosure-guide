@@ -31,12 +31,15 @@ export const metadata: Metadata = {
     title: "Foreclosure Help NJ | 7 Real Solutions to Stop Foreclosure",
     description: "Stop foreclosure in New Jersey. Free personalized guidance on 7 solutions. Get your options in 2 minutes.",
     siteName: "NJ Foreclosure Guide",
+    // 1200x630 is the size Facebook, LinkedIn and X actually crop to. The
+    // previous file was a square logo carrying visible registration
+    // crosshairs, which is what appeared whenever anyone shared the site.
     images: [
       {
-        url: "/images/logo-nj-foreclosure-guide.jpg",
+        url: "/images/og-image.png",
         width: 1200,
-        height: 1200,
-        alt: "NJ Foreclosure Guide Logo",
+        height: 630,
+        alt: "NJ Foreclosure Guide: seven ways out of a New Jersey foreclosure, five of them keep your home.",
       },
     ],
   },
@@ -44,6 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Foreclosure Help NJ | Stop Foreclosure in New Jersey",
     description: "Free guidance on 7 solutions to stop foreclosure. Get your personalized plan in 2 minutes.",
+    images: ["/images/og-image.png"],
   },
   robots: {
     index: true,
