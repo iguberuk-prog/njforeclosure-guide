@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getAllLocations } from '../lib/nj-locations';
+import { SHERIFF_SOURCES } from '../lib/sheriff-sales';
+import { DOCUMENTS } from '../lib/documents';
 
 export const dynamic = 'force-static';
 
@@ -20,6 +22,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/professionals',
     '/answers',
     '/tools/timeline',
+    '/tools/net-proceeds',
+    '/resources',
+    '/glossary',
+    '/documents',
+    '/sheriff-sales',
     '/premium-properties',
     '/scenarios',
     '/reviews',
@@ -47,5 +54,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: loc.type === 'county' ? 0.7 : 0.6,
   }));
 
-  return [...staticPages, ...locationPages];
+  const sheriffPages = SHERIFF_SOURCES.map((s) => ({
+    url: `${base}/sheriff-sales/${s.slug}/`,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  const documentPages = DOCUMENTS.map((d) => ({
+    url: `${base}/documents/${d.slug}/`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...locationPages, ...sheriffPages, ...documentPages];
 }

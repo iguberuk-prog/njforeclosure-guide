@@ -106,6 +106,19 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           </p>
         </div>
 
+        <div className="mt-8 border border-slate-200 rounded-xl px-5 py-4 bg-slate-50">
+          <p className="text-slate-700 text-sm leading-relaxed">
+            <strong className="text-slate-900">Has a sheriff sale been scheduled?</strong>{' '}
+            <Link
+              href={`/sheriff-sales/${isCounty ? loc.slug : `${countyName.toLowerCase().replace(/\s+/g, '-')}-county`}/`}
+              className="text-slate-900 underline underline-offset-4 font-semibold"
+            >
+              Check {countyName} County&apos;s official sale listings and adjournment process
+            </Link>
+            , verified contacts included.
+          </p>
+        </div>
+
         {/* Solutions strip */}
         <div className="grid sm:grid-cols-2 gap-3 mt-10">
           {[

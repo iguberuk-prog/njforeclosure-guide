@@ -39,6 +39,11 @@ These facts are general and simplified. Individual deadlines depend on the homeo
 - [Questions answered](https://njforeclosureguide.org/answers/): Direct answers to common New Jersey foreclosure questions.
 - [Where to get help](https://njforeclosureguide.org/companies/): Every destination compared, with compensation disclosed for each.
 - [Local help by county and town](https://njforeclosureguide.org/foreclosure-help/): Pages for all 21 New Jersey counties and major towns.
+- [Sheriff sale directory](https://njforeclosureguide.org/sheriff-sales/): Where each of the 21 New Jersey counties publishes foreclosure sale listings, with sheriff office contacts verified against official county sources, and how sale adjournments work (homeowners are generally entitled to two adjournments of up to 30 days each).
+- [Foreclosure letters decoded](https://njforeclosureguide.org/documents/): Each document of a New Jersey foreclosure in arrival order (Notice of Intention, summons and complaint, entry of default, final judgment, sheriff sale notice, writ of possession) with its legal clock and next steps.
+- [NJ foreclosure glossary](https://njforeclosureguide.org/glossary/): Plain-English definitions of ~40 New Jersey foreclosure terms.
+- [Net proceeds calculator](https://njforeclosureguide.org/tools/net-proceeds/): Estimates what a homeowner keeps from a market sale vs. a cash sale vs. reinstating, with assumptions stated.
+- [All resources](https://njforeclosureguide.org/resources/): Index of every free tool, directory and reference on the site.
 
 ## Guides
 
