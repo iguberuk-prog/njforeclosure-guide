@@ -37,11 +37,20 @@ export interface SiteAddress {
   zip: string;
 }
 
-export const SITE_ADDRESS: SiteAddress | null = null;
+// The Eisenhower, Eisenhower Corporate Campus, Livingston. Supplied by the
+// owner 2026-08-27 as the business address for the site and for Google Ads
+// advertiser verification.
+export const SITE_ADDRESS: SiteAddress | null = {
+  line1: '290 W Mt Pleasant Ave',
+  line2: 'Suite 2210',
+  city: 'Livingston',
+  state: 'NJ',
+  zip: '07039',
+};
 
 /** Optional one-line context shown under the address, e.g. that the office
  *  is the affiliated brokerage's and visits are by appointment. */
-export const ADDRESS_NOTE: string | null = null;
+export const ADDRESS_NOTE: string | null = 'By appointment only.';
 
 /** "123 Main St, Suite 4, Trenton, NJ 08601" or null when unset. */
 export function formattedAddress(): string | null {
