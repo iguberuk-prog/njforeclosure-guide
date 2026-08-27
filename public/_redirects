@@ -1,0 +1,9 @@
+# Force every request on the Netlify subdomain (and any www host) onto the
+# real domain, permanently. Without this the site is reachable at a
+# hosting-company URL that leaks into search results and looks nothing
+# like the brand. The trailing ! makes the redirect win even though the
+# file exists at both hosts.
+https://njforeclosure-guide.netlify.app/* https://njforeclosureguide.org/:splat 301!
+http://njforeclosure-guide.netlify.app/* https://njforeclosureguide.org/:splat 301!
+https://www.njforeclosureguide.org/* https://njforeclosureguide.org/:splat 301!
+http://www.njforeclosureguide.org/* https://njforeclosureguide.org/:splat 301!
