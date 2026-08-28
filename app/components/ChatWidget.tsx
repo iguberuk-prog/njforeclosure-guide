@@ -7,10 +7,18 @@ interface Msg {
   content: string;
 }
 
+// The wait before Samantha joins, and the minimum time any reply takes to
+// appear. Instant answers read as robotic; a short human pace reads as care.
+// Honesty line we do not cross: Samantha is labeled a virtual assistant in
+// the header, the welcome and the AI itself, and the connect message says we
+// are connecting to HER, never that visitors are waiting for a human agent.
+const CONNECT_DELAY_MS = 15000;
+const MIN_REPLY_MS = 4000;
+
 const WELCOME: Msg = {
   role: 'assistant',
   content:
-    "Hi, I'm here to help you understand your options if you're behind on your mortgage or facing foreclosure in New Jersey. Everything here is free and confidential. What's going on with your situation?",
+    "Hi, I'm Samantha, the virtual assistant here at NJ Foreclosure Guide. I help New Jersey homeowners figure out their options when they're behind on the mortgage or facing foreclosure, and everything here is free and confidential. What's going on with your situation?",
 };
 
 const EMAIL_RE = /[\w.+-]+@[\w-]+\.[\w.-]{2,}/;
@@ -41,12 +49,26 @@ function buildTranscript(messages: Msg[]): string {
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Msg[]>([WELCOME]);
+  const [messages, setMessages] = useState<Msg[]>([]);
+  const [connecting, setConnecting] = useState(false);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const lastSubmittedCount = useRef(0);
+  const connectedOnce = useRef(false);
+
+  // First open: a short "connecting" beat before Samantha's welcome appears.
+  const handleOpen = () => {
+    setOpen(true);
+    if (connectedOnce.current) return;
+    connectedOnce.current = true;
+    setConnecting(true);
+    setTimeout(() => {
+      setConnecting(false);
+      setMessages([WELCOME]);
+    }, CONNECT_DELAY_MS);
+  };
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -85,7 +107,7 @@ export default function ChatWidget() {
 
   const send = async () => {
     const text = input.trim();
-    if (!text || loading) return;
+    if (!text || loading || connecting) return;
     const next: Msg[] = [...messages, { role: 'user', content: text }];
     setMessages(next);
     setInput('');
@@ -93,6 +115,11 @@ export default function ChatWidget() {
 
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 35000);
+    const startedAt = Date.now();
+    const pace = async () => {
+      const remaining = MIN_REPLY_MS - (Date.now() - startedAt);
+      if (remaining > 0) await new Promise((r) => setTimeout(r, remaining));
+    };
 
     try {
       const res = await fetch('/api/ai-intake', {
@@ -102,6 +129,7 @@ export default function ChatWidget() {
         signal: controller.signal,
       });
       const data = await res.json();
+      await pace();
       if (data.reply) {
         const withReply: Msg[] = [...next, { role: 'assistant', content: data.reply }];
         setMessages(withReply);
@@ -120,6 +148,7 @@ export default function ChatWidget() {
         ]);
       }
     } catch {
+      await pace();
       setUnavailable(true);
       setMessages([
         ...next,
@@ -140,7 +169,7 @@ export default function ChatWidget() {
       {/* Floating button */}
       {!open && (
         <button
-          onClick={() => setOpen(true)}
+          onClick={handleOpen}
           className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white rounded-full shadow-2xl px-6 py-4 font-semibold text-sm hover:bg-slate-800 transition flex items-center gap-2 border border-amber-400/40"
           aria-label="Open chat"
         >
@@ -154,9 +183,17 @@ export default function ChatWidget() {
         <div className="fixed bottom-6 right-6 z-50 w-[calc(100vw-3rem)] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden" style={{ height: 'min(560px, calc(100vh - 6rem))' }}>
           {/* Header */}
           <div className="bg-slate-950 text-white px-5 py-4 flex items-center justify-between">
-            <div>
-              <p className="font-bold text-sm">NJ Foreclosure Guide</p>
-              <p className="text-slate-400 text-xs mt-0.5">Free, confidential, no pressure</p>
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center font-bold">
+                S
+              </div>
+              <div>
+                <p className="font-bold text-sm flex items-center gap-2">
+                  Samantha
+                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                </p>
+                <p className="text-slate-400 text-xs mt-0.5">Virtual assistant · Free &amp; confidential</p>
+              </div>
             </div>
             <button onClick={handleClose} className="text-slate-400 hover:text-white transition p-1" aria-label="Close chat">
               ✕
@@ -178,10 +215,17 @@ export default function ChatWidget() {
                 </div>
               </div>
             ))}
+            {connecting && (
+              <div className="flex flex-col items-center justify-center gap-3 py-10 text-center">
+                <div className="w-10 h-10 rounded-full border-2 border-slate-200 border-t-slate-900 animate-spin"></div>
+                <p className="text-sm text-slate-500">Connecting you with Samantha...</p>
+                <p className="text-xs text-slate-400">Usually under a minute</p>
+              </div>
+            )}
             {loading && (
               <div className="flex justify-start">
                 <div className="bg-white border border-slate-200 px-4 py-2.5 rounded-2xl rounded-bl-md text-sm text-slate-400">
-                  Typing...
+                  Samantha is typing...
                 </div>
               </div>
             )}
@@ -211,7 +255,7 @@ export default function ChatWidget() {
               />
               <button
                 onClick={send}
-                disabled={loading || !input.trim()}
+                disabled={loading || connecting || !input.trim()}
                 className="bg-slate-900 text-white px-4 py-2.5 rounded-xl font-semibold text-sm hover:bg-slate-800 transition disabled:opacity-40"
               >
                 Send
