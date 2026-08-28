@@ -3,6 +3,13 @@
   functions = "netlify/functions"
   publish = "out"
 
+[build.environment]
+  # The Google Maps browser key is intentionally public: it ships to every
+  # visitor's browser by design and is protected by its website restriction
+  # (https://njforeclosureguide.org/*) and API restrictions in Google Cloud,
+  # not by secrecy. Without this, Netlify's secrets scanner fails the build.
+  SECRETS_SCAN_OMIT_VALUES = "AIzaSyCRsDtgQ8i95uc8A3vqk1KkDgBSyBQ2D10"
+
 [context.production]
   environment = { NODE_ENV = "production" }
 
