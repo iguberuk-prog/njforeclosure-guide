@@ -33,6 +33,7 @@ const SECTIONS: { title: string; items: { href: string; name: string; desc: stri
       { href: '/answers', name: 'Questions, answered', desc: 'Direct answers to the questions New Jersey homeowners actually ask.' },
       { href: '/scams', name: 'Spot a foreclosure rescue scam', desc: 'Seven red flags, what New Jersey and federal law prohibit, and where to report one. Read before signing anything.' },
       { href: '/downloads/nj-foreclosure-week-one-checklist.pdf', name: 'The Week One Checklist (PDF)', desc: 'A printable one-pager of exactly what to do the week a notice arrives. Stick it on the fridge.' },
+      { href: '/es', name: 'Guía en español', desc: 'Sus derechos, las 7 opciones, sus cartas explicadas y cómo detectar estafas, todo en español.' },
     ],
   },
   {
@@ -40,6 +41,8 @@ const SECTIONS: { title: string; items: { href: string; name: string; desc: stri
     items: [
       { href: '/sheriff-sales', name: 'Sheriff sale directory, all 21 counties', desc: 'Where your county publishes sale listings, verified office contacts, and how adjournments work.' },
       { href: '/foreclosure-help', name: 'Foreclosure help by county and town', desc: 'How the process runs through your county courthouse, and local answers for 120+ NJ communities.' },
+      { href: '/servicers', name: 'Reach your mortgage servicer', desc: 'Verified loss-mitigation phone numbers and hardship-application links for the 15 largest servicers.' },
+      { href: '/statistics', name: 'NJ foreclosure statistics', desc: 'What is actually happening in 2026, with a citation on every number.' },
     ],
   },
   {

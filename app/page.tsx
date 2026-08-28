@@ -360,6 +360,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TOOLS & REFERENCES */}
+      <section className="py-24 px-4 bg-slate-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="text-amber-600 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Free Tools &amp; References</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-5 tracking-tight">Answers You Can Look Up Right Now</h2>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+              No sign-up, no waiting. These work at 2am, which is when most people need them.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { href: '/compare', title: 'All 7 options, compared', desc: 'One honest table: keep the home or not, speed, cost, credit impact, and when each stops working.' },
+              { href: '/sheriff-sales', title: 'Sheriff sale directory', desc: 'Where all 21 NJ counties publish sale listings, with verified contacts and your adjournment rights.' },
+              { href: '/documents', title: 'Your letter, decoded', desc: 'Every foreclosure document in the order it arrives: what it means and what to do that week.' },
+              { href: '/tools/deadlines', title: 'Deadline calculator', desc: 'Enter the date on your newest letter; see the deadlines New Jersey law builds from it.' },
+              { href: '/tools/net-proceeds', title: 'Net proceeds calculator', desc: 'What you would walk away with: market sale vs. cash sale vs. catching up and keeping it.' },
+              { href: '/glossary', title: 'The glossary', desc: 'Every term from court papers and phone calls, defined in two plain sentences.' },
+            ].map((t) => (
+              <Link key={t.href} href={t.href} className="bg-white border border-slate-200 rounded-2xl px-6 py-5 hover:border-slate-400 hover:shadow-md transition group flex flex-col">
+                <p className="font-bold text-slate-900 group-hover:text-slate-950">{t.title}</p>
+                <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">{t.desc}</p>
+              </Link>
+            ))}
+          </div>
+          <p className="text-center text-slate-500 text-sm mt-8">
+            Also:{' '}
+            <Link href="/scams" className="text-slate-900 underline underline-offset-4 font-semibold">how to spot a foreclosure rescue scam</Link>
+            {' '}·{' '}
+            <a href="/downloads/nj-foreclosure-week-one-checklist.pdf" className="text-slate-900 underline underline-offset-4 font-semibold">the printable Week One Checklist</a>
+            {' '}·{' '}
+            <Link href="/resources" className="text-slate-900 underline underline-offset-4 font-semibold">everything in one place</Link>
+            {' '}·{' '}
+            <Link href="/es" className="text-slate-900 underline underline-offset-4 font-semibold" lang="es">Guía en español</Link>
+          </p>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="max-w-3xl mx-auto px-4 py-24">
         <div className="text-center mb-14">

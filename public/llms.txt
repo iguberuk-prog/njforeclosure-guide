@@ -47,6 +47,9 @@ These facts are general and simplified. Individual deadlines depend on the homeo
 - [Deadline calculator](https://njforeclosureguide.org/tools/deadlines/): Projects a homeowner's estimated New Jersey deadlines from the date on the document they received (30 days after NOI before filing, 35 days to answer, two 30-day sale adjournments, 10-day redemption window).
 - [Foreclosure rescue scams](https://njforeclosureguide.org/scams/): The seven red flags of foreclosure rescue fraud, what the federal MARS rule and New Jersey's Foreclosure Rescue Fraud Prevention Act prohibit (upfront fees are generally illegal), and where to report.
 - [Week One Checklist (PDF)](https://njforeclosureguide.org/downloads/nj-foreclosure-week-one-checklist.pdf): Printable one-page checklist of what to do the week a foreclosure notice arrives.
+- [Servicer directory](https://njforeclosureguide.org/servicers/): Loss-mitigation phone numbers and hardship-application links for the 15 largest US mortgage servicers, each verified against the servicer's own site.
+- [NJ foreclosure statistics](https://njforeclosureguide.org/statistics/): Current sourced data — 8,269 NJ filings in H1 2026 (up 21% year over year, 7th-highest state rate at 1 in 459 homes, per ATTOM), roughly 16,000 court filings a year (NJ Courts), with a citation on every figure.
+- [Guía en español](https://njforeclosureguide.org/es/): Spanish-language hub — rights and timeline (/es/), the seven options (/es/opciones/), each foreclosure document explained (/es/documentos/), and rescue-scam red flags (/es/estafas/).
 - [All resources](https://njforeclosureguide.org/resources/): Index of every free tool, directory and reference on the site.
 
 ## Guides
