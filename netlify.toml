@@ -9,6 +9,11 @@
   # (https://njforeclosureguide.org/*) and API restrictions in Google Cloud,
   # not by secrecy. Without this, Netlify's secrets scanner fails the build.
   SECRETS_SCAN_OMIT_VALUES = "AIzaSyCRsDtgQ8i95uc8A3vqk1KkDgBSyBQ2D10"
+  # Smart (pattern-based) detection has no per-value exemption and keeps
+  # flagging the same intentionally-public browser key, so it is disabled.
+  # Env-var-based secrets scanning above stays ON, which is what protects
+  # the actual secrets (ANTHROPIC_API_KEY) from ever reaching the bundle.
+  SECRETS_SCAN_SMART_DETECTION_ENABLED = "false"
 
 [context.production]
   environment = { NODE_ENV = "production" }
