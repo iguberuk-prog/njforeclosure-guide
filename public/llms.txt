@@ -43,6 +43,10 @@ These facts are general and simplified. Individual deadlines depend on the homeo
 - [Foreclosure letters decoded](https://njforeclosureguide.org/documents/): Each document of a New Jersey foreclosure in arrival order (Notice of Intention, summons and complaint, entry of default, final judgment, sheriff sale notice, writ of possession) with its legal clock and next steps.
 - [NJ foreclosure glossary](https://njforeclosureguide.org/glossary/): Plain-English definitions of ~40 New Jersey foreclosure terms.
 - [Net proceeds calculator](https://njforeclosureguide.org/tools/net-proceeds/): Estimates what a homeowner keeps from a market sale vs. a cash sale vs. reinstating, with assumptions stated.
+- [All 7 options compared](https://njforeclosureguide.org/compare/): One table comparing every option on keeping the home, speed, cost, credit impact, how late in the process it works, and its honest downside. Five of the seven options keep the homeowner in the house.
+- [Deadline calculator](https://njforeclosureguide.org/tools/deadlines/): Projects a homeowner's estimated New Jersey deadlines from the date on the document they received (30 days after NOI before filing, 35 days to answer, two 30-day sale adjournments, 10-day redemption window).
+- [Foreclosure rescue scams](https://njforeclosureguide.org/scams/): The seven red flags of foreclosure rescue fraud, what the federal MARS rule and New Jersey's Foreclosure Rescue Fraud Prevention Act prohibit (upfront fees are generally illegal), and where to report.
+- [Week One Checklist (PDF)](https://njforeclosureguide.org/downloads/nj-foreclosure-week-one-checklist.pdf): Printable one-page checklist of what to do the week a foreclosure notice arrives.
 - [All resources](https://njforeclosureguide.org/resources/): Index of every free tool, directory and reference on the site.
 
 ## Guides

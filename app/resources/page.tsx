@@ -21,6 +21,8 @@ const SECTIONS: { title: string; items: { href: string; name: string; desc: stri
       { href: '/quiz', name: 'Free 2-minute assessment', desc: 'Six questions that rank all seven options against your situation, timeline and goals.' },
       { href: '/tools/timeline', name: 'NJ foreclosure timeline tool', desc: 'See every stage from first missed payment to sheriff sale, and which options remain open at yours.' },
       { href: '/tools/net-proceeds', name: 'Net proceeds calculator', desc: 'Three numbers show what you would walk away with from a market sale, a cash sale, or catching up and keeping the home.' },
+      { href: '/tools/deadlines', name: 'Deadline date calculator', desc: 'Pick the newest letter you received and its date; see the estimated deadlines that flow from it under New Jersey law.' },
+      { href: '/compare', name: 'All 7 options, compared', desc: 'One honest table: keep the home or not, speed, cost, credit impact, and when each option stops working.' },
     ],
   },
   {
@@ -29,6 +31,8 @@ const SECTIONS: { title: string; items: { href: string; name: string; desc: stri
       { href: '/documents', name: 'Foreclosure letters, decoded', desc: 'Every document in the order it arrives, from the Notice of Intention to the writ of possession: what it means, your clock, and what to do that week.' },
       { href: '/glossary', name: 'The NJ foreclosure glossary', desc: 'Every term from court papers and phone calls, defined in two plain sentences.' },
       { href: '/answers', name: 'Questions, answered', desc: 'Direct answers to the questions New Jersey homeowners actually ask.' },
+      { href: '/scams', name: 'Spot a foreclosure rescue scam', desc: 'Seven red flags, what New Jersey and federal law prohibit, and where to report one. Read before signing anything.' },
+      { href: '/downloads/nj-foreclosure-week-one-checklist.pdf', name: 'The Week One Checklist (PDF)', desc: 'A printable one-pager of exactly what to do the week a notice arrives. Stick it on the fridge.' },
     ],
   },
   {

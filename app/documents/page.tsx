@@ -62,7 +62,11 @@ export default function DocumentsPage() {
         <div className="bg-slate-50 rounded-2xl p-6 mt-10">
           <p className="text-slate-700 leading-relaxed mb-4">
             Not sure which stage you are at, or missing some of the paperwork? The timeline tool
-            places you in the process from a few questions.
+            places you in the process from a few questions. And the{' '}
+            <a href="/downloads/nj-foreclosure-week-one-checklist.pdf" className="text-slate-900 underline underline-offset-4 font-semibold">
+              printable Week One Checklist (PDF)
+            </a>{' '}
+            covers what to do the week any of these arrives.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link href="/tools/timeline" className="bg-amber-400 text-slate-950 px-8 py-3.5 rounded-lg font-bold text-center hover:bg-amber-300 transition">

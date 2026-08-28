@@ -10,6 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     '',
     '/quiz',
+    '/compare',
+    '/scams',
+    '/tools/deadlines',
     '/guides',
     '/guides/foreclosure-101',
     '/guides/loan-modification',
