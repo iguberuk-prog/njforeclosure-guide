@@ -6,6 +6,7 @@ import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
 import { SITE_EMAIL } from '../../../lib/contact';
 import { trackEvent } from '../../../lib/analytics';
+import AddressInput from '../../components/AddressInput';
 
 /**
  * Spanish assessment. Mirrors the English quiz's keys and values exactly so
@@ -169,7 +170,7 @@ export default function EvaluacionPage() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<QuizState>({});
   const [result, setResult] = useState<ResultEs | null>(null);
-  const [contact, setContact] = useState({ name: '', phone: '', email: '', town: '', notes: '' });
+  const [contact, setContact] = useState({ name: '', phone: '', email: '', address: '', town: '', notes: '' });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [contactError, setContactError] = useState('');
@@ -198,6 +199,7 @@ export default function EvaluacionPage() {
         formData.append('name', contact.name);
         formData.append('phone', contact.phone);
         formData.append('email', contact.email);
+        formData.append('propertyAddress', contact.address);
         formData.append('town', contact.town);
         formData.append('notes', contact.notes);
         formData.append('situation', answers.situation || '');
@@ -303,6 +305,14 @@ export default function EvaluacionPage() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <input className={field} type="tel" placeholder="Teléfono" value={contact.phone} onChange={(e) => setContact({ ...contact, phone: e.target.value })} />
                 <input className={field} type="email" placeholder="Correo electrónico" value={contact.email} onChange={(e) => setContact({ ...contact, email: e.target.value })} />
+              </div>
+              <div>
+                <AddressInput
+                  value={contact.address}
+                  onChange={(v) => setContact({ ...contact, address: v })}
+                  placeholder="Dirección de la propiedad (opcional)"
+                  lang="es"
+                />
               </div>
               <input className={field} placeholder="Pueblo o ciudad (opcional)" value={contact.town} onChange={(e) => setContact({ ...contact, town: e.target.value })} />
               <textarea className={field} rows={3} placeholder="Algo más que quiera contarnos (opcional)" value={contact.notes} onChange={(e) => setContact({ ...contact, notes: e.target.value })} />

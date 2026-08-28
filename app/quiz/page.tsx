@@ -7,6 +7,7 @@ import { matchPartners, COMPENSATION_LABEL, type Answers } from '../../lib/partn
 import { SITE_EMAIL, RESPONSE_PROMISE } from '../../lib/contact';
 import RecommendationBasis from '../components/RecommendationBasis';
 import { trackEvent } from '../../lib/analytics';
+import AddressInput from '../components/AddressInput';
 
 /**
  * Escape hatch. Someone with a sale date next week should not have to finish
@@ -133,7 +134,7 @@ export default function QuizPage() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<QuizState>({});
   const [result, setResult] = useState<QuizResult | null>(null);
-  const [contact, setContact] = useState({ name: '', phone: '', email: '', town: '', notes: '' });
+  const [contact, setContact] = useState({ name: '', phone: '', email: '', address: '', town: '', notes: '' });
   // Separate, opt-in, and unchecked by default. Consent to be contacted about
   // your own case is NOT consent to have your story published, so it is asked
   // for on its own rather than bundled into the submit button.
@@ -167,6 +168,7 @@ export default function QuizPage() {
         formData.append('name', contact.name);
         formData.append('phone', contact.phone);
         formData.append('email', contact.email);
+        formData.append('propertyAddress', contact.address);
         formData.append('town', contact.town);
         formData.append('notes', contact.notes);
         formData.append('situation', answers.situation || '');
@@ -473,6 +475,16 @@ export default function QuizPage() {
                     placeholder="you@email.com"
                   />
                 </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Property address (optional)</label>
+                <AddressInput
+                  value={contact.address}
+                  onChange={(v) => setContact({ ...contact, address: v })}
+                />
+                <p className="text-xs text-slate-400 mt-1">
+                  So we know which property we are talking about. Never shared without your permission.
+                </p>
               </div>
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-1.5">Town (optional)</label>
