@@ -13,7 +13,10 @@ interface Msg {
 // the header, the welcome and the AI itself, and the connect message says we
 // are connecting to HER, never that visitors are waiting for a human agent.
 const CONNECT_DELAY_MS = 15000;
-const MIN_REPLY_MS = 4000;
+// Each reply takes 8-10 seconds to appear (8s floor plus up to 2s of jitter
+// so the pacing doesn't feel mechanical).
+const MIN_REPLY_MS = 8000;
+const REPLY_JITTER_MS = 2000;
 
 const WELCOME: Msg = {
   role: 'assistant',
@@ -117,7 +120,8 @@ export default function ChatWidget() {
     const timer = setTimeout(() => controller.abort(), 35000);
     const startedAt = Date.now();
     const pace = async () => {
-      const remaining = MIN_REPLY_MS - (Date.now() - startedAt);
+      const target = MIN_REPLY_MS + Math.random() * REPLY_JITTER_MS;
+      const remaining = target - (Date.now() - startedAt);
       if (remaining > 0) await new Promise((r) => setTimeout(r, remaining));
     };
 
