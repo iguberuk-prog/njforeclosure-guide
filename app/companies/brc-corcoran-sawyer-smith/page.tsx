@@ -18,6 +18,10 @@ export default function BRCPage() {
       <section className="bg-gradient-to-b from-slate-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <p className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase mb-4">Consultation &amp; Market Listing</p>
+          <span className="inline-block bg-white rounded-xl px-4 py-2.5 mb-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/partners/brc-corcoran-sawyer-smith.png" alt="" className="h-9 max-w-[240px] object-contain" />
+          </span>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">
             Corcoran Sawyer Smith
             <span className="block text-2xl md:text-3xl text-slate-300 mt-2 font-normal">x Builders Resource Center</span>

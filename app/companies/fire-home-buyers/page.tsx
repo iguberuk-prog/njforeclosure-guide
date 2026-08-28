@@ -19,6 +19,10 @@ export default function FireHomeBuyersPage() {
       <section className="bg-gradient-to-b from-slate-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <p className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase mb-4">Damaged Property Specialist</p>
+          <span className="inline-block bg-white rounded-xl px-4 py-2.5 mb-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/partners/fire-home-buyers.png" alt="" className="h-9 max-w-[240px] object-contain" />
+          </span>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">Fire Home Buyers</h1>
           <p className="text-slate-300 text-lg leading-relaxed">
             A New Jersey company that buys fire and smoke damaged homes as-is for cash. If your home was damaged and you are also behind on the mortgage, this combination is worth understanding, because it can sometimes resolve both problems at once.

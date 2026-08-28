@@ -29,6 +29,13 @@ export type PartnerKind =
 export interface Partner {
   id: string;
   name: string;
+  /**
+   * That company's own logo, served from /public/images/partners/. Shown to
+   * IDENTIFY the company next to its name (nominative use), never restyled
+   * and never presented as an endorsement of us. If a company asks for a
+   * change or removal, do it same-day.
+   */
+  logo?: string;
   /** External site that makes the offer or provides the service. */
   url: string;
   /** One plain sentence: what they actually do. */
@@ -126,6 +133,7 @@ export const PARTNERS: Partner[] = [
   // -------------------------------------------------------------------------
   {
     id: 'fire-home-buyers',
+    logo: '/images/partners/fire-home-buyers.png',
     name: 'Fire Home Buyers',
     url: 'https://www.firehomebuyers.com',
     headline: 'Buys fire and smoke damaged homes in New Jersey, as-is, for cash.',
@@ -148,6 +156,7 @@ export const PARTNERS: Partner[] = [
   },
   {
     id: 'nj-offer',
+    logo: '/images/partners/nj-offer.png',
     name: 'NJ Offer',
     url: 'https://www.njoffer.com',
     headline: 'Fast cash offer on a New Jersey home, with a closing date you choose.',
@@ -172,6 +181,7 @@ export const PARTNERS: Partner[] = [
   },
   {
     id: 'private-sale-group',
+    logo: '/images/partners/private-sale-group.png',
     name: 'Private Sale Group',
     url: 'https://privatesalegroup.com',
     headline: 'Discreet off-market sale for higher-value homes, without listing publicly.',
@@ -197,6 +207,7 @@ export const PARTNERS: Partner[] = [
   },
   {
     id: 'clik-offer',
+    logo: '/images/partners/clik-offer.png',
     name: 'Clik Offer',
     url: 'https://clikoffer.com',
     headline: 'Local New Jersey cash buyer that can close in as little as 7 days.',
@@ -219,6 +230,7 @@ export const PARTNERS: Partner[] = [
   },
   {
     id: 'urbni',
+    logo: '/images/partners/urbni.png',
     name: 'Urbni',
     url: 'https://www.urbni.org',
     headline: 'Nonprofit that accepts donated homes and land, and turns them into affordable housing.',
@@ -245,6 +257,7 @@ export const PARTNERS: Partner[] = [
   },
   {
     id: 'brc-corcoran-sawyer-smith',
+    logo: '/images/partners/brc-corcoran-sawyer-smith.png',
     name: 'Corcoran Sawyer Smith x Builders Resource Center',
     url: 'https://brcnj.com',
     headline: 'Licensed brokerage for a home valuation and a traditional listing on the open market.',

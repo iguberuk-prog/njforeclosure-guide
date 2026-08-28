@@ -63,6 +63,12 @@ function Card({ p }: { p: Partner }) {
               {p.programBadge}
             </span>
           )}
+          {p.logo && (
+            <span className="block bg-white border border-slate-200 rounded-lg px-3 py-2 mb-2.5 w-fit max-w-full">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={p.logo} alt={`${p.name} logo`} className="h-8 max-w-[190px] object-contain object-left" />
+            </span>
+          )}
           <h3 className="font-bold text-lg text-slate-900 leading-tight">{p.name}</h3>
         </div>
         <Badge p={p} />

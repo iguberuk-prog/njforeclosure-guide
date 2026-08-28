@@ -19,6 +19,10 @@ export default function NJOfferPage() {
       <section className="bg-gradient-to-b from-slate-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <p className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase mb-4">Fast Cash Sale</p>
+          <span className="inline-block bg-white rounded-xl px-4 py-2.5 mb-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/partners/nj-offer.png" alt="" className="h-9 max-w-[240px] object-contain" />
+          </span>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">NJ Offer</h1>
           <p className="text-slate-300 text-lg leading-relaxed">
             A New Jersey cash buyer working across all twenty-one counties. They make an offer within 24 hours and let you choose a closing date between 10 and 60 days out. When a sale date is coming and certainty matters more than the last few percent of price, that is the trade this exists to make.

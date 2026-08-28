@@ -19,6 +19,10 @@ export default function PrivateSaleGroupPage() {
       <section className="bg-gradient-to-b from-slate-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <p className="text-amber-400 text-xs font-semibold tracking-[0.25em] uppercase mb-4">Premium Property Program</p>
+          <span className="inline-block bg-white rounded-xl px-4 py-2.5 mb-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/partners/private-sale-group.png" alt="" className="h-9 max-w-[240px] object-contain" />
+          </span>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">Private Sale Group</h1>
           <p className="text-slate-300 text-lg leading-relaxed">
             Sells high-value New Jersey homes off-market, without a public listing. No sign on the lawn, no open houses, no MLS exposure. For a homeowner under financial pressure at this price point, the privacy is often worth as much as the price.
