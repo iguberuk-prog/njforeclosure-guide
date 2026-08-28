@@ -13,4 +13,6 @@
 // site.
 // ---------------------------------------------------------------------------
 
-export const GOOGLE_MAPS_API_KEY: string | null = null;
+// Key 'NJ Foreclosure Guide website' in the owner's Google Cloud project,
+// created 2026-08-28, restricted to Maps JavaScript API + Places API (New).
+export const GOOGLE_MAPS_API_KEY: string | null = 'AIzaSyCRsDtgQ8i95uc8A3vqk1KkDgBSyBQ2D10';
