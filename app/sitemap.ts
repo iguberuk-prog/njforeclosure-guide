@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getAllLocations } from '../lib/nj-locations';
 import { SHERIFF_SOURCES } from '../lib/sheriff-sales';
 import { DOCUMENTS } from '../lib/documents';
+import { QUESTIONS } from '../lib/questions';
 
 export const dynamic = 'force-static';
 
@@ -18,6 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/es/opciones',
     '/es/documentos',
     '/es/estafas',
+    '/es/evaluacion',
+    '/tenants',
+    '/guides/surplus-funds',
     '/tools/deadlines',
     '/guides',
     '/guides/foreclosure-101',
@@ -69,11 +73,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const questionPages = QUESTIONS.map((x) => ({
+    url: `${base}/answers/${x.slug}/`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   const documentPages = DOCUMENTS.map((d) => ({
     url: `${base}/documents/${d.slug}/`,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
-  return [...staticPages, ...locationPages, ...sheriffPages, ...documentPages];
+  return [...staticPages, ...locationPages, ...sheriffPages, ...documentPages, ...questionPages];
 }

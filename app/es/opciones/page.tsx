@@ -111,11 +111,11 @@ export default function EsOpcionesPage() {
             ¿Cuál le conviene a usted? Depende de sus números, su etapa en el proceso y lo que usted
             quiere. Escríbanos en español a{' '}
             <a href={`mailto:${SITE_EMAIL}`} className="text-slate-900 underline underline-offset-4 font-semibold break-all">{SITE_EMAIL}</a>{' '}
-            con su situación, o use la evaluación gratuita de 2 minutos (en inglés).
+            con su situación, o use la evaluación gratuita de 2 minutos en español.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/quiz" className="bg-amber-400 text-slate-950 px-8 py-3.5 rounded-lg font-bold text-center hover:bg-amber-300 transition">
-              Evaluación gratuita (en inglés)
+            <Link href="/es/evaluacion" className="bg-amber-400 text-slate-950 px-8 py-3.5 rounded-lg font-bold text-center hover:bg-amber-300 transition">
+              Evaluación gratuita en español
             </Link>
             <Link href="/es/documentos" className="border border-slate-300 text-slate-900 px-8 py-3.5 rounded-lg font-semibold text-center hover:bg-slate-100 transition">
               Su carta, explicada

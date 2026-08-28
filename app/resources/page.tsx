@@ -31,6 +31,8 @@ const SECTIONS: { title: string; items: { href: string; name: string; desc: stri
       { href: '/documents', name: 'Foreclosure letters, decoded', desc: 'Every document in the order it arrives, from the Notice of Intention to the writ of possession: what it means, your clock, and what to do that week.' },
       { href: '/glossary', name: 'The NJ foreclosure glossary', desc: 'Every term from court papers and phone calls, defined in two plain sentences.' },
       { href: '/answers', name: 'Questions, answered', desc: 'Direct answers to the questions New Jersey homeowners actually ask.' },
+      { href: '/tenants', name: 'Renting a home in foreclosure', desc: 'NJ tenants generally cannot be evicted just because the landlord was foreclosed. Your rights, and the pressure tactics to refuse.' },
+      { href: '/guides/surplus-funds', name: 'Surplus funds after a sale', desc: 'Auction money above the judgment belongs to you and sits with the court until claimed. How to claim it.' },
       { href: '/scams', name: 'Spot a foreclosure rescue scam', desc: 'Seven red flags, what New Jersey and federal law prohibit, and where to report one. Read before signing anything.' },
       { href: '/downloads/nj-foreclosure-week-one-checklist.pdf', name: 'The Week One Checklist (PDF)', desc: 'A printable one-pager of exactly what to do the week a notice arrives. Stick it on the fridge.' },
       { href: '/es', name: 'Guía en español', desc: 'Sus derechos, las 7 opciones, sus cartas explicadas y cómo detectar estafas, todo en español.' },

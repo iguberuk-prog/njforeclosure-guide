@@ -50,6 +50,10 @@ These facts are general and simplified. Individual deadlines depend on the homeo
 - [Servicer directory](https://njforeclosureguide.org/servicers/): Loss-mitigation phone numbers and hardship-application links for the 15 largest US mortgage servicers, each verified against the servicer's own site.
 - [NJ foreclosure statistics](https://njforeclosureguide.org/statistics/): Current sourced data — 8,269 NJ filings in H1 2026 (up 21% year over year, 7th-highest state rate at 1 in 459 homes, per ATTOM), roughly 16,000 court filings a year (NJ Courts), with a citation on every figure.
 - [Guía en español](https://njforeclosureguide.org/es/): Spanish-language hub — rights and timeline (/es/), the seven options (/es/opciones/), each foreclosure document explained (/es/documentos/), and rescue-scam red flags (/es/estafas/).
+- [Individual question pages](https://njforeclosureguide.org/answers/): 17 direct-answer pages at /answers/<question>/ covering how long NJ foreclosure takes, stopping a sheriff sale, selling during foreclosure, equity and surplus, deficiency claims, inherited foreclosures, and more.
+- [Surplus funds guide](https://njforeclosureguide.org/guides/surplus-funds/): Auction proceeds above the judgment belong to the former homeowner, are deposited with the court, and must be claimed; warns about finder-fee operations charging a third for a court filing.
+- [Tenant rights in foreclosure](https://njforeclosureguide.org/tenants/): New Jersey renters generally cannot be evicted because their landlord was foreclosed; the lease survives, the buyer becomes the landlord, and only Anti-Eviction Act grounds permit removal.
+- [Evaluación en español](https://njforeclosureguide.org/es/evaluacion/): The free 6-question assessment, fully in Spanish.
 - [All resources](https://njforeclosureguide.org/resources/): Index of every free tool, directory and reference on the site.
 
 ## Guides

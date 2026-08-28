@@ -109,10 +109,10 @@ export default function EsHomePage() {
               'We read every message and reply within one business day.',
               'Leemos cada mensaje y respondemos dentro de un día hábil.'
             )}{' '}
-            También puede usar nuestra evaluación gratuita de 2 minutos (por ahora en inglés):
+            O use nuestra evaluación gratuita de 2 minutos, en español:
           </p>
-          <Link href="/quiz" className="inline-block bg-amber-400 text-slate-950 px-8 py-3.5 rounded-lg font-bold hover:bg-amber-300 transition">
-            Evaluación gratuita (en inglés)
+          <Link href="/es/evaluacion" className="inline-block bg-amber-400 text-slate-950 px-8 py-3.5 rounded-lg font-bold hover:bg-amber-300 transition">
+            Evaluación gratuita en español
           </Link>
         </div>
 

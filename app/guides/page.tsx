@@ -49,6 +49,12 @@ const guides = [
     category: 'Sell Your Home',
   },
   {
+    slug: 'surplus-funds',
+    title: 'Surplus Funds. Claiming Auction Money That Is Yours',
+    description: 'When a sheriff sale brings more than you owed, the difference belongs to you and sits with the court until claimed. How to claim it without paying a third to a finder.',
+    category: 'Sell Your Home',
+  },
+  {
     slug: 'bankruptcy-chapter-13',
     title: 'Chapter 13 Bankruptcy. Legal Protection and Debt Restructuring',
     description: 'Filing triggers an automatic stay that pauses the foreclosure while you reorganize debt over 3-5 years and keep your home.',
