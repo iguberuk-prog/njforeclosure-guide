@@ -52,6 +52,7 @@ const SECTIONS: { title: string; items: { href: string; name: string; desc: stri
     items: [
       { href: '/guides', name: 'The complete guides', desc: 'Loan modification, forbearance, refinancing, short sale, Chapter 13, cash sale and equity refinance, each explained end to end.' },
       { href: '/scenarios', name: 'Eighteen realistic scenarios', desc: 'Illustrative walkthroughs of how different situations play out, including the hard ones.' },
+      { href: '/commercial', name: 'Commercial property owners', desc: 'A separate path for multifamily, mixed-use, retail, industrial, office and land: how the process differs, seven exit paths, and a confidential assessment.' },
       { href: '/companies', name: 'Where to get help', desc: 'Every destination we recommend, compared side by side, with our compensation (none, one disclosed exception) stated on each.' },
     ],
   },

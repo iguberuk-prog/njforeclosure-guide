@@ -395,6 +395,8 @@ export default function Home() {
             <Link href="/resources" className="text-slate-900 underline underline-offset-4 font-semibold">everything in one place</Link>
             {' '}·{' '}
             <Link href="/es" className="text-slate-900 underline underline-offset-4 font-semibold" lang="es">Guía en español</Link>
+            {' '}·{' '}
+            <Link href="/commercial" className="text-slate-900 underline underline-offset-4 font-semibold">Commercial property? Start here</Link>
           </p>
         </div>
       </section>

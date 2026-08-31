@@ -25,6 +25,7 @@ const NAV = [
   { href: '/scenarios', label: 'Case Studies' },
   { href: '/answers', label: 'Answers' },
   { href: '/companies', label: 'Get an Offer' },
+  { href: '/commercial', label: 'Commercial' },
   { href: '/resources', label: 'Resources' },
 ];
 

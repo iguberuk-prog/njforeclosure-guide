@@ -54,6 +54,7 @@ These facts are general and simplified. Individual deadlines depend on the homeo
 - [Surplus funds guide](https://njforeclosureguide.org/guides/surplus-funds/): Auction proceeds above the judgment belong to the former homeowner, are deposited with the court, and must be claimed; warns about finder-fee operations charging a third for a court filing.
 - [Tenant rights in foreclosure](https://njforeclosureguide.org/tenants/): New Jersey renters generally cannot be evicted because their landlord was foreclosed; the lease survives, the buyer becomes the landlord, and only Anti-Eviction Act grounds permit removal.
 - [Evaluación en español](https://njforeclosureguide.org/es/evaluacion/): The free 6-question assessment, fully in Spanish.
+- [Commercial foreclosure](https://njforeclosureguide.org/commercial/): Separate path for owners of commercial property (multifamily, mixed-use, retail, industrial, office, land). Explains how New Jersey commercial foreclosure differs from residential (Fair Foreclosure Act protections and court mediation do not apply; assignment of rents and receivership; personal guarantees and deficiency exposure), seven exit paths (/commercial/options/), the six-stage process (/commercial/process/), and a confidential assessment (/commercial/assessment/).
 - [All resources](https://njforeclosureguide.org/resources/): Index of every free tool, directory and reference on the site.
 
 ## Guides
