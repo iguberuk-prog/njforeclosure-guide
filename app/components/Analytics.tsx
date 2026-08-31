@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Script from 'next/script';
 import { GA_MEASUREMENT_ID } from '../../lib/analytics';
 import { PARTNERS } from '../../lib/partners';
+import { captureAttribution } from '../../lib/attribution';
 
 /**
  * GA4 loader plus automatic outbound-click tracking.
@@ -38,6 +39,11 @@ for (const p of PARTNERS) {
 }
 
 export default function Analytics() {
+  // Campaign attribution is captured regardless of whether GA is configured.
+  useEffect(() => {
+    captureAttribution();
+  }, []);
+
   useEffect(() => {
     if (!GA_MEASUREMENT_ID) return;
 

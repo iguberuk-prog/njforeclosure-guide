@@ -6,6 +6,7 @@ import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
 import { SITE_EMAIL } from '../../../lib/contact';
 import { trackEvent } from '../../../lib/analytics';
+import { appendAttribution } from '../../../lib/attribution';
 import AddressInput from '../../components/AddressInput';
 
 /**
@@ -212,6 +213,7 @@ export default function EvaluacionPage() {
         formData.append('recommendation', matched.key);
         formData.append('language', 'es');
         formData.append('sourcePage', '/es/evaluacion');
+        appendAttribution(formData);
         await fetch('/__forms.html', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

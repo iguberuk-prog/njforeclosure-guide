@@ -7,6 +7,7 @@ import { matchPartners, COMPENSATION_LABEL, type Answers } from '../../lib/partn
 import { SITE_EMAIL, RESPONSE_PROMISE } from '../../lib/contact';
 import RecommendationBasis from '../components/RecommendationBasis';
 import { trackEvent } from '../../lib/analytics';
+import { appendAttribution } from '../../lib/attribution';
 import AddressInput from '../components/AddressInput';
 
 /**
@@ -181,6 +182,7 @@ export default function QuizPage() {
         formData.append('recommendation', matched.primary);
         formData.append('outcomeConsent', outcomeConsent ? 'YES' : 'no');
         formData.append('sourcePage', '/quiz');
+        appendAttribution(formData);
         await fetch('/__forms.html', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

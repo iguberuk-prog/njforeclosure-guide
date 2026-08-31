@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { appendAttribution } from '../../lib/attribution';
 
 interface Msg {
   role: 'user' | 'assistant';
@@ -92,6 +93,7 @@ export default function ChatWidget() {
       formData.append('leadScore', reason);
       formData.append('conversationSummary', buildTranscript(msgs));
       formData.append('sourcePage', typeof window !== 'undefined' ? window.location.pathname : '');
+      appendAttribution(formData);
       await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
