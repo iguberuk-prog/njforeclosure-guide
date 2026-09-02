@@ -36,6 +36,16 @@ export interface Partner {
    * change or removal, do it same-day.
    */
   logo?: string;
+  /**
+   * Direct URL of the company's own offer/quote (or donation) form, verified
+   * by fetching their site. When set, CTAs deep-link here instead of the
+   * homepage so a homeowner lands one step from requesting an offer.
+   */
+  quoteUrl?: string;
+  /** The action verb for the CTA, e.g. "Get My Cash Offer". */
+  quoteLabel?: string;
+  /** What to expect, in one line. Only claims their own site makes. */
+  quotePromise?: string;
   /** External site that makes the offer or provides the service. */
   url: string;
   /** One plain sentence: what they actually do. */
@@ -156,6 +166,9 @@ export const PARTNERS: Partner[] = [
   },
   {
     id: 'fire-home-buyers',
+    quoteUrl: 'https://www.firehomebuyers.com/',
+    quoteLabel: 'Get My Cash Offer',
+    quotePromise: 'Free, no obligation. Their site says an offer within 24 hours; the form starts with just your address.',
     logo: '/images/partners/fire-home-buyers.png',
     name: 'Fire Home Buyers',
     url: 'https://www.firehomebuyers.com',
@@ -179,6 +192,9 @@ export const PARTNERS: Partner[] = [
   },
   {
     id: 'nj-offer',
+    quoteUrl: 'https://www.njoffer.com/',
+    quoteLabel: 'Get My Cash Offer',
+    quotePromise: 'Free, no obligation. Their site says an offer within 24 hours; the form starts with just your address.',
     logo: '/images/partners/nj-offer.png',
     name: 'NJ Offer',
     url: 'https://www.njoffer.com',
@@ -230,6 +246,9 @@ export const PARTNERS: Partner[] = [
   },
   {
     id: 'clik-offer',
+    quoteUrl: 'https://clikoffer.com/get-a-cash-offer-today/',
+    quoteLabel: 'Get My Cash Offer',
+    quotePromise: 'Free, no obligation. Address, name and contact info; their site says cash in hand within days of contact.',
     logo: '/images/partners/clik-offer.png',
     name: 'Clik Offer',
     url: 'https://clikoffer.com',
@@ -253,6 +272,9 @@ export const PARTNERS: Partner[] = [
   },
   {
     id: 'urbni',
+    quoteUrl: 'https://www.urbni.org/donate-a-home/',
+    quoteLabel: 'Start a Donation Inquiry',
+    quotePromise: 'One form: property details, condition and program preference. Their team reaches out from there.',
     logo: '/images/partners/urbni.png',
     name: 'Urbni',
     url: 'https://www.urbni.org',

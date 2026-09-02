@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import RecommendationBasis from '../components/RecommendationBasis';
+import OfferConcierge from '../components/OfferConcierge';
 import type { Metadata } from 'next';
 import { PARTNERS, COMPENSATION_LABEL, type Partner } from '../../lib/partners';
 
@@ -103,14 +104,17 @@ function Card({ p }: { p: Partner }) {
           </Link>
         )}
         <a
-          href={p.url}
+          href={p.quoteUrl ?? p.url}
           target="_blank"
           rel="noopener noreferrer nofollow"
           className="flex-1 text-center bg-slate-900 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition text-sm"
         >
-          Go to site
+          {p.quoteLabel ?? 'Go to site'} →
         </a>
       </div>
+      {p.quotePromise && (
+        <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">{p.quotePromise}</p>
+      )}
 
       <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">{COMPENSATION_LABEL[p.compensation]}</p>
     </div>
@@ -167,6 +171,10 @@ export default function CompaniesPage() {
         <div className="max-w-5xl mx-auto">
           <div className="mb-8">
             <p className="text-amber-700 text-xs font-semibold tracking-[0.25em] uppercase mb-3">If Selling Is the Right Move</p>
+            <div className="mb-10">
+              <OfferConcierge sourcePage="/companies" />
+            </div>
+
             <h2 className="font-serif text-3xl font-bold text-slate-900 mb-3">Five Ways to Sell, and They Are Not the Same</h2>
             <p className="text-slate-600 leading-relaxed max-w-2xl">
               Which one fits depends almost entirely on how much time you have and what condition the property is in. Speed costs you price. Time earns it back.

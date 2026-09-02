@@ -11,6 +11,7 @@ import { appendAttribution } from '../../lib/attribution';
 import { sendIntake } from '../../lib/intake';
 import AddressInput from '../components/AddressInput';
 import BrcCard from '../components/BrcCard';
+import OfferConcierge from '../components/OfferConcierge';
 
 /**
  * Escape hatch. Someone with a sale date next week should not have to finish
@@ -337,6 +338,12 @@ export default function QuizPage() {
               </div>
             </div>
 
+            {result.showBrc && (
+              <div className="mt-10">
+                <OfferConcierge sourcePage="/quiz" />
+              </div>
+            )}
+
             {/* Matched destinations, ranked by the routing engine */}
             {(() => {
               const matches = matchPartners({
@@ -406,13 +413,16 @@ export default function QuizPage() {
                         )}
 
                         <a
-                          href={partner.url}
+                          href={partner.quoteUrl ?? partner.url}
                           target="_blank"
                           rel="noopener noreferrer nofollow"
                           className="inline-block bg-slate-900 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition text-sm"
                         >
-                          Go to {partner.name}
+                          {partner.quoteLabel ? `${partner.quoteLabel} from ${partner.name}` : `Go to ${partner.name}`} →
                         </a>
+                        {partner.quotePromise && (
+                          <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">{partner.quotePromise}</p>
+                        )}
 
                         <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">
                           {COMPENSATION_LABEL[partner.compensation]}
