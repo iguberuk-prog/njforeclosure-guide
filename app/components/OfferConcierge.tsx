@@ -5,6 +5,7 @@ import AddressInput from './AddressInput';
 import { PARTNERS } from '../../lib/partners';
 import { trackEvent } from '../../lib/analytics';
 import { appendAttribution } from '../../lib/attribution';
+import { sendIntake } from '../../lib/intake';
 
 /**
  * The concierge: instead of filling three vendor forms, the homeowner fills
@@ -61,11 +62,29 @@ export default function OfferConcierge({ sourcePage }: { sourcePage: string }) {
       f.append('recommendation', 'offer-concierge');
       f.append('sourcePage', sourcePage);
       appendAttribution(f);
-      await fetch('/__forms.html', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: f.toString(),
-      });
+      await Promise.allSettled([
+        fetch('/__forms.html', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: f.toString(),
+        }),
+        sendIntake(f),
+        // Kicks off automatic fulfillment: vendor referrals + homeowner
+        // confirmation, via GoHighLevel (see netlify/functions/concierge-dispatch).
+        fetch('/api/concierge-dispatch', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.name,
+            phone: form.phone,
+            email: form.email,
+            address: form.address,
+            notes: form.notes,
+            vendors: selected,
+            sourcePage,
+          }),
+        }),
+      ]);
       trackEvent('generate_lead', {
         lead_score: 'HOT',
         recommendation: 'offer-concierge',
