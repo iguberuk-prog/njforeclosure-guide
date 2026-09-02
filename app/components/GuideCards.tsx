@@ -30,7 +30,8 @@ const GUIDES = [
     ),
   },
   {
-    href: '/guides/options',
+    // No /guides/options page exists; /compare is the seven-options table.
+    href: '/compare',
     title: 'All Seven Options Explained',
     desc:
       'Each solution in detail: what it costs, how long it takes, who it works for, and the stage at which it stops being available.',
@@ -43,7 +44,8 @@ const GUIDES = [
     ),
   },
   {
-    href: '/guides/cash-sale',
+    // The cash-sale guide lives at /guides/cash-buyer.
+    href: '/guides/cash-buyer',
     title: 'Quick Cash Sale Guide',
     desc:
       'How a fast close actually works, what it costs you against a market sale, and the questions to ask before signing anything.',

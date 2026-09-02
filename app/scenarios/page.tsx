@@ -131,7 +131,7 @@ const GROUPS: Group[] = [
         tag: 'Self-employed',
         title: 'The income is real but the paperwork will not show it',
         situation:
-          'A contractor or small business owner falls behind during a slow stretch, then recovers. The modification application is denied for insufficient income, because the servicer is reading a tax return written to minimise taxable income rather than to prove capacity to pay.',
+          'A contractor or small business owner falls behind during a slow stretch, then recovers. The modification application is denied for insufficient income, because the servicer is reading a tax return written to minimize taxable income rather than to prove capacity to pay.',
         options: [
           ['Rebuild the income picture', 'Profit and loss statements, twelve to twenty-four months of business bank statements, signed contracts and receivables.'],
           ['Add back non-cash deductions', 'Depreciation and one-time write-offs reduce taxable income without reducing cash. Say so explicitly in the package.'],
@@ -201,7 +201,7 @@ const GROUPS: Group[] = [
           'A hardship forbearance suspended payments for several months. It ends, and the servicer\'s letter asks for the accumulated total in a single payment. The homeowner understood the paused payments would go to the end of the loan.',
         options: [
           ['Deferral or partial claim', 'Moves the paused amount to the end of the loan. Usually what the borrower expected and often available, but rarely offered unprompted.'],
-          ['Modification', 'Folds the arrears into a re-amortised loan.'],
+          ['Modification', 'Folds the arrears into a re-amortized loan.'],
           ['Repayment plan', 'Spreads the arrears across future payments. Raises the payment.'],
           ['Ask what the investor allows', 'Options differ by who owns the loan. Ask that question directly, in writing.'],
           ['Lump sum', 'Only if the money genuinely exists.'],
@@ -249,7 +249,7 @@ const GROUPS: Group[] = [
         options: [
           ['Pay it', 'If the money exists, this ends it. The amounts are usually modest against the home\'s value.'],
           ['Negotiate a payment plan', 'Associations generally prefer being paid to owning a unit.'],
-          ['Challenge the fees', 'Attorney fees and late charges are sometimes negotiable or improperly calculated. Ask for an itemised ledger.'],
+          ['Challenge the fees', 'Attorney fees and late charges are sometimes negotiable or improperly calculated. Ask for an itemized ledger.'],
           ['Check what the association can actually reach', 'Association lien priority against a mortgage is limited and technical. An attorney can tell you where you truly stand.'],
           ['Borrow against equity', 'For a few thousand dollars against substantial equity, almost any borrowing beats losing the unit.'],
         ],
@@ -285,7 +285,7 @@ const GROUPS: Group[] = [
         tag: 'Reverse mortgage',
         title: 'A senior in default on a reverse mortgage',
         situation:
-          'An older homeowner with a reverse mortgage falls behind on property taxes and insurance, or a change in living arrangements affects the occupancy requirement. The servicer calls the loan due. Adult children discover the situation late, often after a hospitalisation or a move.',
+          'An older homeowner with a reverse mortgage falls behind on property taxes and insurance, or a change in living arrangements affects the occupancy requirement. The servicer calls the loan due. Adult children discover the situation late, often after a hospitalization or a move.',
         options: [
           ['Cure the tax and insurance default', 'Where the arrears are payable, this is the direct fix.'],
           ['Repayment plan', 'Some servicers allow tax and insurance arrears to be repaid over time.'],
@@ -294,7 +294,7 @@ const GROUPS: Group[] = [
           ['Deed in lieu', 'Ends it without an auction where there is no equity to protect.'],
         ],
         math:
-          'These loans grow rather than amortise, so equity shrinks over time. Whether anything is left depends on how long the loan has run against how much the property appreciated. That figure decides everything, and almost nobody has it until they ask.',
+          'These loans grow rather than amortize, so equity shrinks over time. Whether anything is left depends on how long the loan has run against how much the property appreciated. That figure decides everything, and almost nobody has it until they ask.',
         outcome:
           'A hard category. Deadlines are short, the borrower is often unwell, and families discover the problem with weeks left. Homes are lost here that could have been sold with equity intact if anyone had opened the mail in month one.',
         lesson: 'If a parent has a reverse mortgage, find out today whether taxes and insurance are current.',
@@ -321,7 +321,7 @@ const GROUPS: Group[] = [
           ['Keep it', 'Only if someone wants to live there and can assume or refinance the debt.'],
         ],
         math:
-          'There is no equity to protect, which changes the goal entirely. It shifts from maximising proceeds to limiting exposure and closing the matter cleanly. A negative-equity property is a liability that happens to have a roof.',
+          'There is no equity to protect, which changes the goal entirely. It shifts from maximizing proceeds to limiting exposure and closing the matter cleanly. A negative-equity property is a liability that happens to have a roof.',
         outcome:
           'These usually end in a short sale or with the heir letting it go. Neither is a failure. The real mistake is spending savings servicing a debt on a house nobody wants, which happens constantly out of guilt rather than arithmetic.',
         lesson: 'When there is no equity, the win is exiting cleanly, not holding on.',

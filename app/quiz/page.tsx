@@ -117,7 +117,7 @@ const quizResults: Record<string, QuizResult> = {
     secondary: 'Cash Buyers',
     secondaryUrl: '/professionals',
     guide: 'All 7 Options Explained',
-    guideUrl: '/guides/options',
+    guideUrl: '/compare',
     explanation: 'With some flexibility on timing, you can compare a traditional sale, a short sale if you owe more than the home is worth, or a cash sale for speed. We can connect you with professionals for each path.',
   },
 };

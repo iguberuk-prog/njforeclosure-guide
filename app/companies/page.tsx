@@ -57,7 +57,10 @@ function Card({ p }: { p: Partner }) {
         p.compensation === 'affiliated' ? 'border-blue-200 bg-blue-50/40' : 'border-emerald-200 bg-emerald-50/40'
       }`}
     >
-      <div className="flex items-start justify-between gap-3 mb-3">
+      {/* flex-wrap matters: the nowrap badge next to a 170px logo pushed the
+          card's min-content width past a 320px screen, and grid items refuse
+          to shrink below min-content — the whole page scrolled sideways. */}
+      <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
         <div className="min-w-0">
           {p.programBadge && (
             <span className="inline-block text-[10px] font-bold uppercase tracking-[0.15em] text-amber-800 bg-amber-100 border border-amber-300 rounded-full px-3 py-1 mb-2">
@@ -67,7 +70,7 @@ function Card({ p }: { p: Partner }) {
           {p.logo && (
             <span className="block bg-white border border-slate-200 rounded-lg px-3 py-2 mb-2.5 w-fit max-w-full">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={p.logo} alt={`${p.name} logo`} className="h-8 max-w-[190px] object-contain object-left" />
+              <img src={p.logo} alt={`${p.name} logo`} className="h-8 max-w-[170px] object-contain object-left" />
             </span>
           )}
           <h3 className="font-bold text-lg text-slate-900 leading-tight">{p.name}</h3>
