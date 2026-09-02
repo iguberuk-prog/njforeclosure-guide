@@ -35,14 +35,18 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4 h-[72px] sm:h-20">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 h-[72px] sm:h-20">
           {/* Brand */}
-          <Link href="/" className="group flex items-center gap-2.5 sm:gap-3 min-w-0" onClick={() => setOpen(false)}>
-            <Logo className="h-9 w-9 sm:h-12 sm:w-12 text-slate-900 flex-shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5" />
+          <Link href="/" className="group flex items-center gap-2 sm:gap-3 min-w-0" onClick={() => setOpen(false)}>
+            <Logo className="h-8 w-8 sm:h-12 sm:w-12 text-slate-900 flex-shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5" />
             <span className="flex flex-col leading-none min-w-0">
-              {/* truncate rather than nowrap alone: at 360px the wordmark used to
-                  slide under the CTA. Now it clips cleanly instead. */}
-              <span className="font-serif text-[14px] sm:text-2xl font-bold text-slate-900 tracking-tight truncate">
+              {/* Fluid size instead of truncation: the full name always fits.
+                  The budget at 320px wide is tight — 288px inside the padding,
+                  minus logo (32) + gaps + CTA + hamburger (~170) leaves ~115px
+                  for the name, which is why the mobile logo, gaps, and CTA are
+                  all one notch smaller than they used to be. Never truncate the
+                  brand name; a clipped logo reads as broken. */}
+              <span className="font-serif text-[clamp(11px,3.4vw,22px)] sm:text-2xl font-bold text-slate-900 tracking-tight whitespace-nowrap">
                 NJ Foreclosure Guide
               </span>
               <span className="hidden sm:block mt-1 text-[10px] text-slate-500 font-semibold tracking-[0.18em] uppercase whitespace-nowrap">
@@ -74,7 +78,7 @@ export default function SiteHeader() {
           <div className="flex lg:hidden items-center gap-2 flex-shrink-0">
             <Link
               href="/quiz"
-              className="bg-slate-900 text-white px-4 py-2 rounded-full text-[13px] font-semibold hover:bg-slate-800 transition-colors whitespace-nowrap flex-shrink-0"
+              className="bg-slate-900 text-white px-3 py-2 rounded-full text-[12px] font-semibold hover:bg-slate-800 transition-colors whitespace-nowrap flex-shrink-0"
             >
               {/* Short on purpose. "Free Assessment" pushed the wordmark into
                   an ellipsis at 390px, the most common phone width. */}
