@@ -7,6 +7,7 @@ import MarsNoticeEs from '../../components/MarsNoticeEs';
 import { SITE_EMAIL } from '../../../lib/contact';
 import { trackEvent } from '../../../lib/analytics';
 import { appendAttribution } from '../../../lib/attribution';
+import { sendIntake } from '../../../lib/intake';
 import AddressInput from '../../components/AddressInput';
 
 /**
@@ -214,11 +215,16 @@ export default function EvaluacionPage() {
         formData.append('language', 'es');
         formData.append('sourcePage', '/es/evaluacion');
         appendAttribution(formData);
-        await fetch('/__forms.html', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: formData.toString(),
-        });
+        // Netlify Forms (as before) + the Bidnology CRM, side by side. sendIntake
+        // never throws, so a CRM outage cannot affect the visitor's results.
+        await Promise.all([
+          fetch('/__forms.html', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString(),
+          }),
+          sendIntake(formData),
+        ]);
         setSubmitted(true);
         trackEvent('generate_lead', {
           lead_score: leadScore,

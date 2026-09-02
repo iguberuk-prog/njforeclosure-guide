@@ -4,6 +4,7 @@ import { useState } from 'react';
 import SiteHeader from '../../components/SiteHeader';
 import Link from 'next/link';
 import { trackEvent } from '../../../lib/analytics';
+import { sendIntake } from '../../../lib/intake';
 
 /**
  * Review submission with explicit publication consent.
@@ -42,11 +43,16 @@ export default function SubmitReviewPage() {
       Object.entries(form).forEach(([k, v]) => data.append(k, v));
       data.append('publishConsent', consent ? 'YES' : 'no');
       data.append('sourcePage', '/reviews/submit');
-      await fetch('/__forms.html', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: data.toString(),
-      });
+      // Netlify Forms (as before) + the Bidnology CRM, side by side. sendIntake
+      // never throws, so the thank-you below is unaffected by a CRM outage.
+      await Promise.all([
+        fetch('/__forms.html', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: data.toString(),
+        }),
+        sendIntake(data),
+      ]);
       trackEvent('review_submit', { publish_consent: consent ? 'yes' : 'no' });
     } catch {
       // Show the thank-you either way. Their words are not lost on our end.

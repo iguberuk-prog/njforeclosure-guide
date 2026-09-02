@@ -7,6 +7,7 @@ import AddressInput from '../../components/AddressInput';
 import { SITE_EMAIL, RESPONSE_PROMISE } from '../../../lib/contact';
 import { trackEvent } from '../../../lib/analytics';
 import { appendAttribution } from '../../../lib/attribution';
+import { sendIntake } from '../../../lib/intake';
 
 /**
  * Commercial assessment. Separate from the consumer quiz on purpose: the
@@ -250,7 +251,11 @@ export default function CommercialAssessmentPage() {
         f.append('recommendation', matched.key);
         f.append('sourcePage', '/commercial/assessment');
         appendAttribution(f);
-        await fetch('/__forms.html', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: f.toString() });
+        // Netlify Forms (as before) + the Bidnology CRM, side by side. sendIntake never throws.
+        await Promise.all([
+          fetch('/__forms.html', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: f.toString() }),
+          sendIntake(f),
+        ]);
         setSubmitted(true);
         trackEvent('generate_lead', { lead_score: score, recommendation: matched.key, source_page: '/commercial/assessment', lead_type: 'commercial' });
       } catch {

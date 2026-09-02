@@ -8,6 +8,7 @@ import { SITE_EMAIL, RESPONSE_PROMISE } from '../../lib/contact';
 import RecommendationBasis from '../components/RecommendationBasis';
 import { trackEvent } from '../../lib/analytics';
 import { appendAttribution } from '../../lib/attribution';
+import { sendIntake } from '../../lib/intake';
 import AddressInput from '../components/AddressInput';
 
 /**
@@ -183,11 +184,16 @@ export default function QuizPage() {
         formData.append('outcomeConsent', outcomeConsent ? 'YES' : 'no');
         formData.append('sourcePage', '/quiz');
         appendAttribution(formData);
-        await fetch('/__forms.html', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: formData.toString(),
-        });
+        // Netlify Forms (as before) + the Bidnology CRM, side by side. sendIntake
+        // never throws, so a CRM outage cannot affect the visitor's results.
+        await Promise.all([
+          fetch('/__forms.html', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString(),
+          }),
+          sendIntake(formData),
+        ]);
         setSubmitted(true);
         // PRIMARY conversion for Google Ads: a homeowner asked to be
         // contacted. generate_lead is GA4's recommended name for exactly

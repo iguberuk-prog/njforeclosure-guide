@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { appendAttribution } from '../../lib/attribution';
+import { newSubmissionId, sendIntake } from '../../lib/intake';
 
 interface Msg {
   role: 'user' | 'assistant';
@@ -61,6 +62,8 @@ export default function ChatWidget() {
   const bottomRef = useRef<HTMLDivElement>(null);
   const lastSubmittedCount = useRef(0);
   const connectedOnce = useRef(false);
+  // CRM submission id for this conversation (see submitTranscript).
+  const intakeIdRef = useRef<string | null>(null);
 
   // First open: a short "connecting" beat before Samantha's welcome appears.
   const handleOpen = () => {
@@ -84,6 +87,10 @@ export default function ChatWidget() {
     if (!email && !phone) return;
     if (msgs.length <= lastSubmittedCount.current) return;
     lastSubmittedCount.current = msgs.length;
+    // One CRM row per conversation: mint the id on the first submission and
+    // reuse it, so each re-post (longer transcript, CHAT-FINAL) updates the
+    // same intake_submissions row instead of adding a duplicate.
+    if (!intakeIdRef.current) intakeIdRef.current = newSubmissionId();
     try {
       const formData = new URLSearchParams();
       formData.append('form-name', 'ai-chat-lead');
@@ -94,11 +101,15 @@ export default function ChatWidget() {
       formData.append('conversationSummary', buildTranscript(msgs));
       formData.append('sourcePage', typeof window !== 'undefined' ? window.location.pathname : '');
       appendAttribution(formData);
-      await fetch('/__forms.html', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData.toString(),
-      });
+      // Netlify Forms (as before) + the Bidnology CRM, side by side.
+      await Promise.all([
+        fetch('/__forms.html', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formData.toString(),
+        }),
+        sendIntake(formData, intakeIdRef.current),
+      ]);
     } catch {
       // Silent: never disrupt the visitor's conversation
     }
