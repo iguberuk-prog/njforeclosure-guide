@@ -3,6 +3,7 @@
 import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
+import BrcCard from '../../components/BrcCard';
 import { trackEvent } from '../../../lib/analytics';
 
 /**
@@ -163,6 +164,12 @@ export default function NetProceedsPage() {
                 Ways to catch up
               </Link>
             </div>
+          </div>
+        )}
+
+        {hasInput && (
+          <div className="mt-8">
+            <BrcCard compact />
           </div>
         )}
 

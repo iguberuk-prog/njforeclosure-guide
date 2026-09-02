@@ -10,6 +10,7 @@ import { trackEvent } from '../../lib/analytics';
 import { appendAttribution } from '../../lib/attribution';
 import { sendIntake } from '../../lib/intake';
 import AddressInput from '../components/AddressInput';
+import BrcCard from '../components/BrcCard';
 
 /**
  * Escape hatch. Someone with a sale date next week should not have to finish
@@ -58,6 +59,7 @@ interface QuizState {
 }
 
 interface QuizResult {
+  showBrc?: boolean;
   primary: string;
   primaryUrl: string;
   secondary: string;
@@ -69,6 +71,7 @@ interface QuizResult {
 
 const quizResults: Record<string, QuizResult> = {
   'foreclosure-urgent': {
+    showBrc: true,
     primary: 'Fast Cash Sale Specialists',
     primaryUrl: '/professionals',
     secondary: 'Foreclosure Defense Attorneys',
@@ -78,6 +81,7 @@ const quizResults: Record<string, QuizResult> = {
     explanation: 'With foreclosure in progress and time short, your two strongest paths are a fast cash sale (14 to 30 days, stops the foreclosure and protects your credit) or an attorney who can negotiate with your lender. We can connect you with both so you can compare.',
   },
   'behind-urgent': {
+    showBrc: true,
     primary: 'Loan Modification Attorneys',
     primaryUrl: '/professionals',
     secondary: 'Fast Cash Sale Specialists',
@@ -87,6 +91,7 @@ const quizResults: Record<string, QuizResult> = {
     explanation: 'You are behind but foreclosure has not been finalized. Acting now gives you the most options: a loan modification can lower your payment and keep you in the home, and a quick sale remains available as a backup.',
   },
   'inherited-sell': {
+    showBrc: true,
     primary: 'Real Estate Professionals',
     primaryUrl: '/professionals',
     secondary: 'Cash Buyers',
@@ -105,6 +110,7 @@ const quizResults: Record<string, QuizResult> = {
     explanation: 'Since keeping your home is the goal, start with loan modification, forbearance, or refinancing. A HUD-approved housing counselor is also free to talk to. We can connect you with attorneys who negotiate these solutions with lenders.',
   },
   'sell-flexible': {
+    showBrc: true,
     primary: 'Real Estate Professionals',
     primaryUrl: '/professionals',
     secondary: 'Cash Buyers',
@@ -299,6 +305,12 @@ export default function QuizPage() {
             <div className="bg-slate-50 border border-slate-200 p-6 rounded-xl mb-8">
               <p className="text-slate-700 leading-relaxed">{result.explanation}</p>
             </div>
+
+            {result.showBrc && (
+              <div className="mb-8">
+                <BrcCard />
+              </div>
+            )}
 
             <div className="space-y-6">
               <div className="border-l-4 border-slate-900 pl-6">

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
+import BrcCard from '../components/BrcCard';
 
 export const metadata: Metadata = {
   title: 'Compare All 7 NJ Foreclosure Options | One Honest Table',
@@ -212,6 +213,10 @@ export default function ComparePage() {
           </Link>{' '}
           are for.
         </p>
+
+        <div className="mt-8">
+          <BrcCard />
+        </div>
 
         <div className="bg-slate-50 rounded-2xl p-6 mt-8">
           <p className="text-slate-700 leading-relaxed mb-4">

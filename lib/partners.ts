@@ -132,6 +132,29 @@ export const PARTNERS: Partner[] = [
   // belong in this file at all.
   // -------------------------------------------------------------------------
   {
+    id: 'brc-corcoran-sawyer-smith',
+    logo: '/images/partners/brc-corcoran-sawyer-smith.png',
+    name: 'Corcoran Sawyer Smith x Builders Resource Center',
+    url: 'https://brcnj.com',
+    headline: 'Licensed brokerage for a home valuation and a traditional listing on the open market.',
+    description:
+      'A full-service New Jersey brokerage headquartered in Livingston and working in every county, covering residential sales, land and development, and new construction. Start with a consultation and a valuation of your home. Knowing what the property is actually worth is the foundation of every other decision you make, because it tells you whether you have equity worth protecting, whether a short sale is even relevant, and whether listing beats a cash offer.',
+    kind: 'sell-market',
+    bestFor: [
+      'You want to know what your home is really worth',
+      'You have time to sell on the open market',
+      'You want the highest likely price, not the fastest close',
+      'Land, new construction, or development property',
+    ],
+    timeline: 'Consultation and valuation first, then a market listing',
+    match: {
+      goals: ['sell', 'unsure'],
+      timelines: ['weeks', 'flexible', 'no-rush'],
+    },
+    compensation: 'affiliated',
+    active: true,
+  },
+  {
     id: 'fire-home-buyers',
     logo: '/images/partners/fire-home-buyers.png',
     name: 'Fire Home Buyers',
@@ -253,29 +276,6 @@ export const PARTNERS: Partner[] = [
       homeValues: ['under250k', '250-500k'],
     },
     compensation: 'no-compensation',
-    active: true,
-  },
-  {
-    id: 'brc-corcoran-sawyer-smith',
-    logo: '/images/partners/brc-corcoran-sawyer-smith.png',
-    name: 'Corcoran Sawyer Smith x Builders Resource Center',
-    url: 'https://brcnj.com',
-    headline: 'Licensed brokerage for a home valuation and a traditional listing on the open market.',
-    description:
-      'A full-service New Jersey brokerage headquartered in Livingston and working in every county, covering residential sales, land and development, and new construction. Start with a consultation and a valuation of your home. Knowing what the property is actually worth is the foundation of every other decision you make, because it tells you whether you have equity worth protecting, whether a short sale is even relevant, and whether listing beats a cash offer.',
-    kind: 'sell-market',
-    bestFor: [
-      'You want to know what your home is really worth',
-      'You have time to sell on the open market',
-      'You want the highest likely price, not the fastest close',
-      'Land, new construction, or development property',
-    ],
-    timeline: 'Consultation and valuation first, then a market listing',
-    match: {
-      goals: ['sell', 'unsure'],
-      timelines: ['weeks', 'flexible', 'no-rush'],
-    },
-    compensation: 'affiliated',
     active: true,
   },
 
