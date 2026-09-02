@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import LegalPage, { Section, Bullets, CONTACT_EMAIL } from '../components/LegalPage';
+import PrivacyChoices from '../components/PrivacyChoices';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | NJ Foreclosure Guide',
@@ -133,6 +134,14 @@ export default function PrivacyPage() {
           </a>{' '}
           with what you want done. Depending on where you live, you may also have specific rights under state privacy
           law, including in New Jersey and California. We honor these requests regardless of where you live.
+        </p>
+      </Section>
+
+      <Section title="Your privacy choices: targeted advertising">
+        <PrivacyChoices />
+        <p>
+          We also honor the Global Privacy Control browser signal as a valid opt-out, as New Jersey
+          law requires. If your browser sends it, the box above will tell you so.
         </p>
       </Section>
 

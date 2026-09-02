@@ -6,6 +6,7 @@ import { LocalBusinessSchema } from "./schema";
 import CallBand from "./components/CallBand";
 import MarsNotice from "./components/MarsNotice";
 import Analytics from "./components/Analytics";
+import MarketingPixels from "./components/MarketingPixels";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -92,6 +93,7 @@ export default function RootLayout({
         <CallBand />
         <ChatWidget />
         <Analytics />
+        <MarketingPixels />
       </body>
     </html>
   );
