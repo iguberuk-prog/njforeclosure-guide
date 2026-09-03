@@ -3,6 +3,7 @@ import SiteHeader from '../../components/SiteHeader';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllLocations, getLocation, townSlug } from '../../../lib/nj-locations';
+import { helpFor } from '../../../lib/local-help';
 
 export function generateStaticParams() {
   return getAllLocations().map((loc) => ({ slug: loc.slug }));
@@ -132,6 +133,37 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             <div key={i} className="border border-slate-200 rounded-xl px-5 py-4">
               <p className="font-bold text-slate-900 text-sm">{title}</p>
               <p className="text-slate-500 text-sm mt-0.5">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Free local help — the county's actual agencies, then the statewide
+          layer. This block is what makes each location page locally true
+          rather than a template with the town name swapped in. */}
+      <section className="max-w-3xl mx-auto px-4 pb-16">
+        <h2 className="font-serif text-2xl font-bold text-slate-900 mb-2">
+          Free Local Help for {countyName} County Homeowners
+        </h2>
+        <p className="text-slate-600 text-sm leading-relaxed mb-6">
+          Before paying anyone, know that all of the following are free. We are not paid by any of
+          them; they are listed because they help.
+        </p>
+        <div className="space-y-3">
+          {helpFor(countyName).map((org) => (
+            <div key={org.name} className="border border-slate-200 rounded-xl px-5 py-4 flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+              <div className="flex-1">
+                <p className="font-bold text-slate-900 text-sm">{org.name}</p>
+                <p className="text-slate-600 text-sm mt-0.5 leading-relaxed">{org.what}</p>
+              </div>
+              <a
+                href={org.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-900 text-sm font-semibold underline underline-offset-4 whitespace-nowrap mt-1"
+              >
+                Visit site →
+              </a>
             </div>
           ))}
         </div>

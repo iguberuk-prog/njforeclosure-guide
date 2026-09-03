@@ -255,6 +255,174 @@ export const QUESTIONS: QuestionEntry[] = [
       { href: '/glossary', label: 'Deficiency, redemption, surplus: the glossary' },
     ],
   },
+  {
+    slug: 'what-is-a-lis-pendens',
+    q: 'What is a lis pendens in New Jersey?',
+    short:
+      'A lis pendens is a notice recorded with the county clerk announcing that a lawsuit affecting the property, usually a foreclosure, is pending. It does not take your home; it publicly flags that the title is in dispute.',
+    detail:
+      'Lenders record a lis pendens when they file the foreclosure complaint. Its legal job is to warn anyone who might buy or lend against the property that a case exists, which is why it makes ordinary sales and refinances harder but not impossible. It is also a public record, which is why letters and postcards from investors, "rescue" companies, and attorneys start arriving in your mailbox shortly after one is filed.',
+    more:
+      'Two practical points. First, a lis pendens means the court process has started, so your 35-day window to answer the complaint is running or about to run: check the papers you were served, not the mail from strangers. Second, the property can still be sold before any sheriff sale; buyers purchase homes with a lis pendens routinely, and the foreclosure is paid off and dismissed at closing. Treat the mail avalanche as a calendar reminder, not as your list of options.',
+    links: [
+      { href: '/documents', label: 'Every foreclosure document, decoded in order' },
+      { href: '/scams', label: 'Sorting the mail: real help vs. rescue scams' },
+    ],
+  },
+  {
+    slug: 'how-much-to-reinstate-my-mortgage',
+    q: 'How much does it cost to reinstate a mortgage in New Jersey?',
+    short:
+      'Reinstatement means paying every missed payment plus late fees and the lender\'s allowable costs in one lump sum. New Jersey\'s Fair Foreclosure Act gives homeowners the right to cure this way up to the entry of final judgment.',
+    detail:
+      'The exact number comes from a reinstatement quote, which you request from your servicer in writing; it itemizes arrears, fees, attorney costs, and escrow shortages, and it comes with an expiration date because the total grows daily. The right to reinstate is one of the strongest cards a New Jersey homeowner holds, because paying the quote returns the loan to good standing as if the default never happened, and the foreclosure is dismissed.',
+    more:
+      'Where the money comes from in practice: a family loan, a 401(k) loan or hardship withdrawal, selling another asset, or, for owners with equity, a refinance or sale of the home itself. If you can get close to the number but not all the way, tell the servicer; partial reinstatement plus a repayment plan for the rest is a common loss-mitigation outcome. Always demand the quote in writing and pay by a trackable method.',
+    links: [
+      { href: '/servicers', label: 'Loss-mitigation contacts for the biggest servicers' },
+      { href: '/tools/net-proceeds', label: 'Owners with equity: see what a sale frees up' },
+    ],
+  },
+  {
+    slug: 'does-bankruptcy-stop-foreclosure-in-nj',
+    q: 'Does bankruptcy stop a foreclosure in New Jersey?',
+    short:
+      'Filing bankruptcy triggers an automatic stay that immediately halts the foreclosure, including a scheduled sheriff sale. Chapter 13 can then hold it off long-term by repaying the arrears through a three-to-five-year plan.',
+    detail:
+      'The automatic stay takes effect the moment the petition is filed, even the morning of a sale. What happens next depends on the chapter: Chapter 13 lets you keep the home while curing the missed payments over the life of a court-approved plan, as long as you also keep up the regular monthly payment. Chapter 7 pauses the case but does not cure the arrears, so for most homeowners it delays rather than resolves the foreclosure, though it can discharge personal liability for the debt.',
+    more:
+      'The honest trade-offs: Chapter 13 requires enough steady income to fund both the plan payment and the ongoing mortgage, filing costs real money in fees, repeat filings can shrink or eliminate the stay, and a dismissed case puts the foreclosure right back on track. It is a powerful tool and a serious one; talk to a bankruptcy attorney before the sale date is close, not after, because a rushed emergency filing is the weakest kind.',
+    links: [
+      { href: '/guides/bankruptcy-chapter-13', label: 'Chapter 13 and the automatic stay, in depth' },
+      { href: '/professionals', label: 'Where to find bankruptcy and foreclosure attorneys' },
+    ],
+  },
+  {
+    slug: 'can-i-refinance-out-of-foreclosure',
+    q: 'Can I refinance my way out of a foreclosure in New Jersey?',
+    short:
+      'Sometimes. A refinance pays off the defaulted loan entirely, which ends the foreclosure, but qualifying while in active default is hard and generally requires meaningful equity.',
+    detail:
+      'Conventional lenders rarely refinance a borrower in active foreclosure. The realistic paths are equity-based: portfolio and non-QM lenders who underwrite the property more than the credit score, or in some cases a private or hard-money bridge loan used to reinstate, followed by a conventional refinance after twelve clean months. All of these cost more in rate and fees than the mortgage you have, which is only rational when the equity being protected is large.',
+    more:
+      'The arithmetic to run first: your realistic home value, minus everything owed including arrears and fees, is the equity at stake. If that number is large and your income has recovered, an equity-based refinance can be cheaper than losing the equity at auction. If the number is small, a refinance mostly transfers your remaining equity to a lender in fees, and a sale usually protects more of your money. Watch for the scam version: anyone proposing you deed the home to them "temporarily" as part of a refinance is not refinancing you.',
+    links: [
+      { href: '/guides/ltv-refinance', label: 'The equity refinance guide, with the math' },
+      { href: '/tools/net-proceeds', label: 'Calculate the equity actually at stake' },
+    ],
+  },
+  {
+    slug: 'do-i-qualify-for-a-short-sale',
+    q: 'Do I qualify for a short sale in New Jersey?',
+    short:
+      'A short sale is for homeowners who owe more than the home is worth and can document a hardship. It requires your lender\'s approval, because the lender is agreeing to accept less than full payoff.',
+    detail:
+      'The core requirements are underwater math (payoff higher than realistic sale price), a documented hardship such as job loss, divorce, illness, or death of a co-borrower, and a complete application package with a real buyer\'s offer. If you have equity, you do not need a short sale; an ordinary sale pays the loan in full and the balance is yours.',
+    more:
+      'What matters most in the outcome is the deficiency waiver: written confirmation that the lender releases you from the shortfall. New Jersey lenders grant it routinely but not automatically, so it must be negotiated into the approval letter. Expect the process to take months, use an agent who has closed short sales before, and get every promise in writing. If your sale date is near, request an adjournment first so the short sale has room to close.',
+    links: [
+      { href: '/guides/short-sale', label: 'The short sale guide, step by step' },
+      { href: '/quiz', label: 'Not sure which path fits? Take the 2-minute assessment' },
+    ],
+  },
+  {
+    slug: 'can-i-rent-out-my-house-during-foreclosure',
+    q: 'Can I rent out my house during foreclosure in New Jersey?',
+    short:
+      'Legally you still own the home until a sheriff\'s deed is delivered, so renting it out is generally possible, but your mortgage documents and New Jersey\'s strong tenant protections both complicate it.',
+    detail:
+      'Most mortgages contain an assignment-of-rents clause letting the lender claim rental income after default, and collecting rent while not paying the mortgage can be raised against you in court. On the other side, any tenant you place acquires real rights: New Jersey law protects tenants through and beyond a foreclosure, so the lease you sign does not simply dissolve at the sheriff sale, which can affect the price an investor buyer will pay and your own flexibility.',
+    more:
+      'Where it can make sense: income that funds a Chapter 13 plan or a reinstatement, on a properly disclosed month-to-month basis, ideally with advice from an attorney. Where it goes wrong: collecting a year of rent in advance from a tenant who will be living in a foreclosure, which courts and the Attorney General treat harshly. If the plan is to sell, an empty house sells faster and for more than a tenanted one.',
+    links: [
+      { href: '/tenants', label: 'What NJ law gives tenants in a foreclosure' },
+      { href: '/guides/bankruptcy-chapter-13', label: 'Using steady income to fund a Chapter 13' },
+    ],
+  },
+  {
+    slug: 'what-happens-if-i-ignore-the-foreclosure',
+    q: 'What happens if I ignore a foreclosure in New Jersey?',
+    short:
+      'The case proceeds without you, as an uncontested foreclosure: default is entered, judgment follows, and the home goes to sheriff sale on the fastest timeline the system allows, with your options closing along the way.',
+    detail:
+      'Most New Jersey foreclosures are uncontested, which is exactly why the average timelines look long: the contested cases stretch them. When no answer is filed within 35 days, the court enters default, the lender applies for final judgment through the Office of Foreclosure, and the sale is scheduled. You also quietly lose leverage along the way: the mediation window passes, loss-mitigation reviews stop protecting you, and buyers who might have paid off the loan run out of runway.',
+    more:
+      'Ignoring the case is a decision, and it is almost never the best available one, even for a homeowner who has decided to let the house go. Filing for mediation costs nothing. Requesting adjournments costs almost nothing. Selling before the sale protects equity and credit. Even simply staying informed of the real sale date matters, because vacating too early forfeits months of lawful occupancy. Open the mail, mark the deadlines, and pick a path on purpose.',
+    links: [
+      { href: '/tools/deadlines', label: 'Your deadlines, calculated from any notice' },
+      { href: '/quiz', label: 'Two minutes to see which options are still open' },
+    ],
+  },
+  {
+    slug: 'will-i-owe-taxes-after-foreclosure',
+    q: 'Will I owe taxes after a foreclosure or short sale in New Jersey?',
+    short:
+      'Possibly, on forgiven debt: when a lender cancels part of what you owed, the IRS can treat the canceled amount as income. Exclusions, especially for a principal residence and for insolvency, wipe the tax out for many homeowners.',
+    detail:
+      'After a foreclosure, short sale, or deed in lieu, the lender may send a Form 1099-C reporting the canceled debt. Federal law has long provided a qualified principal residence indebtedness exclusion and a permanent insolvency exclusion (you were broke on paper when the debt was canceled), either of which can shelter some or all of it; the residence exclusion has repeatedly been extended, so its current status is a question for a tax professional in the year it matters. New Jersey\'s income tax has historically not taxed cancellation-of-debt income at all, which softens the state side.',
+    more:
+      'What to actually do: keep the closing papers and any 1099-C, and file Form 982 with your federal return to claim an exclusion rather than ignoring the form, because an unaddressed 1099-C generates an IRS bill automatically. A foreclosure with a surplus, or a sale you complete yourself, is different arithmetic: that is sale proceeds, covered by the ordinary home-sale gain exclusion for most primary residences. One hour with a tax preparer the year this happens is money well spent. We are not tax advisors, and this is general information rather than advice for your return.',
+    links: [
+      { href: '/guides/surplus-funds', label: 'If the sale brought more than you owed' },
+      { href: '/guides/short-sale', label: 'Short sales, waivers, and paperwork to keep' },
+    ],
+  },
+  {
+    slug: 'how-much-does-a-foreclosure-lawyer-cost',
+    q: 'How much does a foreclosure defense lawyer cost in New Jersey?',
+    short:
+      'Commonly a flat monthly fee in the low hundreds of dollars or a project fee in the low thousands, depending on how contested the case is. Free help exists too: legal services programs and court mediation cost nothing.',
+    detail:
+      'Pricing models vary: some firms charge monthly for as long as they defend the case, others quote a flat fee for defined work such as answering the complaint and negotiating a modification, and bankruptcy filings are priced separately. Before hiring anyone, ask three things: exactly what work is included, what the realistic goal of the defense is, and how the engagement ends. A lawyer who promises a guaranteed outcome is waving a red flag; the law prohibits guarantees.',
+    more:
+      'For homeowners who cannot pay, Legal Services of New Jersey and county legal aid programs handle foreclosure cases for qualifying incomes, and the court\'s foreclosure mediation program provides a housing counselor and mediator at no cost. Paying for defense makes the most sense when there is something concrete to win: a modification you qualify for, a defect in the lender\'s case, or time needed to close a sale. Paying monthly simply to delay, with no endgame, mostly converts your remaining equity into fees.',
+    links: [
+      { href: '/professionals', label: 'Free legal help and how mediation works' },
+      { href: '/answers/do-i-need-a-lawyer', label: 'Do you actually need one? An honest answer' },
+    ],
+  },
+  {
+    slug: 'when-can-i-buy-a-house-again',
+    q: 'How soon can I buy a house again after a foreclosure?',
+    short:
+      'Typical waiting periods run from two to seven years depending on the loan type: VA around two years, FHA around three, and conventional loans up to seven, with shorter waits when documented extenuating circumstances caused the default.',
+    detail:
+      'The clock generally starts when the foreclosure completes, not when you missed the first payment. Deeds in lieu and short sales carry shorter waits than a completed foreclosure under most programs, which is one more reason the exit you choose matters. Lenders also look at what you did afterward: rebuilt credit, steady income, and clean rent history shorten the practical wait even when the formal one has passed.',
+    more:
+      'If returning to ownership is the goal, the playbook starts the day the old house closes: keep every foreclosure document, dispute credit-report errors (the tradeline should show the correct dates and a zero balance), pay everything on time, and save while renting. Extenuating-circumstances exceptions, for events like medical crisis or death of a wage earner, require documentation from the time of the hardship, so keep that paperwork too. A mortgage broker can tell you which programs you time-qualify for at any point; asking costs nothing.',
+    links: [
+      { href: '/answers/does-foreclosure-ruin-my-credit', label: 'What foreclosure really does to your credit' },
+      { href: '/guides/short-sale', label: 'Why the exit you choose changes the wait' },
+    ],
+  },
+  {
+    slug: 'what-is-a-deed-in-lieu',
+    q: 'What is a deed in lieu of foreclosure in New Jersey?',
+    short:
+      'A deed in lieu is a negotiated handover: you voluntarily transfer the home to the lender, and in exchange the foreclosure ends without a sheriff sale. Done properly, it includes a written release from the remaining debt.',
+    detail:
+      'Lenders accept deeds in lieu when the home has no meaningful equity and the title is clean, meaning no second mortgages, judgments, or unpaid liens that would come along with the property. Many programs add relocation assistance, sometimes called cash for keys, and agreed move-out dates. It is faster and quieter than a completed foreclosure and generally treated more gently by future mortgage programs.',
+    more:
+      'Three things to negotiate before signing anything: a written deficiency waiver covering the entire remaining balance, the relocation payment and timeline, and how the account will be reported to the credit bureaus. And one thing to check first: if the home might actually have equity, a deed in lieu gives that equity away; run the numbers before you hand over a house that a sale could have turned into cash. This is also the transaction scammers imitate, so a deed goes to your lender through its documented process, never to a stranger who knocked.',
+    links: [
+      { href: '/tools/net-proceeds', label: 'Check the equity before giving the home away' },
+      { href: '/scams', label: 'The deed scams that imitate this process' },
+    ],
+  },
+  {
+    slug: 'why-is-a-bank-i-never-heard-of-suing-me',
+    q: 'Why is a bank or trust I never heard of foreclosing on my home?',
+    short:
+      'Because mortgages are sold and bundled after closing, the company that forecloses is often a trust or servicer you never chose. It is usually legitimate, and the plaintiff must still prove it holds the right to enforce your loan.',
+    detail:
+      'Loans are routinely transferred into securitized trusts with long names, and a servicer manages the account on the trust\'s behalf. Federal law requires notice when your servicer changes, but homeowners understandably miss those letters, so a complaint from an unfamiliar plaintiff feels like an error or a scam. The plaintiff\'s standing, its right to foreclose as holder of the note and mortgage, is a real legal requirement, and made properly, that challenge happens inside the court case.',
+    more:
+      'Practical guidance: the complaint being real does not depend on you recognizing the plaintiff; check the docket number with the court if in doubt. If you contest the case, an attorney can demand proof of standing and the chain of assignments, which occasionally uncovers genuine problems and more often confirms the transfer history. What the unfamiliar name does not do is change your rights: the Fair Foreclosure Act notices, the 35-day answer window, mediation, reinstatement, and adjournments all apply no matter who the plaintiff is.',
+    links: [
+      { href: '/servicers', label: 'Find who actually services your loan' },
+      { href: '/answers/how-long-to-respond-to-complaint', label: 'Your 35-day answer window, explained' },
+    ],
+  },
 ];
 
 export function getQuestion(slug: string): QuestionEntry | undefined {
