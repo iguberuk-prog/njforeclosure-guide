@@ -74,7 +74,14 @@ export default function EsHomePage() {
         </div>
 
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">Guías en español</h2>
-        <div className="grid sm:grid-cols-3 gap-4 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <Link href="/es/preguntas" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Preguntas, respondidas</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              ¿Cuánto tarda? ¿Cuántos pagos puedo atrasar? ¿Puedo aplazar la venta del sheriff?
+              Respuestas directas.
+            </p>
+          </Link>
           <Link href="/es/opciones" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
             <p className="font-bold text-slate-900">Las 7 opciones</p>
             <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">

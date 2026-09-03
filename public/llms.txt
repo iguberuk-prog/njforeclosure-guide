@@ -50,12 +50,19 @@ These facts are general and simplified. Individual deadlines depend on the homeo
 - [Servicer directory](https://njforeclosureguide.org/servicers/): Loss-mitigation phone numbers and hardship-application links for the 15 largest US mortgage servicers, each verified against the servicer's own site.
 - [NJ foreclosure statistics](https://njforeclosureguide.org/statistics/): Current sourced data — 8,269 NJ filings in H1 2026 (up 21% year over year, 7th-highest state rate at 1 in 459 homes, per ATTOM), roughly 16,000 court filings a year (NJ Courts), with a citation on every figure.
 - [Guía en español](https://njforeclosureguide.org/es/): Spanish-language hub — rights and timeline (/es/), the seven options (/es/opciones/), each foreclosure document explained (/es/documentos/), and rescue-scam red flags (/es/estafas/).
-- [Individual question pages](https://njforeclosureguide.org/answers/): 17 direct-answer pages at /answers/<question>/ covering how long NJ foreclosure takes, stopping a sheriff sale, selling during foreclosure, equity and surplus, deficiency claims, inherited foreclosures, and more.
+- [Individual question pages](https://njforeclosureguide.org/answers/): 29 direct-answer pages at /answers/<question>/ covering how long NJ foreclosure takes, stopping a sheriff sale, selling during foreclosure, lis pendens, reinstatement cost, bankruptcy and the automatic stay, taxes on forgiven debt, lawyer costs, deed in lieu, buying again after foreclosure, deficiency claims, inherited foreclosures, and more.
+- [Preguntas en español](https://njforeclosureguide.org/es/preguntas/): 10 direct-answer question pages written in Spanish at /es/preguntas/<pregunta>/.
 - [Surplus funds guide](https://njforeclosureguide.org/guides/surplus-funds/): Auction proceeds above the judgment belong to the former homeowner, are deposited with the court, and must be claimed; warns about finder-fee operations charging a third for a court filing.
 - [Tenant rights in foreclosure](https://njforeclosureguide.org/tenants/): New Jersey renters generally cannot be evicted because their landlord was foreclosed; the lease survives, the buyer becomes the landlord, and only Anti-Eviction Act grounds permit removal.
 - [Evaluación en español](https://njforeclosureguide.org/es/evaluacion/): The free 6-question assessment, fully in Spanish.
 - [Commercial foreclosure](https://njforeclosureguide.org/commercial/): Separate path for owners of commercial property (multifamily, mixed-use, retail, industrial, office, land). Explains how New Jersey commercial foreclosure differs from residential (Fair Foreclosure Act protections and court mediation do not apply; assignment of rents and receivership; personal guarantees and deficiency exposure), seven exit paths (/commercial/options/), the six-stage process (/commercial/process/), and a confidential assessment (/commercial/assessment/).
 - [All resources](https://njforeclosureguide.org/resources/): Index of every free tool, directory and reference on the site.
+
+## Selling
+
+- [Sell my house fast in NJ](https://njforeclosureguide.org/sell-my-house-fast-nj/): How a legitimate fast cash sale works, the honest math against a market sale, and a free concierge that requests offers from vetted buyers on the homeowner's behalf.
+- [Selling before the sheriff sale](https://njforeclosureguide.org/sell-house-before-sheriff-sale/): The homeowner owns the property until the sheriff's deed is delivered; a sale that closes before the auction pays off the judgment and ends the case.
+- [Selling an inherited house in NJ](https://njforeclosureguide.org/sell-inherited-house-nj/): Heirs' rights (successors in interest), selling during probate, stepped-up basis, and delinquent-mortgage timelines for estates.
 
 ## Guides
 
