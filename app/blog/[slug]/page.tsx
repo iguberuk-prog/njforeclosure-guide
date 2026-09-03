@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogArticle from '../../components/BlogArticle';
 import { countyPosts, getCountyPost, BlogCounty, CountyPostType } from '../../../lib/county-blog';
+import { topicPosts, getTopicPost } from '../../../lib/topic-blog';
 
 /**
  * Dynamic route for the county blog series. The five hand-written flagship
@@ -15,12 +16,12 @@ import { countyPosts, getCountyPost, BlogCounty, CountyPostType } from '../../..
  */
 
 export function generateStaticParams() {
-  return countyPosts().map((p) => ({ slug: p.slug }));
+  return [...countyPosts(), ...topicPosts()].map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getCountyPost(slug);
+  const post = getCountyPost(slug) ?? getTopicPost(slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -258,13 +259,22 @@ const LINKS: Record<CountyPostType, { href: (c: BlogCounty) => string; label: (c
   ],
 };
 
-export default async function CountyBlogPost({ params }: { params: Promise<{ slug: string }> }) {
+export default async function DataBlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getCountyPost(slug);
-  if (!post) notFound();
+  const countyPost = getCountyPost(slug);
+  const topicPost = countyPost ? undefined : getTopicPost(slug);
+  if (!countyPost && !topicPost) notFound();
 
-  const secs = sections(post.type, post.county);
-  const links = LINKS[post.type];
+  const post = (countyPost ?? topicPost)!;
+  const secs = countyPost ? sections(countyPost.type, countyPost.county) : topicPost!.sections;
+  const links: { href: string; label: string }[] = countyPost
+    ? LINKS[countyPost.type].map((l) => ({ href: l.href(countyPost.county), label: l.label(countyPost.county) }))
+    : topicPost!.links;
+  // The topic series' walkthroughs are labeled composites inline; this
+  // standing note keeps the boundary explicit on every such post.
+  const compositeNote = topicPost
+    ? 'Walkthroughs in this article are illustrative composites for education, not client stories or testimonials.'
+    : null;
 
   return (
     <BlogArticle post={post}>
@@ -276,12 +286,15 @@ export default async function CountyBlogPost({ params }: { params: Promise<{ slu
           ))}
         </section>
       ))}
+      {compositeNote && (
+        <p className="mt-8 text-xs text-slate-500 italic">{compositeNote}</p>
+      )}
       <div className="border border-slate-200 rounded-2xl px-6 py-5 mt-10 not-prose">
         <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Go deeper</p>
         <ul className="space-y-2">
           {links.map((l) => (
-            <li key={l.href(post.county)}>
-              <Link href={l.href(post.county)}>{l.label(post.county)}</Link>
+            <li key={l.href}>
+              <Link href={l.href}>{l.label}</Link>
             </li>
           ))}
         </ul>

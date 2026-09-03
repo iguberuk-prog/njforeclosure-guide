@@ -84,5 +84,6 @@ export function getPost(slug: string): PostMeta | undefined {
 // Hunterdon) lives in lib/county-blog.ts; ALL_POSTS is what the blog index,
 // sitemap, and related-post links iterate.
 import { countyPosts } from './county-blog';
+import { topicPosts } from './topic-blog';
 
-export const ALL_POSTS: PostMeta[] = [...POSTS, ...countyPosts()];
+export const ALL_POSTS: PostMeta[] = [...POSTS, ...countyPosts(), ...topicPosts()];
