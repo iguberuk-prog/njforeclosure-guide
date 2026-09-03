@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
-import { POSTS } from '../../lib/posts';
+import { ALL_POSTS } from '../../lib/posts';
 
 export const metadata: Metadata = {
   title: 'The Guide Blog | NJ Foreclosure, Explained as It Happens',
@@ -14,7 +14,7 @@ const fmt = (iso: string) =>
   new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
 export default function BlogIndex() {
-  const posts = [...POSTS].sort((a, b) => (a.published < b.published ? 1 : -1));
+  const posts = [...ALL_POSTS].sort((a, b) => (a.published < b.published ? 1 : -1));
   return (
     <div className="min-h-full bg-white">
       <SiteHeader />

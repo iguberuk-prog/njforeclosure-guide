@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import SiteHeader from './SiteHeader';
-import { POSTS, PostMeta } from '../../lib/posts';
+import { ALL_POSTS, PostMeta } from '../../lib/posts';
 
 /**
  * Shared shell for blog articles, built for answer engines as much as for
@@ -19,8 +19,8 @@ const fmt = (iso: string) =>
   new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
 export default function BlogArticle({ post, children }: { post: PostMeta; children: React.ReactNode }) {
-  const idx = POSTS.findIndex((p) => p.slug === post.slug);
-  const related = [POSTS[(idx + 1) % POSTS.length], POSTS[(idx + 2) % POSTS.length]];
+  const idx = ALL_POSTS.findIndex((p) => p.slug === post.slug);
+  const related = [ALL_POSTS[(idx + 1) % ALL_POSTS.length], ALL_POSTS[(idx + 2) % ALL_POSTS.length]];
 
   const schema = {
     '@context': 'https://schema.org',

@@ -79,3 +79,10 @@ export const POSTS: PostMeta[] = [
 export function getPost(slug: string): PostMeta | undefined {
   return POSTS.find((p) => p.slug === slug);
 }
+
+// The county series (30 posts across Essex, Morris, Union, Somerset, Bergen,
+// Hunterdon) lives in lib/county-blog.ts; ALL_POSTS is what the blog index,
+// sitemap, and related-post links iterate.
+import { countyPosts } from './county-blog';
+
+export const ALL_POSTS: PostMeta[] = [...POSTS, ...countyPosts()];

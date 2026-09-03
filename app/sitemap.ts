@@ -4,7 +4,7 @@ import { SHERIFF_SOURCES } from '../lib/sheriff-sales';
 import { DOCUMENTS } from '../lib/documents';
 import { QUESTIONS } from '../lib/questions';
 import { QUESTIONS_ES } from '../lib/questions-es';
-import { POSTS } from '../lib/posts';
+import { ALL_POSTS } from '../lib/posts';
 
 export const dynamic = 'force-static';
 
@@ -102,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const blogPages = POSTS.map((p) => ({
+  const blogPages = ALL_POSTS.map((p) => ({
     url: `${base}/blog/${p.slug}/`,
     lastModified: p.updated,
     changeFrequency: 'monthly' as const,
