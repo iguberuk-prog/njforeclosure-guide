@@ -45,6 +45,7 @@ const SECTIONS: { title: string; items: { href: string; name: string; desc: stri
       { href: '/foreclosure-help', name: 'Foreclosure help by county and town', desc: 'How the process runs through your county courthouse, and local answers for 120+ NJ communities.' },
       { href: '/servicers', name: 'Reach your mortgage servicer', desc: 'Verified loss-mitigation phone numbers and hardship-application links for the 15 largest servicers.' },
       { href: '/statistics', name: 'NJ foreclosure statistics', desc: 'What is actually happening in 2026, with a citation on every number.' },
+      { href: '/blog', name: 'The Guide Blog', desc: 'Dated, sourced articles: the 2026 filing numbers in context, the first 90 days week by week, the adjournment playbook, and more.' },
     ],
   },
   {

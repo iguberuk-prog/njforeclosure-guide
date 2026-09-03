@@ -4,6 +4,7 @@ import { SHERIFF_SOURCES } from '../lib/sheriff-sales';
 import { DOCUMENTS } from '../lib/documents';
 import { QUESTIONS } from '../lib/questions';
 import { QUESTIONS_ES } from '../lib/questions-es';
+import { POSTS } from '../lib/posts';
 
 export const dynamic = 'force-static';
 
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/es/estafas',
     '/es/evaluacion',
     '/es/preguntas',
+    '/blog',
     '/sell-my-house-fast-nj',
     '/sell-house-before-sheriff-sale',
     '/sell-inherited-house-nj',
@@ -100,5 +102,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...locationPages, ...sheriffPages, ...documentPages, ...questionPages, ...questionEsPages];
+  const blogPages = POSTS.map((p) => ({
+    url: `${base}/blog/${p.slug}/`,
+    lastModified: p.updated,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...locationPages, ...sheriffPages, ...documentPages, ...questionPages, ...questionEsPages, ...blogPages];
 }

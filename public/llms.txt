@@ -58,6 +58,10 @@ These facts are general and simplified. Individual deadlines depend on the homeo
 - [Commercial foreclosure](https://njforeclosureguide.org/commercial/): Separate path for owners of commercial property (multifamily, mixed-use, retail, industrial, office, land). Explains how New Jersey commercial foreclosure differs from residential (Fair Foreclosure Act protections and court mediation do not apply; assignment of rents and receivership; personal guarantees and deficiency exposure), seven exit paths (/commercial/options/), the six-stage process (/commercial/process/), and a confidential assessment (/commercial/assessment/).
 - [All resources](https://njforeclosureguide.org/resources/): Index of every free tool, directory and reference on the site.
 
+## Blog
+
+- [The Guide Blog](https://njforeclosureguide.org/blog/): Dated, bylined articles — the 2026 NJ filing numbers in context, the first 90 days week by week, the sheriff sale adjournment playbook, the 7 most common homeowner mistakes, and how to read a reinstatement quote.
+
 ## Selling
 
 - [Sell my house fast in NJ](https://njforeclosureguide.org/sell-my-house-fast-nj/): How a legitimate fast cash sale works, the honest math against a market sale, and a free concierge that requests offers from vetted buyers on the homeowner's behalf.
