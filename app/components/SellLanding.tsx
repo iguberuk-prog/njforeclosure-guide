@@ -87,9 +87,19 @@ export default function SellLanding({ spec }: { spec: SellPageSpec }) {
         <OfferConcierge sourcePage={`/${spec.slug}`} />
       </section>
 
-      {/* Know what it's worth first */}
+      {/* The listing alternative — full card, deliberately prominent.
+          A fast sale is not the only exit; for sellers with time, listing
+          usually nets more, and the option deserves equal billing here. */}
       <section className="max-w-3xl mx-auto px-4 py-10">
-        <BrcCard compact />
+        <h2 className="font-serif text-2xl font-bold text-slate-900 mb-2">
+          Have More Time? Listing Usually Nets More
+        </h2>
+        <p className="text-slate-600 text-sm leading-relaxed mb-5">
+          Cash is the speed play. If your timeline allows a market sale, a listed home typically
+          brings a higher price — and the smart first step either way is a free valuation, so every
+          offer you get has a real number to be measured against.
+        </p>
+        <BrcCard />
       </section>
 
       {/* FAQ */}

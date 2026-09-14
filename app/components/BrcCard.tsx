@@ -30,14 +30,18 @@ export default function BrcCard({ compact = false }: { compact?: boolean }) {
         <strong className="text-slate-900">This one is ours:</strong> the people behind NJ
         Foreclosure Guide hold an ownership interest in Corcoran Sawyer Smith x Builders Resource
         Center, a licensed New Jersey brokerage, so we benefit if you list with them. With that on
-        the table: if selling is on your list, the smartest first step is knowing what the property
-        is actually worth, and they will tell you for free, with no obligation to list.
+        the table: <strong className="text-slate-900">you can list your home with them even in
+        active foreclosure.</strong> Their agents specialize in foreclosure-timeline sales —
+        pricing against the case clock, coordinating the judgment payoff, working around
+        sheriff-sale dates — and for owners with equity and enough time, a listed sale is often
+        the exit that puts the most money in your pocket.
       </p>
       {!compact && (
         <p className="text-slate-600 text-sm leading-relaxed mb-4">
-          A real number changes every decision that follows: whether reinstating is worth it,
-          whether a cash offer is fair, and how much equity a market sale protects. Interview other
-          agents too; we say that on every page.
+          The first step costs nothing: a free, no-obligation valuation. A real number changes
+          every decision that follows — whether reinstating is worth it, whether a cash offer is
+          fair, and how much equity a market sale protects. Interview other agents too; we say
+          that on every page.
         </p>
       )}
       <div className="flex flex-col sm:flex-row gap-2">

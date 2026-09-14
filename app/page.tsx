@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { FAQSchema, OrganizationSchema } from './schema';
 import { RESPONSE_PROMISE } from '../lib/contact';
 import TrackRecord from './components/TrackRecord';
+import BrcCard from './components/BrcCard';
 import { HOMEOWNERS_HELPED, yearsOfService } from '../lib/partners';
 
 
@@ -288,6 +289,9 @@ export default function Home() {
               { n: 'Fire Home Buyers', w: 'Fire or smoke damage', d: 'Buys damaged property as-is, no repairs or cleanup.', h: '/companies/fire-home-buyers', t: 'Damage' },
               { n: 'Private Sale Group', w: 'Home is $800k+', d: 'Discreet off-market sale. No listing, no showings, no commissions.', h: '/companies/private-sale-group', t: 'Luxury' },
               { n: 'Urbni', w: 'Property is a burden', d: 'Nonprofit that takes donated homes and land. We earn nothing.', h: '/companies/urbni', t: 'Donate' },
+              // The listing option. Disclosure discipline: the ownership
+              // connection is the FIRST sentence of the card, before any pitch.
+              { n: 'BRC × Corcoran Sawyer Smith', w: 'You have time and want top dollar', d: 'Our related business: we hold an ownership interest and benefit if you list here. Their agents specialize in foreclosure-timeline sales — for owners with equity and time, listing often nets the most. Free valuation first.', h: '/companies/brc-corcoran-sawyer-smith', t: 'List It' },
             ].map((c, i) => (
               <Link
                 key={i}
@@ -305,6 +309,11 @@ export default function Home() {
                 </span>
               </Link>
             ))}
+          </div>
+
+          {/* The listing path, full card — deliberately prominent, disclosure first. */}
+          <div className="max-w-3xl mx-auto mb-10">
+            <BrcCard />
           </div>
 
           <div className="rounded-2xl bg-slate-950 text-white px-8 py-12 text-center">
