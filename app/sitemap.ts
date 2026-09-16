@@ -48,6 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools/timeline',
     '/tools/net-proceeds',
     '/resources',
+    '/free-checklist',
     '/glossary',
     '/documents',
     '/sheriff-sales',

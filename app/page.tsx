@@ -399,7 +399,7 @@ export default function Home() {
             Also:{' '}
             <Link href="/scams" className="text-slate-900 underline underline-offset-4 font-semibold">how to spot a foreclosure rescue scam</Link>
             {' '}·{' '}
-            <a href="/downloads/nj-foreclosure-week-one-checklist.pdf" className="text-slate-900 underline underline-offset-4 font-semibold">the printable Week One Checklist</a>
+            <Link href="/free-checklist" className="text-slate-900 underline underline-offset-4 font-semibold">the free Checklist + 45-Day Playbook (PDF)</Link>
             {' '}·{' '}
             <Link href="/resources" className="text-slate-900 underline underline-offset-4 font-semibold">everything in one place</Link>
             {' '}·{' '}
