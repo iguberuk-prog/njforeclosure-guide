@@ -269,6 +269,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FREE INTERACTIVE TOOLS: the pages nobody else has */}
+      <section className="py-20 px-4 bg-slate-950 text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-amber-400 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Free Interactive Tools</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-5 tracking-tight">
+              See Your Case, Don&rsquo;t Just Read About It
+            </h2>
+            <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
+              Four tools you won&rsquo;t find anywhere else. No signup, no cost, and two of them
+              never even send us your information.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { h: '/case-map', icon: '🗺️', t: 'The Case Map', d: 'Tap where you are on the line and see what\u2019s true right now, which doors are open, and your free moves.' },
+              { h: '/my-plan', icon: '📌', t: 'My Battle Plan', d: 'Enter your dates, print a one-page plan with YOUR deadlines. Nothing leaves your browser.' },
+              { h: '/myths', icon: '🎯', t: 'Myth Busters', d: 'Twelve things everyone gets wrong, in a 60-second game. The myths cost people real houses.' },
+              { h: '/tools/cost-of-waiting', icon: '⏳', t: 'The Cost of Waiting', d: 'Drag the slider and watch fees stack, doors close, and equity leak \u2014 month by month.' },
+            ].map((t) => (
+              <Link key={t.h} href={t.h} className="group rounded-2xl bg-slate-900 border border-slate-800 px-6 py-6 hover:border-amber-400/60 hover:bg-slate-900/60 transition">
+                <p className="text-3xl mb-3" aria-hidden>{t.icon}</p>
+                <p className="font-bold text-white group-hover:text-amber-300 transition">{t.t}</p>
+                <p className="text-slate-400 text-sm mt-2 leading-relaxed">{t.d}</p>
+                <p className="text-amber-400 text-xs font-bold mt-3">Open free →</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* WHERE TO GET HELP: the real destinations */}
       <section className="py-24 px-4 bg-white">
         <div className="max-w-6xl mx-auto">

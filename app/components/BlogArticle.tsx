@@ -79,6 +79,19 @@ export default function BlogArticle({ post, children }: { post: PostMeta; childr
           </Link>
         </div>
 
+        <div className="grid sm:grid-cols-3 gap-2 mb-12 not-prose">
+          {[
+            { h: '/case-map', t: 'The Case Map', d: 'Tap where you are; see what\u2019s still open.' },
+            { h: '/my-plan', t: 'My Battle Plan', d: 'Your deadlines on one printable page.' },
+            { h: '/tools/cost-of-waiting', t: 'Cost of Waiting', d: 'What another month of nothing costs.' },
+          ].map((t) => (
+            <Link key={t.h} href={t.h} className="rounded-xl border border-slate-200 px-4 py-3.5 hover:border-slate-400 transition no-underline">
+              <span className="block text-sm font-bold text-slate-900">{t.t}</span>
+              <span className="block text-xs text-slate-500 mt-0.5 leading-relaxed">{t.d}</span>
+            </Link>
+          ))}
+        </div>
+
         <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Keep reading</p>
         <ul className="space-y-2 mb-10">
           {related.map((r) => (
