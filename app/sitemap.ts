@@ -5,6 +5,7 @@ import { DOCUMENTS } from '../lib/documents';
 import { QUESTIONS } from '../lib/questions';
 import { QUESTIONS_ES } from '../lib/questions-es';
 import { ALL_POSTS } from '../lib/posts';
+import { esPosts } from '../lib/blog-es';
 
 export const dynamic = 'force-static';
 
@@ -27,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/es/estafas',
     '/es/evaluacion',
     '/es/preguntas',
+    '/es/blog',
     '/blog',
     '/sell-my-house-fast-nj',
     '/sell-house-before-sheriff-sale',
@@ -110,5 +112,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...locationPages, ...sheriffPages, ...documentPages, ...questionPages, ...questionEsPages, ...blogPages];
+  const blogEsPages = esPosts().map((p) => ({
+    url: `${base}/es/blog/${p.slug}/`,
+    lastModified: p.updated,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...locationPages, ...sheriffPages, ...documentPages, ...questionPages, ...questionEsPages, ...blogPages, ...blogEsPages];
 }

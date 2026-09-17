@@ -75,6 +75,13 @@ export default function EsHomePage() {
 
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">Guías en español</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <Link href="/es/blog" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Blog en español</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              Cada carta explicada, la ayuda gratuita que funciona, sus plazos y sus derechos —
+              artículo por artículo.
+            </p>
+          </Link>
           <Link href="/es/preguntas" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
             <p className="font-bold text-slate-900">Preguntas, respondidas</p>
             <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
