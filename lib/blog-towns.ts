@@ -12,7 +12,7 @@ import type { TopicPost } from './topic-blog';
 const PUB = '2026-09-17';
 
 /** Shared closing section: the free machinery, identical statewide. */
-const FREE_CLOSER = (town: string, countySlug: string): { h: string; body: string[] }[] => [
+export const FREE_CLOSER = (town: string, countySlug: string): { h: string; body: string[] }[] => [
   {
     h: 'The free help, and how to start this week',
     body: [

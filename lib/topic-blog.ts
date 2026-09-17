@@ -16,15 +16,18 @@ import { STORY_POSTS_3 } from './blog-stories-3';
 import { LETTER_POSTS } from './blog-letters';
 import { TOWN_POSTS } from './blog-towns';
 import { TIMING_POSTS } from './blog-timing';
+import { SERVICER_POSTS } from './blog-servicers';
+import { TOWN_POSTS_2 } from './blog-towns-2';
+import { MONEY_POSTS } from './blog-money';
 
 export interface TopicPost extends PostMeta {
-  theme: 'free-help' | 'vendor' | 'listing' | 'stories' | 'letters' | 'towns' | 'timing';
+  theme: 'free-help' | 'vendor' | 'listing' | 'stories' | 'letters' | 'towns' | 'timing' | 'servicers' | 'money';
   sections: { h: string; body: string[] }[];
   links: { href: string; label: string }[];
 }
 
 export function topicPosts(): TopicPost[] {
-  return [...FREE_HELP_POSTS, ...VENDOR_POSTS, ...LISTING_POSTS, ...STORY_POSTS_1, ...STORY_POSTS_2, ...STORY_POSTS_3, ...LETTER_POSTS, ...TOWN_POSTS, ...TIMING_POSTS];
+  return [...FREE_HELP_POSTS, ...VENDOR_POSTS, ...LISTING_POSTS, ...STORY_POSTS_1, ...STORY_POSTS_2, ...STORY_POSTS_3, ...LETTER_POSTS, ...TOWN_POSTS, ...TIMING_POSTS, ...SERVICER_POSTS, ...TOWN_POSTS_2, ...MONEY_POSTS];
 }
 
 export function getTopicPost(slug: string): TopicPost | undefined {
