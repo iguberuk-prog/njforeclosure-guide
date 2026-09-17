@@ -19,15 +19,18 @@ import { TIMING_POSTS } from './blog-timing';
 import { SERVICER_POSTS } from './blog-servicers';
 import { TOWN_POSTS_2 } from './blog-towns-2';
 import { MONEY_POSTS } from './blog-money';
+import { BANKS_POSTS_1 } from './blog-banks-1';
+import { BANKS_POSTS_2 } from './blog-banks-2';
+import { BANKS_POSTS_3 } from './blog-banks-3';
 
 export interface TopicPost extends PostMeta {
-  theme: 'free-help' | 'vendor' | 'listing' | 'stories' | 'letters' | 'towns' | 'timing' | 'servicers' | 'money';
+  theme: 'free-help' | 'vendor' | 'listing' | 'stories' | 'letters' | 'towns' | 'timing' | 'servicers' | 'money' | 'banks';
   sections: { h: string; body: string[] }[];
   links: { href: string; label: string }[];
 }
 
 export function topicPosts(): TopicPost[] {
-  return [...FREE_HELP_POSTS, ...VENDOR_POSTS, ...LISTING_POSTS, ...STORY_POSTS_1, ...STORY_POSTS_2, ...STORY_POSTS_3, ...LETTER_POSTS, ...TOWN_POSTS, ...TIMING_POSTS, ...SERVICER_POSTS, ...TOWN_POSTS_2, ...MONEY_POSTS];
+  return [...FREE_HELP_POSTS, ...VENDOR_POSTS, ...LISTING_POSTS, ...STORY_POSTS_1, ...STORY_POSTS_2, ...STORY_POSTS_3, ...LETTER_POSTS, ...TOWN_POSTS, ...TIMING_POSTS, ...SERVICER_POSTS, ...TOWN_POSTS_2, ...MONEY_POSTS, ...BANKS_POSTS_1, ...BANKS_POSTS_2, ...BANKS_POSTS_3];
 }
 
 export function getTopicPost(slug: string): TopicPost | undefined {
