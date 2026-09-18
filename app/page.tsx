@@ -76,11 +76,44 @@ export default function Home() {
               See Your Options. Free →
             </Link>
             <Link
-              href="/tools/timeline"
+              href="/command-center"
               className="inline-flex items-center justify-center gap-3 border border-white/30 bg-white/5 backdrop-blur-sm text-white px-10 sm:px-12 py-4 rounded-lg font-semibold hover:bg-white/15 transition-all text-base sm:text-lg"
             >
-              Where Am I in the Process?
+              Open Your Command Center
             </Link>
+          </div>
+
+          {/* The case line: where are you? */}
+          <div className="mb-10">
+            <p className="text-slate-300 text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+              Where are you? Tap your spot
+            </p>
+            <div className="relative max-w-2xl mx-auto">
+              <svg viewBox="0 0 600 24" className="w-full h-6" aria-hidden>
+                <line x1="10" y1="12" x2="590" y2="12" stroke="rgba(255,255,255,0.25)" strokeWidth="3" strokeLinecap="round" />
+                <line x1="10" y1="12" x2="590" y2="12" stroke="#fbbf24" strokeWidth="3" strokeLinecap="round" className="heroLineDraw" />
+                {[10, 155, 300, 445, 590].map((x, i) => (
+                  <circle key={x} cx={x} cy="12" r="7" fill="#0f172a" stroke="#fbbf24" strokeWidth="3" className="heroDot" style={{ animationDelay: `${0.4 + i * 0.35}s` }} />
+                ))}
+              </svg>
+              <div className="grid grid-cols-5 gap-1 mt-2">
+                {[
+                  ['Missed payments', 'behind'],
+                  ['Got a notice', 'noi'],
+                  ['Served papers', 'served'],
+                  ['Judgment', 'judgment'],
+                  ['Sale date set', 'sale'],
+                ].map(([label, v]) => (
+                  <Link
+                    key={v}
+                    href={`/command-center?stage=${v}`}
+                    className="text-center text-[10px] sm:text-xs font-semibold text-slate-200 hover:text-amber-300 transition leading-tight px-0.5"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Transparency badge */}

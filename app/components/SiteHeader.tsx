@@ -21,6 +21,7 @@ import Logo from './Logo';
  */
 
 const NAV = [
+  { href: '/command-center', label: 'Start Here' },
   { href: '/case-map', label: 'Case Map' },
   { href: '/guides', label: 'Guides' },
   { href: '/scenarios', label: 'Case Studies' },
