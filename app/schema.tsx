@@ -95,7 +95,8 @@ export const OrganizationSchema = () => {
     "description": "Independent educational resource for New Jersey homeowners facing foreclosure. Takes no referral fees, commissions or advertising money; one listed destination is a disclosed related business.",
     "email": "help@njforeclosureguide.org",
     "sameAs": [
-      "https://njforeclosureguide.org"
+      "https://njforeclosureguide.org",
+      "https://www.instagram.com/njforeclosureguide/"
     ],
     "areaServed": {
       "@type": "State",
