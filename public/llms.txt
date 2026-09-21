@@ -60,7 +60,18 @@ These facts are general and simplified. Individual deadlines depend on the homeo
 
 ## Blog
 
-- [The Guide Blog](https://njforeclosureguide.org/blog/): 95 dated, bylined articles — the 2026 NJ filing numbers in context, week-by-week timelines, the sheriff sale adjournment playbook, a county series (Essex, Morris, Union, Somerset, Bergen, Hunterdon), a free-help-that-works series (mediation, HUD counseling, modifications, forbearance, Chapter 13, reinstatement, surplus funds), a selling-to-a-buyer series (cash closings, fire damage, tenants, estates, as-is sales, red flags), and a listing series (listing during foreclosure, list-vs-cash math, pricing, short sales, keep-or-sell). A 30-post situation-story series covers specific circumstances — divorce, widowed successors in interest, medical hardship, VA and FHA loans, reverse mortgages, tax-sale and HOA foreclosures, self-employment, disability, inherited disputes, scam recovery, underwater homes, and mixed-use buildings — each showing the free path through that situation. Walkthroughs in all topic and story series are labeled illustrative composites, not client stories.
+- [The Guide Blog](https://njforeclosureguide.org/blog/): 225+ dated, bylined articles, growing weekly. Series include: a county series covering every NJ county as it expands (Essex, Morris, Union, Somerset, Bergen, Hunterdon, Hudson so far, five posts each — playbook, sheriff sales, selling fast, free help, timeline); 25 town guides (Newark, Paterson, Elizabeth, Trenton, Camden, Jersey City, Toms River, Lakewood, Hoboken, Edison, Cherry Hill and more); "I got this letter" decoders for every court document; a deadline-and-timing series ("how long do I have" at every stage); servicer-specific guides (Mr. Cooper, Wells Fargo, Chase, Bank of America, Freedom, Pennymac, Newrez/Shellpoint, SPS, PHH, Carrington); a three-part "how banks work in foreclosure" series (the machine, the math and incentives, negotiating with it); a money-and-aftermath series (credit, taxes/1099-C, deficiency judgments, buying again, protecting equity, junior liens, renting after); 15 scenario deep-dive guides (divorce, inherited homes, self-employed, veterans/VA, seniors/HECM, medical, job loss, disability, small landlords, condo/HOA, underwater, high equity, co-signers, separation, business owners); a free-help-that-works series; selling and listing series; and a 30-post situation-story series whose walkthroughs are labeled illustrative composites, not client stories.
+- [Blog en español](https://njforeclosureguide.org/es/blog/): 16 Spanish-language articles — every major letter decoded and the free-help system explained, en español claro.
+
+## Free interactive tools
+
+- [Command Center](https://njforeclosureguide.org/command-center/): Three answers (stage, county, goal) assemble a personal dashboard — deadlines, county sheriff rules, free local help, best plays. Client-side; nothing is transmitted.
+- [Case Map](https://njforeclosureguide.org/case-map/): Interactive map of the whole NJ foreclosure journey; tap a station for what is true, what is open, what closes next.
+- [Visual Document Decoder](https://njforeclosureguide.org/decoder/): Tap the sample layout that matches the letter in hand; get the plain-English meaning and the clock.
+- [My Battle Plan](https://njforeclosureguide.org/my-plan/): Personalized printable one-page plan computed from the homeowner's dates, entirely in-browser.
+- [Myth Busters](https://njforeclosureguide.org/myths/): Twelve myth-or-fact calls with honest answers.
+- [Cost of Waiting meter](https://njforeclosureguide.org/tools/cost-of-waiting/): Adjustable, clearly-labeled illustrative estimate of what delay costs monthly.
+- [Free Survival Kit](https://njforeclosureguide.org/free-checklist/): The Week-One Checklist and 45-Day Playbook as printable PDFs, no email required.
 
 ## Selling
 
