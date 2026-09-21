@@ -31,6 +31,35 @@ const NAV = [
   { href: '/resources', label: 'Resources' },
 ];
 
+const SOCIALS = [
+  {
+    href: 'https://www.instagram.com/njforeclosureguide/',
+    label: 'NJ Foreclosure Guide on Instagram',
+    d: 'M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM17.75 5a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.75 5z',
+  },
+  {
+    href: 'https://www.facebook.com/profile.php?id=61594272767455',
+    label: 'NJ Foreclosure Guide on Facebook',
+    d: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z',
+  },
+];
+
+function SocialIcon({ s, className }: { s: (typeof SOCIALS)[number]; className?: string }) {
+  return (
+    <a
+      href={s.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={s.label}
+      className={className}
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden>
+        <path d={s.d} />
+      </svg>
+    </a>
+  );
+}
+
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
 
@@ -74,6 +103,11 @@ export default function SiteHeader() {
             >
               Free Assessment
             </Link>
+            <span className="ml-3 flex items-center gap-1 border-l border-slate-200 pl-3">
+              {SOCIALS.map((s) => (
+                <SocialIcon key={s.href} s={s} className="p-1.5 text-slate-400 hover:text-slate-900 transition-colors" />
+              ))}
+            </span>
           </div>
 
           {/* Mobile: one CTA plus a menu button */}
@@ -120,6 +154,12 @@ export default function SiteHeader() {
             >
               Where Am I in the Process?
             </Link>
+            <div className="flex items-center gap-2 px-2 pt-3 mt-1 border-t border-slate-100">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Follow</span>
+              {SOCIALS.map((s) => (
+                <SocialIcon key={s.href} s={s} className="p-2 text-slate-500 hover:text-slate-900 transition-colors" />
+              ))}
+            </div>
           </div>
         )}
       </nav>
