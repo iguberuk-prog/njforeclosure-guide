@@ -29,6 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/es/evaluacion',
     '/es/preguntas',
     '/es/blog',
+    '/es/centro-de-mando',
+    '/es/mi-plan',
     '/blog',
     '/sell-my-house-fast-nj',
     '/sell-house-before-sheriff-sale',

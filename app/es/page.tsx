@@ -75,6 +75,20 @@ export default function EsHomePage() {
 
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">Guías en español</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <Link href="/es/centro-de-mando" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Su Centro de Mando</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              Tres respuestas y la página arma su panel: sus plazos, su condado, sus tres
+              mejores jugadas. Privado — nada sale de su navegador.
+            </p>
+          </Link>
+          <Link href="/es/mi-plan" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Mi Plan de Batalla</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              Sus fechas → un plan imprimible de una página con sus plazos exactos, para el
+              refrigerador.
+            </p>
+          </Link>
           <Link href="/es/blog" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
             <p className="font-bold text-slate-900">Blog en español</p>
             <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
