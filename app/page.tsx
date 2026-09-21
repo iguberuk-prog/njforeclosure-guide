@@ -569,7 +569,8 @@ export default function Home() {
           </div>
 
           <div className="border-t border-white/5 pt-8 text-center text-xs text-slate-600 space-y-3">
-            <p>&copy; 2026 NJ Foreclosure Guide. All rights reserved.</p>
+            <p>&copy; 2026 NJ Foreclosure Guide. All rights reserved. &middot;{' '}
+              <a href="https://www.instagram.com/njforeclosureguide/" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-400 transition">Instagram</a></p>
             <p className="italic leading-relaxed max-w-4xl mx-auto">
               IMPORTANT DISCLAIMER: NJ Foreclosure Guide is a FREE educational resource only. We are NOT a law firm, lender, or real estate company. We do NOT provide legal advice, financial advice, or negotiate with lenders. We do NOT perform any foreclosure solutions ourselves. We simply explain 7 options and connect you with attorneys and real estate professionals who provide these services. We take no referral fees, no commissions or advertising money from anything listed. One destination is a related business, labeled wherever it appears. You are never charged. All outcomes depend entirely on your situation and the professionals you work with. Always consult licensed professionals. This site is for education only.
             </p>
