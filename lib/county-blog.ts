@@ -1,9 +1,10 @@
 // COUNTY BLOG SERIES
 // ---------------------------------------------------------------------------
-// 30 posts: six counties (Essex, Morris, Union, Somerset, Bergen, Hunterdon)
+// 35 posts: seven counties (Essex, Morris, Union, Somerset, Bergen,
+// Hunterdon — the original six — plus Hudson, added 2026-09-21)
 // × five angles (playbook, sheriff sales, selling fast, free help, timeline).
 //
-// The discipline that keeps 30 generated posts from being doorway spam:
+// The discipline that keeps 35 generated posts from being doorway spam:
 // every county-specific FACT comes from data already verified elsewhere in
 // this repo (lib/sheriff-sales.ts phone/address/salesUrl, lib/local-help.ts
 // orgs, lib/nj-locations.ts towns/seats), and each county carries its own
@@ -63,6 +64,8 @@ const CHARACTER: Record<string, string> = {
     'Bergen is New Jersey\'s most populous county, and its foreclosure story is a volume-times-value story: even a moderate filing rate across 70 municipalities produces a steady stream of cases, and Bergen home values mean the equity at stake per case is among the highest in the state. A Bergen homeowner who loses a house carelessly frequently loses more money than a homeowner anywhere else in New Jersey would.',
   Hunterdon:
     'Hunterdon is the quiet end of the New Jersey foreclosure map: rural, low-volume, with cases flowing through Flemington. Low volume cuts both ways. There is less rescue-scam mail farming the records here — but there is also less local infrastructure, fewer nearby counselors, and homeowners who often feel like the only person in town this is happening to. You are not; the process and the tools are identical statewide.',
+  Hudson:
+    'Hudson County is New Jersey at its most crowded: Jersey City, Union City, West New York, Hoboken, and North Bergen stack condos, brownstones, and multi-family walk-ups onto the smallest county footprint in the state. Foreclosure here has a split personality — a waterfront condo owner whose value climbed for a decade sits in the same court queue as a longtime owner of a Bayonne or Kearny two-family. Cases run through the Superior Court in Jersey City, and the sheriff\'s foreclosure unit works out of Hudson Plaza on Cornelison Avenue, a short ride from some of the most expensive blocks in the state.',
 };
 
 const MARKET: Record<string, string> = {
@@ -78,9 +81,11 @@ const MARKET: Record<string, string> = {
     'The market reality: Bergen demand is deep and constant — homes in Hackensack, Teaneck, Garfield, and Lodi attract multiple offers in nearly any market. For a homeowner in default, that is leverage: cash buyers compete here, market sales close reliably, and there is rarely a good reason to accept the first unsolicited offer that arrives in the mail.',
   Hunterdon:
     'The market reality: Hunterdon properties — larger lots, older homes, some with land — can take longer to sell than suburban stock, which makes starting early the whole game. A homeowner who lists or requests cash offers at the Notice of Intention stage has months of runway; one who starts at the sale notice is racing the calendar with a property type that prefers not to be rushed.',
+  Hudson:
+    'The market reality: Hudson demand is relentless. Proximity to Manhattan keeps buyers circling Jersey City, Hoboken, and the Palisades towns in nearly any market, and condos and multi-families alike move at realistic prices. For a homeowner in default that is genuine leverage — a sale before the auction is a real option here, not a theoretical one — but the same demand makes Hudson a magnet for aggressive investors and wholesale contracts, so treat every unsolicited offer as an opening bid, never a verdict. Get competing offers and run the net-proceeds math before signing anything.',
 };
 
-export const BLOG_COUNTIES: BlogCounty[] = ['Essex', 'Morris', 'Union', 'Somerset', 'Bergen', 'Hunterdon'].map(county);
+export const BLOG_COUNTIES: BlogCounty[] = ['Essex', 'Morris', 'Union', 'Somerset', 'Bergen', 'Hunterdon', 'Hudson'].map(county);
 
 export type CountyPostType = 'playbook' | 'sheriff-sales' | 'sell-fast' | 'free-help' | 'timeline';
 
@@ -91,17 +96,23 @@ export interface CountyPost extends PostMeta {
 
 const PUBLISHED = '2026-09-03';
 
+/** Counties added after the original six carry their own publish date. */
+const PUBLISHED_BY_COUNTY: Record<string, string> = {
+  Hudson: '2026-09-21',
+};
+
 export function countyPosts(): CountyPost[] {
   const posts: CountyPost[] = [];
   for (const c of BLOG_COUNTIES) {
+    const published = PUBLISHED_BY_COUNTY[c.name] ?? PUBLISHED;
     posts.push(
       {
         slug: `foreclosure-${c.slugPart}-county-playbook`,
         title: `Facing Foreclosure in ${c.name} County, NJ: The Local Playbook`,
         description: `How foreclosure actually runs in ${c.name} County — the courthouse in ${c.seat}, the sheriff sale process, the free local help, and the moves that protect ${c.name} homeowners.`,
         tldr: `Foreclosure in ${c.name} County follows New Jersey's judicial process: a Notice of Intention at least 30 days before suit, a complaint through the Superior Court (county seat: ${c.seat}), 35 days to answer, and a sheriff sale that can generally be adjourned twice for up to 30 days each. Free help exists at every stage — court mediation, HUD counselors, and ${c.orgs[0].name} — and the home can be sold right up until the sheriff's deed is delivered.`,
-        published: PUBLISHED,
-        updated: PUBLISHED,
+        published,
+        updated: published,
         minutes: 7,
         countyName: c.name,
         type: 'playbook',
@@ -111,8 +122,8 @@ export function countyPosts(): CountyPost[] {
         title: `Sheriff Sales in ${c.name} County: How They Work and How to Postpone Yours`,
         description: `Where ${c.name} County publishes foreclosure sale listings, how the auction works, and how homeowners use their two statutory adjournments — up to 60 extra days.`,
         tldr: `${c.name} County ${c.sheriff.usesCivilView ? 'publishes its foreclosure sale listings through the statewide CivilView system' : 'publishes its own foreclosure sale list on the county website'}, and New Jersey homeowners are generally entitled to two adjournments of a scheduled sale of up to 30 days each, requested through the sheriff's office${c.sheriff.phone ? ` (${c.sheriff.phone})` : ''}. Check the official list for your real sale date — it is frequently later than the date on your notice — and use any time you buy on a concrete plan: closing a sale, finishing a loss-mitigation review, or preparing a Chapter 13.`,
-        published: PUBLISHED,
-        updated: PUBLISHED,
+        published,
+        updated: published,
         minutes: 6,
         countyName: c.name,
         type: 'sheriff-sales',
@@ -122,8 +133,8 @@ export function countyPosts(): CountyPost[] {
         title: `Selling a House Fast in ${c.name} County (Foreclosure OK): The Honest Version`,
         description: `What a fast sale really looks like in ${c.name} County — realistic timelines, the below-market truth about cash offers, and how to get competing offers instead of taking the first one.`,
         tldr: `A ${c.name} County homeowner can sell right up until the sheriff's deed is delivered, and a cash sale commonly closes in 14–30 days — fast enough to fit inside the adjournments New Jersey law provides. Cash offers run below market value; that is the price of speed, and the defense is comparison: request two or three offers, run the net-proceeds math against a market sale, and never sign with the first door-knocker.`,
-        published: PUBLISHED,
-        updated: PUBLISHED,
+        published,
+        updated: published,
         minutes: 6,
         countyName: c.name,
         type: 'sell-fast',
@@ -133,8 +144,8 @@ export function countyPosts(): CountyPost[] {
         title: `Free Foreclosure Help in ${c.name} County: Every Legitimate Source`,
         description: `The organizations that actually help ${c.name} County homeowners for free — court mediation, HUD counselors, legal services — and how to tell real help from the paid imitations.`,
         tldr: `Every core form of foreclosure help available to a ${c.name} County homeowner is free: New Jersey's court-run mediation program (with a housing counselor assigned at no cost), HUD-approved counseling agencies${c.orgs.length > 4 ? ` including ${c.orgs[0].name}` : ''}, and Legal Services of New Jersey (1-888-576-5529) for income-qualifying homeowners. Anyone charging an up-front fee to "save your home" is generally breaking the law — the paid version of this help is the scam version.`,
-        published: PUBLISHED,
-        updated: PUBLISHED,
+        published,
+        updated: published,
         minutes: 6,
         countyName: c.name,
         type: 'free-help',
@@ -144,8 +155,8 @@ export function countyPosts(): CountyPost[] {
         title: `The ${c.name} County Foreclosure Timeline: First Letter to Sheriff Sale`,
         description: `Every stage of a ${c.name} County foreclosure in order — the Notice of Intention, the complaint, default, judgment, and the sale — with the deadline attached to each.`,
         tldr: `A ${c.name} County foreclosure moves through fixed stages: 120+ days of delinquency before filing is generally permitted, a Notice of Intention at least 30 days before suit, a complaint with a 35-day answer window, then default or litigation, final judgment, and a sheriff sale that can generally be adjourned twice (30 days each). The full arc typically runs many months to more than a year — time that rewards homeowners who use each window deliberately.`,
-        published: PUBLISHED,
-        updated: PUBLISHED,
+        published,
+        updated: published,
         minutes: 7,
         countyName: c.name,
         type: 'timeline',
