@@ -37,6 +37,7 @@ const SECTIONS: { title: string; items: { href: string; name: string; desc: stri
       { href: '/free-checklist', name: 'The Survival Kit: Checklist + 45-Day Playbook (PDF)', desc: 'Two printable downloads: the week-one one-pager and the day-by-day 45-day plan with worksheet. Free, no email required.' },
       { href: '/command-center', name: 'Your Command Center', desc: 'Three answers \u2014 stage, county, goal \u2014 and the page assembles your personal dashboard: deadlines, county rules, free help, best plays.' },
       { href: '/decoder', name: 'The Visual Document Decoder', desc: 'Tap the sample that looks like the letter in your hand; get the plain-English answer in ten seconds.' },
+      { href: '/nj-map', name: 'The NJ Foreclosure Map', desc: 'All 21 counties on one tap: sheriff sale contacts, official listings, and the free local orgs \u2014 every fact verified.' },
       { href: '/case-map', name: 'The Case Map (interactive)', desc: 'Tap where you are on the foreclosure line and see what\u2019s true right now, which doors are open, and your free moves.' },
       { href: '/my-plan', name: 'My Battle Plan (printable)', desc: 'Enter your dates, print a one-page personal plan with your exact deadlines. Nothing leaves your browser.' },
       { href: '/myths', name: 'Myth Busters (60-second game)', desc: 'Twelve things everyone gets wrong about NJ foreclosure. Call myth or fact; the myths cost real money.' },

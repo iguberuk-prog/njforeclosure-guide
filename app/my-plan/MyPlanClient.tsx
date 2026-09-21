@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { trackEvent } from '../../lib/analytics';
+import EmailPlan from '../components/EmailPlan';
 
 /**
  * My Plan: a personalized, printable one-page battle plan. Everything runs
@@ -232,6 +233,18 @@ export default function MyPlanClient() {
             HUD-approved counselor. No promises about the outcome of any case.
           </p>
         </div>
+      </div>
+
+      <div className="print:hidden mt-6">
+        <EmailPlan
+          sourcePage="/my-plan"
+          planText={
+            (name ? name + "'s" : 'My') + ' NJ foreclosure battle plan (' + today.toLocaleDateString('en-US') + ')\n\n' +
+            plan.map((p) => '• ' + p.when + ' — ' + p.what + '\n  ' + p.how).join('\n\n') +
+            '\n\nFree counselors: 800-569-4287 · Free legal (income-qualifying): 1-888-576-5529' +
+            '\n\nEducational only — my court documents control my actual dates.'
+          }
+        />
       </div>
 
       <div className="print:hidden mt-8 text-center">

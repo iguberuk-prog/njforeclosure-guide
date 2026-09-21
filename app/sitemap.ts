@@ -54,6 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/case-map',
     '/command-center',
     '/decoder',
+    '/nj-map',
     '/my-plan',
     '/myths',
     '/tools/cost-of-waiting',

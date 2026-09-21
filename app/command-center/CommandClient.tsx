@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { trackEvent } from '../../lib/analytics';
+import EmailPlan from '../components/EmailPlan';
 import { STATIONS, ZONE_LABEL } from '../../lib/case-map-data';
 import { SHERIFF_SOURCES } from '../../lib/sheriff-sales';
 import { helpFor } from '../../lib/local-help';
@@ -276,6 +277,21 @@ export default function CommandClient() {
               </div>
             </div>
           )}
+
+          <EmailPlan
+            sourcePage="/command-center"
+            planText={
+              'My NJ foreclosure command center summary\n\n' +
+              'Stage: ' + (STAGES.find((s) => s.v === stage)?.label ?? '') + '\n' +
+              'County: ' + county + ' County\n' +
+              'Goal: ' + (GOALS.find((g) => g.v === goal)?.label ?? '') + '\n\n' +
+              (deadlines.length ? 'MY DATES:\n' + deadlines.map((d) => '• ' + d.label + ': ' + d.date).join('\n') + '\n\n' : '') +
+              (station ? 'WHERE I AM: ' + station.name + ' — ' + station.sub + '\nClosing next: ' + station.closingNext + '\n\n' : '') +
+              (goal ? 'MY 3 PLAYS:\n' + GOAL_PLAYS[goal].map((p, i) => (i + 1) + '. ' + p.t + ' — ' + p.d).join('\n') + '\n\n' : '') +
+              'Free counselors: 800-569-4287 · Free legal (income-qualifying): 1-888-576-5529\n' +
+              'Educational only — my court documents control my actual dates.'
+            }
+          />
 
           {/* Action row */}
           <div className="rounded-2xl bg-slate-950 text-white px-6 py-6">
