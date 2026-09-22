@@ -20,14 +20,17 @@ import Logo from './Logo';
  *    reach the guides at all. Most people in foreclosure are on a phone.
  */
 
-const NAV = [
+const NAV: { href: string; label: string; xlOnly?: boolean }[] = [
   { href: '/command-center', label: 'Start Here' },
   { href: '/case-map', label: 'Case Map' },
   { href: '/guides', label: 'Guides' },
-  { href: '/scenarios', label: 'Case Studies' },
+  // xlOnly: the full set no longer fits beside the wordmark below ~1280px —
+  // these two rendered UNDERNEATH the logo text (reported by Igor). They stay
+  // in the mobile menu and reappear on xl and up.
+  { href: '/scenarios', label: 'Case Studies', xlOnly: true },
   { href: '/answers', label: 'Answers' },
   { href: '/companies', label: 'Get an Offer' },
-  { href: '/commercial', label: 'Commercial' },
+  { href: '/commercial', label: 'Commercial', xlOnly: true },
   { href: '/resources', label: 'Resources' },
 ];
 
@@ -65,7 +68,7 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-2 sm:gap-4 h-[72px] sm:h-20">
           {/* Brand */}
           <Link href="/" className="group flex items-center gap-2 sm:gap-3 min-w-0" onClick={() => setOpen(false)}>
@@ -87,23 +90,23 @@ export default function SiteHeader() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0.5 flex-shrink-0">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative px-3 py-2 text-[15px] font-medium text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-amber-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
+                className={`relative px-2 py-2 text-[14px] font-medium text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap after:absolute after:left-2 after:right-2 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-amber-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left ${item.xlOnly ? 'hidden xl:block' : ''}`}
               >
                 {item.label}
               </Link>
             ))}
             <Link
               href="/quiz"
-              className="ml-4 bg-slate-900 text-white px-5 py-2.5 rounded-full text-[15px] font-semibold hover:bg-slate-800 transition-colors whitespace-nowrap shadow-sm"
+              className="ml-3 bg-slate-900 text-white px-4 py-2.5 rounded-full text-[14px] font-semibold hover:bg-slate-800 transition-colors whitespace-nowrap shadow-sm"
             >
               Free Assessment
             </Link>
-            <span className="ml-3 flex items-center gap-1 border-l border-slate-200 pl-3">
+            <span className="ml-2.5 hidden xl:flex items-center gap-1 border-l border-slate-200 pl-2.5">
               {SOCIALS.map((s) => (
                 <SocialIcon key={s.href} s={s} className="p-1.5 text-slate-400 hover:text-slate-900 transition-colors" />
               ))}
