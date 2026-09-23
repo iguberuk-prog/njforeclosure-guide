@@ -2,6 +2,15 @@
 
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
+import GuideFaq from '../../components/GuideFaq';
+
+const FAQ_ITEMS = [
+  { q: "What is a short sale?", a: "A sale of the home for less than the mortgage balance, with the lender's written consent to release the lien anyway. Lenders agree when the net beats what they expect from completing the foreclosure." },
+  { q: "Does a short sale stop a New Jersey foreclosure?", a: "A short sale that closes before the sheriff sale resolves the case, and sheriff sale adjournments are commonly used to buy closing time. Approval takes weeks to months, so the earlier it starts, the more realistic it is - and nothing is final until the lender approves in writing." },
+  { q: "Will I still owe money after a short sale?", a: "That is the deficiency question, and the answer should be negotiated before you close: ask for the approval letter to expressly waive the remaining balance. Never assume forgiveness that is not in writing, and have the letter reviewed." },
+  { q: "Is a short sale better for my credit than a foreclosure?", a: "Generally the recovery is faster after a short sale, and future mortgage eligibility returns sooner, though the exact reporting varies. The bigger wins are control: you choose the timeline, avoid the auction discount, and can negotiate the deficiency away." },
+];
+
 
 export default function ShortSalePage() {
   return (
@@ -415,6 +424,8 @@ export default function ShortSalePage() {
           </p>
         </section>
       </article>
+
+      <GuideFaq items={FAQ_ITEMS} />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12 mt-16">

@@ -2,6 +2,15 @@
 
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
+import GuideFaq from '../../components/GuideFaq';
+
+const FAQ_ITEMS = [
+  { q: "Can I refinance if I am behind on my mortgage?", a: "It is difficult - most lenders want recent on-time history - but not automatically impossible, especially with meaningful equity. Some homeowners first cure through a modification or repayment plan, then refinance later; others with strong equity look at non-QM lenders who price for the risk." },
+  { q: "Can refinancing stop a foreclosure in New Jersey?", a: "If a refinance pays off the judgment, the case ends - New Jersey preserves your right to pay off the debt up to final judgment, and a redemption window even follows the sale. The practical limits are time, credit, and equity, so this path works best when started early and with a backup plan running in parallel." },
+  { q: "What credit score do I need to refinance?", a: "Conventional refinances generally look for the mid-600s and up; FHA can go lower on paper, though individual lenders add their own minimums. Equity can offset a weaker score with some lenders - which is why knowing your home's real value is step one." },
+  { q: "What is a foreclosure bailout refinance?", a: "A specialty loan from non-QM lenders that pays off a foreclosure using the home's equity, at noticeably higher rates and costs. It is a real product with real risks - and a favorite disguise for scams, so never pay upfront fees and never sign a deed over to anyone offering to \"help.\"" },
+];
+
 
 export default function RefinancingPage() {
   return (
@@ -552,6 +561,8 @@ export default function RefinancingPage() {
           </p>
         </section>
       </article>
+
+      <GuideFaq items={FAQ_ITEMS} />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12 mt-16">

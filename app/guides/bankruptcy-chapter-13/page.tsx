@@ -2,6 +2,15 @@
 
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
+import GuideFaq from '../../components/GuideFaq';
+
+const FAQ_ITEMS = [
+  { q: "How does Chapter 13 bankruptcy stop a foreclosure?", a: "Filing triggers the automatic stay, which halts the foreclosure - including a scheduled sheriff sale - the moment the petition is filed. The Chapter 13 plan then cures the missed payments over three to five years while you keep paying the regular mortgage." },
+  { q: "When is it too late to file Chapter 13 to stop the sale?", a: "The stay must arrive before the sheriff sale is completed, and repeat filings within a year can shorten or eliminate the stay. A rushed petition on sale morning is legally possible but practically hazardous - this is a path to plan with a bankruptcy attorney, not improvise." },
+  { q: "Chapter 7 or Chapter 13 for foreclosure - which one?", a: "Chapter 13 is the keep-the-house chapter: it cures arrears through a payment plan. Chapter 7 wipes other debts and buys time but has no cure mechanism, so it mostly delays a foreclosure rather than resolving it. Which fits depends on income, equity, and the rest of your debts." },
+  { q: "What does Chapter 13 cost and who qualifies?", a: "It requires regular income sufficient to fund the plan plus the ongoing mortgage, and real costs: filing fees, attorney fees (often payable through the plan), and a trustee's percentage. Free consultations are standard among bankruptcy attorneys, and LSNJ (1-888-576-5529) helps those who qualify by income." },
+];
+
 
 export default function BankruptcyChapter13Page() {
   return (
@@ -425,6 +434,8 @@ export default function BankruptcyChapter13Page() {
           </p>
         </section>
       </article>
+
+      <GuideFaq items={FAQ_ITEMS} />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12 mt-16">

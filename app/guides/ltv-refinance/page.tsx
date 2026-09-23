@@ -2,6 +2,15 @@
 
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
+import GuideFaq from '../../components/GuideFaq';
+
+const FAQ_ITEMS = [
+  { q: "What is LTV and why does it matter?", a: "Loan-to-value is your mortgage balance divided by your home's value. It is the single number lenders lean on hardest: it decides whether you can refinance at all, what rate you get, and whether you need mortgage insurance." },
+  { q: "What LTV do I need to refinance?", a: "The best pricing generally sits at 80% LTV or below; standard rate-and-term programs reach higher, and cash-out refinances usually cap near 80%. The lower your LTV, the more the numbers work in your favor." },
+  { q: "How does high LTV affect my options in foreclosure?", a: "Thin equity narrows the refinance path, but it does not touch the others: modification, mediation, forbearance, and a negotiated sale all work regardless of LTV. Your equity decides which family of options fits - it never decides whether you have options." },
+  { q: "How do I find out what my home is really worth?", a: "Three free reads: recent sales of similar homes nearby, a comparative market analysis from a local agent, and the county's records - then sanity-check against the foreclosure judgment amount. The gap between value and judgment is the single most important number in your case." },
+];
+
 
 export default function LTVRefinancePage() {
   return (
@@ -436,6 +445,8 @@ export default function LTVRefinancePage() {
           </p>
         </section>
       </article>
+
+      <GuideFaq items={FAQ_ITEMS} />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12 mt-16">

@@ -2,6 +2,15 @@
 
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
+import GuideFaq from '../../components/GuideFaq';
+
+const FAQ_ITEMS = [
+  { q: "What is mortgage forbearance?", a: "Forbearance is a written agreement with your servicer to pause or reduce payments temporarily during a hardship. It is not forgiveness - the paused amounts are still owed - but it stops the delinquency clock from turning into a foreclosure filing while you recover." },
+  { q: "How do I repay the missed payments after forbearance?", a: "Almost never as one lump sum, despite the fear. Common exits are a deferral that moves the paused payments to the end of the loan, a repayment plan that spreads them over months, or a modification that folds them into new terms. Ask which exits your servicer offers before you sign." },
+  { q: "Does forbearance hurt my credit?", a: "An agreed forbearance is reported according to the agreement, which is generally far gentler than the string of missed payments it replaces. Missing payments without an agreement is what does the damage - which is why calling the servicer early matters." },
+  { q: "What is the difference between forbearance and a loan modification?", a: "Forbearance is a short-term bridge for a temporary hardship; a modification is a permanent change in the loan for a lasting one. Many homeowners use both in sequence: forbearance during the crisis, then a modification to resolve the arrears." },
+];
+
 
 export default function ForbearancePage() {
   return (
@@ -521,6 +530,8 @@ export default function ForbearancePage() {
           </p>
         </section>
       </article>
+
+      <GuideFaq items={FAQ_ITEMS} />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12 mt-16">

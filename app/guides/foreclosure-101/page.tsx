@@ -2,6 +2,15 @@
 
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
+import GuideFaq from '../../components/GuideFaq';
+
+const FAQ_ITEMS = [
+  { q: "How long does a foreclosure take in New Jersey?", a: "New Jersey foreclosures go through the courts, so they take longer than in most states: commonly a year or more from complaint to sheriff sale, and often longer when the homeowner files an answer, requests mediation, or applies for loss mitigation. Every deadline you use adds time, and time is what makes the other options work." },
+  { q: "Does missing one mortgage payment start a foreclosure?", a: "No. Under federal rules a servicer generally cannot file until you are more than 120 days delinquent, and New Jersey adds its own Notice of Intention at least 30 days before filing. Those first four months are when every fix is cheapest, because no legal fees have been added yet." },
+  { q: "Can I stay in my home during a New Jersey foreclosure?", a: "Yes. You have the legal right to live in your home through the entire court process, and even after a sheriff sale, removal runs through a further court process with notice. Leaving early helps nobody and can cost you options and money." },
+  { q: "What should I do first when I get a foreclosure notice in NJ?", a: "Three things the same week: call your servicer and ask for the loss mitigation application, book a free HUD-approved housing counselor at 800-569-4287, and calendar your deadline - if you were served a complaint, you generally have 35 days to file an answer, which keeps every option open." },
+];
+
 
 export default function Foreclosure101Page() {
   return (
@@ -164,6 +173,8 @@ export default function Foreclosure101Page() {
           </Link>
         </section>
       </article>
+
+      <GuideFaq items={FAQ_ITEMS} />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12 mt-16">

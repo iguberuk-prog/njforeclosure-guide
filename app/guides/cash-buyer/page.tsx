@@ -2,6 +2,15 @@
 
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
+import GuideFaq from '../../components/GuideFaq';
+
+const FAQ_ITEMS = [
+  { q: "Are cash home buyers legitimate?", a: "Real, funded cash buyers exist alongside a thick layer of pretenders. The tells of a real one: verifiable proof of funds, a real entity you can look up, closing at a licensed title company or attorney, no upfront fees ever, and no request to sign the deed before closing." },
+  { q: "How fast can a cash sale close in New Jersey?", a: "Commonly two to four weeks once terms are set, since there is no mortgage underwriting - title work is the main clock. Ahead of a scheduled sheriff sale, adjournments can create the room a closing needs, but confirm every date with the sheriff's office directly." },
+  { q: "How much do cash buyers actually pay?", a: "Below market - the discount is the price of speed and certainty, and it varies with condition and carrying costs. Get more than one offer, compare against what a listed sale would net you after time and repairs, and treat any buyer who discourages comparison as a red flag." },
+  { q: "Can I sell my house before a sheriff sale in NJ?", a: "Yes. Until the sale, the home is yours to sell, and a closing that pays off the judgment ends the case - with any remaining equity going to you instead of through the auction. The earlier the start, the more of that equity survives." },
+];
+
 
 export default function CashBuyerPage() {
   return (
@@ -567,6 +576,8 @@ export default function CashBuyerPage() {
           </p>
         </section>
       </article>
+
+      <GuideFaq items={FAQ_ITEMS} />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12 mt-16">

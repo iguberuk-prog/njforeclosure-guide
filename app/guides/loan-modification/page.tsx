@@ -2,6 +2,15 @@
 
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
+import GuideFaq from '../../components/GuideFaq';
+
+const FAQ_ITEMS = [
+  { q: "What does a loan modification actually change?", a: "A modification permanently rewrites the loan terms - usually the interest rate, the term, and sometimes a deferral of part of the balance - so the monthly payment becomes affordable, and it typically moves the missed payments into the new balance so you restart current." },
+  { q: "Can I still get a loan modification after foreclosure starts in New Jersey?", a: "Yes. Loss mitigation continues while the case is pending, a complete application generally comes with federal review protections, and New Jersey's free court mediation program is built to pair a homeowner and a lender representative to work exactly this out." },
+  { q: "Why do loan modifications get denied?", a: "The most common reasons are incomplete applications, income that documents too low or too high for the formula, and a net-present-value calculation that favors foreclosure. Denials can be appealed, and a free HUD counselor (800-569-4287) can rebuild the application - complete files get decisions, incomplete ones get denials." },
+  { q: "Does applying for a modification stop the sheriff sale?", a: "It can pause things, but only if it is complete and early enough: federal rules generally restrict a sale from moving forward while a complete application submitted more than 37 days before the sale is under review. Nothing about a pending application is automatic protection - confirm every date with the sheriff and the court." },
+];
+
 
 export default function LoanModificationPage() {
   return (
@@ -480,6 +489,8 @@ export default function LoanModificationPage() {
           </p>
         </section>
       </article>
+
+      <GuideFaq items={FAQ_ITEMS} />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12 mt-16">
