@@ -54,6 +54,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/resources',
     '/free-checklist',
     '/start',
+    '/report',
+    '/partners',
     '/case-map',
     '/command-center',
     '/decoder',

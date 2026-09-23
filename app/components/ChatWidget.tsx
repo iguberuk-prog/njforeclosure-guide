@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { appendAttribution } from '../../lib/attribution';
 import { newSubmissionId, sendIntake } from '../../lib/intake';
 
@@ -53,6 +54,10 @@ function buildTranscript(messages: Msg[]): string {
 }
 
 export default function ChatWidget() {
+  // Never render inside the embeddable widget pages: they live in third-party
+  // iframes where a floating chat bubble overlaps the whole tool.
+  const pathname = usePathname();
+  if (pathname?.startsWith('/widget')) return null;
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [connecting, setConnecting] = useState(false);
