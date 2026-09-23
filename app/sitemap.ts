@@ -53,6 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools/net-proceeds',
     '/resources',
     '/free-checklist',
+    '/start',
     '/case-map',
     '/command-center',
     '/decoder',
