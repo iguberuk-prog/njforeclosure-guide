@@ -53,6 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/answers',
     '/tools/timeline',
     '/tools/net-proceeds',
+    '/tools/surplus-funds',
     '/resources',
     '/free-checklist',
     '/start',

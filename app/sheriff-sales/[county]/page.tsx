@@ -251,7 +251,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
               <Link href="/answers/can-i-get-my-house-back-after-sheriff-sale/" className="text-slate-900 underline underline-offset-4">Can I get my house back after the sale?</Link>
             </li>
             <li>
-              <Link href="/guides/surplus-funds" className="text-slate-900 underline underline-offset-4">Claiming surplus funds</Link>
+              <Link href="/tools/surplus-funds" className="text-slate-900 underline underline-offset-4">Surplus funds calculator: was there money left over?</Link>
             </li>
           </ul>
         </div>

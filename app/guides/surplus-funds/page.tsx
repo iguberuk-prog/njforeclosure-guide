@@ -141,6 +141,9 @@ export default function SurplusFundsPage() {
             adjournment rules buy time to close.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
+            <Link href="/tools/surplus-funds" className="bg-slate-900 text-white px-8 py-3.5 rounded-lg font-bold text-center hover:bg-slate-800 transition">
+              Surplus Calculator
+            </Link>
             <Link href="/tools/net-proceeds" className="bg-amber-400 text-slate-950 px-8 py-3.5 rounded-lg font-bold text-center hover:bg-amber-300 transition">
               Run My Numbers
             </Link>

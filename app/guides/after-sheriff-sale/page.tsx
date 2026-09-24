@@ -162,7 +162,9 @@ export default function AfterSheriffSalePage() {
             <strong className="text-slate-900">If the sale brought more than the judgment,</strong> the
             surplus is deposited with the court. After valid junior liens (a second mortgage, a HELOC,
             judgment creditors), what remains is yours, and it has to be claimed.{' '}
-            <Link href="/guides/surplus-funds" className="text-slate-900 underline underline-offset-4 font-semibold">How to claim surplus funds yourself</Link>.
+            <Link href="/tools/surplus-funds" className="text-slate-900 underline underline-offset-4 font-semibold">Estimate it with the surplus funds calculator</Link>{' '}
+            or read{' '}
+            <Link href="/guides/surplus-funds" className="text-slate-900 underline underline-offset-4 font-semibold">how to claim it yourself</Link>.
           </p>
           <p>
             <strong className="text-slate-900">If it brought less,</strong> the lender may pursue the
