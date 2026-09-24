@@ -24,6 +24,8 @@ import { BANKS_POSTS_2 } from './blog-banks-2';
 import { BANKS_POSTS_3 } from './blog-banks-3';
 import { TOWN_POSTS_3 } from './blog-towns-3';
 import { SCENARIO_POSTS } from './blog-scenarios';
+import { EXPOSURE_POSTS_1 } from './blog-exposure-1';
+import { EXPOSURE_POSTS_2 } from './blog-exposure-2';
 
 export interface TopicPost extends PostMeta {
   theme: 'free-help' | 'vendor' | 'listing' | 'stories' | 'letters' | 'towns' | 'timing' | 'servicers' | 'money' | 'banks' | 'scenarios';
@@ -32,7 +34,7 @@ export interface TopicPost extends PostMeta {
 }
 
 export function topicPosts(): TopicPost[] {
-  return [...FREE_HELP_POSTS, ...VENDOR_POSTS, ...LISTING_POSTS, ...STORY_POSTS_1, ...STORY_POSTS_2, ...STORY_POSTS_3, ...LETTER_POSTS, ...TOWN_POSTS, ...TIMING_POSTS, ...SERVICER_POSTS, ...TOWN_POSTS_2, ...MONEY_POSTS, ...BANKS_POSTS_1, ...BANKS_POSTS_2, ...BANKS_POSTS_3, ...TOWN_POSTS_3, ...SCENARIO_POSTS];
+  return [...FREE_HELP_POSTS, ...VENDOR_POSTS, ...LISTING_POSTS, ...STORY_POSTS_1, ...STORY_POSTS_2, ...STORY_POSTS_3, ...LETTER_POSTS, ...TOWN_POSTS, ...TIMING_POSTS, ...SERVICER_POSTS, ...TOWN_POSTS_2, ...MONEY_POSTS, ...BANKS_POSTS_1, ...BANKS_POSTS_2, ...BANKS_POSTS_3, ...TOWN_POSTS_3, ...SCENARIO_POSTS, ...EXPOSURE_POSTS_1, ...EXPOSURE_POSTS_2];
 }
 
 export function getTopicPost(slug: string): TopicPost | undefined {
