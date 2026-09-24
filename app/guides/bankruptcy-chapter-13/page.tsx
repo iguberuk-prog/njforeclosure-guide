@@ -98,18 +98,19 @@ export default function BankruptcyChapter13Page() {
           </div>
         </section>
 
-        {/* Real Scenario */}
+        {/* Illustrative composite example (not a real client) */}
         <section className="mb-12 bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Real Homeowner Scenario</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">An Illustrative Example</h2>
+          <p className="text-sm text-gray-500 italic mb-4">A composite example built to show how this option can work. It is not a real client, and results vary with every lender and situation.</p>
           <div className="space-y-4 text-gray-700">
             <p>
-              <strong>Jennifer L., Union County</strong> works as a nurse earning $4,000 per month. Her home is worth $320,000 with a $260,000 mortgage. She also carries $35,000 in credit card debt from medical emergencies and her spouse's illness. She is 4 months behind on her mortgage ($5,200 in arrears) and facing foreclosure.
+              <strong>Jennifer (a hypothetical homeowner in Union County)</strong> works as a nurse earning $4,000 per month. Her home is worth $320,000 with a $260,000 mortgage. She also carries $35,000 in credit card debt from medical emergencies and her spouse's illness. She is 4 months behind on her mortgage ($5,200 in arrears) and facing foreclosure.
             </p>
             <p>
               Her credit card debt is at 16-21% interest. Creditors are calling daily. She cannot get approved for loan modification or refinancing due to the delinquency. Standard forbearance would only delay the problem.
             </p>
             <p>
-              She consulted a bankruptcy attorney and filed Chapter 13. This immediately stopped the foreclosure (automatic stay). Her repayment plan:
+              She consulted a bankruptcy attorney and filed Chapter 13. The automatic stay immediately paused the foreclosure. Her repayment plan:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-2">
               <li>Month 1: File Chapter 13, automatic stay issued</li>

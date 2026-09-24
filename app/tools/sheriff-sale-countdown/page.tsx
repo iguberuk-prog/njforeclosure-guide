@@ -20,7 +20,10 @@ export const metadata: Metadata = {
   description: fitDescription(
     'Enter your New Jersey sheriff sale date and county: see the days left, how far adjournments can generally move it, your sheriff’s contact, and a plan for today.'
   ),
-  alternates: { canonical: 'https://njforeclosureguide.org/tools/sheriff-sale-countdown/' },
+  alternates: {
+    canonical: 'https://njforeclosureguide.org/tools/sheriff-sale-countdown/',
+    languages: { en: 'https://njforeclosureguide.org/tools/sheriff-sale-countdown/', es: 'https://njforeclosureguide.org/es/herramientas/cuenta-regresiva/', 'x-default': 'https://njforeclosureguide.org/tools/sheriff-sale-countdown/' },
+  },
   openGraph: {
     images: OG_IMAGES,
     title: 'NJ Sheriff Sale Countdown',
@@ -76,6 +79,8 @@ export default function SheriffSaleCountdownPage() {
             <li><Link href="/sheriff-sales" className="underline underline-offset-4">All 21 county sale listings and sheriff contacts</Link></li>
             <li><Link href="/guides/after-sheriff-sale" className="underline underline-offset-4">What happens after a sheriff sale</Link></li>
             <li><Link href="/tools/catch-up" className="underline underline-offset-4">Catch-up calculator: what it takes to reinstate</Link></li>
+            <li><Link href="/tools/letter-builder/?letter=postpone" className="underline underline-offset-4">Letter builder: ask your servicer in writing to postpone the sale</Link></li>
+            <li><Link href="/reports/nj-sheriff-sales/" className="underline underline-offset-4">This month&apos;s NJ sheriff sale report</Link></li>
           </ul>
         </div>
       </div>

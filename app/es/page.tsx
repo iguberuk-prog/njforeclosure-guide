@@ -145,6 +145,18 @@ export default function EsHomePage() {
               Si la subasta dejó más de lo que debía, calcule cuánto podría ser suyo y cómo reclamarlo sin pagar comisiones.
             </p>
           </Link>
+          <Link href="/es/herramientas/cuenta-regresiva" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Cuenta regresiva para la subasta</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              Ingrese la fecha de su subasta y su condado: cuántos días le quedan, sus aplazamientos, el teléfono del sheriff y qué hacer hoy.
+            </p>
+          </Link>
+          <Link href="/es/herramientas/ponerse-al-dia" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Calculadora para ponerse al día</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              Calcule cuánto necesitaría para ponerse al día con la hipoteca antes de llamar a su prestamista.
+            </p>
+          </Link>
         </div>
 
         <div className="bg-slate-50 rounded-2xl p-6">

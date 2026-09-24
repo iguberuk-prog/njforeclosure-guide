@@ -95,12 +95,13 @@ export default function LTVRefinancePage() {
           </div>
         </section>
 
-        {/* Real Scenario */}
+        {/* Illustrative composite example (not a real client) */}
         <section className="mb-12 bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Real Homeowner Scenario</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">An Illustrative Example</h2>
+          <p className="text-sm text-gray-500 italic mb-4">A composite example built to show how this option can work. It is not a real client, and results vary with every lender and situation.</p>
           <div className="space-y-4 text-gray-700">
             <p>
-              <strong>David K., Jersey City</strong> owns a home worth approximately $380,000 with a mortgage balance of $220,000. He has $160,000 in equity. He also carries $28,000 in credit card debt at 18-22% interest rates.
+              <strong>David (a hypothetical homeowner in Jersey City)</strong> owns a home worth approximately $380,000 with a mortgage balance of $220,000. He has $160,000 in equity. He also carries $28,000 in credit card debt at 18-22% interest rates.
             </p>
             <p>
               When he fell behind on his mortgage due to medical expenses, he also missed payments on credit cards. His financial situation was becoming dire with multiple high-interest debts.

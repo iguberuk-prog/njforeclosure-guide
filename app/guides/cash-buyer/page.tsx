@@ -95,12 +95,13 @@ export default function CashBuyerPage() {
           </div>
         </section>
 
-        {/* Real Scenario */}
+        {/* Illustrative composite example (not a real client) */}
         <section className="mb-12 bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Real Homeowner Scenario</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">An Illustrative Example</h2>
+          <p className="text-sm text-gray-500 italic mb-4">A composite example built to show how this option can work. It is not a real client, and results vary with every lender and situation.</p>
           <div className="space-y-4 text-gray-700">
             <p>
-              <strong>Maria S., Paterson</strong> is a single mother working two jobs. Her home is worth approximately $180,000, and she still owes $165,000 on the mortgage. She received a notice that her lender has scheduled a foreclosure auction in 60 days.
+              <strong>Maria (a hypothetical homeowner in Paterson)</strong> is a single mother working two jobs. Her home is worth approximately $180,000, and she still owes $165,000 on the mortgage. She received a notice that her lender has scheduled a foreclosure auction in 60 days.
             </p>
             <p>
               She tried loan modification but was denied due to her income not meeting requirements. She does not qualify for refinancing. She does not have time to list the home, wait for offers, and do a traditional sale in 60 days.

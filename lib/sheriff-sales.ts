@@ -8,8 +8,8 @@
 // a wrong phone number on a foreclosure help site sends a person in crisis
 // to the wrong place. Verify against the official source or leave it null.
 //
-// 17 counties publish sales through the state's CivilView system
-// (salesweb.civilview.com); Mercer, Somerset, Sussex and Warren publish
+// 16 counties publish sales through the state's CivilView system
+// (salesweb.civilview.com); Mercer, Ocean, Somerset, Sussex and Warren publish
 // their own lists at salesUrl.
 // ---------------------------------------------------------------------------
 
@@ -173,8 +173,10 @@ export const SHERIFF_SOURCES: SheriffSaleSource[] = [
     slug: 'ocean-county',
     county: 'Ocean',
     sheriffUrl: 'https://sheriff.co.ocean.nj.us/',
-    salesUrl: 'https://salesweb.civilview.com/Sales/SalesSearch?countyId=85',
-    usesCivilView: true,
+    // Ocean stopped updating its CivilView list (last update 2/27/2026) and now
+    // posts sale lists as PDFs on the sheriff's Foreclosures page (checked 2026-09-24).
+    salesUrl: 'https://sheriff.co.ocean.nj.us/frmForeclosures',
+    usesCivilView: false,
     phone: '732-929-2044',
     address: '120 Hooper Avenue, Third Floor, Toms River, NJ 08753',
     verifiedFrom: 'https://sheriff.co.ocean.nj.us/frmForeclosures',

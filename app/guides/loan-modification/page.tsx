@@ -91,12 +91,13 @@ export default function LoanModificationPage() {
           </div>
         </section>
 
-        {/* Real Scenario */}
+        {/* Illustrative composite example (not a real client) */}
         <section className="mb-12 bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Real Homeowner Scenario</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">An Illustrative Example</h2>
+          <p className="text-sm text-gray-500 italic mb-4">A composite example built to show how this option can work. It is not a real client, and results vary with every lender and situation.</p>
           <div className="space-y-4 text-gray-700">
             <p>
-              <strong>Sarah M., Bergen County</strong> was a dental hygienist making $55,000 per year when her hours were cut to part-time due to office restructuring. Her monthly mortgage payment was $1,400, but her income dropped to $3,200 per month. She fell behind by 4 payments.
+              <strong>Sarah (a hypothetical homeowner in Bergen County)</strong> was a dental hygienist making $55,000 per year when her hours were cut to part-time due to office restructuring. Her monthly mortgage payment was $1,400, but her income dropped to $3,200 per month. She fell behind by 4 payments.
             </p>
             <p>
               She contacted her lender and applied for a loan modification. With help from documentation showing her new income and a budget, her lender approved a modification that:
@@ -107,7 +108,7 @@ export default function LoanModificationPage() {
               <li>Capitalized the missed payments into the loan balance</li>
             </ul>
             <p>
-              Sarah stopped the foreclosure, kept her home, and got a payment she could actually afford. Her credit score took a temporary hit from the missed payments, but 3 years later it had recovered to 680+.
+              The modification brought her loan current, she kept her home, and got a payment she could actually afford. Her credit score took a temporary hit from the missed payments, but 3 years later it had recovered to 680+.
             </p>
           </div>
         </section>
@@ -455,7 +456,7 @@ export default function LoanModificationPage() {
               </div>
               <div className="flex gap-4">
                 <span className="text-blue-600 font-bold text-lg">3.</span>
-                <span>Write a clear, specific hardship letter explaining exactly what happened and why you need the modification.</span>
+                <span>Write a clear, specific hardship letter explaining exactly what happened and why you need the modification. The free <Link href="/tools/letter-builder/" className="font-semibold underline underline-offset-4">letter builder</Link> walks you through it.</span>
               </div>
               <div className="flex gap-4">
                 <span className="text-blue-600 font-bold text-lg">4.</span>

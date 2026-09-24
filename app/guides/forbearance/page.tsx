@@ -177,12 +177,13 @@ export default function ForbearancePage() {
           </div>
         </section>
 
-        {/* Real Scenario */}
+        {/* Illustrative composite example (not a real client) */}
         <section className="mb-12 bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Real Homeowner Scenario</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">An Illustrative Example</h2>
+          <p className="text-sm text-gray-500 italic mb-4">A composite example built to show how this option can work. It is not a real client, and results vary with every lender and situation.</p>
           <div className="space-y-4 text-gray-700">
             <p>
-              <strong>Patricia M., Newark</strong> was steadily employed as a nurse making $3,500 per month with a $1,100 mortgage payment. In November, she was involved in a car accident and required emergency surgery. She missed 3 months of work for recovery and fell behind $3,300 on her mortgage.
+              <strong>Patricia (a hypothetical homeowner in Newark)</strong> was steadily employed as a nurse making $3,500 per month with a $1,100 mortgage payment. In November, she was involved in a car accident and required emergency surgery. She missed 3 months of work for recovery and fell behind $3,300 on her mortgage.
             </p>
             <p>
               She contacted her lender and requested forbearance, explaining that she expected to return to full-time work in January. Her lender approved a 3-month forbearance agreement:

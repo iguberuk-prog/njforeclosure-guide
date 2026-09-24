@@ -71,6 +71,11 @@ export default function SheriffSalesPage() {
       </section>
 
       <section className="max-w-5xl mx-auto px-4 pb-16">
+        <p className="text-slate-600 mb-6">
+          Statewide numbers:{' '}
+          <Link href="/reports/nj-sheriff-sales/" className="font-semibold text-slate-900 underline underline-offset-4">this month&apos;s New Jersey Sheriff Sale Report</Link>{' '}
+          (scheduled sales by county, town and lender).
+        </p>
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">Find your county</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SHERIFF_SOURCES.map((s) => (

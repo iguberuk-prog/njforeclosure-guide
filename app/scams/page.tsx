@@ -127,6 +127,15 @@ export default function ScamsPage() {
           ))}
         </ol>
 
+        <div className="rounded-2xl border-2 border-amber-300 bg-amber-50 px-6 py-5 mb-12">
+          <p className="font-bold text-slate-900 mb-1">Got an offer, letter or text you&apos;re not sure about?</p>
+          <p className="text-slate-700 leading-relaxed">
+            Paste it into the free{' '}
+            <Link href="/tools/scam-checker/" className="font-semibold text-slate-900 underline underline-offset-4">Foreclosure Scam Checker</Link>{' '}
+            to see which known red flags it contains. Nothing you paste leaves your browser.
+          </p>
+        </div>
+
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
           What the law actually says
         </h2>

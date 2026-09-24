@@ -133,6 +133,15 @@ export default function StatisticsPage() {
           ))}
         </div>
 
+        <div className="rounded-2xl bg-slate-50 border border-slate-200 px-6 py-5 mb-14">
+          <p className="font-bold text-slate-900 mb-1">This month&apos;s sheriff sale numbers, by county</p>
+          <p className="text-slate-600 leading-relaxed">
+            Our{' '}
+            <Link href="/reports/nj-sheriff-sales/" className="font-semibold text-slate-900 underline underline-offset-4">New Jersey Sheriff Sale Report</Link>{' '}
+            counts every scheduled sale on the counties&apos; public listings: by county, by town, by lender, and how often sales are postponed.
+          </p>
+        </div>
+
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">Closer to the ground</h2>
         <div className="space-y-6 mb-14">
           {MORE_STATS.map((s) => (

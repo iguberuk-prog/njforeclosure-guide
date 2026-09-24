@@ -50,6 +50,16 @@ const LINKS: { href: string; title: string; sub: string; hot?: boolean }[] = [
     sub: 'Money above the debt is generally yours — estimate it free',
   },
   {
+    href: '/tools/scam-checker',
+    title: 'Is This Offer a Scam? Check It',
+    sub: 'Paste a letter, text or offer and see the red flags — private',
+  },
+  {
+    href: '/tools/letter-builder',
+    title: 'Write My Hardship Letter',
+    sub: 'Free fill-in letters to your servicer: hardship, appeal, postponement',
+  },
+  {
     href: '/decoder',
     title: 'I Got a Letter — What Is It?',
     sub: 'Match your letter in 10 seconds, see how much time you have',

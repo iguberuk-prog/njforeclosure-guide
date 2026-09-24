@@ -1,0 +1,1265 @@
+{
+  "month": "2026-09",
+  "generatedAt": "2026-09-24T18:57:10.330Z",
+  "asOfDate": "2026-09-24",
+  "sourceNote": "Aggregated from each county sheriff's public foreclosure sale listing on CivilView (salesweb.civilview.com), read once per county on the date shown. Counts are of scheduled sheriff sales, not completed sales; listings change daily and sales are frequently adjourned. No names, street addresses or sheriff numbers are stored or published.",
+  "method": {
+    "countiesAttempted": 17,
+    "detailSamplePerCounty": 15,
+    "townMinCell": 3,
+    "adjournmentDefinition": "A sampled scheduled listing counts as adjourned if any entry in its CivilView status history is an adjournment (labels containing \"Adjourn\" or \"ADJ\", e.g. \"Adjourned - Defendant\", \"Plaintiff Adjournment\", \"Bankruptcy/Adjourned\"). Bankruptcy holds and reschedules without an adjournment label are not counted.",
+    "terminalStatusNote": "Where a county shows a Status column in its Open view, rows whose status is final (purchased, redeemed, cancelled, reinstated, settled, etc.) are excluded from scheduled counts and reported as terminalInOpenView.",
+    "sampleStatusLabels": {
+      "Scheduled": 209,
+      "Adjourned - Defendant": 42,
+      "Adjourned - Plaintiff": 21,
+      "Defendant Adjourned to": 18,
+      "Plaintiff Adjourned to": 17,
+      "Defendant Adjournment": 17,
+      "Adjourned - Court": 16,
+      "Scheduled for": 15,
+      "Bankruptcy Hold": 12,
+      "Adjourned by the Defendant to": 11,
+      "Scheduled - Foreclosure": 9,
+      "Adjournment Defendant": 9,
+      "1st Debtor Adjournment to": 8,
+      "Plaintiff Adjournment": 8,
+      "Adjourned Defendant": 8,
+      "Bankruptcy": 7,
+      "Hold - Bankruptcy": 7,
+      "Rescheduled": 6,
+      "2nd Debtor Adjournment to": 6,
+      "DEFENDANT TOTAL 8 WEEK ADJ": 6,
+      "Court Adjourned to": 5,
+      "1st Attorney Adjournment to": 5,
+      "2nd Attorney Adjournment to": 5,
+      "Adjourned Plaintiff": 5,
+      "Cancelled": 5,
+      "Adjourned - Plaintiff - New Sale Date:": 5,
+      "Court Ordered Adjournment": 4,
+      "Adjournment Plaintiff": 4,
+      "BANKRUPTCY HOLD": 3,
+      "Bankruptcy/Adjourned": 3,
+      "Adjourned per Court Order to": 3,
+      "Consensual/Mutual Adjournment": 2,
+      "Adjourned - Joint": 2,
+      "Adjourned by Court to": 2,
+      "Open": 2,
+      "Adjourned Sheriff": 2,
+      "POST BANKRUPTCY SALE DATE": 2,
+      "RESCHEDULED": 2,
+      "JOINT ADJOURNMENT": 2,
+      "Court Ordered Defendant Adjournment": 2,
+      "Bankrupt": 2,
+      "Adjourned by the Plaintiff to": 2,
+      "Bankuptcy": 2,
+      "Purchased - 3rd Party": 1,
+      "Defendant's Attorney Adjourned to": 1,
+      "Adjournment Consensual": 1,
+      "Rescheduled Post Bankruptcy to": 1,
+      "Indefinite Bankruptcy": 1,
+      "No ATTORNEY Adjournments Available as of": 1,
+      "Purchased: 3rd Party": 1,
+      "Consented Adjournment to": 1,
+      "One DEBTOR Adjournment Available as of": 1,
+      "Court Adjournment": 1,
+      "Bankruptcy Reschedule": 1,
+      "Bankruptcy - Sale on Hold": 1,
+      "Post Bankruptcy - Adjourned Date": 1,
+      "Mutual Adjournmnet": 1,
+      "Settled - Foreclosures": 1,
+      "Adjourned - Defendant 1st (4 weeks)": 1,
+      "Adjourned - Defendant 2nd (4 WEEKS)": 1,
+      "ADJOURNED SHERIFF - New Sale Date:": 1,
+      "On Hold By Court": 1,
+      "Adjourned by Mutual Consent to": 1,
+      "Adjourned - Bankruptcy": 1,
+      "Adjourned per Statutory Requirements to": 1,
+      "Sheriff Adjournment": 1
+    },
+    "soldOrCancelledNote": "CivilView's Sold\\Cancelled view combines sold and cancelled sales and shows a recent window whose length varies by county; the two outcomes cannot be separated from the list view."
+  },
+  "counties": [
+    {
+      "slug": "camden-county",
+      "name": "Camden",
+      "openListings": 180,
+      "openViewRows": 180,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-10-07",
+      "salesNext30": 139,
+      "salesNext60": 180,
+      "salesNext90": 180,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 590,
+      "soldOrCancelledLast30": 70,
+      "soldOrCancelledWindow": {
+        "from": "2025-06-10",
+        "to": "2026-09-22"
+      },
+      "sampleAdjournedPct": 47,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:50:00 PM",
+      "distinctTowns": 58,
+      "topTowns": [
+        {
+          "town": "Camden",
+          "count": 30
+        },
+        {
+          "town": "Pennsauken",
+          "count": 18
+        },
+        {
+          "town": "Sicklerville",
+          "count": 14
+        },
+        {
+          "town": "Gloucester City",
+          "count": 10
+        },
+        {
+          "town": "Cherry Hill",
+          "count": 8
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 173,
+        "tax": 2,
+        "hoa": 3,
+        "other": 2
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "essex-county",
+      "name": "Essex",
+      "openListings": 180,
+      "openViewRows": 180,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-09-24",
+      "salesNext30": 92,
+      "salesNext60": 173,
+      "salesNext90": 180,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 161,
+      "soldOrCancelledLast30": 59,
+      "soldOrCancelledWindow": {
+        "from": "2026-07-01",
+        "to": "2026-12-16"
+      },
+      "sampleAdjournedPct": 60,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:52:00 PM",
+      "distinctTowns": 19,
+      "topTowns": [
+        {
+          "town": "Newark",
+          "count": 66
+        },
+        {
+          "town": "Irvington",
+          "count": 28
+        },
+        {
+          "town": "East Orange",
+          "count": 21
+        },
+        {
+          "town": "Orange",
+          "count": 10
+        },
+        {
+          "town": "West Orange",
+          "count": 10
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 179,
+        "tax": 0,
+        "hoa": 1,
+        "other": 0
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "gloucester-county",
+      "name": "Gloucester",
+      "openListings": 141,
+      "openViewRows": 141,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": true,
+      "nextSale": "2026-09-30",
+      "salesNext30": 39,
+      "salesNext60": 79,
+      "salesNext90": 82,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 246,
+      "soldOrCancelledLast30": 19,
+      "soldOrCancelledWindow": {
+        "from": "2025-09-24",
+        "to": "2026-09-16"
+      },
+      "sampleAdjournedPct": 53,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:50:00 PM",
+      "distinctTowns": 29,
+      "topTowns": [
+        {
+          "town": "Williamstown",
+          "count": 18
+        },
+        {
+          "town": "Deptford",
+          "count": 14
+        },
+        {
+          "town": "Woodbury",
+          "count": 13
+        },
+        {
+          "town": "Sewell",
+          "count": 11
+        },
+        {
+          "town": "Glassboro",
+          "count": 10
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 138,
+        "tax": 0,
+        "hoa": 2,
+        "other": 1
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "middlesex-county",
+      "name": "Middlesex",
+      "openListings": 137,
+      "openViewRows": 194,
+      "terminalInOpenView": 57,
+      "hasStatusColumn": true,
+      "nextSale": "2026-10-07",
+      "salesNext30": 56,
+      "salesNext60": 112,
+      "salesNext90": 129,
+      "pastDatedOpen": 7,
+      "undatedOpen": 0,
+      "soldOrCancelled": 463,
+      "soldOrCancelledLast30": 25,
+      "soldOrCancelledWindow": {
+        "from": "2020-01-22",
+        "to": "2026-11-04"
+      },
+      "sampleAdjournedPct": 40,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:52:00 PM",
+      "distinctTowns": 36,
+      "topTowns": [
+        {
+          "town": "Edison",
+          "count": 15
+        },
+        {
+          "town": "New Brunswick",
+          "count": 12
+        },
+        {
+          "town": "Piscataway",
+          "count": 9
+        },
+        {
+          "town": "Woodbridge",
+          "count": 9
+        },
+        {
+          "town": "Monroe",
+          "count": 6
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 122,
+        "tax": 0,
+        "hoa": 13,
+        "other": 2
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "passaic-county",
+      "name": "Passaic",
+      "openListings": 118,
+      "openViewRows": 118,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-09-29",
+      "salesNext30": 46,
+      "salesNext60": 84,
+      "salesNext90": 101,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 222,
+      "soldOrCancelledLast30": 26,
+      "soldOrCancelledWindow": {
+        "from": "2025-09-25",
+        "to": "2026-09-22"
+      },
+      "sampleAdjournedPct": 40,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:50:00 PM",
+      "distinctTowns": 17,
+      "topTowns": [
+        {
+          "town": "Paterson",
+          "count": 39
+        },
+        {
+          "town": "Clifton",
+          "count": 16
+        },
+        {
+          "town": "Wayne",
+          "count": 14
+        },
+        {
+          "town": "West Milford",
+          "count": 10
+        },
+        {
+          "town": "Passaic",
+          "count": 9
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 115,
+        "tax": 1,
+        "hoa": 0,
+        "other": 2
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 2,
+      "warnings": []
+    },
+    {
+      "slug": "monmouth-county",
+      "name": "Monmouth",
+      "openListings": 101,
+      "openViewRows": 102,
+      "terminalInOpenView": 1,
+      "hasStatusColumn": true,
+      "nextSale": "2026-09-28",
+      "salesNext30": 44,
+      "salesNext60": 100,
+      "salesNext90": 101,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 688,
+      "soldOrCancelledLast30": 41,
+      "soldOrCancelledWindow": {
+        "from": "2024-09-23",
+        "to": "2026-09-22"
+      },
+      "sampleAdjournedPct": 67,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:00:00 PM",
+      "distinctTowns": 39,
+      "topTowns": [
+        {
+          "town": "Neptune",
+          "count": 12
+        },
+        {
+          "town": "Middletown",
+          "count": 9
+        },
+        {
+          "town": "Howell",
+          "count": 7
+        },
+        {
+          "town": "Keansburg",
+          "count": 7
+        },
+        {
+          "town": "Manalapan",
+          "count": 5
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 93,
+        "tax": 1,
+        "hoa": 3,
+        "other": 4
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 1,
+      "warnings": []
+    },
+    {
+      "slug": "morris-county",
+      "name": "Morris",
+      "openListings": 91,
+      "openViewRows": 91,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-10-01",
+      "salesNext30": 32,
+      "salesNext60": 52,
+      "salesNext90": 52,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 37,
+      "soldOrCancelledLast30": 13,
+      "soldOrCancelledWindow": {
+        "from": "2026-07-02",
+        "to": "2026-09-18"
+      },
+      "sampleAdjournedPct": 80,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:50:00 PM",
+      "distinctTowns": 40,
+      "topTowns": [
+        {
+          "town": "Rockaway",
+          "count": 9
+        },
+        {
+          "town": "Dover",
+          "count": 5
+        },
+        {
+          "town": "Lake Hopatcong",
+          "count": 5
+        },
+        {
+          "town": "Wharton",
+          "count": 5
+        },
+        {
+          "town": "Jefferson",
+          "count": 4
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 88,
+        "tax": 0,
+        "hoa": 1,
+        "other": 2
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "bergen-county",
+      "name": "Bergen",
+      "openListings": 86,
+      "openViewRows": 86,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-09-25",
+      "salesNext30": 66,
+      "salesNext60": 81,
+      "salesNext90": 86,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 366,
+      "soldOrCancelledLast30": 31,
+      "soldOrCancelledWindow": {
+        "from": "2025-09-24",
+        "to": "2026-09-23"
+      },
+      "sampleAdjournedPct": 73,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:00:00 PM",
+      "distinctTowns": 44,
+      "topTowns": [
+        {
+          "town": "Teaneck",
+          "count": 6
+        },
+        {
+          "town": "Edgewater",
+          "count": 5
+        },
+        {
+          "town": "Cliffside Park",
+          "count": 4
+        },
+        {
+          "town": "Englewood",
+          "count": 4
+        },
+        {
+          "town": "Fair Lawn",
+          "count": 4
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 83,
+        "tax": 0,
+        "hoa": 1,
+        "other": 2
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "atlantic-county",
+      "name": "Atlantic",
+      "openListings": 83,
+      "openViewRows": 83,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-09-24",
+      "salesNext30": 56,
+      "salesNext60": 82,
+      "salesNext90": 83,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 819,
+      "soldOrCancelledLast30": 30,
+      "soldOrCancelledWindow": {
+        "from": "2024-09-25",
+        "to": "2026-09-18"
+      },
+      "sampleAdjournedPct": 47,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:50:00 PM",
+      "distinctTowns": 23,
+      "topTowns": [
+        {
+          "town": "Galloway Township",
+          "count": 18
+        },
+        {
+          "town": "Egg Harbor Township",
+          "count": 13
+        },
+        {
+          "town": "Atlantic City",
+          "count": 10
+        },
+        {
+          "town": "Pleasantville",
+          "count": 10
+        },
+        {
+          "town": "Mays Landing",
+          "count": 5
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 64,
+        "tax": 0,
+        "hoa": 0,
+        "other": 19
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "burlington-county",
+      "name": "Burlington",
+      "openListings": 80,
+      "openViewRows": 80,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-09-24",
+      "salesNext30": 59,
+      "salesNext60": 80,
+      "salesNext90": 80,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": null,
+      "soldOrCancelledLast30": null,
+      "soldOrCancelledWindow": null,
+      "sampleAdjournedPct": 73,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:02:00 PM",
+      "distinctTowns": 31,
+      "topTowns": [
+        {
+          "town": "Willingboro",
+          "count": 8
+        },
+        {
+          "town": "Medford",
+          "count": 6
+        },
+        {
+          "town": "Browns Mills",
+          "count": 5
+        },
+        {
+          "town": "Mt. Laurel",
+          "count": 5
+        },
+        {
+          "town": "Bordentown",
+          "count": 4
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 77,
+        "tax": 0,
+        "hoa": 3,
+        "other": 0
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": [
+        "Sold\\Cancelled view is empty on CivilView (history not published)"
+      ]
+    },
+    {
+      "slug": "union-county",
+      "name": "Union",
+      "openListings": 79,
+      "openViewRows": 79,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-10-07",
+      "salesNext30": 58,
+      "salesNext60": 70,
+      "salesNext90": 78,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 298,
+      "soldOrCancelledLast30": 47,
+      "soldOrCancelledWindow": {
+        "from": "2025-09-24",
+        "to": "2026-10-21"
+      },
+      "sampleAdjournedPct": 80,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:54:00 PM",
+      "distinctTowns": 15,
+      "topTowns": [
+        {
+          "town": "Plainfield",
+          "count": 20
+        },
+        {
+          "town": "Union",
+          "count": 15
+        },
+        {
+          "town": "Linden",
+          "count": 9
+        },
+        {
+          "town": "Rahway",
+          "count": 9
+        },
+        {
+          "town": "Elizabeth",
+          "count": 6
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 77,
+        "tax": 0,
+        "hoa": 1,
+        "other": 1
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "hudson-county",
+      "name": "Hudson",
+      "openListings": 67,
+      "openViewRows": 67,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-09-24",
+      "salesNext30": 41,
+      "salesNext60": 64,
+      "salesNext90": 67,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 59,
+      "soldOrCancelledLast30": 22,
+      "soldOrCancelledWindow": {
+        "from": "2026-06-29",
+        "to": "2026-09-23"
+      },
+      "sampleAdjournedPct": 53,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:00:00 PM",
+      "distinctTowns": 9,
+      "topTowns": [
+        {
+          "town": "Jersey City",
+          "count": 42
+        },
+        {
+          "town": "Bayonne",
+          "count": 5
+        },
+        {
+          "town": "Union City",
+          "count": 4
+        },
+        {
+          "town": "Weehawken",
+          "count": 4
+        },
+        {
+          "town": "West New York",
+          "count": 4
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 63,
+        "tax": 0,
+        "hoa": 3,
+        "other": 1
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "cumberland-county",
+      "name": "Cumberland",
+      "openListings": 43,
+      "openViewRows": 43,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-10-07",
+      "salesNext30": 36,
+      "salesNext60": 43,
+      "salesNext90": 43,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 192,
+      "soldOrCancelledLast30": 28,
+      "soldOrCancelledWindow": {
+        "from": "2025-09-24",
+        "to": "2026-09-23"
+      },
+      "sampleAdjournedPct": 67,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:30:00 PM",
+      "distinctTowns": 9,
+      "topTowns": [
+        {
+          "town": "Millville",
+          "count": 13
+        },
+        {
+          "town": "Bridgeton",
+          "count": 12
+        },
+        {
+          "town": "Vineland",
+          "count": 11
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 43,
+        "tax": 0,
+        "hoa": 0,
+        "other": 0
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 1,
+      "warnings": []
+    },
+    {
+      "slug": "hunterdon-county",
+      "name": "Hunterdon",
+      "openListings": 31,
+      "openViewRows": 31,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-09-30",
+      "salesNext30": 8,
+      "salesNext60": 21,
+      "salesNext90": 24,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 14,
+      "soldOrCancelledLast30": 6,
+      "soldOrCancelledWindow": {
+        "from": "2026-06-30",
+        "to": "2026-09-16"
+      },
+      "sampleAdjournedPct": 73,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:34:00 PM",
+      "distinctTowns": 17,
+      "topTowns": [
+        {
+          "town": "Flemington",
+          "count": 7
+        },
+        {
+          "town": "Whitehouse Station",
+          "count": 4
+        },
+        {
+          "town": "Frenchtown",
+          "count": 3
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 29,
+        "tax": 0,
+        "hoa": 1,
+        "other": 1
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "cape-may-county",
+      "name": "Cape May",
+      "openListings": 28,
+      "openViewRows": 28,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-09-30",
+      "salesNext30": 8,
+      "salesNext60": 19,
+      "salesNext90": 21,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 84,
+      "soldOrCancelledLast30": 3,
+      "soldOrCancelledWindow": {
+        "from": "2025-10-01",
+        "to": "2026-09-30"
+      },
+      "sampleAdjournedPct": 80,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:00:00 PM",
+      "distinctTowns": 11,
+      "topTowns": [
+        {
+          "town": "Cape May Court House",
+          "count": 8
+        },
+        {
+          "town": "Woodbine",
+          "count": 5
+        },
+        {
+          "town": "Rio Grande",
+          "count": 3
+        },
+        {
+          "town": "Villas",
+          "count": 3
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 28,
+        "tax": 0,
+        "hoa": 0,
+        "other": 0
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    },
+    {
+      "slug": "salem-county",
+      "name": "Salem",
+      "openListings": 20,
+      "openViewRows": 20,
+      "terminalInOpenView": 0,
+      "hasStatusColumn": false,
+      "nextSale": "2026-10-19",
+      "salesNext30": 15,
+      "salesNext60": 19,
+      "salesNext90": 19,
+      "pastDatedOpen": 0,
+      "undatedOpen": 0,
+      "soldOrCancelled": 96,
+      "soldOrCancelledLast30": 10,
+      "soldOrCancelledWindow": {
+        "from": "2025-09-29",
+        "to": "2026-09-18"
+      },
+      "sampleAdjournedPct": 33,
+      "sampleSize": 15,
+      "lastUpdated": "9/24/2026 2:53:00 PM",
+      "distinctTowns": 7,
+      "topTowns": [
+        {
+          "town": "Pennsville",
+          "count": 9
+        },
+        {
+          "town": "Salem",
+          "count": 3
+        }
+      ],
+      "plaintiffTypes": {
+        "institutional": 20,
+        "tax": 0,
+        "hoa": 0,
+        "other": 0
+      },
+      "unparsedDates": 0,
+      "unmatchedTowns": 0,
+      "warnings": []
+    }
+  ],
+  "statewide": {
+    "countiesIncluded": 16,
+    "openListings": 1465,
+    "salesNext30": 795,
+    "salesNext60": 1259,
+    "salesNext90": 1326,
+    "pastDatedOpen": 7,
+    "terminalInOpenView": 58,
+    "nextSale": "2026-09-24",
+    "soldOrCancelledLast30": 430,
+    "soldOrCancelledCounties": 15,
+    "sampleSize": 240,
+    "sampleCounties": 16,
+    "sampleAdjourned": 145,
+    "sampleAdjournedPct": 60,
+    "distinctTowns": 404,
+    "plaintiffTypes": {
+      "institutional": 1392,
+      "tax": 4,
+      "hoa": 32,
+      "other": 37
+    },
+    "beyond12Weeks": 133
+  },
+  "topTowns": [
+    {
+      "town": "Newark",
+      "county": "Essex",
+      "countySlug": "essex-county",
+      "count": 66
+    },
+    {
+      "town": "Jersey City",
+      "county": "Hudson",
+      "countySlug": "hudson-county",
+      "count": 42
+    },
+    {
+      "town": "Paterson",
+      "county": "Passaic",
+      "countySlug": "passaic-county",
+      "count": 39
+    },
+    {
+      "town": "Camden",
+      "county": "Camden",
+      "countySlug": "camden-county",
+      "count": 30
+    },
+    {
+      "town": "Irvington",
+      "county": "Essex",
+      "countySlug": "essex-county",
+      "count": 28
+    },
+    {
+      "town": "East Orange",
+      "county": "Essex",
+      "countySlug": "essex-county",
+      "count": 21
+    },
+    {
+      "town": "Plainfield",
+      "county": "Union",
+      "countySlug": "union-county",
+      "count": 20
+    },
+    {
+      "town": "Galloway Township",
+      "county": "Atlantic",
+      "countySlug": "atlantic-county",
+      "count": 18
+    },
+    {
+      "town": "Pennsauken",
+      "county": "Camden",
+      "countySlug": "camden-county",
+      "count": 18
+    },
+    {
+      "town": "Williamstown",
+      "county": "Gloucester",
+      "countySlug": "gloucester-county",
+      "count": 18
+    },
+    {
+      "town": "Clifton",
+      "county": "Passaic",
+      "countySlug": "passaic-county",
+      "count": 16
+    },
+    {
+      "town": "Edison",
+      "county": "Middlesex",
+      "countySlug": "middlesex-county",
+      "count": 15
+    },
+    {
+      "town": "Union",
+      "county": "Union",
+      "countySlug": "union-county",
+      "count": 15
+    },
+    {
+      "town": "Deptford",
+      "county": "Gloucester",
+      "countySlug": "gloucester-county",
+      "count": 14
+    },
+    {
+      "town": "Sicklerville",
+      "county": "Camden",
+      "countySlug": "camden-county",
+      "count": 14
+    },
+    {
+      "town": "Wayne",
+      "county": "Passaic",
+      "countySlug": "passaic-county",
+      "count": 14
+    },
+    {
+      "town": "Egg Harbor Township",
+      "county": "Atlantic",
+      "countySlug": "atlantic-county",
+      "count": 13
+    },
+    {
+      "town": "Millville",
+      "county": "Cumberland",
+      "countySlug": "cumberland-county",
+      "count": 13
+    },
+    {
+      "town": "Woodbury",
+      "county": "Gloucester",
+      "countySlug": "gloucester-county",
+      "count": 13
+    },
+    {
+      "town": "Bridgeton",
+      "county": "Cumberland",
+      "countySlug": "cumberland-county",
+      "count": 12
+    },
+    {
+      "town": "Neptune",
+      "county": "Monmouth",
+      "countySlug": "monmouth-county",
+      "count": 12
+    },
+    {
+      "town": "New Brunswick",
+      "county": "Middlesex",
+      "countySlug": "middlesex-county",
+      "count": 12
+    },
+    {
+      "town": "Sewell",
+      "county": "Gloucester",
+      "countySlug": "gloucester-county",
+      "count": 11
+    },
+    {
+      "town": "Vineland",
+      "county": "Cumberland",
+      "countySlug": "cumberland-county",
+      "count": 11
+    },
+    {
+      "town": "Atlantic City",
+      "county": "Atlantic",
+      "countySlug": "atlantic-county",
+      "count": 10
+    }
+  ],
+  "topPlaintiffs": [
+    {
+      "name": "U.S. Bank (as trustee)",
+      "count": 240
+    },
+    {
+      "name": "Lakeview Loan Servicing",
+      "count": 89
+    },
+    {
+      "name": "Wilmington Savings Fund Society (as trustee)",
+      "count": 66
+    },
+    {
+      "name": "Freedom Mortgage",
+      "count": 56
+    },
+    {
+      "name": "NewRez / Shellpoint",
+      "count": 53
+    },
+    {
+      "name": "NJ Housing and Mortgage Finance Agency",
+      "count": 53
+    },
+    {
+      "name": "PennyMac",
+      "count": 47
+    },
+    {
+      "name": "Deutsche Bank (as trustee)",
+      "count": 40
+    },
+    {
+      "name": "Wells Fargo",
+      "count": 34
+    },
+    {
+      "name": "Nationstar Mortgage (Mr. Cooper)",
+      "count": 32
+    },
+    {
+      "name": "Carrington Mortgage Services",
+      "count": 29
+    },
+    {
+      "name": "Rocket Mortgage",
+      "count": 28
+    },
+    {
+      "name": "M&T Bank",
+      "count": 27
+    },
+    {
+      "name": "Freddie Mac",
+      "count": 25
+    },
+    {
+      "name": "Bank of New York Mellon (as trustee)",
+      "count": 23
+    }
+  ],
+  "weeklySchedule": [
+    {
+      "weekStart": "2026-09-24",
+      "weekEnd": "2026-09-30",
+      "count": 114
+    },
+    {
+      "weekStart": "2026-10-01",
+      "weekEnd": "2026-10-07",
+      "count": 228
+    },
+    {
+      "weekStart": "2026-10-08",
+      "weekEnd": "2026-10-14",
+      "count": 160
+    },
+    {
+      "weekStart": "2026-10-15",
+      "weekEnd": "2026-10-21",
+      "count": 212
+    },
+    {
+      "weekStart": "2026-10-22",
+      "weekEnd": "2026-10-28",
+      "count": 195
+    },
+    {
+      "weekStart": "2026-10-29",
+      "weekEnd": "2026-11-04",
+      "count": 132
+    },
+    {
+      "weekStart": "2026-11-05",
+      "weekEnd": "2026-11-11",
+      "count": 102
+    },
+    {
+      "weekStart": "2026-11-12",
+      "weekEnd": "2026-11-18",
+      "count": 93
+    },
+    {
+      "weekStart": "2026-11-19",
+      "weekEnd": "2026-11-25",
+      "count": 23
+    },
+    {
+      "weekStart": "2026-11-26",
+      "weekEnd": "2026-12-02",
+      "count": 39
+    },
+    {
+      "weekStart": "2026-12-03",
+      "weekEnd": "2026-12-09",
+      "count": 13
+    },
+    {
+      "weekStart": "2026-12-10",
+      "weekEnd": "2026-12-16",
+      "count": 14
+    }
+  ],
+  "notIncluded": [
+    {
+      "slug": "mercer-county",
+      "name": "Mercer",
+      "reason": "Publishes its sheriff sale list outside CivilView",
+      "salesUrl": "https://www.mercercounty.org/government/sheriff-/informational/sheriff-s-foreclosure-sale"
+    },
+    {
+      "slug": "somerset-county",
+      "name": "Somerset",
+      "reason": "Publishes its sheriff sale list outside CivilView",
+      "salesUrl": "https://www.somersetcountynj.gov/government/elected-officials/sheriff-s-office/divisions/sheriff-sales"
+    },
+    {
+      "slug": "sussex-county",
+      "name": "Sussex",
+      "reason": "Publishes its sheriff sale list outside CivilView",
+      "salesUrl": "https://www.sussexcountysheriff.com/foreclosure-listings"
+    },
+    {
+      "slug": "warren-county",
+      "name": "Warren",
+      "reason": "Publishes its sheriff sale list outside CivilView",
+      "salesUrl": "https://www.wcsheriffnj.gov/publicnotices"
+    },
+    {
+      "slug": "ocean-county",
+      "name": "Ocean",
+      "reason": "Its CivilView page lists no sales and has not been updated since 2026-02-27; check the sheriff's own website for the current list",
+      "salesUrl": "https://salesweb.civilview.com/Sales/SalesSearch?countyId=85"
+    }
+  ],
+  "failed": [],
+  "runtimeSeconds": 252
+}

@@ -159,12 +159,13 @@ export default function RefinancingPage() {
           </div>
         </section>
 
-        {/* Real Scenario */}
+        {/* Illustrative composite example (not a real client) */}
         <section className="mb-12 bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Real Homeowner Scenario</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">An Illustrative Example</h2>
+          <p className="text-sm text-gray-500 italic mb-4">A composite example built to show how this option can work. It is not a real client, and results vary with every lender and situation.</p>
           <div className="space-y-4 text-gray-700">
             <p>
-              <strong>James R., Essex County</strong> bought his home in 2008 at the height of the market for $285,000 with a 6.5% interest rate. His current balance is $210,000, and his home is now worth approximately $320,000 (he has $110,000 in equity).
+              <strong>James (a hypothetical homeowner in Essex County)</strong> bought his home in 2008 at the height of the market for $285,000 with a 6.5% interest rate. His current balance is $210,000, and his home is now worth approximately $320,000 (he has $110,000 in equity).
             </p>
             <p>
               His monthly payment is $1,580. Due to a job change, he had a 2-month income gap and fell behind on payments. He contacted his lender about options and discovered that with current interest rates at 4.2%, he could refinance into a 20-year mortgage at a significantly lower payment.
@@ -180,7 +181,7 @@ export default function RefinancingPage() {
               <li>Monthly savings: $290</li>
             </ul>
             <p>
-              James used the refinancing proceeds to pay off his missed payments, bringing the account current. He stopped the foreclosure process and now has a sustainable payment. Total process took 6 weeks.
+              James used the refinancing proceeds to pay off his missed payments, bringing the account current. That ended the foreclosure case, and he now has a sustainable payment. Total process took 6 weeks.
             </p>
           </div>
         </section>

@@ -31,7 +31,10 @@ const URL = 'https://njforeclosureguide.org/tools/catch-up/';
 export const metadata: Metadata = {
   title: fitTitle(TITLE),
   description: fitDescription(DESC),
-  alternates: { canonical: URL },
+  alternates: {
+    canonical: URL,
+    languages: { en: URL, es: 'https://njforeclosureguide.org/es/herramientas/ponerse-al-dia/', 'x-default': URL },
+  },
   openGraph: {
     images: OG_IMAGES,
     title: 'NJ Mortgage Catch-Up Calculator',
@@ -157,6 +160,7 @@ export default function CatchUpCalculatorPage() {
           <p className="font-bold text-slate-900 mb-3">Related</p>
           <ul className="space-y-2 text-slate-700">
             <li><Link href="/blog/reinstatement-quote-guide/" className="underline underline-offset-4">How to read a reinstatement quote</Link></li>
+            <li><Link href="/tools/letter-builder/?letter=quote" className="underline underline-offset-4">Letter builder: request your written reinstatement quote and payoff</Link></li>
             <li><Link href="/guides/loan-modification" className="underline underline-offset-4">Loan modification: keep your home by changing your mortgage terms</Link></li>
             <li><Link href="/guides/forbearance" className="underline underline-offset-4">Forbearance and deferment: pause or reduce payments while you recover</Link></li>
             <li><Link href="/tools/sheriff-sale-countdown" className="underline underline-offset-4">Sheriff sale countdown</Link></li>

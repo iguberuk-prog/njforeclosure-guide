@@ -91,12 +91,13 @@ export default function ShortSalePage() {
           </div>
         </section>
 
-        {/* Real Scenario */}
+        {/* Illustrative composite example (not a real client) */}
         <section className="mb-12 bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Real Homeowner Scenario</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">An Illustrative Example</h2>
+          <p className="text-sm text-gray-500 italic mb-4">A composite example built to show how this option can work. It is not a real client, and results vary with every lender and situation.</p>
           <div className="space-y-4 text-gray-700">
             <p>
-              <strong>Michael R., Bergen County</strong> bought his home in 2006 for $380,000 with a mortgage of $330,000. In 2024, the housing market declined and his home appraised at only $270,000. He owed $315,000 on the mortgage. He was underwater by $45,000.
+              <strong>Michael (a hypothetical homeowner in Bergen County)</strong> bought his home in 2006 for $380,000 with a mortgage of $330,000. By 2024, his neighborhood had never recovered its 2006 peak, and his home appraised at only $270,000. He owed $315,000 on the mortgage. He was underwater by $45,000.
             </p>
             <p>
               He lost his job and fell behind on payments. He realized he could not afford the home anymore and did not want to wait for foreclosure. His loan servicer was uncooperative about modification.

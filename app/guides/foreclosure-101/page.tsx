@@ -60,7 +60,7 @@ export default function Foreclosure101Page() {
               {
                 stage: 'Redemption Period',
                 timeframe: '35-45 days',
-                description: 'You can still stop foreclosure by paying all missed payments + fees.',
+                description: 'Paying all missed payments plus fees (reinstating) generally ends the case.',
               },
               {
                 stage: 'Foreclosure Auction',
@@ -93,7 +93,7 @@ export default function Foreclosure101Page() {
               'Right to receive notice before foreclosure begins',
               'Right to request a loan modification or forbearance',
               'Right to challenge the foreclosure in court',
-              'Right to redeem (pay all missed payments + fees to stop foreclosure)',
+              'Right to cure (pay all missed payments + fees to reinstate the loan and end the case)',
               'Right to sell the home yourself (as alternative to foreclosure)',
               'Right to file for bankruptcy protection (automatic stay)',
               'Right to consult with a HUD counselor for free',
