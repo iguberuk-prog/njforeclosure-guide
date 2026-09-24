@@ -58,6 +58,12 @@ export default function PartnersPage() {
             <pre className="rounded-xl bg-slate-950 text-slate-100 text-xs px-4 py-4 overflow-x-auto whitespace-pre-wrap break-all">
               {EMBED_CODE}
             </pre>
+            <p className="text-slate-600 leading-relaxed mt-4 text-sm">
+              <strong className="text-slate-900">En español:</strong> the same widget is available in Spanish — just
+              change <code className="text-xs bg-slate-100 px-1 rounded">/widget/timeline/</code> to{' '}
+              <code className="text-xs bg-slate-100 px-1 rounded">/widget/cronologia/</code> in the code above. It links
+              to our full Spanish guide and Command Center.
+            </p>
           </div>
           <div>
             <h2 className="font-serif text-2xl font-bold text-slate-900 mb-3">Live preview</h2>
