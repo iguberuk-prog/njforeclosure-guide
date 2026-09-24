@@ -12,8 +12,12 @@ export async function generateMetadata({ params }: { params: Promise<{ county: s
   const { county } = await params;
   const src = getSheriffSource(county);
   if (!src) return {};
-  const title = `${src.county} County NJ Sheriff Sales | Check Your Sale Date`;
-  const description = `Where ${src.county} County, NJ publishes foreclosure sheriff sale listings, how to check a sale date${src.phone ? `, the sheriff's office number (${src.phone})` : ''}, and how to request an adjournment under New Jersey law.`;
+  // Search Console (Aug 25-Sep 21, 2026): these pages rank ~6-10 for
+  // "<county> county sheriff sale(s)" but earned a 0-1% CTR under the old
+  // homeowner-only title. Most searchers want THE LIST, so the title now
+  // promises the official listings first; the homeowner help stays on-page.
+  const title = `${src.county} County NJ Sheriff Sale List | Official Listings & Rules`;
+  const description = `Go straight to the official ${src.county} County sheriff sale listings${src.usesCivilView ? ' (CivilView)' : ''}${src.phone ? `, the sheriff's office number (${src.phone})` : ''}, where sales are held, and how homeowners can check or postpone a sale date under NJ law.`;
   return {
     title,
     description,
@@ -68,9 +72,25 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
             {src.county} County Sheriff Sales
           </h1>
           <p className="text-slate-300 text-lg leading-relaxed">
-            How to check a foreclosure sale date in {src.county} County, reach the sheriff&apos;s
-            office, and use the time New Jersey law gives you.
+            The official {src.county} County sale list, the sheriff&apos;s office contact, and — if
+            it&apos;s your home on the list — how to use the time New Jersey law gives you.
           </p>
+          <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href={src.salesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-amber-400 text-slate-950 px-7 py-3.5 rounded-lg font-bold hover:bg-amber-300 transition"
+            >
+              View the official {src.county} County list →
+            </a>
+            <Link
+              href="/command-center?stage=scheduled"
+              className="border border-white/30 px-7 py-3.5 rounded-lg font-bold hover:bg-white/10 transition"
+            >
+              It&apos;s my home — what can I do?
+            </Link>
+          </div>
         </div>
       </section>
 
