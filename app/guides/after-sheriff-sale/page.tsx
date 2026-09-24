@@ -26,7 +26,10 @@ export const metadata: Metadata = {
   title: fitTitle('What Happens After a Sheriff Sale in NJ? Timeline, Rights & Money'),
   description:
     fitDescription('After a New Jersey sheriff sale: the 10-day window, when the deed transfers, how long you can stay, the writ of possession, cash for keys, surplus funds, and deficiency judgments — in order.'),
-  alternates: { canonical: 'https://njforeclosureguide.org/guides/after-sheriff-sale/' },
+  alternates: {
+    canonical: 'https://njforeclosureguide.org/guides/after-sheriff-sale/',
+    languages: { en: 'https://njforeclosureguide.org/guides/after-sheriff-sale/', es: 'https://njforeclosureguide.org/es/guias/despues-de-la-subasta/', 'x-default': 'https://njforeclosureguide.org/guides/after-sheriff-sale/' },
+  },
   openGraph: {
     images: OG_IMAGES,
     title: 'What Happens After a Sheriff Sale in New Jersey',
@@ -141,7 +144,8 @@ export default function AfterSheriffSalePage() {
             before the gavel. Start with your{' '}
             <Link href="/sheriff-sales" className="text-slate-900 underline underline-offset-4 font-semibold">county&apos;s official sale list</Link>{' '}
             and the{' '}
-            <Link href="/blog/sheriff-sale-adjournment-playbook/" className="text-slate-900 underline underline-offset-4 font-semibold">adjournment playbook</Link>.
+            <Link href="/blog/sheriff-sale-adjournment-playbook/" className="text-slate-900 underline underline-offset-4 font-semibold">adjournment playbook</Link>, or run the{' '}
+            <Link href="/tools/sheriff-sale-countdown" className="text-slate-900 underline underline-offset-4 font-semibold">sheriff sale countdown</Link>.
           </p>
         </div>
 

@@ -187,6 +187,13 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
           If your home has a sale date
         </h2>
         <div className="space-y-4 text-slate-600 leading-relaxed mb-10">
+          <p className="rounded-xl bg-amber-50 border border-amber-200 px-4 py-3">
+            <strong className="text-slate-900">Have a date?</strong>{' '}
+            <Link href="/tools/sheriff-sale-countdown" className="text-slate-900 underline underline-offset-4 font-semibold">
+              Use the sheriff sale countdown
+            </Link>{' '}
+            to see your days left, how far adjournments can generally move it, and a plan for today.
+          </p>
           <p>
             <strong className="text-slate-900">First, confirm the actual date</strong> using the
             listings link above; sales are frequently adjourned, and the notice you received may no

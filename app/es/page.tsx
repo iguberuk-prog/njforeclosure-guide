@@ -127,6 +127,24 @@ export default function EsHomePage() {
               denunciarlo.
             </p>
           </Link>
+          <Link href="/es/guias/mediacion" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Mediación gratuita del tribunal</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              Quién califica, el plazo de 60 días para pedirla y cómo prepararse con un consejero de HUD.
+            </p>
+          </Link>
+          <Link href="/es/guias/despues-de-la-subasta" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Después de la subasta del sheriff</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              El plazo de 10 días, cuánto tiempo puede quedarse, la orden de posesión y el dinero que aún puede ser suyo.
+            </p>
+          </Link>
+          <Link href="/es/herramientas/fondos-sobrantes" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Calculadora de fondos sobrantes</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              Si la subasta dejó más de lo que debía, calcule cuánto podría ser suyo y cómo reclamarlo sin pagar comisiones.
+            </p>
+          </Link>
         </div>
 
         <div className="bg-slate-50 rounded-2xl p-6">

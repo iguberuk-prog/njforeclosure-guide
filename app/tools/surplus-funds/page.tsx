@@ -29,7 +29,10 @@ const DESC =
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
-  alternates: { canonical: 'https://njforeclosureguide.org/tools/surplus-funds/' },
+  alternates: {
+    canonical: 'https://njforeclosureguide.org/tools/surplus-funds/',
+    languages: { en: 'https://njforeclosureguide.org/tools/surplus-funds/', es: 'https://njforeclosureguide.org/es/herramientas/fondos-sobrantes/', 'x-default': 'https://njforeclosureguide.org/tools/surplus-funds/' },
+  },
   openGraph: {
     images: OG_IMAGES,
     title: 'NJ Surplus Funds Calculator',
