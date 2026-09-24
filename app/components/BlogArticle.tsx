@@ -19,9 +19,50 @@ import BlogCapture from './BlogCapture';
 const fmt = (iso: string) =>
   new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
-export default function BlogArticle({ post, children }: { post: PostMeta; children: React.ReactNode }) {
+// Topical related posts (replaces "next two in the array"). Scores other
+// posts by shared meaningful words in slug + title, so a surplus-funds post
+// links to other surplus/after-sale posts. Better for readers, and it gives
+// Google topical internal links to reach the deeper posts it has not
+// crawled yet. Ties fall back to registry order, so output is deterministic.
+const STOP = new Set(
+  'a an and are as at be by can do does for from how i if in is it its my nj new jersey of on or the to what when why with you your yours this that after before foreclosure county house home mortgage'.split(' ')
+);
+const words = (p: PostMeta) =>
+  new Set(
+    `${p.slug.replace(/-/g, ' ')} ${p.title}`
+      .toLowerCase()
+      .replace(/[^a-z0-9 ]/g, ' ')
+      .split(/\s+/)
+      .filter((w) => w.length > 2 && !STOP.has(w))
+      .map((w) => w.slice(0, 6)) // crude stem: adjourn/adjournment/adjournments
+  );
+// Rarer shared words count more (IDF), so "surplus" outweighs "sale".
+let DF: Map<string, number> | null = null;
+function df() {
+  if (DF) return DF;
+  DF = new Map();
+  for (const p of ALL_POSTS) words(p).forEach((w) => DF!.set(w, (DF!.get(w) ?? 0) + 1));
+  return DF;
+}
+function relatedPosts(post: PostMeta, n: number): PostMeta[] {
+  const mine = words(post);
+  const freq = df();
   const idx = ALL_POSTS.findIndex((p) => p.slug === post.slug);
-  const related = [ALL_POSTS[(idx + 1) % ALL_POSTS.length], ALL_POSTS[(idx + 2) % ALL_POSTS.length]];
+  const scored = ALL_POSTS.map((p, i) => {
+    if (p.slug === post.slug) return { p, s: -1, i };
+    let s = 0;
+    words(p).forEach((w) => {
+      if (mine.has(w)) s += 1 / (freq.get(w) ?? 1);
+    });
+    return { p, s, i: (i - idx + ALL_POSTS.length) % ALL_POSTS.length };
+  })
+    .filter((x) => x.s >= 0)
+    .sort((a, b) => b.s - a.s || a.i - b.i);
+  return scored.slice(0, n).map((x) => x.p);
+}
+
+export default function BlogArticle({ post, children }: { post: PostMeta; children: React.ReactNode }) {
+  const related = relatedPosts(post, 4);
 
   const schema = {
     '@context': 'https://schema.org',

@@ -233,7 +233,19 @@ export function countyPosts(): CountyPost[] {
       }
     );
   }
-  return posts;
+  // The sheriff-sales angle was consolidated into /sheriff-sales/<county>/
+  // on 2026-09-24: Search Console showed the blog post and the directory
+  // page competing for the same "<county> county sheriff sale" queries
+  // (e.g. Bergen's blog post ranked while its directory page did not).
+  // Its unique content now lives on the directory page and the old URLs
+  // 301 there (public/_redirects). The generator stays so the prose is
+  // not lost; it is simply no longer published as a separate post.
+  return posts.filter((p) => p.type !== 'sheriff-sales');
+}
+
+/** Consolidated sheriff-sales angle, rendered inside /sheriff-sales/<county>/. */
+export function sheriffAngleFor(sheriffSlug: string): BlogCounty | undefined {
+  return BLOG_COUNTIES.find((c) => c.sheriff.slug === sheriffSlug);
 }
 
 export function getCountyPost(slug: string): (CountyPost & { county: BlogCounty }) | undefined {

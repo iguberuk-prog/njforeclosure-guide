@@ -15,9 +15,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!loc) return {};
   const title = `Foreclosure Help in ${loc.name}, NJ | Free Guide to Your Options`;
   const description = `Facing foreclosure in ${loc.name}, New Jersey? A free, independent guide to all 7 options: loan modification, forbearance, short sale, cash sale, Chapter 13 and more. See where you stand in 2 minutes.`;
+  // Town pages (2026-09-24): 121 pages sharing ~70% identical text, with the
+  // town name swapped in. Google left most of them "Discovered - currently
+  // not indexed", and that pattern (many near-identical city pages) is what
+  // its doorway-page policy describes, a risk to the whole domain. They stay
+  // live for visitors and keep passing links (follow), but are kept out of
+  // the index and the sitemap. The 21 county pages remain the indexed hubs.
+  // Reversible: give a town genuinely local content, then drop this line.
+  const robots = loc.type === 'county' ? undefined : { index: false, follow: true };
   return {
     title,
     description,
+    ...(robots ? { robots } : {}),
     alternates: { canonical: `https://njforeclosureguide.org/foreclosure-help/${loc.slug}/` },
     openGraph: { title, description, url: `https://njforeclosureguide.org/foreclosure-help/${loc.slug}/` },
   };

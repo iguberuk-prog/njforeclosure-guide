@@ -10,6 +10,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Leave a Review | NJ Foreclosure Guide',
   description: 'Worked with NJ Foreclosure Guide? Tell other New Jersey homeowners how it went. Reviews are published with your permission.',
+  // A form, not an answer to any search: keep it out of the index.
+  robots: { index: false, follow: true },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

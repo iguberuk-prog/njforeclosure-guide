@@ -69,7 +69,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/premium-properties',
     '/scenarios',
     '/reviews',
-    '/reviews/submit',
     '/companies',
     '/companies/njoffer',
     '/companies/fire-home-buyers',
@@ -87,11 +86,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: p === '' ? 1 : 0.8,
   }));
 
-  const locationPages = getAllLocations().map((loc) => ({
-    url: `${base}/foreclosure-help/${loc.slug}/`,
-    changeFrequency: 'weekly' as const,
-    priority: loc.type === 'county' ? 0.7 : 0.6,
-  }));
+  // County hubs only; town pages are noindex (see foreclosure-help/[slug]).
+  const locationPages = getAllLocations()
+    .filter((loc) => loc.type === 'county')
+    .map((loc) => ({
+      url: `${base}/foreclosure-help/${loc.slug}/`,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }));
 
   const sheriffPages = SHERIFF_SOURCES.map((s) => ({
     url: `${base}/sheriff-sales/${s.slug}/`,

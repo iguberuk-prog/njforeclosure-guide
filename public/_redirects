@@ -7,3 +7,29 @@ https://njforeclosure-guide.netlify.app/* https://njforeclosureguide.org/:splat 
 http://njforeclosure-guide.netlify.app/* https://njforeclosureguide.org/:splat 301!
 https://www.njforeclosureguide.org/* https://njforeclosureguide.org/:splat 301!
 http://www.njforeclosureguide.org/* https://njforeclosureguide.org/:splat 301!
+
+# 2026-09-24 consolidation: the county sheriff-sales blog posts competed with
+# the /sheriff-sales/<county>/ directory pages for the same queries. Their
+# content was merged into the directory pages; the old URLs pass their
+# signals along permanently.
+/blog/sheriff-sales-atlantic-county  /sheriff-sales/atlantic-county/  301
+/blog/sheriff-sales-bergen-county  /sheriff-sales/bergen-county/  301
+/blog/sheriff-sales-burlington-county  /sheriff-sales/burlington-county/  301
+/blog/sheriff-sales-camden-county  /sheriff-sales/camden-county/  301
+/blog/sheriff-sales-cape-may-county  /sheriff-sales/cape-may-county/  301
+/blog/sheriff-sales-cumberland-county  /sheriff-sales/cumberland-county/  301
+/blog/sheriff-sales-essex-county  /sheriff-sales/essex-county/  301
+/blog/sheriff-sales-gloucester-county  /sheriff-sales/gloucester-county/  301
+/blog/sheriff-sales-hudson-county  /sheriff-sales/hudson-county/  301
+/blog/sheriff-sales-hunterdon-county  /sheriff-sales/hunterdon-county/  301
+/blog/sheriff-sales-mercer-county  /sheriff-sales/mercer-county/  301
+/blog/sheriff-sales-middlesex-county  /sheriff-sales/middlesex-county/  301
+/blog/sheriff-sales-monmouth-county  /sheriff-sales/monmouth-county/  301
+/blog/sheriff-sales-morris-county  /sheriff-sales/morris-county/  301
+/blog/sheriff-sales-ocean-county  /sheriff-sales/ocean-county/  301
+/blog/sheriff-sales-passaic-county  /sheriff-sales/passaic-county/  301
+/blog/sheriff-sales-salem-county  /sheriff-sales/salem-county/  301
+/blog/sheriff-sales-somerset-county  /sheriff-sales/somerset-county/  301
+/blog/sheriff-sales-sussex-county  /sheriff-sales/sussex-county/  301
+/blog/sheriff-sales-union-county  /sheriff-sales/union-county/  301
+/blog/sheriff-sales-warren-county  /sheriff-sales/warren-county/  301
