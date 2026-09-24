@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ChatWidget from "./components/ChatWidget";
+import MobileHelpBar from "./components/MobileHelpBar";
 import { LocalBusinessSchema } from "./schema";
 import CallBand from "./components/CallBand";
 import MarsNotice from "./components/MarsNotice";
@@ -92,6 +93,7 @@ export default function RootLayout({
         <MarsNotice />
         <CallBand />
         <ChatWidget />
+        <MobileHelpBar />
         <Analytics />
         <MarketingPixels />
       </body>

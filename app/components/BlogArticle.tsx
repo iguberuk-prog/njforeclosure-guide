@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import SiteHeader from './SiteHeader';
 import { ALL_POSTS, PostMeta } from '../../lib/posts';
+import BlogCapture from './BlogCapture';
 
 /**
  * Shared shell for blog articles, built for answer engines as much as for
@@ -65,9 +66,21 @@ export default function BlogArticle({ post, children }: { post: PostMeta; childr
           <p className="text-slate-800 leading-relaxed text-[15px]">{post.tldr}</p>
         </div>
 
+        <Link
+          href="/command-center"
+          className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 px-5 py-3 mb-10 -mt-6 hover:border-slate-400 transition no-underline"
+        >
+          <span className="text-sm text-slate-700">
+            <strong className="text-slate-900">Behind on payments?</strong> Answer 3 questions, get your deadlines and best free moves.
+          </span>
+          <span className="text-sm font-bold text-amber-700 whitespace-nowrap">Free plan →</span>
+        </Link>
+
         <div className="blog-prose space-y-5 text-slate-700 leading-relaxed [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mt-10 [&_h2]:mb-1 [&_h3]:font-bold [&_h3]:text-slate-900 [&_h3]:mt-6 [&_a]:underline [&_a]:underline-offset-4 [&_a]:font-semibold [&_a]:text-slate-900 [&_strong]:text-slate-900">
           {children}
         </div>
+
+        <BlogCapture slug={post.slug} />
 
         <div className="bg-slate-50 rounded-2xl p-6 my-12">
           <p className="text-slate-700 leading-relaxed mb-4">

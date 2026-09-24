@@ -192,17 +192,19 @@ export default function ChatWidget() {
       {!open && (
         <button
           onClick={handleOpen}
-          className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white rounded-full shadow-2xl px-6 py-4 font-semibold text-sm hover:bg-slate-800 transition flex items-center gap-2 border border-amber-400/40"
+          className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 bg-slate-900 text-white rounded-full shadow-2xl px-4 py-2.5 md:px-6 md:py-4 font-semibold text-xs md:text-sm hover:bg-slate-800 transition flex items-center gap-2 border border-amber-400/40"
           aria-label="Open chat"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Questions? Talk to us
+          {/* Compact on phones so it never sits on top of form fields. */}
+          <span className="md:hidden">Chat</span>
+          <span className="hidden md:inline">Questions? Talk to us</span>
         </button>
       )}
 
       {/* Chat panel */}
       {open && (
-        <div className="fixed bottom-6 right-6 z-50 w-[calc(100vw-3rem)] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden" style={{ height: 'min(560px, calc(100vh - 6rem))' }}>
+        <div className="fixed bottom-20 md:bottom-6 right-6 z-50 w-[calc(100vw-3rem)] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden" style={{ height: 'min(560px, calc(100vh - 6rem))' }}>
           {/* Header */}
           <div className="bg-slate-950 text-white px-5 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
