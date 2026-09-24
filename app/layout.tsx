@@ -74,6 +74,10 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "8fc4eA-ZCuoqq4GwMPyiE6PDIkSeymT4iPBasg_G_I8",
+    // Ahrefs Webmaster Tools ownership (free site audit + backlink data).
+    other: {
+      "ahrefs-site-verification": "b1327fa528da2c26be385c3142da15ce1278b541db48f7f2361e19babe34da84",
+    },
   },
 };
 
