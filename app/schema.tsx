@@ -97,7 +97,8 @@ export const OrganizationSchema = () => {
     "sameAs": [
       "https://njforeclosureguide.org",
       "https://www.instagram.com/njforeclosureguide/",
-      "https://www.facebook.com/profile.php?id=61594272767455"
+      "https://www.facebook.com/profile.php?id=61594272767455",
+      "https://www.linkedin.com/company/njforeclosureguide/"
     ],
     "areaServed": {
       "@type": "State",
