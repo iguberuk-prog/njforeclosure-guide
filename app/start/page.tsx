@@ -35,6 +35,21 @@ const LINKS: { href: string; title: string; sub: string; hot?: boolean }[] = [
     hot: true,
   },
   {
+    href: '/tools/sheriff-sale-countdown',
+    title: 'Sheriff Sale Date? Start the Countdown',
+    sub: 'Days left, your adjournments, your sheriff’s number, today’s plan',
+  },
+  {
+    href: '/tools/catch-up',
+    title: 'What Would It Take to Catch Up?',
+    sub: 'Estimate your reinstatement number before you call the lender',
+  },
+  {
+    href: '/tools/surplus-funds',
+    title: 'Sale Already Happened? Check for Surplus',
+    sub: 'Money above the debt is generally yours — estimate it free',
+  },
+  {
     href: '/decoder',
     title: 'I Got a Letter — What Is It?',
     sub: 'Match your letter in 10 seconds, see how much time you have',
