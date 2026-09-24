@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import SiteHeader from '../../../components/SiteHeader';
 import MarsNoticeEs from '../../../components/MarsNoticeEs';
 import { QUESTIONS_ES, getQuestionEs } from '../../../../lib/questions-es';
+import { OG_IMAGES } from '../../../../lib/og';
 
 export function generateStaticParams() {
   return QUESTIONS_ES.map((x) => ({ slug: x.slug }));
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: item.short,
     alternates: { canonical: `https://njforeclosureguide.org/es/preguntas/${item.slug}/` },
     openGraph: {
+      images: OG_IMAGES,
       title: item.q,
       description: item.short,
       url: `https://njforeclosureguide.org/es/preguntas/${item.slug}/`,

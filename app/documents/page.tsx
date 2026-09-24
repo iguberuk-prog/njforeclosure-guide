@@ -2,13 +2,18 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import { DOCUMENTS } from '../../lib/documents';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Foreclosure Letters Decoded | What Each NJ Notice Means',
   description:
     'Got a foreclosure letter in New Jersey? Every document decoded in order: Notice of Intention, summons and complaint, default, final judgment, sheriff sale notice, and what to do the week each one arrives.',
-  alternates: { canonical: 'https://njforeclosureguide.org/documents/' },
+  alternates: {
+    canonical: 'https://njforeclosureguide.org/documents/',
+    languages: { en: 'https://njforeclosureguide.org/documents/', es: 'https://njforeclosureguide.org/es/documentos/', 'x-default': 'https://njforeclosureguide.org/documents/' },
+  },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Foreclosure Letters Decoded | What Each NJ Notice Means',
     description: 'Every New Jersey foreclosure document explained, in the order they arrive.',
     url: 'https://njforeclosureguide.org/documents/',

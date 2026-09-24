@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://njforeclosureguide.org/tools/deadlines/' },
   title: 'NJ Foreclosure Deadline Calculator: Your Dates From Any Notice',
   description: 'Type in the date on the letter you received and get every New Jersey foreclosure deadline that flows from it, with what each one means.',
 };

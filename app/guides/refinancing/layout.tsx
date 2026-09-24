@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://njforeclosureguide.org/guides/refinancing/' },
   title: 'Refinancing Out of Foreclosure Trouble in NJ | Honest Guide',
   description: 'When refinancing can still save a New Jersey home in default, what lenders require, and when the math says a refinance no longer works.',
 };

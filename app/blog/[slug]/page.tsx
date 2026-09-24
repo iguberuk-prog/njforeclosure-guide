@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import BlogArticle from '../../components/BlogArticle';
 import { countyPosts, getCountyPost, BlogCounty, CountyPostType } from '../../../lib/county-blog';
 import { topicPosts, getTopicPost } from '../../../lib/topic-blog';
+import { OG_IMAGES } from '../../../lib/og';
 
 /**
  * Dynamic route for the county blog series. The five hand-written flagship
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: post.title,
     description: post.description,
     alternates: { canonical: `https://njforeclosureguide.org/blog/${post.slug}/` },
-    openGraph: { title: post.title, description: post.description, type: 'article', url: `https://njforeclosureguide.org/blog/${post.slug}/` },
+    openGraph: { images: OG_IMAGES, title: post.title, description: post.description, type: 'article', url: `https://njforeclosureguide.org/blog/${post.slug}/` },
   };
 }
 

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Free NJ Foreclosure Resources | Tools, Directories, Guides',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     'Every free resource on NJ Foreclosure Guide in one place: the sheriff sale directory for all 21 counties, foreclosure letters decoded, the plain-English glossary, the timeline tool and the net proceeds calculator.',
   alternates: { canonical: 'https://njforeclosureguide.org/resources/' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Free NJ Foreclosure Resources | Tools, Directories, Guides',
     description: 'Every free tool and reference on NJ Foreclosure Guide, in one place.',
     url: 'https://njforeclosureguide.org/resources/',

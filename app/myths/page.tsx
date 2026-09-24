@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import MythsClient from './MythsClient';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'NJ Foreclosure Myth Busters: 12 Things Everyone Gets Wrong | NJ Foreclosure Guide',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     'A quick myth-or-fact game about New Jersey foreclosure. 12 statements, honest answers — the myths cost homeowners real money, and most people believe at least a few.',
   alternates: { canonical: 'https://njforeclosureguide.org/myths' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'NJ Foreclosure Myth Busters',
     description: '12 myth-or-fact calls. Most people miss at least three — and the myths cost real money.',
     url: 'https://njforeclosureguide.org/myths',

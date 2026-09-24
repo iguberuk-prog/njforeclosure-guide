@@ -570,7 +570,8 @@ export const NO_OUTCOME_DATA_NOTE =
 export const DISCLOSURE_SURFACES = [
   'app/components/CallBand.tsx',
   'app/components/MarsNotice.tsx',
-  'app/page.tsx',
+  'app/(home)/page.tsx',
+  'app/about/page.tsx',
   'app/quiz/page.tsx',
   'app/companies/page.tsx',
   'app/companies/*/page.tsx',

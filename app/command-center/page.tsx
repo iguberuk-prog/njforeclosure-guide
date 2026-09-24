@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import CommandClient from './CommandClient';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Your NJ Foreclosure Command Center | NJ Foreclosure Guide',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     'Three quick answers — your stage, your county, your goal — and this page assembles a personal dashboard: your deadlines, your county’s rules and free help, and your three best plays. Free and private.',
   alternates: { canonical: 'https://njforeclosureguide.org/command-center' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Your NJ Foreclosure Command Center',
     description:
       'Stage + county + goal = your personal dashboard: deadlines, county machinery, free local help, and your three plays. Nothing leaves your browser.',

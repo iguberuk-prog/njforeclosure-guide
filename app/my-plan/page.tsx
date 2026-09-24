@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import MyPlanClient from './MyPlanClient';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'My Plan: Your Printable NJ Foreclosure Battle Plan | NJ Foreclosure Guide',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     'Enter your dates, get a personalized one-page plan: your exact deadlines, in order, with the free move for each. Prints on one page. Nothing leaves your browser.',
   alternates: { canonical: 'https://njforeclosureguide.org/my-plan' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'My Plan: The Printable NJ Foreclosure Battle Plan',
     description:
       'Your deadlines, your dates, one printable page built to live on a refrigerator. Free, private, nothing leaves your browser.',

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import BlogArticle from '../../components/BlogArticle';
 import { getPost } from '../../../lib/posts';
+import { OG_IMAGES } from '../../../lib/og';
 
 const post = getPost('nj-foreclosure-filings-2026')!;
 
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   title: post.title,
   description: post.description,
   alternates: { canonical: `https://njforeclosureguide.org/blog/${post.slug}/` },
-  openGraph: { title: post.title, description: post.description, type: 'article', url: `https://njforeclosureguide.org/blog/${post.slug}/` },
+  openGraph: { images: OG_IMAGES, title: post.title, description: post.description, type: 'article', url: `https://njforeclosureguide.org/blog/${post.slug}/` },
 };
 
 export default function Post() {

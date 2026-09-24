@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Logo from '../components/Logo';
 import MarsNotice from '../components/MarsNotice';
+import { OG_IMAGES } from '../../lib/og';
 
 /**
  * /start — the link-in-bio hub.
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
     'Every free tool in one place: your personal Command Center, the Case Map, your printable battle plan, the free checklist, and help in Spanish. No fees, no signup.',
   alternates: { canonical: 'https://njforeclosureguide.org/start/' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Start Here — NJ Foreclosure Guide',
     description: 'All the free tools in one place. Built for New Jersey homeowners.',
     url: 'https://njforeclosureguide.org/start/',

@@ -1,17 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import GuideCards from './components/GuideCards';
-import Solutions from './components/Solutions';
-import HowItWorks from './components/HowItWorks';
-import Logo from './components/Logo';
-import SiteHeader from './components/SiteHeader';
+import GuideCards from '../components/GuideCards';
+import Solutions from '../components/Solutions';
+import HowItWorks from '../components/HowItWorks';
+import Logo from '../components/Logo';
+import SiteHeader from '../components/SiteHeader';
 import { useState } from 'react';
-import { FAQSchema, OrganizationSchema } from './schema';
-import { RESPONSE_PROMISE } from '../lib/contact';
-import TrackRecord from './components/TrackRecord';
-import BrcCard from './components/BrcCard';
-import { HOMEOWNERS_HELPED, yearsOfService } from '../lib/partners';
+import { FAQSchema, OrganizationSchema } from '../schema';
+import { RESPONSE_PROMISE } from '../../lib/contact';
+import TrackRecord from '../components/TrackRecord';
+import BrcCard from '../components/BrcCard';
+import { HOMEOWNERS_HELPED, yearsOfService } from '../../lib/partners';
 
 
 export default function Home() {
@@ -548,6 +548,10 @@ export default function Home() {
                 <li><Link href="/tools/timeline" className="hover:text-amber-400 transition">NJ Foreclosure Timeline Tool</Link></li>
                 <li><Link href="/premium-properties" className="hover:text-amber-400 transition">Premium Property Program ($800k+)</Link></li>
                 <li><Link href="/foreclosure-help" className="hover:text-amber-400 transition">Local Help by County and Town</Link></li>
+                <li><Link href="/report" className="hover:text-amber-400 transition">The NJ Foreclosure Report (2026 data)</Link></li>
+                <li><Link href="/partners" className="hover:text-amber-400 transition">For Counselors &amp; Partners: Free Widget</Link></li>
+                <li><Link href="/reviews" className="hover:text-amber-400 transition">Reviews</Link></li>
+                <li><Link href="/start" className="hover:text-amber-400 transition">Start Here</Link></li>
               </ul>
             </div>
 

@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://njforeclosureguide.org/guides/ltv-refinance/' },
   title: 'Home Equity Refinance in NJ: Use Equity to Catch Up',
   description: 'How New Jersey homeowners with equity can refinance to cure a default: loan-to-value math, cash-out rules, and what to do when banks say no.',
 };

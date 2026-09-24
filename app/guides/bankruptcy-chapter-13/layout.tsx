@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://njforeclosureguide.org/guides/bankruptcy-chapter-13/' },
   title: 'Chapter 13 Bankruptcy and NJ Foreclosure: The Automatic Stay',
   description: 'How Chapter 13 stops a New Jersey sheriff sale, what the repayment plan requires, what it costs, and who it genuinely helps.',
 };

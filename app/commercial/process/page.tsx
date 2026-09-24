@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
+import { OG_IMAGES } from '../../../lib/og';
 
 export const metadata: Metadata = {
   title: 'NJ Commercial Foreclosure Process | Stage by Stage',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     'How a New Jersey commercial foreclosure actually runs: default and acceleration under the loan documents, the complaint and 35-day answer, assignment of rents and receivership, final judgment, sheriff sale and adjournments, and the deficiency and guarantee action. What to do at each stage.',
   alternates: { canonical: 'https://njforeclosureguide.org/commercial/process/' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'NJ Commercial Foreclosure Process | Stage by Stage',
     description: 'Default, complaint, receivership, judgment, sale, deficiency. What each stage means for an owner.',
     url: 'https://njforeclosureguide.org/commercial/process/',

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import SiteHeader from '../../../components/SiteHeader';
 import MarsNoticeEs from '../../../components/MarsNoticeEs';
 import { esPosts, getEsPost } from '../../../../lib/blog-es';
+import { OG_IMAGES } from '../../../../lib/og';
 
 export function generateStaticParams() {
   return esPosts().map((p) => ({ slug: p.slug }));
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: post.description,
     alternates: { canonical: `https://njforeclosureguide.org/es/blog/${post.slug}/` },
     openGraph: {
+      images: OG_IMAGES,
       title: post.title,
       description: post.description,
       url: `https://njforeclosureguide.org/es/blog/${post.slug}/`,

@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://njforeclosureguide.org/professionals/' },
   title: 'Free NJ Foreclosure Help: HUD Counselors, Legal Aid & More',
   description: 'Where New Jersey homeowners get real help: free HUD-approved counselors, legal services, court mediation, and vetted professionals for every path.',
 };

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Renting a Home in Foreclosure in NJ | Tenant Rights',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     'Renters in New Jersey generally cannot be evicted just because their landlord was foreclosed. Your lease survives, the new owner becomes your landlord, and the Anti-Eviction Act still protects you. What to do, what to keep paying, and the scams to refuse.',
   alternates: { canonical: 'https://njforeclosureguide.org/tenants/' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Renting a Home in Foreclosure in NJ | Tenant Rights',
     description: 'Foreclosure of your landlord is not an eviction. New Jersey tenant protections, explained.',
     url: 'https://njforeclosureguide.org/tenants/',

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import MarsNoticeEs from '../components/MarsNoticeEs';
 import { SITE_EMAIL, RESPONSE_PROMISE } from '../../lib/contact';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Ayuda con la Ejecución Hipotecaria en Nueva Jersey | Guía Gratuita',
@@ -10,9 +11,10 @@ export const metadata: Metadata = {
     '¿Enfrenta una ejecución hipotecaria (foreclosure) en Nueva Jersey? Guía gratuita e independiente en español: sus derechos, las 7 opciones que existen, y cómo evitar estafas. Cinco de las siete opciones le permiten quedarse en su casa.',
   alternates: {
     canonical: 'https://njforeclosureguide.org/es/',
-    languages: { en: 'https://njforeclosureguide.org/', es: 'https://njforeclosureguide.org/es/' },
+    languages: { en: 'https://njforeclosureguide.org/', es: 'https://njforeclosureguide.org/es/', 'x-default': 'https://njforeclosureguide.org/' },
   },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Ayuda con la Ejecución Hipotecaria en Nueva Jersey | Guía Gratuita',
     description: 'Guía gratuita en español sobre la ejecución hipotecaria en Nueva Jersey: sus derechos y sus 7 opciones.',
     url: 'https://njforeclosureguide.org/es/',

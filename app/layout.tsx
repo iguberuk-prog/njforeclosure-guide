@@ -27,13 +27,13 @@ export const metadata: Metadata = {
   description: "Facing foreclosure in New Jersey? A free, independent guide to every option you have, including the ones that keep you in your home. See where you stand in 2 minutes.",
   keywords: "foreclosure help NJ, New Jersey foreclosure options, mortgage assistance NJ, foreclosure guide NJ, keep my home NJ",
   metadataBase: new URL("https://njforeclosureguide.org"),
-  alternates: {
-    canonical: "https://njforeclosureguide.org",
-  },
+  // No site-wide canonical here: child pages inherit it, and 14 key pages
+  // (every guide, the quiz, the tools) once shipped canonical = homepage,
+  // telling Google they were duplicates of "/". Each page sets its own;
+  // the homepage's lives in app/(home)/layout.tsx.
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://njforeclosureguide.org",
     title: "NJ Foreclosure Guide | Free Help for New Jersey Homeowners",
     description: "A free, independent guide to every option a New Jersey homeowner has in foreclosure, including the ones that keep you in your home.",
     siteName: "NJ Foreclosure Guide",

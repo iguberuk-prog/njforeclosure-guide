@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import DownloadKit from '../components/DownloadKit';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Free NJ Foreclosure Checklist & 45-Day Playbook (PDF) | NJ Foreclosure Guide',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     'Download the free Week-One Checklist and the 45-Day Playbook for New Jersey homeowners in foreclosure. Printable PDFs — no email required, no fees, ever.',
   alternates: { canonical: 'https://njforeclosureguide.org/free-checklist' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'The NJ Foreclosure Survival Kit — Free PDFs',
     description:
       'The Week-One Checklist and the 45-Day Playbook: exactly what to do, in order, from the day a notice arrives. Free, no email required.',

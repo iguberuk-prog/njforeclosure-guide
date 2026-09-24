@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'NJ Foreclosure Statistics 2026 | Sourced Numbers',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     'New Jersey foreclosure statistics, every number sourced: 8,269 filings in the first half of 2026 (up 21%), 7th-highest state rate (1 in 459 homes), ~16,000 court filings a year, and why NJ cases historically take years.',
   alternates: { canonical: 'https://njforeclosureguide.org/statistics/' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'NJ Foreclosure Statistics 2026 | Sourced Numbers',
     description: 'Current, sourced New Jersey foreclosure data: filings, rates, ranks and timelines.',
     url: 'https://njforeclosureguide.org/statistics/',
@@ -105,6 +107,11 @@ export default function StatisticsPage() {
           <p className="text-slate-300 text-lg leading-relaxed">
             What is actually happening with foreclosure in New Jersey in 2026, with a citation on
             every figure. If a number has no source, it is not on this page.
+          </p>
+          <p className="mt-5">
+            <Link href="/report" className="text-amber-400 font-semibold underline underline-offset-4 hover:text-amber-300">
+              Read the full NJ Foreclosure Report: charts, county watchlist, and how long cases take →
+            </Link>
           </p>
         </div>
       </section>

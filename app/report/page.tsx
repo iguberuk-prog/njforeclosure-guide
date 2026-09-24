@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import MarsNotice from '../components/MarsNotice';
+import { OG_IMAGES } from '../../lib/og';
 
 /**
  * /report — The New Jersey Foreclosure Report.
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
     'The citable numbers on New Jersey foreclosure in 2026: 8,269 filings in the first half (up 21%), the 7th-highest state rate, Trenton ranked the #1 metro rate in the U.S. in January, and a national foreclosure clock at its fastest since 2013. Every figure sourced.',
   alternates: { canonical: 'https://njforeclosureguide.org/report/' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'The New Jersey Foreclosure Report 2026',
     description:
       'Filings up 21%, the 7th-highest state rate, and the fastest foreclosure clock since 2013. Every figure sourced and free to cite.',

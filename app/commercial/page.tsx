@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Commercial Foreclosure in NJ | Owner\'s Guide',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     'Facing foreclosure on a commercial property in New Jersey? A free, independent guide for owners of multifamily, mixed-use, retail, industrial, office and land: how the process differs from residential, your exit paths, receivership and guarantee risk, and a confidential assessment.',
   alternates: { canonical: 'https://njforeclosureguide.org/commercial/' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Commercial Foreclosure in NJ | Owner\'s Guide',
     description: 'How commercial foreclosure differs, the exit paths that exist, and a confidential owner assessment.',
     url: 'https://njforeclosureguide.org/commercial/',

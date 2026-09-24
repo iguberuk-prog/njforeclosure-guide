@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://njforeclosureguide.org/guides/forbearance/' },
   title: 'Mortgage Forbearance in NJ: Pause Payments While You Recover',
   description: 'How forbearance and deferment work for New Jersey homeowners: who qualifies, what happens to the skipped payments, and the questions to ask your servicer.',
 };

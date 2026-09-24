@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
 import { SITE_EMAIL } from '../../../lib/contact';
+import { OG_IMAGES } from '../../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Las 7 Opciones ante una Ejecución Hipotecaria en NJ',
@@ -10,9 +11,10 @@ export const metadata: Metadata = {
     'Las siete opciones ante una ejecución hipotecaria en Nueva Jersey, en español: reinstalación, modificación de préstamo, forbearance, refinanciamiento, Chapter 13, venta corta y venta rápida. Cinco le permiten quedarse en su casa.',
   alternates: {
     canonical: 'https://njforeclosureguide.org/es/opciones/',
-    languages: { en: 'https://njforeclosureguide.org/compare/', es: 'https://njforeclosureguide.org/es/opciones/' },
+    languages: { en: 'https://njforeclosureguide.org/compare/', es: 'https://njforeclosureguide.org/es/opciones/', 'x-default': 'https://njforeclosureguide.org/compare/' },
   },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Las 7 Opciones ante una Ejecución Hipotecaria en NJ',
     description: 'Cada opción explicada en español: qué es, qué tan rápido funciona, y su desventaja honesta.',
     url: 'https://njforeclosureguide.org/es/opciones/',

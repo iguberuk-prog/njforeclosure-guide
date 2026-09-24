@@ -8,6 +8,10 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://njforeclosureguide.org/quiz/',
+    languages: { en: 'https://njforeclosureguide.org/quiz/', es: 'https://njforeclosureguide.org/es/evaluacion/', 'x-default': 'https://njforeclosureguide.org/quiz/' },
+  },
   title: 'Free 2-Minute Foreclosure Assessment for NJ Homeowners',
   description: 'Answer a few questions and get a straight answer about where you stand, which options are still open, and what to do this week. Free and confidential.',
 };

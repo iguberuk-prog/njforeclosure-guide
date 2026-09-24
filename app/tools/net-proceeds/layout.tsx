@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://njforeclosureguide.org/tools/net-proceeds/' },
   title: "NJ Home Sale Net Proceeds Calculator | What You'd Walk Away With",
   description: 'Enter your home value and mortgage balance to see what you would actually pocket from a market sale, short sale, or cash offer in New Jersey.',
 };

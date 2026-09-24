@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import SiteHeader from '../../components/SiteHeader';
 import { SHERIFF_SOURCES, getSheriffSource, SHERIFF_DATA_VERIFIED } from '../../../lib/sheriff-sales';
 import { sheriffAngleFor } from '../../../lib/county-blog';
+import { OG_IMAGES } from '../../../lib/og';
 
 export function generateStaticParams() {
   return SHERIFF_SOURCES.map((s) => ({ county: s.slug }));
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ county: s
     title,
     description,
     alternates: { canonical: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/` },
-    openGraph: { title, description, url: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/` },
+    openGraph: { images: OG_IMAGES, title, description, url: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/` },
   };
 }
 

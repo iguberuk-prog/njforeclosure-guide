@@ -2,13 +2,18 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import BrcCard from '../components/BrcCard';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Compare All 7 NJ Foreclosure Options | One Honest Table',
   description:
     'Every New Jersey foreclosure option side by side: whether you keep the home, how fast it works, what it costs, the credit impact, and the point in the process where each stops being available.',
-  alternates: { canonical: 'https://njforeclosureguide.org/compare/' },
+  alternates: {
+    canonical: 'https://njforeclosureguide.org/compare/',
+    languages: { en: 'https://njforeclosureguide.org/compare/', es: 'https://njforeclosureguide.org/es/opciones/', 'x-default': 'https://njforeclosureguide.org/compare/' },
+  },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Compare All 7 NJ Foreclosure Options | One Honest Table',
     description: 'Keep the home? How fast? What cost? Every option compared honestly.',
     url: 'https://njforeclosureguide.org/compare/',

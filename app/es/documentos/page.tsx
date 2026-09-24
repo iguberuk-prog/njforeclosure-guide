@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
 import { SITE_EMAIL } from '../../../lib/contact';
+import { OG_IMAGES } from '../../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Su Carta de Foreclosure, Explicada en Español | NJ',
@@ -10,9 +11,10 @@ export const metadata: Metadata = {
     'Cada documento de una ejecución hipotecaria en Nueva Jersey, explicado en español y en orden: Notice of Intention, demanda, default, sentencia final, aviso de subasta. Qué significa cada uno, cuánto tiempo tiene y qué hacer.',
   alternates: {
     canonical: 'https://njforeclosureguide.org/es/documentos/',
-    languages: { en: 'https://njforeclosureguide.org/documents/', es: 'https://njforeclosureguide.org/es/documentos/' },
+    languages: { en: 'https://njforeclosureguide.org/documents/', es: 'https://njforeclosureguide.org/es/documentos/', 'x-default': 'https://njforeclosureguide.org/documents/' },
   },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Su Carta de Foreclosure, Explicada en Español | NJ',
     description: 'Los documentos del proceso en orden: qué significa cada uno y qué hacer esta semana.',
     url: 'https://njforeclosureguide.org/es/documentos/',

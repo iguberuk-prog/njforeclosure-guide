@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllLocations, getLocation, townSlug } from '../../../lib/nj-locations';
 import { helpFor } from '../../../lib/local-help';
+import { OG_IMAGES } from '../../../lib/og';
 
 export function generateStaticParams() {
   return getAllLocations().map((loc) => ({ slug: loc.slug }));
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description,
     ...(robots ? { robots } : {}),
     alternates: { canonical: `https://njforeclosureguide.org/foreclosure-help/${loc.slug}/` },
-    openGraph: { title, description, url: `https://njforeclosureguide.org/foreclosure-help/${loc.slug}/` },
+    openGraph: { images: OG_IMAGES, title, description, url: `https://njforeclosureguide.org/foreclosure-help/${loc.slug}/` },
   };
 }
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
 import MiPlanClient from './MiPlanClient';
+import { OG_IMAGES } from '../../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Mi Plan de Batalla: Sus Plazos en Una Página | NJ Foreclosure Guide',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     'Ponga sus fechas y reciba un plan personal de una página: sus plazos exactos, en orden, con la jugada gratuita para cada uno. Se imprime en una hoja. Nada sale de su navegador.',
   alternates: { canonical: 'https://njforeclosureguide.org/es/mi-plan/' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Mi Plan de Batalla — Ejecución Hipotecaria en NJ',
     description: 'Sus plazos, sus fechas, una página imprimible para el refrigerador. Gratis y privado.',
     url: 'https://njforeclosureguide.org/es/mi-plan/',

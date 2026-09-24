@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://njforeclosureguide.org/guides/loan-modification/' },
   title: 'NJ Loan Modification Guide: Keep Your Home, Change the Terms',
   description: 'How loan modification works in New Jersey: what servicers can change, how to apply, realistic timelines, and the mistakes that get applications denied.',
 };

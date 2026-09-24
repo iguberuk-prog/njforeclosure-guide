@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     'Respuestas directas en español a las preguntas más frecuentes sobre la ejecución hipotecaria en Nueva Jersey: cuánto tarda, cuántos pagos puede atrasar, cómo aplazar la venta del sheriff, y más. Gratis.',
   alternates: {
     canonical: 'https://njforeclosureguide.org/es/preguntas/',
-    languages: { en: 'https://njforeclosureguide.org/answers/', es: 'https://njforeclosureguide.org/es/preguntas/' },
+    languages: { en: 'https://njforeclosureguide.org/answers/', es: 'https://njforeclosureguide.org/es/preguntas/', 'x-default': 'https://njforeclosureguide.org/answers/' },
   },
 };
 

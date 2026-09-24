@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://njforeclosureguide.org/guides/foreclosure-101/' },
   title: 'Foreclosure 101: How NJ Foreclosure Works | NJ Foreclosure Guide',
   description: "What actually happens when you fall behind on a New Jersey mortgage: the Fair Foreclosure Act, every notice you'll receive, and how long each stage takes.",
 };

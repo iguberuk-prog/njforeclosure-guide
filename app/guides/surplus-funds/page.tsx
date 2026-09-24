@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
+import { OG_IMAGES } from '../../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Surplus Funds After a NJ Sheriff Sale | Claiming Your Money',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     'If a New Jersey sheriff sale brought more than you owed, the surplus belongs to you, sits with the court until claimed, and attracts an industry of finders charging steep fees for a court filing. How the money flows and how to claim it.',
   alternates: { canonical: 'https://njforeclosureguide.org/guides/surplus-funds/' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Surplus Funds After a NJ Sheriff Sale | Claiming Your Money',
     description: 'Auction proceeds above the judgment belong to the former homeowner. How to claim them.',
     url: 'https://njforeclosureguide.org/guides/surplus-funds/',

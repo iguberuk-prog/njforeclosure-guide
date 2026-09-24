@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://njforeclosureguide.org/tools/timeline/' },
   title: 'Where Are You in the NJ Foreclosure Process? | Free Tool',
   description: "Pick the last notice you received and see exactly where you are in New Jersey's foreclosure timeline, what happens next, and how much time you have.",
 };

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import SiteHeader from '../../components/SiteHeader';
 import { DOCUMENTS, getDocument } from '../../../lib/documents';
+import { OG_IMAGES } from '../../../lib/og';
 
 export function generateStaticParams() {
   return DOCUMENTS.map((d) => ({ slug: d.slug }));
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     alternates: { canonical: `https://njforeclosureguide.org/documents/${doc.slug}/` },
-    openGraph: { title, description, url: `https://njforeclosureguide.org/documents/${doc.slug}/` },
+    openGraph: { images: OG_IMAGES, title, description, url: `https://njforeclosureguide.org/documents/${doc.slug}/` },
   };
 }
 

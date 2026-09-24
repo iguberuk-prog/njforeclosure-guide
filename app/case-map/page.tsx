@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import CaseMapClient from './CaseMapClient';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'The NJ Foreclosure Case Map: Tap Where You Are | NJ Foreclosure Guide',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     'An interactive map of the entire New Jersey foreclosure journey. Tap your station and see what’s true right now, which doors are still open, and your free moves.',
   alternates: { canonical: 'https://njforeclosureguide.org/case-map' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'The NJ Foreclosure Case Map',
     description:
       'Every station from first missed payment to after the sale — what’s true, what’s open, what closes next. Free and interactive.',

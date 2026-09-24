@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import { SHERIFF_SOURCES, SHERIFF_DATA_VERIFIED } from '../../lib/sheriff-sales';
+import { OG_IMAGES } from '../../lib/og';
 
 export const metadata: Metadata = {
   title: 'NJ Sheriff Sale Directory | Every County, One Page',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     'Where to check your foreclosure sale date in all 21 New Jersey counties: official sheriff sale listings, office phone numbers, and how to request an adjournment. Verified against official county sources.',
   alternates: { canonical: 'https://njforeclosureguide.org/sheriff-sales/' },
   openGraph: {
+    images: OG_IMAGES,
     title: 'NJ Sheriff Sale Directory | Every County, One Page',
     description:
       'Official sheriff sale listings and contacts for all 21 New Jersey counties, plus how sale adjournments work.',

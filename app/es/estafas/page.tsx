@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
+import { OG_IMAGES } from '../../../lib/og';
 
 export const metadata: Metadata = {
   title: 'Estafas de "Rescate" Hipotecario en NJ | Las Señales',
@@ -9,9 +10,10 @@ export const metadata: Metadata = {
     'Cómo distinguir la ayuda real de una estafa de rescate hipotecario en Nueva Jersey, en español: las 7 señales de alerta, lo que prohíbe la ley (cobrar por adelantado es generalmente ilegal), y dónde denunciar.',
   alternates: {
     canonical: 'https://njforeclosureguide.org/es/estafas/',
-    languages: { en: 'https://njforeclosureguide.org/scams/', es: 'https://njforeclosureguide.org/es/estafas/' },
+    languages: { en: 'https://njforeclosureguide.org/scams/', es: 'https://njforeclosureguide.org/es/estafas/', 'x-default': 'https://njforeclosureguide.org/scams/' },
   },
   openGraph: {
+    images: OG_IMAGES,
     title: 'Estafas de "Rescate" Hipotecario en NJ | Las Señales',
     description: 'Las 7 señales de alerta del fraude de rescate hipotecario, y dónde denunciarlo.',
     url: 'https://njforeclosureguide.org/es/estafas/',
