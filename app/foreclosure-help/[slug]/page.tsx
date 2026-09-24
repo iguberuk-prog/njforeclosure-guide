@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { getAllLocations, getLocation, townSlug } from '../../../lib/nj-locations';
 import { helpFor } from '../../../lib/local-help';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export function generateStaticParams() {
   return getAllLocations().map((loc) => ({ slug: loc.slug }));
@@ -14,8 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const loc = getLocation(slug);
   if (!loc) return {};
-  const title = `Foreclosure Help in ${loc.name}, NJ | Free Guide to Your Options`;
-  const description = `Facing foreclosure in ${loc.name}, New Jersey? A free, independent guide to all 7 options: loan modification, forbearance, short sale, cash sale, Chapter 13 and more. See where you stand in 2 minutes.`;
+  const title = fitTitle(`Foreclosure Help in ${loc.name}, NJ | Free Guide to Your Options`);
+  const description = fitDescription(`Facing foreclosure in ${loc.name}, New Jersey? A free, independent guide to all 7 options: loan modification, forbearance, short sale, cash sale, Chapter 13 and more. See where you stand in 2 minutes.`);
   // Town pages (2026-09-24): 121 pages sharing ~70% identical text, with the
   // town name swapped in. Google left most of them "Discovered - currently
   // not indexed", and that pattern (many near-identical city pages) is what

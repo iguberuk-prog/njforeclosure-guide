@@ -2,11 +2,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Commercial Foreclosure Options in NJ | Seven Exit Paths',
+  title: fitTitle('Commercial Foreclosure Options in NJ | Seven Exit Paths'),
   description:
-    'Every realistic path out of a New Jersey commercial foreclosure, for owners: workout and forbearance, reinstatement and discounted payoff, refinance and bridge debt, Chapter 11, market sale, sale-leaseback, and deed in lieu with a guarantee release. Each with its honest downside.',
+    fitDescription('Every realistic path out of a New Jersey commercial foreclosure, for owners: workout and forbearance, reinstatement and discounted payoff, refinance and bridge debt, Chapter 11, market sale, sale-leaseback, and deed in lieu with a guarantee release. Each with its honest downside.'),
   alternates: { canonical: 'https://njforeclosureguide.org/commercial/options/' },
   openGraph: {
     images: OG_IMAGES,

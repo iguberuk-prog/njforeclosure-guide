@@ -4,11 +4,12 @@ import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
 import { esPosts } from '../../../lib/blog-es';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Blog en Español: Ejecución Hipotecaria en NJ | NJ Foreclosure Guide',
+  title: fitTitle('Blog en Español: Ejecución Hipotecaria en NJ | NJ Foreclosure Guide'),
   description:
-    'Artículos en español sobre la ejecución hipotecaria en Nueva Jersey: cada carta explicada, la ayuda gratuita que funciona, sus plazos y sus derechos.',
+    fitDescription('Artículos en español sobre la ejecución hipotecaria en Nueva Jersey: cada carta explicada, la ayuda gratuita que funciona, sus plazos y sus derechos.'),
   alternates: { canonical: 'https://njforeclosureguide.org/es/blog/' },
   openGraph: {
     images: OG_IMAGES,

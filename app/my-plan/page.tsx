@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import MyPlanClient from './MyPlanClient';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'My Plan: Your Printable NJ Foreclosure Battle Plan | NJ Foreclosure Guide',
+  title: fitTitle('My Plan: Your Printable NJ Foreclosure Battle Plan | NJ Foreclosure Guide'),
   description:
-    'Enter your dates, get a personalized one-page plan: your exact deadlines, in order, with the free move for each. Prints on one page. Nothing leaves your browser.',
+    fitDescription('Enter your dates, get a personalized one-page plan: your exact deadlines, in order, with the free move for each. Prints on one page. Nothing leaves your browser.'),
   alternates: { canonical: 'https://njforeclosureguide.org/my-plan' },
   openGraph: {
     images: OG_IMAGES,

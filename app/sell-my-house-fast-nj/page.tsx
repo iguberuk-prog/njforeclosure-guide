@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import SellLanding, { SellPageSpec } from '../components/SellLanding';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Sell My House Fast in NJ: Real Offers, Honest Math, No Fees to Us',
+  title: fitTitle('Sell My House Fast in NJ: Real Offers, Honest Math, No Fees to Us'),
   description:
-    'Need to sell a New Jersey house fast? Request free, non-binding cash offers from vetted buyers with one form — we send it for you, free. See the honest math before you decide.',
+    fitDescription('Need to sell a New Jersey house fast? Request free, non-binding cash offers from vetted buyers with one form — we send it for you, free. See the honest math before you decide.'),
   alternates: { canonical: 'https://njforeclosureguide.org/sell-my-house-fast-nj/' },
 };
 

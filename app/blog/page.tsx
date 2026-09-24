@@ -2,11 +2,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import { ALL_POSTS } from '../../lib/posts';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'The Guide Blog | NJ Foreclosure, Explained as It Happens',
+  title: fitTitle('The Guide Blog | NJ Foreclosure, Explained as It Happens'),
   description:
-    'Dated, sourced articles on New Jersey foreclosure: the 2026 filing numbers, week-by-week timelines, sheriff sale adjournments, and the mistakes that cost homeowners the most.',
+    fitDescription('Dated, sourced articles on New Jersey foreclosure: the 2026 filing numbers, week-by-week timelines, sheriff sale adjournments, and the mistakes that cost homeowners the most.'),
   alternates: { canonical: 'https://njforeclosureguide.org/blog/' },
 };
 

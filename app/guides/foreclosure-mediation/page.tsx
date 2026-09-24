@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
 import GuideFaq, { FaqItem } from '../../components/GuideFaq';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 /**
  * PILLAR: the New Jersey Foreclosure Mediation Program, in plain English.
@@ -21,9 +22,9 @@ import { OG_IMAGES } from '../../../lib/og';
  */
 
 export const metadata: Metadata = {
-  title: 'NJ Foreclosure Mediation Program: Who Qualifies & How to Apply',
+  title: fitTitle('NJ Foreclosure Mediation Program: Who Qualifies & How to Apply'),
   description:
-    'How New Jersey’s free court foreclosure mediation works: who qualifies, the 60-day window to request it, the free housing counselor step, what to bring, and what it can and cannot do.',
+    fitDescription('How New Jersey’s free court foreclosure mediation works: who qualifies, the 60-day window to request it, the free housing counselor step, what to bring, and what it can and cannot do.'),
   alternates: { canonical: 'https://njforeclosureguide.org/guides/foreclosure-mediation/' },
   openGraph: {
     images: OG_IMAGES,

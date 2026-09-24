@@ -3,11 +3,12 @@ import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
 import CostClient from './CostClient';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'The Cost of Waiting: NJ Foreclosure Meter | NJ Foreclosure Guide',
+  title: fitTitle('The Cost of Waiting: NJ Foreclosure Meter | NJ Foreclosure Guide'),
   description:
-    'Drag the slider and watch what waiting actually costs in an NJ foreclosure: fees stacking, doors closing, equity leaking. An honest, adjustable estimate — free.',
+    fitDescription('Drag the slider and watch what waiting actually costs in an NJ foreclosure: fees stacking, doors closing, equity leaking. An honest, adjustable estimate — free.'),
   alternates: { canonical: 'https://njforeclosureguide.org/tools/cost-of-waiting' },
   openGraph: {
     images: OG_IMAGES,

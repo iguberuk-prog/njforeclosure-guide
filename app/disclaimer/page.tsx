@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import LegalPage, { Section, Bullets } from '../components/LegalPage';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Disclaimer | NJ Foreclosure Guide',
+  title: fitTitle('Disclaimer | NJ Foreclosure Guide'),
   description:
-    'Important disclosures about NJ Foreclosure Guide: we are not a law firm, lender, or government agency, we do not provide legal or financial advice, and no outcome is guaranteed.',
+    fitDescription('Important disclosures about NJ Foreclosure Guide: we are not a law firm, lender, or government agency, we do not provide legal or financial advice, and no outcome is guaranteed.'),
   alternates: { canonical: 'https://njforeclosureguide.org/disclaimer/' },
 };
 

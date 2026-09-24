@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
 import GuideFaq, { FaqItem } from '../../components/GuideFaq';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 /**
  * PILLAR: what happens after a New Jersey sheriff sale.
@@ -22,9 +23,9 @@ import { OG_IMAGES } from '../../../lib/og';
  */
 
 export const metadata: Metadata = {
-  title: 'What Happens After a Sheriff Sale in NJ? Timeline, Rights & Money',
+  title: fitTitle('What Happens After a Sheriff Sale in NJ? Timeline, Rights & Money'),
   description:
-    'After a New Jersey sheriff sale: the 10-day window, when the deed transfers, how long you can stay, the writ of possession, cash for keys, surplus funds, and deficiency judgments — in order.',
+    fitDescription('After a New Jersey sheriff sale: the 10-day window, when the deed transfers, how long you can stay, the writ of possession, cash for keys, surplus funds, and deficiency judgments — in order.'),
   alternates: { canonical: 'https://njforeclosureguide.org/guides/after-sheriff-sale/' },
   openGraph: {
     images: OG_IMAGES,

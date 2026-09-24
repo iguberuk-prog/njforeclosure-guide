@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Logo from '../components/Logo';
 import MarsNotice from '../components/MarsNotice';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 /**
  * /start — the link-in-bio hub.
@@ -14,9 +15,9 @@ import { OG_IMAGES } from '../../lib/og';
  */
 
 export const metadata: Metadata = {
-  title: 'Start Here: Free NJ Foreclosure Help | NJ Foreclosure Guide',
+  title: fitTitle('Start Here: Free NJ Foreclosure Help | NJ Foreclosure Guide'),
   description:
-    'Every free tool in one place: your personal Command Center, the Case Map, your printable battle plan, the free checklist, and help in Spanish. No fees, no signup.',
+    fitDescription('Every free tool in one place: your personal Command Center, the Case Map, your printable battle plan, the free checklist, and help in Spanish. No fees, no signup.'),
   alternates: { canonical: 'https://njforeclosureguide.org/start/' },
   openGraph: {
     images: OG_IMAGES,

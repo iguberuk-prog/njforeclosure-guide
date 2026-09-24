@@ -2,11 +2,12 @@ import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
 import RecommendationBasis from '../../components/RecommendationBasis';
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Clik Offer Review | Sell a NJ House Fast, Close in as Little as 7 Days',
+  title: fitTitle('Clik Offer Review | Sell a NJ House Fast, Close in as Little as 7 Days'),
   description:
-    'What to know about Clik Offer, a local New Jersey cash homebuyer serving Hillsborough, Somerset County and statewide. How a 7-day close works, when speed is worth the price, and what to ask before accepting an offer.',
+    fitDescription('What to know about Clik Offer, a local New Jersey cash homebuyer serving Hillsborough, Somerset County and statewide. How a 7-day close works, when speed is worth the price, and what to ask before accepting an offer.'),
   alternates: { canonical: 'https://njforeclosureguide.org/companies/clik-offer/' },
 };
 

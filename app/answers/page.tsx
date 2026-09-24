@@ -3,11 +3,12 @@ import SiteHeader from '../components/SiteHeader';
 import type { Metadata } from 'next';
 import { QUESTIONS } from '../../lib/questions';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'New Jersey Foreclosure Questions, Answered Directly',
+  title: fitTitle('New Jersey Foreclosure Questions, Answered Directly'),
   description:
-    'Direct answers to the most common New Jersey foreclosure questions: how long the process takes, how many payments you can miss, the 35-day response window, stopping a sheriff sale, what happens to your equity, and whether you can sell during foreclosure.',
+    fitDescription('Direct answers to the most common New Jersey foreclosure questions: how long the process takes, how many payments you can miss, the 35-day response window, stopping a sheriff sale, what happens to your equity, and whether you can sell during foreclosure.'),
   alternates: {
     canonical: 'https://njforeclosureguide.org/answers/',
     languages: { en: 'https://njforeclosureguide.org/answers/', es: 'https://njforeclosureguide.org/es/preguntas/', 'x-default': 'https://njforeclosureguide.org/answers/' },

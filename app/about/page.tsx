@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 /**
  * /about — who is behind the guide, how it is funded, and how content is
@@ -14,9 +15,9 @@ import { OG_IMAGES } from '../../lib/og';
  */
 
 export const metadata: Metadata = {
-  title: 'About NJ Foreclosure Guide | Who We Are & Editorial Standards',
+  title: fitTitle('About NJ Foreclosure Guide | Who We Are & Editorial Standards'),
   description:
-    'Who runs NJ Foreclosure Guide, how it is funded, where every fact comes from, and how we check and correct our New Jersey foreclosure information.',
+    fitDescription('Who runs NJ Foreclosure Guide, how it is funded, where every fact comes from, and how we check and correct our New Jersey foreclosure information.'),
   alternates: { canonical: 'https://njforeclosureguide.org/about/' },
   openGraph: {
     images: OG_IMAGES,

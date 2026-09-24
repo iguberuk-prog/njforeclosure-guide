@@ -3,11 +3,12 @@ import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import NjMapClient from './NjMapClient';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'The NJ Foreclosure Map: All 21 Counties, One Tap | NJ Foreclosure Guide',
+  title: fitTitle('The NJ Foreclosure Map: All 21 Counties, One Tap | NJ Foreclosure Guide'),
   description:
-    'Tap your county and get its verified foreclosure machinery: sheriff sale listings and contacts, adjournment starting points, and the free local help serving it.',
+    fitDescription('Tap your county and get its verified foreclosure machinery: sheriff sale listings and contacts, adjournment starting points, and the free local help serving it.'),
   alternates: { canonical: 'https://njforeclosureguide.org/nj-map' },
   openGraph: {
     images: OG_IMAGES,

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import MarsNotice from '../components/MarsNotice';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 /**
  * /partners — the embed page for counselors, nonprofits, attorneys, and
@@ -10,9 +11,9 @@ import { OG_IMAGES } from '../../lib/og';
  */
 
 export const metadata: Metadata = {
-  title: 'Embed the Free NJ Foreclosure Timeline Checker | Partners',
+  title: fitTitle('Embed the Free NJ Foreclosure Timeline Checker | Partners'),
   description:
-    'Housing counselors, legal aid, nonprofits, attorneys, and local news: embed our free NJ Foreclosure Timeline Checker on your site with one line of code. No signup, no tracking of your visitors, always free.',
+    fitDescription('Housing counselors, legal aid, nonprofits, attorneys, and local news: embed our free NJ Foreclosure Timeline Checker on your site with one line of code. No signup, no tracking of your visitors, always free.'),
   alternates: { canonical: 'https://njforeclosureguide.org/partners/' },
   openGraph: {
     images: OG_IMAGES,

@@ -3,11 +3,12 @@ import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import { DOCUMENTS } from '../../lib/documents';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Foreclosure Letters Decoded | What Each NJ Notice Means',
+  title: fitTitle('Foreclosure Letters Decoded | What Each NJ Notice Means'),
   description:
-    'Got a foreclosure letter in New Jersey? Every document decoded in order: Notice of Intention, summons and complaint, default, final judgment, sheriff sale notice, and what to do the week each one arrives.',
+    fitDescription('Got a foreclosure letter in New Jersey? Every document decoded in order: Notice of Intention, summons and complaint, default, final judgment, sheriff sale notice, and what to do the week each one arrives.'),
   alternates: {
     canonical: 'https://njforeclosureguide.org/documents/',
     languages: { en: 'https://njforeclosureguide.org/documents/', es: 'https://njforeclosureguide.org/es/documentos/', 'x-default': 'https://njforeclosureguide.org/documents/' },

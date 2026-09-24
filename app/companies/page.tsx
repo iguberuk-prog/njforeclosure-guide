@@ -4,11 +4,12 @@ import RecommendationBasis from '../components/RecommendationBasis';
 import OfferConcierge from '../components/OfferConcierge';
 import type { Metadata } from 'next';
 import { PARTNERS, COMPENSATION_LABEL, type Partner } from '../../lib/partners';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Where to Get Help With a NJ Foreclosure | Every Option Compared',
+  title: fitTitle('Where to Get Help With a NJ Foreclosure | Every Option Compared'),
   description:
-    'Where New Jersey homeowners facing foreclosure can get help, compared side by side: fast cash buyers, fire damage specialists, luxury off-market sales, nonprofit donation, and free government counseling and court mediation. What each is actually for. We are paid by none of them.',
+    fitDescription('Where New Jersey homeowners facing foreclosure can get help, compared side by side: fast cash buyers, fire damage specialists, luxury off-market sales, nonprofit donation, and free government counseling and court mediation. What each is actually for. We are paid by none of them.'),
   alternates: { canonical: 'https://njforeclosureguide.org/companies/' },
 };
 

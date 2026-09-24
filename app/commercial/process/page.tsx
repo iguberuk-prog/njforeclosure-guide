@@ -2,11 +2,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'NJ Commercial Foreclosure Process | Stage by Stage',
+  title: fitTitle('NJ Commercial Foreclosure Process | Stage by Stage'),
   description:
-    'How a New Jersey commercial foreclosure actually runs: default and acceleration under the loan documents, the complaint and 35-day answer, assignment of rents and receivership, final judgment, sheriff sale and adjournments, and the deficiency and guarantee action. What to do at each stage.',
+    fitDescription('How a New Jersey commercial foreclosure actually runs: default and acceleration under the loan documents, the complaint and 35-day answer, assignment of rents and receivership, final judgment, sheriff sale and adjournments, and the deficiency and guarantee action. What to do at each stage.'),
   alternates: { canonical: 'https://njforeclosureguide.org/commercial/process/' },
   openGraph: {
     images: OG_IMAGES,

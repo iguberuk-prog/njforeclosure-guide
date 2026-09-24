@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 /**
  * The page itself is a client component, which cannot export metadata, so the
@@ -9,8 +10,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://njforeclosureguide.org/guides/bankruptcy-chapter-13/' },
-  title: 'Chapter 13 Bankruptcy and NJ Foreclosure: The Automatic Stay',
-  description: 'How Chapter 13 stops a New Jersey sheriff sale, what the repayment plan requires, what it costs, and who it genuinely helps.',
+  title: fitTitle('Chapter 13 Bankruptcy and NJ Foreclosure: The Automatic Stay'),
+  description: fitDescription('How Chapter 13 stops a New Jersey sheriff sale, what the repayment plan requires, what it costs, and who it genuinely helps.'),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

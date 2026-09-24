@@ -2,11 +2,12 @@ import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import type { Metadata } from 'next';
 import { NJ_COUNTIES, townSlug } from '../../lib/nj-locations';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Foreclosure Help by County and Town | New Jersey | NJ Foreclosure Guide',
+  title: fitTitle('Foreclosure Help by County and Town | New Jersey | NJ Foreclosure Guide'),
   description:
-    'Local foreclosure help across all 21 New Jersey counties. Find your county or town and see how the NJ foreclosure process works, what options you have, and how to connect with vetted local professionals. Free and confidential.',
+    fitDescription('Local foreclosure help across all 21 New Jersey counties. Find your county or town and see how the NJ foreclosure process works, what options you have, and how to connect with vetted local professionals. Free and confidential.'),
   alternates: { canonical: 'https://njforeclosureguide.org/foreclosure-help/' },
 };
 

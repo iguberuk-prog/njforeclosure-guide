@@ -2,11 +2,12 @@ import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
 import RecommendationBasis from '../../components/RecommendationBasis';
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Fire Home Buyers Review | Sell a Fire Damaged Home in NJ | NJ Foreclosure Guide',
+  title: fitTitle('Fire Home Buyers Review | Sell a Fire Damaged Home in NJ | NJ Foreclosure Guide'),
   description:
-    'What to know about Fire Home Buyers, a New Jersey company that buys fire and smoke damaged homes as-is for cash. How the process works, who it fits, what to ask before you accept an offer, and how an insurance settlement can affect a mortgage balance.',
+    fitDescription('What to know about Fire Home Buyers, a New Jersey company that buys fire and smoke damaged homes as-is for cash. How the process works, who it fits, what to ask before you accept an offer, and how an insurance settlement can affect a mortgage balance.'),
   alternates: { canonical: 'https://njforeclosureguide.org/companies/fire-home-buyers/' },
 };
 

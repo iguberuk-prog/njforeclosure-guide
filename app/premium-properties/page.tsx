@@ -3,11 +3,12 @@ import SiteHeader from '../components/SiteHeader';
 import RecommendationBasis from '../components/RecommendationBasis';
 import type { Metadata } from 'next';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Premium Property Program | Luxury Home Foreclosure Help in New Jersey',
+  title: fitTitle('Premium Property Program | Luxury Home Foreclosure Help in New Jersey'),
   description:
-    'Discreet guidance for New Jersey homeowners with property valued at $800,000 and above who are facing foreclosure. Protect your equity, understand jumbo loan timelines, and sell privately without listing or open houses.',
+    fitDescription('Discreet guidance for New Jersey homeowners with property valued at $800,000 and above who are facing foreclosure. Protect your equity, understand jumbo loan timelines, and sell privately without listing or open houses.'),
   alternates: { canonical: 'https://njforeclosureguide.org/premium-properties/' },
   openGraph: {
     images: OG_IMAGES,

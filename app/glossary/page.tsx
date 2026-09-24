@@ -2,11 +2,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'NJ Foreclosure Glossary | Every Term in Plain English',
+  title: fitTitle('NJ Foreclosure Glossary | Every Term in Plain English'),
   description:
-    'Every term you will meet in a New Jersey foreclosure, defined in two plain sentences: NOI, lis pendens, reinstatement, redemption, surplus funds, automatic stay and more.',
+    fitDescription('Every term you will meet in a New Jersey foreclosure, defined in two plain sentences: NOI, lis pendens, reinstatement, redemption, surplus funds, automatic stay and more.'),
   alternates: { canonical: 'https://njforeclosureguide.org/glossary/' },
   openGraph: {
     images: OG_IMAGES,

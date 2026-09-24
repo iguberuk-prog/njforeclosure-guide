@@ -2,11 +2,12 @@ import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
 import RecommendationBasis from '../../components/RecommendationBasis';
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Private Sale Group Review | Sell a Luxury NJ Home Off-Market',
+  title: fitTitle('Private Sale Group Review | Sell a Luxury NJ Home Off-Market'),
   description:
-    'What to know about Private Sale Group, which sells high-value New Jersey homes off-market without listing publicly. How a private sale compares to listing and to a cash buyer, what it saves in commissions, and what to ask before you commit.',
+    fitDescription('What to know about Private Sale Group, which sells high-value New Jersey homes off-market without listing publicly. How a private sale compares to listing and to a cash buyer, what it saves in commissions, and what to ask before you commit.'),
   alternates: { canonical: 'https://njforeclosureguide.org/companies/private-sale-group/' },
 };
 

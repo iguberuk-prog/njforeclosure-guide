@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 /**
  * The page itself is a client component, which cannot export metadata, so the
@@ -9,8 +10,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://njforeclosureguide.org/guides/refinancing/' },
-  title: 'Refinancing Out of Foreclosure Trouble in NJ | Honest Guide',
-  description: 'When refinancing can still save a New Jersey home in default, what lenders require, and when the math says a refinance no longer works.',
+  title: fitTitle('Refinancing Out of Foreclosure Trouble in NJ | Honest Guide'),
+  description: fitDescription('When refinancing can still save a New Jersey home in default, what lenders require, and when the math says a refinance no longer works.'),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

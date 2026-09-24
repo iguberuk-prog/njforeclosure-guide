@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 /**
  * The page itself is a client component, which cannot export metadata, so the
@@ -9,8 +10,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://njforeclosureguide.org/professionals/' },
-  title: 'Free NJ Foreclosure Help: HUD Counselors, Legal Aid & More',
-  description: 'Where New Jersey homeowners get real help: free HUD-approved counselors, legal services, court mediation, and vetted professionals for every path.',
+  title: fitTitle('Free NJ Foreclosure Help: HUD Counselors, Legal Aid & More'),
+  description: fitDescription('Where New Jersey homeowners get real help: free HUD-approved counselors, legal services, court mediation, and vetted professionals for every path.'),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -3,11 +3,12 @@ import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
 import MiPlanClient from './MiPlanClient';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Mi Plan de Batalla: Sus Plazos en Una Página | NJ Foreclosure Guide',
+  title: fitTitle('Mi Plan de Batalla: Sus Plazos en Una Página | NJ Foreclosure Guide'),
   description:
-    'Ponga sus fechas y reciba un plan personal de una página: sus plazos exactos, en orden, con la jugada gratuita para cada uno. Se imprime en una hoja. Nada sale de su navegador.',
+    fitDescription('Ponga sus fechas y reciba un plan personal de una página: sus plazos exactos, en orden, con la jugada gratuita para cada uno. Se imprime en una hoja. Nada sale de su navegador.'),
   alternates: { canonical: 'https://njforeclosureguide.org/es/mi-plan/' },
   openGraph: {
     images: OG_IMAGES,

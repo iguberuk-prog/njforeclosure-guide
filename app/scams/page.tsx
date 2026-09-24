@@ -2,11 +2,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Foreclosure Rescue Scams in NJ | The Red Flags',
+  title: fitTitle('Foreclosure Rescue Scams in NJ | The Red Flags'),
   description:
-    'How to tell real foreclosure help from a scam in New Jersey: the red flags, what state and federal law actually prohibits, and where to report it. Upfront fees for foreclosure relief are illegal.',
+    fitDescription('How to tell real foreclosure help from a scam in New Jersey: the red flags, what state and federal law actually prohibits, and where to report it. Upfront fees for foreclosure relief are illegal.'),
   alternates: {
     canonical: 'https://njforeclosureguide.org/scams/',
     languages: { en: 'https://njforeclosureguide.org/scams/', es: 'https://njforeclosureguide.org/es/estafas/', 'x-default': 'https://njforeclosureguide.org/scams/' },

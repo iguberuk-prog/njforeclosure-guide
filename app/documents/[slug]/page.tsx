@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import SiteHeader from '../../components/SiteHeader';
 import { DOCUMENTS, getDocument } from '../../../lib/documents';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export function generateStaticParams() {
   return DOCUMENTS.map((d) => ({ slug: d.slug }));
@@ -13,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const doc = getDocument(slug);
   if (!doc) return {};
-  const title = `${doc.shortName} in NJ | What It Means and What To Do`;
-  const description = `${doc.whatItIs.split('. ')[0]}. How much time you have, what is still possible, and the three things to do the week it arrives.`;
+  const title = fitTitle(`${doc.shortName} in NJ | What It Means and What To Do`);
+  const description = fitDescription(`${doc.whatItIs.split('. ')[0]}. How much time you have, what is still possible, and the three things to do the week it arrives.`);
   return {
     title,
     description,

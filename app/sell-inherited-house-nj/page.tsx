@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import SellLanding, { SellPageSpec } from '../components/SellLanding';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Selling an Inherited House in NJ: Probate, Mortgages, and Fast Offers',
+  title: fitTitle('Selling an Inherited House in NJ: Probate, Mortgages, and Fast Offers'),
   description:
-    'Inherited a New Jersey house — maybe with a mortgage behind on payments? What heirs can actually do, how probate affects the sale, and one form that requests cash offers for you, free.',
+    fitDescription('Inherited a New Jersey house — maybe with a mortgage behind on payments? What heirs can actually do, how probate affects the sale, and one form that requests cash offers for you, free.'),
   alternates: { canonical: 'https://njforeclosureguide.org/sell-inherited-house-nj/' },
 };
 

@@ -2,11 +2,12 @@ import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import type { Metadata } from 'next';
 import { INDEPENDENCE_STATEMENT } from '../../lib/partners';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'What Usually Happens | 18 NJ Foreclosure Situations Walked Through',
+  title: fitTitle('What Usually Happens | 18 NJ Foreclosure Situations Walked Through'),
   description:
-    'Eighteen common New Jersey foreclosure situations walked through end to end: what the options actually are, the arithmetic that decides between them, and how each tends to turn out, including the ones that do not work. Illustrative examples, not client stories.',
+    fitDescription('Eighteen common New Jersey foreclosure situations walked through end to end: what the options actually are, the arithmetic that decides between them, and how each tends to turn out, including the ones that do not work. Illustrative examples, not client stories.'),
   alternates: { canonical: 'https://njforeclosureguide.org/scenarios/' },
 };
 

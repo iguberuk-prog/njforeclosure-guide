@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import WidgetClient from './WidgetClient';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 /**
  * The iframe target for the embeddable timeline checker. Deliberately bare:
@@ -10,7 +11,7 @@ import WidgetClient from './WidgetClient';
  */
 
 export const metadata: Metadata = {
-  title: 'Cronología de Ejecución Hipotecaria en NJ',
+  title: fitTitle('Cronología de Ejecución Hipotecaria en NJ'),
   robots: { index: false, follow: true },
 };
 

@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Home Valuation & Listing | Corcoran Sawyer Smith x Builders Resource Center',
+  title: fitTitle('Home Valuation & Listing | Corcoran Sawyer Smith x Builders Resource Center'),
   description:
-    'Get a consultation and a real valuation of your New Jersey home from a licensed full-service brokerage, then decide whether listing on the open market beats a cash offer. Serving every county in New Jersey.',
+    fitDescription('Get a consultation and a real valuation of your New Jersey home from a licensed full-service brokerage, then decide whether listing on the open market beats a cash offer. Serving every county in New Jersey.'),
   alternates: { canonical: 'https://njforeclosureguide.org/companies/brc-corcoran-sawyer-smith/' },
 };
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 /**
  * The page itself is a client component, which cannot export metadata, so the
@@ -12,8 +13,8 @@ export const metadata: Metadata = {
     canonical: 'https://njforeclosureguide.org/quiz/',
     languages: { en: 'https://njforeclosureguide.org/quiz/', es: 'https://njforeclosureguide.org/es/evaluacion/', 'x-default': 'https://njforeclosureguide.org/quiz/' },
   },
-  title: 'Free 2-Minute Foreclosure Assessment for NJ Homeowners',
-  description: 'Answer a few questions and get a straight answer about where you stand, which options are still open, and what to do this week. Free and confidential.',
+  title: fitTitle('Free 2-Minute Foreclosure Assessment for NJ Homeowners'),
+  description: fitDescription('Answer a few questions and get a straight answer about where you stand, which options are still open, and what to do this week. Free and confidential.'),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

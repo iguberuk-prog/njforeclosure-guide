@@ -5,6 +5,7 @@ import SiteHeader from '../../components/SiteHeader';
 import { SHERIFF_SOURCES, getSheriffSource, SHERIFF_DATA_VERIFIED } from '../../../lib/sheriff-sales';
 import { sheriffAngleFor } from '../../../lib/county-blog';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export function generateStaticParams() {
   return SHERIFF_SOURCES.map((s) => ({ county: s.slug }));
@@ -18,8 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ county: s
   // "<county> county sheriff sale(s)" but earned a 0-1% CTR under the old
   // homeowner-only title. Most searchers want THE LIST, so the title now
   // promises the official listings first; the homeowner help stays on-page.
-  const title = `${src.county} County NJ Sheriff Sale List | Official Listings & Rules`;
-  const description = `Go straight to the official ${src.county} County sheriff sale listings${src.usesCivilView ? ' (CivilView)' : ''}${src.phone ? `, the sheriff's office number (${src.phone})` : ''}, where sales are held, and how homeowners can check or postpone a sale date under NJ law.`;
+  const title = fitTitle(`${src.county} County Sheriff Sale List (NJ) | Official Listings`);
+  const description = fitDescription(`Go straight to the official ${src.county} County sheriff sale listings${src.usesCivilView ? ' (CivilView)' : ''}${src.phone ? `, the sheriff's office number (${src.phone})` : ''}, where sales are held, and how homeowners can check or postpone a sale date under NJ law.`);
   return {
     title,
     description,

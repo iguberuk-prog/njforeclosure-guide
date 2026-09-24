@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: "Foreclosure Solutions Companies | Cash Buyers in New Jersey",
-  description: "Connect with verified cash buyer companies in New Jersey offering fast home sales, foreclosure solutions, and cash offers in 24 hours.",
+  title: fitTitle("Foreclosure Solutions Companies | Cash Buyers in New Jersey"),
+  description: fitDescription("Connect with verified cash buyer companies in New Jersey offering fast home sales, foreclosure solutions, and cash offers in 24 hours."),
   keywords: "cash buyers New Jersey, foreclosure solutions, sell house fast NJ, home buying companies, NJOffer",
   openGraph: {
     images: OG_IMAGES,

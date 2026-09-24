@@ -2,11 +2,12 @@ import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
 import RecommendationBasis from '../../components/RecommendationBasis';
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'NJ Offer Review | Fast Cash Home Sale in New Jersey',
+  title: fitTitle('NJ Offer Review | Fast Cash Home Sale in New Jersey'),
   description:
-    'What to know about NJ Offer, a New Jersey cash buyer that makes an offer within 24 hours and closes in 10 to 60 days. When a fast cash sale beats listing, what it costs you, and what to ask before accepting an offer.',
+    fitDescription('What to know about NJ Offer, a New Jersey cash buyer that makes an offer within 24 hours and closes in 10 to 60 days. When a fast cash sale beats listing, what it costs you, and what to ask before accepting an offer.'),
   alternates: { canonical: 'https://njforeclosureguide.org/companies/njoffer/' },
 };
 

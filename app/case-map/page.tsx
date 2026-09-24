@@ -3,11 +3,12 @@ import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import CaseMapClient from './CaseMapClient';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'The NJ Foreclosure Case Map: Tap Where You Are | NJ Foreclosure Guide',
+  title: fitTitle('The NJ Foreclosure Case Map: Tap Where You Are | NJ Foreclosure Guide'),
   description:
-    'An interactive map of the entire New Jersey foreclosure journey. Tap your station and see what’s true right now, which doors are still open, and your free moves.',
+    fitDescription('An interactive map of the entire New Jersey foreclosure journey. Tap your station and see what’s true right now, which doors are still open, and your free moves.'),
   alternates: { canonical: 'https://njforeclosureguide.org/case-map' },
   openGraph: {
     images: OG_IMAGES,

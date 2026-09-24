@@ -2,11 +2,12 @@ import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import type { Metadata } from 'next';
 import { PUBLISHED_REVIEWS, averageRating } from '../../lib/reviews';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Reviews From New Jersey Homeowners We Have Helped',
+  title: fitTitle('Reviews From New Jersey Homeowners We Have Helped'),
   description:
-    'Reviews from real New Jersey homeowners, published only with their written permission. We show the true count, whatever it is, and we do not write our own.',
+    fitDescription('Reviews from real New Jersey homeowners, published only with their written permission. We show the true count, whatever it is, and we do not write our own.'),
   alternates: { canonical: 'https://njforeclosureguide.org/reviews/' },
 };
 

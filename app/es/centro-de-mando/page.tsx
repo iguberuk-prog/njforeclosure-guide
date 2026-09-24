@@ -3,11 +3,12 @@ import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
 import CentroClient from './CentroClient';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Su Centro de Mando: Ejecución Hipotecaria en NJ | NJ Foreclosure Guide',
+  title: fitTitle('Su Centro de Mando: Ejecución Hipotecaria en NJ | NJ Foreclosure Guide'),
   description:
-    'Tres respuestas — su etapa, su condado, su meta — y esta página arma su panel personal: sus plazos, la maquinaria de su condado, la ayuda gratuita cerca, y sus tres mejores jugadas. Gratis y privado.',
+    fitDescription('Tres respuestas — su etapa, su condado, su meta — y esta página arma su panel personal: sus plazos, la maquinaria de su condado, la ayuda gratuita cerca, y sus tres mejores jugadas. Gratis y privado.'),
   alternates: { canonical: 'https://njforeclosureguide.org/es/centro-de-mando/' },
   openGraph: {
     images: OG_IMAGES,

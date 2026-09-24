@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import SiteHeader from '../../components/SiteHeader';
 import { QUESTIONS, getQuestion } from '../../../lib/questions';
 import { OG_IMAGES } from '../../../lib/og';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export function generateStaticParams() {
   return QUESTIONS.map((x) => ({ slug: x.slug }));
@@ -14,8 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const item = getQuestion(slug);
   if (!item) return {};
   return {
-    title: `${item.q} | NJ Foreclosure Guide`,
-    description: item.short,
+    title: fitTitle(`${item.q} | NJ Foreclosure Guide`),
+    description: fitDescription(item.short),
     alternates: { canonical: `https://njforeclosureguide.org/answers/${item.slug}/` },
     openGraph: {
       images: OG_IMAGES,

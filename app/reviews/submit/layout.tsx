@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 /**
  * The page itself is a client component, which cannot export metadata, so the
@@ -8,8 +9,8 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
-  title: 'Leave a Review | NJ Foreclosure Guide',
-  description: 'Worked with NJ Foreclosure Guide? Tell other New Jersey homeowners how it went. Reviews are published with your permission.',
+  title: fitTitle('Leave a Review | NJ Foreclosure Guide'),
+  description: fitDescription('Worked with NJ Foreclosure Guide? Tell other New Jersey homeowners how it went. Reviews are published with your permission.'),
   // A form, not an answer to any search: keep it out of the index.
   robots: { index: false, follow: true },
 };

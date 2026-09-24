@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import SellLanding, { SellPageSpec } from '../components/SellLanding';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Selling a NJ House Before the Sheriff Sale: Timeline and Real Offers',
+  title: fitTitle('Selling a NJ House Before the Sheriff Sale: Timeline and Real Offers'),
   description:
-    'A completed sale before the auction date pays off the mortgage and ends the foreclosure case. What has to happen, how much time you actually have in NJ, and one form that requests your offers for you.',
+    fitDescription('A completed sale before the auction date pays off the mortgage and ends the foreclosure case. What has to happen, how much time you actually have in NJ, and one form that requests your offers for you.'),
   alternates: { canonical: 'https://njforeclosureguide.org/sell-house-before-sheriff-sale/' },
 };
 

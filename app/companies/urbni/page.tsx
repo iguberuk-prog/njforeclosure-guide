@@ -2,11 +2,12 @@ import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
 import RecommendationBasis from '../../components/RecommendationBasis';
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Donate a Home or Land to Urbni | Nonprofit Property Donation',
+  title: fitTitle('Donate a Home or Land to Urbni | Nonprofit Property Donation'),
   description:
-    'Urbni is a nonprofit that accepts donated homes and land and restores them as affordable housing for veterans, seniors, and people in recovery. When donating makes sense, when it does not, and what a mortgage means for a property donation.',
+    fitDescription('Urbni is a nonprofit that accepts donated homes and land and restores them as affordable housing for veterans, seniors, and people in recovery. When donating makes sense, when it does not, and what a mortgage means for a property donation.'),
   alternates: { canonical: 'https://njforeclosureguide.org/companies/urbni/' },
 };
 

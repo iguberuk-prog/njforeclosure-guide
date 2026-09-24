@@ -3,11 +3,12 @@ import type { Metadata } from 'next';
 import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
 import { QUESTIONS_ES } from '../../../lib/questions-es';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Preguntas sobre la Ejecución Hipotecaria en NJ, Respondidas en Español',
+  title: fitTitle('Preguntas sobre la Ejecución Hipotecaria en NJ, Respondidas en Español'),
   description:
-    'Respuestas directas en español a las preguntas más frecuentes sobre la ejecución hipotecaria en Nueva Jersey: cuánto tarda, cuántos pagos puede atrasar, cómo aplazar la venta del sheriff, y más. Gratis.',
+    fitDescription('Respuestas directas en español a las preguntas más frecuentes sobre la ejecución hipotecaria en Nueva Jersey: cuánto tarda, cuántos pagos puede atrasar, cómo aplazar la venta del sheriff, y más. Gratis.'),
   alternates: {
     canonical: 'https://njforeclosureguide.org/es/preguntas/',
     languages: { en: 'https://njforeclosureguide.org/answers/', es: 'https://njforeclosureguide.org/es/preguntas/', 'x-default': 'https://njforeclosureguide.org/answers/' },

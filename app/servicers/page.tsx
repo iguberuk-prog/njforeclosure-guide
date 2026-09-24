@@ -3,11 +3,12 @@ import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import { SERVICERS, SERVICER_DATA_VERIFIED } from '../../lib/servicers';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Reach Your Mortgage Servicer | Loss Mitigation Contacts',
+  title: fitTitle('Reach Your Mortgage Servicer | Loss Mitigation Contacts'),
   description:
-    'How to actually reach loss mitigation at the biggest mortgage servicers: Mr. Cooper, Wells Fargo, Chase, Bank of America, Freedom, Pennymac, Newrez, SPS and more. Phones verified against each servicer\'s own site.',
+    fitDescription('How to actually reach loss mitigation at the biggest mortgage servicers: Mr. Cooper, Wells Fargo, Chase, Bank of America, Freedom, Pennymac, Newrez, SPS and more. Phones verified against each servicer\'s own site.'),
   alternates: { canonical: 'https://njforeclosureguide.org/servicers/' },
   openGraph: {
     images: OG_IMAGES,

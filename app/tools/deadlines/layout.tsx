@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 /**
  * The page itself is a client component, which cannot export metadata, so the
@@ -9,8 +10,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://njforeclosureguide.org/tools/deadlines/' },
-  title: 'NJ Foreclosure Deadline Calculator: Your Dates From Any Notice',
-  description: 'Type in the date on the letter you received and get every New Jersey foreclosure deadline that flows from it, with what each one means.',
+  title: fitTitle('NJ Foreclosure Deadline Calculator: Your Dates From Any Notice'),
+  description: fitDescription('Type in the date on the letter you received and get every New Jersey foreclosure deadline that flows from it, with what each one means.'),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

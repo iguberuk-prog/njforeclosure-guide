@@ -2,11 +2,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'NJ Foreclosure Statistics 2026 | Sourced Numbers',
+  title: fitTitle('NJ Foreclosure Statistics 2026 | Sourced Numbers'),
   description:
-    'New Jersey foreclosure statistics, every number sourced: 8,269 filings in the first half of 2026 (up 21%), 7th-highest state rate (1 in 459 homes), ~16,000 court filings a year, and why NJ cases historically take years.',
+    fitDescription('New Jersey foreclosure statistics, every number sourced: 8,269 filings in the first half of 2026 (up 21%), 7th-highest state rate (1 in 459 homes), ~16,000 court filings a year, and why NJ cases historically take years.'),
   alternates: { canonical: 'https://njforeclosureguide.org/statistics/' },
   openGraph: {
     images: OG_IMAGES,

@@ -3,11 +3,12 @@ import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import BrcCard from '../components/BrcCard';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Compare All 7 NJ Foreclosure Options | One Honest Table',
+  title: fitTitle('Compare All 7 NJ Foreclosure Options | One Honest Table'),
   description:
-    'Every New Jersey foreclosure option side by side: whether you keep the home, how fast it works, what it costs, the credit impact, and the point in the process where each stops being available.',
+    fitDescription('Every New Jersey foreclosure option side by side: whether you keep the home, how fast it works, what it costs, the credit impact, and the point in the process where each stops being available.'),
   alternates: {
     canonical: 'https://njforeclosureguide.org/compare/',
     languages: { en: 'https://njforeclosureguide.org/compare/', es: 'https://njforeclosureguide.org/es/opciones/', 'x-default': 'https://njforeclosureguide.org/compare/' },

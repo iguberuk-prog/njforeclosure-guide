@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import LegalPage, { Section, Bullets, CONTACT_EMAIL } from '../components/LegalPage';
 import PrivacyChoices from '../components/PrivacyChoices';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | NJ Foreclosure Guide',
+  title: fitTitle('Privacy Policy | NJ Foreclosure Guide'),
   description:
-    'What information NJ Foreclosure Guide collects, why we collect it, who we share it with, and how to have it deleted. Written in plain language.',
+    fitDescription('What information NJ Foreclosure Guide collects, why we collect it, who we share it with, and how to have it deleted. Written in plain language.'),
   alternates: { canonical: 'https://njforeclosureguide.org/privacy/' },
 };
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { fitTitle, fitDescription } from '../../../lib/seo';
 
 /**
  * The page itself is a client component, which cannot export metadata, so the
@@ -9,8 +10,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://njforeclosureguide.org/guides/cash-buyer/' },
-  title: 'Selling to a Cash Buyer Before a NJ Sheriff Sale',
-  description: 'How a fast cash sale actually works in New Jersey foreclosure: real timelines, what it costs versus a market sale, and the questions to ask before signing.',
+  title: fitTitle('Selling to a Cash Buyer Before a NJ Sheriff Sale'),
+  description: fitDescription('How a fast cash sale actually works in New Jersey foreclosure: real timelines, what it costs versus a market sale, and the questions to ask before signing.'),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

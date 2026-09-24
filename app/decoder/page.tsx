@@ -3,11 +3,12 @@ import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import DecoderClient from './DecoderClient';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Which Letter Did You Get? The Visual Decoder | NJ Foreclosure Guide',
+  title: fitTitle('Which Letter Did You Get? The Visual Decoder | NJ Foreclosure Guide'),
   description:
-    'Tap the sample layout that looks like the letter in your hand and get the plain-English answer in ten seconds: what it is, your clock, and what to do now. Free.',
+    fitDescription('Tap the sample layout that looks like the letter in your hand and get the plain-English answer in ten seconds: what it is, your clock, and what to do now. Free.'),
   alternates: { canonical: 'https://njforeclosureguide.org/decoder' },
   openGraph: {
     images: OG_IMAGES,

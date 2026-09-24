@@ -3,11 +3,12 @@ import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import CommandClient from './CommandClient';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Your NJ Foreclosure Command Center | NJ Foreclosure Guide',
+  title: fitTitle('Your NJ Foreclosure Command Center | NJ Foreclosure Guide'),
   description:
-    'Three quick answers — your stage, your county, your goal — and this page assembles a personal dashboard: your deadlines, your county’s rules and free help, and your three best plays. Free and private.',
+    fitDescription('Three quick answers — your stage, your county, your goal — and this page assembles a personal dashboard: your deadlines, your county’s rules and free help, and your three best plays. Free and private.'),
   alternates: { canonical: 'https://njforeclosureguide.org/command-center' },
   openGraph: {
     images: OG_IMAGES,

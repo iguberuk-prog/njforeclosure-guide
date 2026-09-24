@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import LegalPage, { Section, Bullets, CONTACT_EMAIL } from '../components/LegalPage';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Terms of Use | NJ Foreclosure Guide',
+  title: fitTitle('Terms of Use | NJ Foreclosure Guide'),
   description:
-    'The terms that govern your use of NJ Foreclosure Guide: what this service is, what it is not, how referrals and compensation work, and the limits of what we can promise.',
+    fitDescription('The terms that govern your use of NJ Foreclosure Guide: what this service is, what it is not, how referrals and compensation work, and the limits of what we can promise.'),
   alternates: { canonical: 'https://njforeclosureguide.org/terms/' },
 };
 

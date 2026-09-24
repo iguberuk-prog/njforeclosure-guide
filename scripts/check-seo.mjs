@@ -32,6 +32,9 @@ for (const u of urls) {
   if (og && og !== canon) problems.push(`${u}: og:url ${og} != canonical`);
   if (!/<meta property="og:image"/.test(h)) problems.push(`${u}: no og:image`);
   if (!/<title>[^<]{5,}<\/title>/.test(h)) problems.push(`${u}: missing <title>`);
+  const lang = h.match(/<html lang="([^"]+)"/)?.[1];
+  const wantLang = /^https:\/\/njforeclosureguide\.org\/es(\/|$)/.test(u) ? 'es' : 'en';
+  if (lang !== wantLang) problems.push(`${u}: html lang ${lang}, expected ${wantLang}`);
 }
 
 if (problems.length) {

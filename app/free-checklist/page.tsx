@@ -3,11 +3,12 @@ import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import DownloadKit from '../components/DownloadKit';
 import { OG_IMAGES } from '../../lib/og';
+import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Free NJ Foreclosure Checklist & 45-Day Playbook (PDF) | NJ Foreclosure Guide',
+  title: fitTitle('Free NJ Foreclosure Checklist & 45-Day Playbook (PDF) | NJ Foreclosure Guide'),
   description:
-    'Download the free Week-One Checklist and the 45-Day Playbook for New Jersey homeowners in foreclosure. Printable PDFs — no email required, no fees, ever.',
+    fitDescription('Download the free Week-One Checklist and the 45-Day Playbook for New Jersey homeowners in foreclosure. Printable PDFs — no email required, no fees, ever.'),
   alternates: { canonical: 'https://njforeclosureguide.org/free-checklist' },
   openGraph: {
     images: OG_IMAGES,
