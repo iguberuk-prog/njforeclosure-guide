@@ -73,6 +73,7 @@ export default function LegalPage({
         <p className="mb-3">&copy; 2026 NJ Foreclosure Guide. All rights reserved.</p>
         <div className="flex gap-5 justify-center flex-wrap">
           <Link href="/" className="hover:text-amber-400 transition">Home</Link>
+          <Link href="/about" className="hover:text-amber-400 transition">About</Link>
           <Link href="/privacy" className="hover:text-amber-400 transition">Privacy Policy</Link>
           <Link href="/terms" className="hover:text-amber-400 transition">Terms of Use</Link>
           <Link href="/disclaimer" className="hover:text-amber-400 transition">Disclaimer</Link>

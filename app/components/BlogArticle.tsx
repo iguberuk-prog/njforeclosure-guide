@@ -76,7 +76,7 @@ export default function BlogArticle({ post, children }: { post: PostMeta; childr
       name: 'Igor Guberuk',
       description:
         'Has helped New Jersey homeowners in foreclosure understand their options for about seven years; founder of NJ Foreclosure Guide.',
-      url: 'https://njforeclosureguide.org/',
+      url: 'https://njforeclosureguide.org/about/',
     },
     publisher: { '@type': 'Organization', name: 'NJ Foreclosure Guide', url: 'https://njforeclosureguide.org/' },
     mainEntityOfPage: `https://njforeclosureguide.org/blog/${post.slug}/`,
@@ -94,7 +94,7 @@ export default function BlogArticle({ post, children }: { post: PostMeta; childr
           </p>
           <h1 className="font-serif text-3xl md:text-4xl font-bold tracking-tight leading-snug mb-5">{post.title}</h1>
           <p className="text-slate-400 text-sm">
-            By <span className="text-slate-200 font-semibold">Igor Guberuk</span> · {fmt(post.published)}
+            By <Link href="/about" className="text-slate-200 font-semibold hover:text-amber-300 underline-offset-4 hover:underline">Igor Guberuk</Link> · {fmt(post.published)}
             {post.updated !== post.published && <> · Updated {fmt(post.updated)}</>} · {post.minutes} min read
           </p>
         </div>

@@ -139,7 +139,7 @@ export const QUESTIONS: QuestionEntry[] = [
     more:
       'Mediation runs alongside the lawsuit rather than pausing it, so keep answering court deadlines while it proceeds. Arrive prepared: a completed financial worksheet, proof of income, and a realistic monthly number you can actually pay make the difference between a mediation that produces a modification and one that produces a follow-up meeting. A free HUD counselor can help you assemble exactly that package.',
     links: [
-      { href: '/guides/loan-modification', label: 'The loan modification guide' },
+      { href: '/guides/foreclosure-mediation', label: 'Mediation, step by step: who qualifies and how to apply' },
       { href: '/documents/summons-and-complaint', label: 'Just served? Your 35-day window, decoded' },
     ],
   },
@@ -167,6 +167,7 @@ export const QUESTIONS: QuestionEntry[] = [
     more:
       'Two things remain genuinely worth doing after a sale: check whether the auction produced surplus funds (money above the judgment belongs to you and sits with the court until claimed), and know that possession does not change overnight, because removal happens only through a court-issued writ served by the sheriff, never by the buyer changing your locks.',
     links: [
+      { href: '/guides/after-sheriff-sale', label: 'The complete after-the-sale guide' },
       { href: '/guides/surplus-funds', label: 'Surplus funds: how to claim them' },
       { href: '/documents/writ-of-possession', label: 'After the sale: the writ of possession, decoded' },
     ],
@@ -223,6 +224,7 @@ export const QUESTIONS: QuestionEntry[] = [
     more:
       'Three post-sale moves matter. First, claim any surplus: if bidding exceeded the judgment amount, that money is deposited with the court and belongs to you. Second, if you need time, ask about a hardship stay, and know that buyers often pay for smooth, scheduled move-outs ("cash for keys"), which is negotiable and entirely optional. Third, document the home\'s condition when you leave.',
     links: [
+      { href: '/guides/after-sheriff-sale', label: 'The complete after-the-sale guide' },
       { href: '/documents/writ-of-possession', label: 'The writ of possession, decoded' },
       { href: '/guides/surplus-funds', label: 'Claiming surplus funds' },
     ],

@@ -55,6 +55,18 @@ const guides = [
     category: 'Sell Your Home',
   },
   {
+    slug: 'after-sheriff-sale',
+    title: 'After the Sheriff Sale. Your Rights, Timeline and Money',
+    description: 'The 10-day window, when the deed transfers, how long you can stay, cash for keys, surplus funds, and deficiency judgments, in order.',
+    category: 'Sell Your Home',
+  },
+  {
+    slug: 'foreclosure-mediation',
+    title: 'Foreclosure Mediation. The Free Court Program, Explained',
+    description: 'Who qualifies for New Jersey’s court-run mediation, the 60-day window to request it, and how to walk in with a package that gets an offer.',
+    category: 'Keep Your Home',
+  },
+  {
     slug: 'bankruptcy-chapter-13',
     title: 'Chapter 13 Bankruptcy. Legal Protection and Debt Restructuring',
     description: 'Filing triggers an automatic stay that pauses the foreclosure while you reorganize debt over 3-5 years and keep your home.',

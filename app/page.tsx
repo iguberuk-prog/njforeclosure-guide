@@ -554,6 +554,7 @@ export default function Home() {
             <div>
               <h3 className="font-bold text-white mb-4 text-xs uppercase tracking-[0.2em]">Legal</h3>
               <ul className="text-sm space-y-3">
+                <li><Link href="/about" className="hover:text-amber-400 transition">About &amp; Editorial Standards</Link></li>
                 <li><Link href="/privacy" className="hover:text-amber-400 transition">Privacy Policy</Link></li>
                 <li><Link href="/terms" className="hover:text-amber-400 transition">Terms of Use</Link></li>
                 <li><Link href="/disclaimer" className="hover:text-amber-400 transition">Disclaimer</Link></li>

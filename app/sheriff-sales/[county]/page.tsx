@@ -240,6 +240,9 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
           </p>
           <ul className="list-disc pl-5 space-y-1.5">
             <li>
+              <Link href="/guides/after-sheriff-sale" className="text-slate-900 underline underline-offset-4 font-semibold">The complete after-the-sale guide</Link>
+            </li>
+            <li>
               <Link href="/answers/what-happens-after-a-sheriff-sale/" className="text-slate-900 underline underline-offset-4">What happens after a sheriff sale</Link>
             </li>
             <li>
