@@ -18,6 +18,8 @@ declare global {
   interface Window {
     google?: any;
     __gmapsLoading?: Promise<void>;
+    __gmapsAuthFailed?: boolean;
+    gm_authFailure?: () => void;
   }
 }
 
@@ -56,13 +58,30 @@ export default function AddressInput({
     if (!GOOGLE_MAPS_API_KEY) return;
     let cancelled = false;
     let el: any;
+    // Google calls window.gm_authFailure when the key or its billing account is
+    // rejected (e.g. a suspended Cloud billing account). The widget would then
+    // render but never return suggestions, so fall back to the plain input.
+    const prevAuthFailure = window.gm_authFailure;
+    window.gm_authFailure = () => {
+      window.__gmapsAuthFailed = true;
+      try { el?.remove(); } catch {}
+      if (!cancelled) setMode('plain');
+      prevAuthFailure?.();
+    };
+    if (window.__gmapsAuthFailed) return;
     (async () => {
       try {
         await loadMaps(GOOGLE_MAPS_API_KEY);
         const { PlaceAutocompleteElement } = await window.google.maps.importLibrary('places');
-        if (cancelled || !hostRef.current) return;
+        if (cancelled || !hostRef.current || window.__gmapsAuthFailed) return;
         el = new PlaceAutocompleteElement({ includedRegionCodes: ['us'] });
         el.style.width = '100%';
+        // Record what the visitor types too, so an address still submits if
+        // they never pick a suggestion (or suggestions stop working).
+        el.addEventListener('input', (ev: any) => {
+          const t = ev.composedPath?.()[0] ?? ev.target;
+          if (t && typeof t.value === 'string') onChangeRef.current(t.value);
+        });
         el.addEventListener('gmp-select', async (ev: any) => {
           try {
             const place = ev.placePrediction.toPlace();
