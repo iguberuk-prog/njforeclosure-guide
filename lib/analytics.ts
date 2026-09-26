@@ -18,8 +18,13 @@ export const GA_MEASUREMENT_ID: string | null = 'G-J1ZBSH6SQL';
 // vocabulary where one fits (generate_lead is what Google Ads imports as a
 // conversion with zero extra setup).
 //
-//   generate_lead   quiz contact form successfully submitted  <- PRIMARY
+//   generate_lead   contact left: quiz, Spanish quiz, commercial assessment,
+//                   offer concierge, or Samantha chat (lead_type 'chat',
+//                   once per conversation)                    <- PRIMARY
 //   quiz_complete   quiz finished and results shown (with or without contact)
+//   email_capture   guide / checklist / plan emailed (name + email only)
+//   call_click      tap on any tel: link (HUD, Legal Services, companies)
+//   calculator_use  a free tool produced a result (param: tool)
 //   partner_click   outbound click to any listed company or program
 //   email_click     click on a mailto: link to the site address
 //   review_submit   client review form submitted

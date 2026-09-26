@@ -53,6 +53,17 @@ export default function Analytics() {
       if (!anchor || typeof window.gtag !== 'function') return;
       const href = anchor.getAttribute('href') ?? '';
 
+      if (href.startsWith('tel:')) {
+        // Calls to HUD counselors, Legal Services, companies and programs.
+        // The site has no phone line of its own, so every call click is a
+        // homeowner reaching real help: a success path worth measuring.
+        window.gtag('event', 'call_click', {
+          phone_number: href.slice(4).replace(/[^\d+]/g, ''),
+          page_path: window.location.pathname,
+        });
+        return;
+      }
+
       if (href.startsWith('mailto:')) {
         window.gtag('event', 'email_click', {
           link_url: href.slice(7).split('?')[0],

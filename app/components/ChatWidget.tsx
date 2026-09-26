@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { appendAttribution } from '../../lib/attribution';
 import { newSubmissionId, sendIntake } from '../../lib/intake';
+import { trackEvent } from '../../lib/analytics';
 
 interface Msg {
   role: 'user' | 'assistant';
@@ -69,6 +70,8 @@ export default function ChatWidget() {
   const connectedOnce = useRef(false);
   // CRM submission id for this conversation (see submitTranscript).
   const intakeIdRef = useRef<string | null>(null);
+  // GA4 generate_lead fires once per conversation (see submitTranscript).
+  const chatLeadTrackedRef = useRef(false);
 
   // First open: a short "connecting" beat before Samantha's welcome appears.
   const handleOpen = () => {
@@ -115,6 +118,12 @@ export default function ChatWidget() {
         }),
         sendIntake(formData, intakeIdRef.current),
       ]);
+      // Count the conversion once per conversation (the first time contact
+      // info is captured), not on every transcript re-post.
+      if (!chatLeadTrackedRef.current) {
+        chatLeadTrackedRef.current = true;
+        trackEvent('generate_lead', { lead_type: 'chat', source_page: typeof window !== 'undefined' ? window.location.pathname : '' });
+      }
     } catch {
       // Silent: never disrupt the visitor's conversation
     }
