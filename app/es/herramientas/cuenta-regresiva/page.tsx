@@ -97,6 +97,7 @@ export default function CuentaRegresivaPage() {
             <li><Link href="/sheriff-sales/" className="underline underline-offset-4">Las listas de subastas y los contactos del sheriff de los 21 condados (en inglés)</Link></li>
             <li><Link href="/es/guias/despues-de-la-subasta/" className="underline underline-offset-4">Qué pasa después de la subasta del sheriff</Link></li>
             <li><Link href="/es/herramientas/ponerse-al-dia/" className="underline underline-offset-4">Calculadora para ponerse al día: lo que cuesta reinstalar su hipoteca</Link></li>
+            <li><Link href="/es/herramientas/constructor-de-cartas/?letter=postpone" className="underline underline-offset-4">Constructor de cartas: pídale por escrito a su servicer que aplace la subasta</Link></li>
           </ul>
         </div>
       </div>

@@ -91,6 +91,15 @@ export default function EsEstafasPage() {
           ))}
         </ol>
 
+        <div className="rounded-2xl border-2 border-amber-300 bg-amber-50 px-6 py-5 mb-12">
+          <p className="font-bold text-slate-900 mb-1">¿Recibió una oferta, una carta o un mensaje y no está seguro?</p>
+          <p className="text-slate-700 leading-relaxed">
+            Péguelo en el{' '}
+            <Link href="/es/herramientas/verificador-de-estafas/" className="font-semibold text-slate-900 underline underline-offset-4">verificador de estafas</Link>{' '}
+            gratuito para ver qué señales de alerta conocidas tiene. Nada de lo que pegue sale de su navegador.
+          </p>
+        </div>
+
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">Dónde denunciar</h2>
         <div className="grid sm:grid-cols-3 gap-4 mb-12">
           <a href="https://www.njconsumeraffairs.gov/" target="_blank" rel="noopener noreferrer" className="border border-slate-200 rounded-xl px-5 py-4 hover:border-slate-400 transition">

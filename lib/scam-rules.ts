@@ -578,10 +578,10 @@ export function normalize(text: string): string {
   return text.replace(/[‘’ʼ]/g, "'").replace(/[“”]/g, '"');
 }
 
-function findSpans(text: string, rule: ScamRule): Span[] {
+function findSpans(text: string, rule: ScamRule, extra: RegExp[] = [], extraNegation?: RegExp): Span[] {
   const out: Span[] = [];
   if (rule.requiresAll && !rule.requiresAll.every((r) => new RegExp(r.source, 'i').test(text))) return out;
-  for (const p of rule.patterns) {
+  for (const p of extra.length ? [...rule.patterns, ...extra] : rule.patterns) {
     const flags = p.flags.includes('g') ? p.flags : p.flags + 'g';
     const re = new RegExp(p.source, flags.includes('i') ? flags : flags + 'i');
     let m: RegExpExecArray | null;
@@ -592,7 +592,10 @@ function findSpans(text: string, rule: ScamRule): Span[] {
       }
       const start = m.index;
       const end = start + m[0].trimEnd().length;
-      if (rule.negatable && NEGATION.test(leadIn(text, start))) continue;
+      if (rule.negatable) {
+        const lead = leadIn(text, start);
+        if (NEGATION.test(lead) || (extraNegation && extraNegation.test(lead))) continue;
+      }
       if (rule.unless && rule.unless.test(sentenceAround(text, start, end))) continue;
       out.push({ start, end, ruleId: rule.id });
     }
@@ -621,6 +624,20 @@ function mergeSpans(spans: Span[]): Span[] {
 const WEIGHT: Record<Severity, number> = { high: 5, medium: 2, low: 1 };
 
 /**
+ * Optional extra matching for another language (the Spanish page passes
+ * lib/scam-rules-es.ts). Extra patterns are added to a rule's own patterns
+ * and go through the same negation / `unless` / `requiresAll` checks; extra
+ * legit patterns count toward the signal with that id. Scoring is unchanged.
+ * With no options, behavior is exactly the English checker's.
+ */
+export interface AnalyzeOptions {
+  extraPatterns?: Partial<Record<string, RegExp[]>>;
+  extraLegitPatterns?: Partial<Record<string, RegExp[]>>;
+  /** Tested against the text just before a match, in addition to NEGATION. */
+  extraNegation?: RegExp;
+}
+
+/**
  * Analyze pasted text plus checklist answers. Pure and deterministic.
  * Rating:
  *  - any high-severity flag -> 'high' (legit-sounding context never cancels it)
@@ -628,7 +645,7 @@ const WEIGHT: Record<Severity, number> = { high: 5, medium: 2, low: 1 };
  *  - any medium flag, or points left over -> 'warning'
  *  - else 'none' ("no KNOWN red flags", which is not the same as safe)
  */
-export function analyzeMessage(rawText: string, checkedIds: string[] = []): Analysis {
+export function analyzeMessage(rawText: string, checkedIds: string[] = [], opts: AnalyzeOptions = {}): Analysis {
   const text = normalize(rawText || '');
   const byRule = new Map<string, Flag>();
   const allSpans: Span[] = [];
@@ -642,7 +659,7 @@ export function analyzeMessage(rawText: string, checkedIds: string[] = []): Anal
   };
 
   for (const rule of RULES) {
-    const spans = findSpans(text, rule);
+    const spans = findSpans(text, rule, opts.extraPatterns?.[rule.id], opts.extraNegation);
     if (!spans.length) continue;
     const f = get(rule);
     for (const s of mergeSpans(spans)) {
@@ -666,7 +683,11 @@ export function analyzeMessage(rawText: string, checkedIds: string[] = []): Anal
 
   const flags = RULES.map((r) => byRule.get(r.id)).filter((f): f is Flag => !!f);
   const hasFee = flags.some((f) => FEE_RULES.has(f.rule.id));
-  const legit = LEGIT_SIGNALS.filter((sig) => (!sig.requiresNoFee || !hasFee) && sig.patterns.some((p) => new RegExp(p.source, p.flags.replace('g', '')).test(text)));
+  const legit = LEGIT_SIGNALS.filter(
+    (sig) =>
+      (!sig.requiresNoFee || !hasFee) &&
+      [...sig.patterns, ...(opts.extraLegitPatterns?.[sig.id] ?? [])].some((p) => new RegExp(p.source, p.flags.replace('g', '')).test(text))
+  );
 
   const highCount = flags.filter((f) => f.rule.severity === 'high').length;
   const medCount = flags.filter((f) => f.rule.severity === 'medium').length;

@@ -157,6 +157,18 @@ export default function EsHomePage() {
               Calcule cuánto necesitaría para ponerse al día con la hipoteca antes de llamar a su prestamista.
             </p>
           </Link>
+          <Link href="/es/herramientas/constructor-de-cartas" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Constructor de cartas</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              Carta de dificultad económica, saldo total, aviso de error, aplazar la subasta o apelar una negación. Formulario en español, carta en inglés para su servicer.
+            </p>
+          </Link>
+          <Link href="/es/herramientas/verificador-de-estafas" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Verificador de estafas</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              Pegue la carta, el mensaje o la oferta y vea qué señales de estafa tiene y a quién llamar. Privado: nada sale de su navegador.
+            </p>
+          </Link>
         </div>
 
         <div className="bg-slate-50 rounded-2xl p-6">

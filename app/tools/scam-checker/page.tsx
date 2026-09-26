@@ -27,7 +27,10 @@ export const metadata: Metadata = {
   description: fitDescription(
     'Paste a letter, text, or email about your New Jersey foreclosure and check it for rescue-scam red flags: up-front fees, deed transfers, guarantees. Free and private.'
   ),
-  alternates: { canonical: CANONICAL },
+  alternates: {
+    canonical: CANONICAL,
+    languages: { en: CANONICAL, es: 'https://njforeclosureguide.org/es/herramientas/verificador-de-estafas/', 'x-default': CANONICAL },
+  },
   openGraph: {
     images: OG_IMAGES,
     title: 'Foreclosure Scam Checker (NJ)',

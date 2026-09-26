@@ -61,6 +61,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/reports/nj-sheriff-sales',
     '/es/herramientas/cuenta-regresiva',
     '/es/herramientas/ponerse-al-dia',
+    '/es/herramientas/constructor-de-cartas',
+    '/es/herramientas/verificador-de-estafas',
     '/es/guias/despues-de-la-subasta',
     '/es/guias/mediacion',
     '/es/herramientas/fondos-sobrantes',

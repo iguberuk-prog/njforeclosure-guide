@@ -29,7 +29,10 @@ const URL = 'https://njforeclosureguide.org/tools/letter-builder/';
 export const metadata: Metadata = {
   title: fitTitle(TITLE),
   description: fitDescription(DESC),
-  alternates: { canonical: URL },
+  alternates: {
+    canonical: URL,
+    languages: { en: URL, es: 'https://njforeclosureguide.org/es/herramientas/constructor-de-cartas/', 'x-default': URL },
+  },
   openGraph: {
     images: OG_IMAGES,
     title: 'Free Mortgage Hardship Letter & Servicer Letter Builder',

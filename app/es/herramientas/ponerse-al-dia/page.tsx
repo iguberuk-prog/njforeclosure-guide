@@ -175,6 +175,7 @@ export default function PonerseAlDiaPage() {
           <p className="font-bold text-slate-900 mb-3">Relacionado</p>
           <ul className="space-y-2 text-slate-700">
             <li><Link href="/blog/reinstatement-quote-guide/" className="underline underline-offset-4">Cómo leer una cotización de reinstalación (en inglés)</Link></li>
+            <li><Link href="/es/herramientas/constructor-de-cartas/?letter=quote" className="underline underline-offset-4">Constructor de cartas: pida por escrito su cotización de reinstalación y el saldo total</Link></li>
             <li><Link href="/guides/loan-modification/" className="underline underline-offset-4">Modificación del préstamo: quedarse con la casa cambiando los términos de la hipoteca (en inglés)</Link></li>
             <li><Link href="/guides/forbearance/" className="underline underline-offset-4">Pausa de pagos (forbearance) y diferimiento de pagos (deferment): pausar o reducir los pagos mientras se recupera (en inglés)</Link></li>
             <li><Link href="/es/herramientas/cuenta-regresiva/" className="underline underline-offset-4">Cuenta regresiva para la subasta del sheriff</Link></li>

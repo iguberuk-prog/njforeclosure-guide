@@ -332,34 +332,55 @@ export function daysBetween(a: string, b: string): number | null {
 }
 
 /**
+ * Which date-based notes apply, as language-neutral codes. The thresholds
+ * (37 days, 14 days, 90 days) live only here; timingNotes() renders them in
+ * English and lib/letters-es.ts renders the same codes in Spanish.
+ */
+export type TimingNote =
+  | { code: 'postpone-protected'; gap: number }
+  | { code: 'postpone-unprotected'; gap: number }
+  | { code: 'appeal-window-passed'; since: number }
+  | { code: 'appeal-window-open'; since: number }
+  | { code: 'appeal-under-90'; gap: number };
+
+export function timingNoteCodes(kind: LetterKind, input: LetterInput): TimingNote[] {
+  const notes: TimingNote[] = [];
+  if (kind === 'postpone') {
+    const gap = daysBetween(input.completeAppDate, input.saleDate);
+    if (gap !== null) notes.push({ code: gap > 37 ? 'postpone-protected' : 'postpone-unprotected', gap });
+  }
+  if (kind === 'appeal') {
+    const since = daysBetween(input.denialDate, input.letterDate);
+    if (since !== null && since > 14) notes.push({ code: 'appeal-window-passed', since });
+    else if (since !== null && since >= 0) notes.push({ code: 'appeal-window-open', since });
+    const gap = daysBetween(input.completeAppDate, input.saleDate);
+    if (gap !== null && gap < 90) notes.push({ code: 'appeal-under-90', gap });
+  }
+  return notes;
+}
+
+/** English wording of one timing note. */
+export function timingNoteText(n: TimingNote): string {
+  switch (n.code) {
+    case 'postpone-protected':
+      return `Your complete application date is ${n.gap} days before the sale date. If the servicer received the complete application on that date, 12 CFR 1024.41(g) generally bars it from conducting the sale while the review and any appeal are pending, unless an exception applies.`;
+    case 'postpone-unprotected':
+      return `Your complete application date is ${n.gap < 0 ? 'after' : `${n.gap} days before`} the sale date. The federal sale protection in 12 CFR 1024.41(g) generally applies only to a complete application received more than 37 days before the sale, so the letter asks for a postponement without relying on it. Use your adjournment rights through the sheriff and call for free legal help now.`;
+    case 'appeal-window-passed':
+      return `Your letter date is ${n.since} days after the denial notice date. The federal appeal window is 14 days after the servicer provides its decision, so the appeal right may have passed. You can still send this as a request for reconsideration, and ask a HUD-approved counselor about reapplying.`;
+    case 'appeal-window-open':
+      return `Your letter date is ${n.since} day${n.since === 1 ? '' : 's'} after the denial notice date. The federal window is 14 days after the servicer provides its decision, so send it right away by a trackable method.`;
+    case 'appeal-under-90':
+      return `Your complete application date is ${n.gap < 0 ? 'after' : `${n.gap} days before`} the sale date. The federal appeal right generally requires a complete application received 90 days or more before a scheduled sale, so the servicer may say no appeal is available. The letter still asks for a review.`;
+  }
+}
+
+/**
  * Date-based notes shown next to the form. They describe what the rules
  * generally require for the dates entered; they never promise an outcome.
  */
 export function timingNotes(kind: LetterKind, input: LetterInput): string[] {
-  const notes: string[] = [];
-  if (kind === 'postpone') {
-    const gap = daysBetween(input.completeAppDate, input.saleDate);
-    if (gap !== null) {
-      if (gap > 37) {
-        notes.push(`Your complete application date is ${gap} days before the sale date. If the servicer received the complete application on that date, 12 CFR 1024.41(g) generally bars it from conducting the sale while the review and any appeal are pending, unless an exception applies.`);
-      } else {
-        notes.push(`Your complete application date is ${gap < 0 ? 'after' : `${gap} days before`} the sale date. The federal sale protection in 12 CFR 1024.41(g) generally applies only to a complete application received more than 37 days before the sale, so the letter asks for a postponement without relying on it. Use your adjournment rights through the sheriff and call for free legal help now.`);
-      }
-    }
-  }
-  if (kind === 'appeal') {
-    const since = daysBetween(input.denialDate, input.letterDate);
-    if (since !== null && since > 14) {
-      notes.push(`Your letter date is ${since} days after the denial notice date. The federal appeal window is 14 days after the servicer provides its decision, so the appeal right may have passed. You can still send this as a request for reconsideration, and ask a HUD-approved counselor about reapplying.`);
-    } else if (since !== null && since >= 0) {
-      notes.push(`Your letter date is ${since} day${since === 1 ? '' : 's'} after the denial notice date. The federal window is 14 days after the servicer provides its decision, so send it right away by a trackable method.`);
-    }
-    const gap = daysBetween(input.completeAppDate, input.saleDate);
-    if (gap !== null && gap < 90) {
-      notes.push(`Your complete application date is ${gap < 0 ? 'after' : `${gap} days before`} the sale date. The federal appeal right generally requires a complete application received 90 days or more before a scheduled sale, so the servicer may say no appeal is available. The letter still asks for a review.`);
-    }
-  }
-  return notes;
+  return timingNoteCodes(kind, input).map(timingNoteText);
 }
 
 // ---------------------------------------------------------------------------
