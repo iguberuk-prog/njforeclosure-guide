@@ -6,6 +6,8 @@ import { SHERIFF_SOURCES, getSheriffSource, SHERIFF_DATA_VERIFIED } from '../../
 import { sheriffAngleFor } from '../../../lib/county-blog';
 import { OG_IMAGES } from '../../../lib/og';
 import { fitTitle, fitDescription } from '../../../lib/seo';
+import CountySaleStats from '../../components/CountySaleStats';
+import { REPORT, AS_OF_MEDIUM, AS_OF_MONTH, num, countyStats } from '../../../lib/sheriff-report';
 
 export function generateStaticParams() {
   return SHERIFF_SOURCES.map((s) => ({ county: s.slug }));
@@ -19,8 +21,16 @@ export async function generateMetadata({ params }: { params: Promise<{ county: s
   // "<county> county sheriff sale(s)" but earned a 0-1% CTR under the old
   // homeowner-only title. Most searchers want THE LIST, so the title now
   // promises the official listings first; the homeowner help stays on-page.
-  const title = fitTitle(`${src.county} County Sheriff Sale List (NJ) | Official Listings`);
-  const description = fitDescription(`Go straight to the official ${src.county} County sheriff sale listings${src.usesCivilView ? ' (CivilView)' : ''}${src.phone ? `, the sheriff's office number (${src.phone})` : ''}, where sales are held, and how homeowners can check or postpone a sale date under NJ law.`);
+  // Counties in the monthly NJ Sheriff Sale Report (CivilView) lead with the
+  // live count and the report month; the five counties that publish their
+  // lists elsewhere keep the listings-first title and description.
+  const stats = countyStats(src.slug);
+  const title = stats
+    ? fitTitle(`${src.county} County Sheriff Sale List (NJ) | ${AS_OF_MONTH}`)
+    : fitTitle(`${src.county} County Sheriff Sale List (NJ) | Official Listings`);
+  const description = stats
+    ? fitDescription(`${num(stats.county.openListings)} ${src.county} County sheriff sales are scheduled as of ${AS_OF_MEDIUM}. Official listings, next sale date, top towns, and help for homeowners facing a sale.`)
+    : fitDescription(`Go straight to the official ${src.county} County sheriff sale listings${src.usesCivilView ? ' (CivilView)' : ''}${src.phone ? `, the sheriff's office number (${src.phone})` : ''}, where sales are held, and how homeowners can check or postpone a sale date under NJ law.`);
   return {
     title,
     description,
@@ -65,9 +75,22 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
     })),
   };
 
+  const pageUrl = `https://njforeclosureguide.org/sheriff-sales/${src.slug}/`;
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${src.county} County Sheriff Sales`,
+    url: pageUrl,
+    // Only counties with this month's report numbers carry a data date.
+    ...(countyStats(src.slug) ? { dateModified: REPORT.asOfDate } : {}),
+    isPartOf: { '@type': 'WebSite', name: 'NJ Foreclosure Guide', url: 'https://njforeclosureguide.org/' },
+    about: { '@type': 'Place', name: `${src.county} County, New Jersey` },
+  };
+
   return (
     <div className="min-h-full bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <SiteHeader />
 
       <section className="bg-gradient-to-b from-slate-950 to-slate-900 text-white py-14 px-4">
@@ -102,6 +125,8 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-12">
+        <CountySaleStats slug={src.slug} county={src.county} officialUrl={src.salesUrl} />
+
         <div className="border border-slate-200 rounded-2xl p-6 mb-10">
           <h2 className="font-bold text-slate-900 text-lg mb-4">Official sources</h2>
           <div className="space-y-3 text-slate-700">
