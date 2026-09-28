@@ -1,14 +1,26 @@
-// BLOG SERIES: HOW BANKS WORK IN FORECLOSURE, PART 3 — NEGOTIATING (10 posts)
+// BLOG SERIES: HOW BANKS WORK IN FORECLOSURE, PART 3 — NEGOTIATING (11 posts)
 // ---------------------------------------------------------------------------
 // Theme: working the machine — call craft, formal rights (SPOC, error
 // resolution, CFPB/NJ DOBI), mediation behavior, short sale / DIL / payoff
-// negotiations, bankruptcy's effect, REO aftermath. Same discipline: facts,
-// no promises, lawyers where lawyers belong.
+// negotiations, returned payments and suspense accounts, bankruptcy's
+// effect, REO aftermath. Same discipline: facts, no promises, lawyers where
+// lawyers belong.
+//
+// Returned-payment / suspense facts verified 2026-09-28 against:
+// - 12 CFR 1026.36(c)(1) (Regulation Z), eCFR current text:
+//   https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-E/section-1026.36
+//   (periodic payments credited as of date of receipt; partial payments may
+//   be held in a suspense/unapplied-funds account, must be disclosed on the
+//   periodic statement, and must be applied once enough accumulates to
+//   cover a full periodic payment).
+// - Cure/reinstatement to entry of final judgment: NJ Fair Foreclosure Act,
+//   as already stated across the site (lib/questions.ts).
 // ---------------------------------------------------------------------------
 
 import type { TopicPost } from './topic-blog';
 
 const PUB = '2026-09-17';
+const PUB2 = '2026-09-28';
 
 export const BANKS_POSTS_3: TopicPost[] = [
   {
@@ -379,6 +391,46 @@ export const BANKS_POSTS_3: TopicPost[] = [
       { href: '/answers/what-happens-after-a-sheriff-sale', label: 'The full after-sale sequence' },
       { href: '/guides/surplus-funds', label: 'Checking and claiming surplus' },
       { href: '/tenants', label: 'Tenant rights the sale didn’t erase' },
+    ],
+  },
+  {
+    slug: 'servicer-returned-my-mortgage-payment-nj',
+    title: 'The Bank Sent My Payment Back. Now What?',
+    description:
+      'A returned check feels like the door slamming. It isn’t — it’s the account changing rules. Why servicers refuse partial payments after default, what a suspense account does with your money, and the catch-up paths that still work in NJ.',
+    tldr:
+      'A servicer that returns your payment is almost never refusing to be paid — it is refusing to be paid partially. Once a loan is seriously delinquent (and especially once it is accelerated and in foreclosure), many servicers stop accepting anything less than the full amount due, because partial sums neither cure the default nor fit their accounting. Money they do keep can sit in a “suspense” or unapplied-funds account: under federal rules it must show on your periodic statement and be applied once it adds up to a full payment. None of this ends your options in New Jersey — the Fair Foreclosure Act keeps the right to reinstate (pay the arrears in full) open up to entry of final judgment, and repayment plans or modifications can restructure what a lump sum can’t reach. The worst response is treating the returned check as permission to spend it.',
+    published: PUB2,
+    updated: PUB2,
+    minutes: 5,
+    theme: 'banks',
+    sections: [
+      {
+        h: 'Why the check came back',
+        body: [
+          'While a loan is mildly late, servicers generally take what you send. But once the delinquency deepens — and clearly once the loan is accelerated and a foreclosure is filed — the ledger changes: the contract’s remedy is the whole arrears, not a slice of it, and a servicer that keeps taking single payments risks muddying its own case and your account history. So the payment portal locks, the coupon book stops working, and a check for one month comes back with a letter saying the amount is insufficient. It reads as hostility; it is mostly accounting.',
+          'The same logic explains the demand that catch-up funds arrive as certified funds for the exact quoted amount: reinstatement is all-or-nothing by design. What the returned check does not mean is that paying is pointless, that the house is already lost, or that the relationship is over. It means the account now only speaks two languages — the full number, or a written agreement that changes the number.',
+        ],
+      },
+      {
+        h: 'Where the money goes when they do take it',
+        body: [
+          'Sometimes the servicer keeps a partial payment without applying it. Federal servicing rules allow that, with conditions: the money goes into a suspense (unapplied-funds) account, the amount held must be disclosed on your periodic statement, and once the balance accumulates to a full periodic payment it must be applied to the loan. Suspense is not theft, but it is a place where money sits earning you nothing and curing nothing — and where households lose track of what they have actually paid.',
+          'So read the statement lines you normally skip: the unapplied-funds balance, the amount due, the fees. If money you sent seems to have vanished, dispute it in writing through the notice-of-error channel rather than by phone — our free letter builder drafts that letter, and a payment history request alongside it shows exactly how every dollar was routed.',
+        ],
+      },
+      {
+        h: 'The paths that still take your money',
+        body: [
+          'First: do not spend the returned payment. Park it — and every payment you would have made — in a separate account; every workable exit is cheaper for households that saved the mortgage money they were not allowed to send. Second, get the real number in writing: an itemized reinstatement quote with a good-through date. New Jersey’s Fair Foreclosure Act keeps that cure door open up to entry of final judgment, and paying it generally ends the case. Our free catch-up calculator helps you see whether the number is reachable with savings, family help, or time.',
+          'If the lump sum is out of reach, the same servicer that returned your check will still process a repayment plan (arrears spread over months on top of the regular payment) or a modification (the arrears restructured into the loan) — those run through loss mitigation, not the payment portal, and a free HUD-approved counselor (800-569-4287) can assemble the application. In an active case, the free court mediation program puts a lender representative at the table. The returned check closed a window, not the building.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/tools/catch-up', label: 'Can you catch up? Run the numbers, free' },
+      { href: '/blog/payoff-and-reinstatement-quotes-numbers-banks-must-honor', label: 'Getting the quote they must stand behind' },
+      { href: '/answers/how-much-to-reinstate-my-mortgage', label: 'The reinstatement right, in brief' },
     ],
   },
 ];

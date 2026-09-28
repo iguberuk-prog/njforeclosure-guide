@@ -1,15 +1,27 @@
-// BLOG SERIES: MONEY & AFTERMATH (10 posts)
+// BLOG SERIES: MONEY & AFTERMATH (11 posts)
 // ---------------------------------------------------------------------------
 // Theme: the financial questions around and after a foreclosure — credit,
 // taxes, deficiency, buying again, equity protection, liens, co-signers,
-// renting, family money, and the cost of waiting. Discipline: qualitative
-// where specifics vary (tax outcomes, waiting periods), always pointed at
-// licensed professionals for individual advice, zero outcome promises.
+// renting, family money, force-placed insurance, and the cost of waiting.
+// Discipline: qualitative where specifics vary (tax outcomes, waiting
+// periods), always pointed at licensed professionals for individual advice,
+// zero outcome promises.
+//
+// Force-placed insurance facts verified 2026-09-28 against:
+// - 12 CFR 1024.37 (Regulation X), eCFR current text:
+//   https://www.ecfr.gov/current/title-12/chapter-X/part-1024/subpart-C/section-1024.37
+//   (reasonable-basis standard; initial notice >=45 days before charging;
+//   second/final notice >=30 days after the first and >=15 days before
+//   charging; on evidence of coverage, cancellation within 15 days and
+//   refund of premiums/fees for overlapping coverage; charges must be
+//   bona fide and reasonable; escrowed policies the servicer renews under
+//   1024.17(k) are not force-placed insurance).
 // ---------------------------------------------------------------------------
 
 import type { TopicPost } from './topic-blog';
 
 const PUB = '2026-09-17';
+const PUB2 = '2026-09-28';
 
 export const MONEY_POSTS: TopicPost[] = [
   {
@@ -381,6 +393,46 @@ export const MONEY_POSTS: TopicPost[] = [
       { href: '/free-checklist', label: 'Start now: the Week-One Checklist (free PDF)' },
       { href: '/answers/is-it-too-late', label: 'What’s still possible at your stage' },
       { href: '/quiz', label: 'Two minutes to your ranked options' },
+    ],
+  },
+  {
+    slug: 'force-placed-insurance-mortgage-nj',
+    title: 'Force-Placed Insurance: The Expensive Policy You Never Bought',
+    description:
+      'When a homeowner’s policy lapses, the servicer buys its own — at a price that can wreck a tight budget. The federal notice rules, the refund right, and how to get your own coverage back in the driver’s seat.',
+    tldr:
+      'When a servicer has a reasonable basis to believe your homeowner’s insurance has lapsed, it can buy “force-placed” (lender-placed) coverage and bill you — but federal Regulation X (12 CFR 1024.37) sets guardrails: a first written notice at least 45 days before any charge, a second and final notice at least 30 days after the first and at least 15 days before charging, and — once you show proof of your own coverage — cancellation within 15 days with a refund of premiums and fees for any overlapping period. The policy is usually far more expensive than your own, typically protects only the lender’s interest in the structure, and its cost lands in your escrow or arrears, where it quietly deepens a delinquency. The fix is almost always the same: reinstate or replace your own policy, send the proof, and audit the account afterward.',
+    published: PUB2,
+    updated: PUB2,
+    minutes: 5,
+    theme: 'money',
+    sections: [
+      {
+        h: 'What force-placed insurance is, and why it costs so much',
+        body: [
+          'Your mortgage requires the house to stay insured — the building is the collateral. If your policy lapses, is canceled, or the servicer simply loses track of your renewal, the servicer can purchase coverage on its own and charge you for it. That lender-placed policy is built for the lender: it typically covers the structure only — often no contents, no liability, sometimes not even your equity interest — and it is priced without you shopping anything, which is why it routinely costs a multiple of a policy you would choose yourself.',
+          'In New Jersey, where homeowner premiums — especially near the coast — have been climbing, the sequence is familiar: a policy lapses over a missed bill or a nonrenewal, the force-placed premium lands in escrow, the payment jumps, and a household that was merely stretched is suddenly behind. On a loan already in arrears it is one of the worst lines in the reinstatement stack. This post is education, not legal or insurance advice.',
+        ],
+      },
+      {
+        h: 'The federal guardrails, precisely',
+        body: [
+          'Regulation X (12 CFR 1024.37) does not stop force-placement, but it slows it down and makes it reversible. Before charging you anything, the servicer must send a first written notice at least 45 days ahead, saying what coverage it believes is missing, and a second, final notice at least 30 days after the first and at least 15 days before any charge — the second one stating the cost, or a reasonable estimate. That window exists for exactly one purpose: so you can fix the lapse with your own policy first.',
+          'The rule also runs in reverse. Send proof that you had or now have your own coverage, and the servicer must cancel the force-placed policy within 15 days and refund every premium and fee charged for any period when both policies overlapped. Charges must also be bona fide and reasonable. And if your loan has an escrow account, a different rule usually applies before any of this: in most cases the servicer keeps your own policy alive by advancing the money from escrow — even when you are behind — so force-placement most often catches homeowners who pay insurance directly.',
+        ],
+      },
+      {
+        h: 'The playbook if it already happened',
+        body: [
+          'First, get real coverage: call your old carrier about reinstating the lapsed policy, or shop a new one — an independent agent can quote several carriers in a day, and almost any market policy beats the force-placed price. Second, send the declarations page to the servicer’s insurance department in writing and keep the receipt; the 15-day cancellation clock and the overlap refund run from your proof. Third, audit: pull your escrow analysis and payment history and check that the refund actually posted. If the servicer missed its notice deadlines, charged for a period you were insured, or the refund never appears, that is a servicing error you can dispute formally — our free letter builder drafts a notice-of-error letter citing the rules.',
+          'If the force-placed premium already tipped the loan into delinquency, treat the two problems together: replace the coverage, then bring the corrected numbers to a free HUD-approved counselor (800-569-4287) and put the escrow story inside any repayment-plan or modification application. The account math is fixable — but only for the homeowners who read the two warning letters instead of filing them with the scary mail.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/tools/letter-builder', label: 'Draft a notice-of-error letter, free' },
+      { href: '/blog/escrow-shock-why-your-payment-jumped', label: 'How escrow recalculations work' },
+      { href: '/blog/how-arrears-grow-anatomy-of-a-reinstatement-quote', label: 'Where the charge lands in your arrears' },
     ],
   },
 ];
