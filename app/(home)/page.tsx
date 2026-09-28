@@ -502,7 +502,7 @@ export default function Home() {
             },
             {
               q: 'Is my information confidential?',
-              a: 'Completely. We never share your information without your permission. You control who sees your assessment results. Everything stays private and secure.'
+              a: 'Yes. We never sell your information, and you never have to give your name or number to use the guides or tools. If you do contact us, our privacy policy explains exactly who can see your inquiry and how to have it deleted.'
             },
             {
               q: 'What if I want to explore all 7 solutions?',

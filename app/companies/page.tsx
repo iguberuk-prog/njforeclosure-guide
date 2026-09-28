@@ -120,7 +120,7 @@ function Card({ p }: { p: Partner }) {
         <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">{p.quotePromise}</p>
       )}
 
-      <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">{COMPENSATION_LABEL[p.compensation]}</p>
+      <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">{p.compensationNote ?? COMPENSATION_LABEL[p.compensation]}</p>
     </div>
   );
 }

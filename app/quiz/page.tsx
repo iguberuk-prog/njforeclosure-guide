@@ -425,7 +425,7 @@ export default function QuizPage() {
                         )}
 
                         <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">
-                          {COMPENSATION_LABEL[partner.compensation]}
+                          {partner.compensationNote ?? COMPENSATION_LABEL[partner.compensation]}
                         </p>
                       </div>
                     ))}

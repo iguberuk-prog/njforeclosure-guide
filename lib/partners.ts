@@ -97,6 +97,8 @@ export interface Partner {
    * those pages saying something that is no longer true.
    */
   compensation: 'no-compensation' | 'affiliated';
+  /** Overrides COMPENSATION_LABEL when a partner has a non-financial tie that must be disclosed. */
+  compensationNote?: string;
   /** Set true only when the agreement is signed and details are verified. */
   active: boolean;
 }
@@ -298,6 +300,8 @@ export const PARTNERS: Partner[] = [
       homeValues: ['under250k', '250-500k'],
     },
     compensation: 'no-compensation',
+    compensationNote:
+      'We are not paid by Urbni and receive nothing if you contact them. Disclosure: Urbni is run by a friend of the people behind this guide, and the system we use to manage website inquiries is hosted in Urbni\u2019s workspace, so their team can see inquiries stored there. See our privacy policy.',
     active: true,
   },
 

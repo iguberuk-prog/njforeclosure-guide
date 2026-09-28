@@ -2,7 +2,7 @@ import Link from 'next/link';
 import SiteHeader from './SiteHeader';
 import type { ReactNode } from 'react';
 
-export const LAST_UPDATED = 'August 25, 2026';
+export const LAST_UPDATED = 'September 28, 2026';
 export const CONTACT_EMAIL = 'help@njforeclosureguide.org';
 
 export function Section({ title, children }: { title: string; children: ReactNode }) {

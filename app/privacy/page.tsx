@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           items={[
             'We collect what you tell us through our assessment, our chat, and our forms.',
             'We use it to show you relevant options and, if you ask, to introduce you to a professional.',
-            'We do not sell your information, and we do not share it with a partner unless you ask us to make an introduction.',
+            'We do not sell your information, and we do not share it with a partner unless you ask us to make an introduction. One exception is explained below: the system we use to manage inquiries is hosted in a workspace run by Urbni, a nonprofit listed on this site.',
             'You can ask us to delete everything we hold about you at any time, and we will.',
           ]}
         />
@@ -73,7 +73,17 @@ export default function PrivacyPage() {
         <p>
           <span className="font-semibold text-slate-900">Service providers that operate this site.</span> Our host,
           Netlify, stores form submissions and delivers them to us. Our chat assistant sends your messages to Anthropic
-          to generate a response. These providers process the information on our behalf so the site can function.
+          to generate a response. Inquiries are also copied into the tools we use to keep track of them and follow up:
+          the Bidnology dashboard and a GoHighLevel customer-management account. These providers process the
+          information on our behalf so the site can function.
+        </p>
+        <p>
+          <span className="font-semibold text-slate-900">Where our GoHighLevel account lives.</span> The GoHighLevel
+          account we use is hosted inside a workspace run by Urbni, a nonprofit that is listed on this site and is run
+          by a friend of the people behind this guide. That means people on Urbni&apos;s team can see inquiries stored
+          there. We keep website inquiries in their own separate pipeline, apart from Urbni&apos;s own contacts, and we
+          do not add them to Urbni&apos;s outreach. If you would rather your details not be stored there, say so when
+          you contact us, or ask us to delete them at any time.
         </p>
         <p>
           <span className="font-semibold text-slate-900">When the law requires it.</span> We may disclose information if
