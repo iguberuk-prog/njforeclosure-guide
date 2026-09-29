@@ -18,6 +18,8 @@
 // in this public repository. Setup notes: outreach/ghl-leads-setup.md
 // ---------------------------------------------------------------------------
 
+import { pushLeadToGhl, DEFAULT_LOCATION_ID } from './lib/ghl-api.mjs';
+
 const MAX = 5000;
 // Never forwarded: spam honeypot, and network details we don't need in a CRM.
 const DROP = new Set(['bot-field', 'form-name', 'ip', 'user_agent']);
@@ -82,7 +84,8 @@ export function toGhlPayload(payload) {
 
 export const handler = async (event) => {
   const hook = process.env.GHL_LEADS_WEBHOOK_URL;
-  if (!hook) return { statusCode: 200, body: 'ghl not configured' };
+  const token = process.env.GHL_API_TOKEN;
+  if (!hook && !token) return { statusCode: 200, body: 'ghl not configured' };
 
   let payload;
   try {
@@ -93,17 +96,32 @@ export const handler = async (event) => {
   if (!payload) return { statusCode: 200, body: 'no payload' };
 
   const body = toGhlPayload(payload);
-  try {
-    const res = await fetch(hook, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-      signal: AbortSignal.timeout(8000),
-    });
-    console.log('[ghl] forwarded', body.formName, body.submissionId, res.status);
-  } catch (err) {
-    // The lead is already stored in Netlify Forms and emailed; just log.
-    console.log('[ghl] forward failed', body.formName, body.submissionId, String(err));
+  const jobs = [];
+
+  // 1) Direct API write (creates the contact, tag, note and pipeline card).
+  if (token) {
+    jobs.push(
+      pushLeadToGhl(body, { token, locationId: process.env.GHL_LOCATION_ID || DEFAULT_LOCATION_ID }).then((r) =>
+        console.log('[ghl-api]', body.formName, body.submissionId, JSON.stringify(r))
+      )
+    );
   }
+
+  // 2) Inbound-webhook trigger (optional; lets GHL workflows react too).
+  if (hook) {
+    jobs.push(
+      fetch(hook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        signal: AbortSignal.timeout(8000),
+      })
+        .then((res) => console.log('[ghl] forwarded', body.formName, body.submissionId, res.status))
+        .catch((err) => console.log('[ghl] forward failed', body.formName, body.submissionId, String(err)))
+    );
+  }
+
+  // The lead is already stored in Netlify Forms and emailed; never throw.
+  await Promise.allSettled(jobs);
   return { statusCode: 200, body: 'ok' };
 };
