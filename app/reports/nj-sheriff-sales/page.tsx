@@ -475,7 +475,7 @@ export default function SheriffSaleReportPage() {
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">Methodology</h2>
         <div className="space-y-4 text-slate-600 leading-relaxed mb-12">
           <p>
-            <strong className="text-slate-900">Source.</strong> Each county sheriff&apos;s public foreclosure sale listing on
+            <strong className="text-slate-900">Source.</strong>{' '}Each county sheriff&apos;s public foreclosure sale listing on
             CivilView (salesweb.civilview.com), read once per county on {AS_OF}. Each county&apos;s own page states when it was
             last updated;{' '}
             {staleCounties.length === 0
@@ -483,12 +483,12 @@ export default function SheriffSaleReportPage() {
               : `${listJoin(staleCounties.map((c) => c.name))} had not updated ${staleCounties.length === 1 ? 'its list' : 'their lists'} in the week before that date, so ${staleCounties.length === 1 ? 'its' : 'their'} figures may be less current.`}
           </p>
           <p>
-            <strong className="text-slate-900">What is counted.</strong> &ldquo;Scheduled&rdquo; is every listing in the
+            <strong className="text-slate-900">What is counted.</strong>{' '}&ldquo;Scheduled&rdquo; is every listing in the
             county&apos;s Open view, less any already-decided properties noted below. The 30-, 60- and 90-day and weekly figures use each listing&apos;s current sale date.
             &ldquo;Sold or cancelled, past 30 days&rdquo; counts listings in CivilView&apos;s Sold/Cancelled view with a sale date
             in the 30 days before the report date; CivilView combines the two outcomes, so this figure cannot say how many
             were actually sold. The adjournment figure comes from reading the status history of an evenly spaced sample of up
-            to {report.method.detailSamplePerCounty} listings per county ({n(S.sampleSize)} in total) and counting those with any
+            to {report.method.detailSamplePerCounty} listings per county ({n(S.sampleSize)}{' '}in total) and counting those with any
             adjournment entry (bankruptcy holds alone are not counted). Towns are taken from the end of each listed address and matched to the county&apos;s
             own town list; towns with fewer than {report.method.townMinCell} listings are not shown. Plaintiffs are grouped by
             type from the name on the listing, and only institutions are named.
@@ -542,6 +542,11 @@ export default function SheriffSaleReportPage() {
         </div>
 
         <div className="rounded-2xl border border-slate-200 px-6 py-6 mb-12">
+          <p className="text-sm mb-4">
+            <Link href="/reports/nj-foreclosure-index/" className="font-semibold text-slate-900 underline underline-offset-4">
+              New: the NJ Sheriff Sale Index, with rates per 100,000 residents, an interactive map, CSV and embed code →
+            </Link>
+          </p>
           <h2 className="font-bold text-slate-900 text-lg mb-2">How to cite this report</h2>
           <p className="text-slate-600 text-sm leading-relaxed mb-4">
             Journalists, nonprofits and researchers are welcome to use these figures with attribution under{' '}

@@ -133,7 +133,7 @@ export default function ForeclosureMediationPage() {
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-3">What mediation can and cannot do</h2>
         <div className="space-y-4 text-slate-600 leading-relaxed mb-10">
           <p>
-            <strong className="text-slate-900">It can</strong> get a decision-maker on the lender&apos;s side
+            <strong className="text-slate-900">It can</strong>{' '}get a decision-maker on the lender&apos;s side
             to look at a complete package with a neutral person keeping the process moving. That is often
             the difference for homeowners whose modification requests disappeared into a servicer&apos;s
             fax machine.

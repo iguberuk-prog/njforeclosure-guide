@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { getAllLocations } from '../lib/nj-locations';
 import { SHERIFF_SOURCES } from '../lib/sheriff-sales';
+import { SERVICERS, SERVICER_DATA_VERIFIED_ISO } from '../lib/servicers';
+import { TOWN_PAGES } from '../lib/town-sales';
 import { DOCUMENTS } from '../lib/documents';
 import { QUESTIONS } from '../lib/questions';
 import { QUESTIONS_ES } from '../lib/questions-es';
@@ -56,9 +58,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools/surplus-funds',
     '/tools/catch-up',
     '/tools/sheriff-sale-countdown',
+    '/tools/sheriff-sale-date',
+    '/es/ventas-del-sheriff',
     '/tools/letter-builder',
     '/tools/scam-checker',
     '/reports/nj-sheriff-sales',
+    '/reports/nj-foreclosure-index',
     '/es/herramientas/cuenta-regresiva',
     '/es/herramientas/ponerse-al-dia',
     '/es/herramientas/constructor-de-cartas',
@@ -117,6 +122,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const sheriffEsPages = SHERIFF_SOURCES.map((s) => ({
+    url: `${base}/es/ventas-del-sheriff/${s.slug}/`,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  const townPages = TOWN_PAGES.map((t) => ({
+    url: `${base}/sheriff-sales/${t.countySlug}/${t.slug}/`,
+    changeFrequency: 'weekly' as const,
+    priority: 0.6,
+  }));
+
+  const servicerPages = SERVICERS.map((s) => ({
+    url: `${base}/servicers/${s.slug}/`,
+    lastModified: SERVICER_DATA_VERIFIED_ISO,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   const questionPages = QUESTIONS.map((x) => ({
     url: `${base}/answers/${x.slug}/`,
     changeFrequency: 'monthly' as const,
@@ -149,5 +173,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...locationPages, ...sheriffPages, ...documentPages, ...questionPages, ...questionEsPages, ...blogPages, ...blogEsPages];
+  return [...staticPages, ...locationPages, ...sheriffPages, ...sheriffEsPages, ...townPages, ...servicerPages, ...documentPages, ...questionPages, ...questionEsPages, ...blogPages, ...blogEsPages];
 }

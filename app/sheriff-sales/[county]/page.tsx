@@ -8,6 +8,7 @@ import { OG_IMAGES } from '../../../lib/og';
 import { fitTitle, fitDescription } from '../../../lib/seo';
 import CountySaleStats from '../../components/CountySaleStats';
 import { REPORT, AS_OF_MEDIUM, AS_OF_MONTH, num, countyStats } from '../../../lib/sheriff-report';
+import { townPagesForCounty } from '../../../lib/town-sales';
 
 export function generateStaticParams() {
   return SHERIFF_SOURCES.map((s) => ({ county: s.slug }));
@@ -34,7 +35,14 @@ export async function generateMetadata({ params }: { params: Promise<{ county: s
   return {
     title,
     description,
-    alternates: { canonical: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/` },
+    alternates: {
+      canonical: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/`,
+      languages: {
+        en: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/`,
+        es: `https://njforeclosureguide.org/es/ventas-del-sheriff/${src.slug}/`,
+        'x-default': `https://njforeclosureguide.org/sheriff-sales/${src.slug}/`,
+      },
+    },
     openGraph: { images: OG_IMAGES, title, description, url: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/` },
   };
 }
@@ -47,6 +55,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
   // the hand-written county character + market paragraphs and local orgs.
   const c = sheriffAngleFor(src.slug);
   const cs = src.slug.replace(/-county$/, '');
+  const townPages = townPagesForCounty(src.slug);
 
   const faq = [
     {
@@ -102,7 +111,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
             {src.county} County Sheriff Sales
           </h1>
           <p className="text-slate-300 text-lg leading-relaxed">
-            The official {src.county} County sale list, the sheriff&apos;s office contact, and — if
+            The official {src.county}{' '}County sale list, the sheriff&apos;s office contact, and — if
             it&apos;s your home on the list — how to use the time New Jersey law gives you.
           </p>
           <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
@@ -121,11 +130,29 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
               It&apos;s my home — what can I do?
             </Link>
           </div>
+          <p className="text-slate-400 text-sm mt-5">
+            <Link href={`/es/ventas-del-sheriff/${src.slug}/`} className="underline underline-offset-2" hrefLang="es">
+              Leer en español
+            </Link>
+          </p>
         </div>
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-12">
         <CountySaleStats slug={src.slug} county={src.county} officialUrl={src.salesUrl} />
+
+        {townPages.length > 0 && (
+          <div className="border border-slate-200 rounded-2xl px-6 py-5 mb-10">
+            <h2 className="font-bold text-slate-900 text-lg mb-3">{src.county} County sheriff sales by town</h2>
+            <div className="flex flex-wrap gap-2">
+              {townPages.map((t) => (
+                <Link key={t.slug} href={`/sheriff-sales/${src.slug}/${t.slug}/`} className="text-sm border border-slate-200 rounded-full px-3 py-1.5 text-slate-700 hover:bg-slate-50">
+                  {t.town}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="border border-slate-200 rounded-2xl p-6 mb-10">
           <h2 className="font-bold text-slate-900 text-lg mb-4">Official sources</h2>
@@ -172,7 +199,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
         {c && (
           <>
             <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
-              Foreclosure in {src.county} County: what&apos;s different here
+              Foreclosure in {src.county}{' '}County: what&apos;s different here
             </h2>
             <div className="space-y-4 text-slate-600 leading-relaxed mb-10">
               <p>{c.character}</p>
@@ -225,7 +252,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
             longer be current.
           </p>
           <p>
-            <strong className="text-slate-900">Second, know your adjournment rights.</strong> New
+            <strong className="text-slate-900">Second, know your adjournment rights.</strong>{' '}New
             Jersey homeowners are generally entitled to request two adjournments of the sale, each up
             to 30 days, through the sheriff&apos;s office, and courts can grant more in the right
             circumstances. Used well, that time is enough to close a sale of the home, finish a
@@ -241,7 +268,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
             shows where you are in the process.
           </p>
           <p>
-            <strong className="text-slate-900">Request early and do it yourself.</strong> Ask days
+            <strong className="text-slate-900">Request early and do it yourself.</strong>{' '}Ask days
             ahead, not the morning of, and confirm the new date on the official list afterward. Never
             pay a third party to &quot;get your sale postponed&quot;: the request is yours to make, and
             up-front fees for foreclosure rescue services are generally illegal in New Jersey.

@@ -38,7 +38,7 @@ export default function Post() {
       <h2>How to actually request one</h2>
       <p>
         Procedure varies by county, which is why our{' '}
-        <Link href="/sheriff-sales">county directory</Link> lists each sheriff&apos;s office,
+        <Link href="/sheriff-sales">county directory</Link>{' '}lists each sheriff&apos;s office,
         its official sale listings, and its process. The common shape: contact the sheriff&apos;s
         civil/foreclosure division before the sale date, identify the case, request the
         adjournment as the property owner, and pay the fee. Do it days ahead, not the morning

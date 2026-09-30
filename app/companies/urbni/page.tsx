@@ -35,7 +35,7 @@ export default function UrbniPage() {
       <section className="max-w-3xl mx-auto px-4 pt-10">
         <div className="rounded-xl border border-emerald-300 bg-emerald-50 p-5">
           <p className="text-sm text-emerald-900 leading-relaxed">
-            <span className="font-bold">Our relationship with them, stated plainly.</span> Urbni is a nonprofit run by a friend of the people behind this guide, and the customer-management account this site uses to keep track of inquiries is hosted in Urbni&apos;s workspace, so Urbni&apos;s team can see inquiries stored there (details in our <a href="/privacy/" className="underline font-semibold">privacy policy</a>). We receive no referral fee, no commission, and no compensation of any kind if you donate to them. They are listed here because for some property owners this is genuinely the best outcome available, not because it earns us anything. That is true of everything on this site.</p>
+            <span className="font-bold">Our relationship with them, stated plainly.</span>{' '}Urbni is a nonprofit run by a friend of the people behind this guide, and the customer-management account this site uses to keep track of inquiries is hosted in Urbni&apos;s workspace, so Urbni&apos;s team can see inquiries stored there (details in our <a href="/privacy/" className="underline font-semibold">privacy policy</a>). We receive no referral fee, no commission, and no compensation of any kind if you donate to them. They are listed here because for some property owners this is genuinely the best outcome available, not because it earns us anything. That is true of everything on this site.</p>
         </div>
       </section>
 

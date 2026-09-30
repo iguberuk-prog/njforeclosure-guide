@@ -387,6 +387,7 @@ async function collectCounty(c, today) {
   const dates = [];
   let unparsedDates = 0;
   const towns = new Map();
+  const townDates = new Map(); // town -> sale dates (aggregated per town, never per row in output)
   let unknownTown = 0;
   const plaintiffTypes = { institutional: 0, tax: 0, hoa: 0, other: 0 };
   const parents = new Map();
@@ -396,8 +397,10 @@ async function collectCounty(c, today) {
     if (d) dates.push(d);
     else unparsedDates++;
     const town = townFromAddress(r['Address'], open.cities);
-    if (town) towns.set(town, (towns.get(town) ?? 0) + 1);
-    else unknownTown++;
+    if (town) {
+      towns.set(town, (towns.get(town) ?? 0) + 1);
+      if (d) townDates.set(town, [...(townDates.get(town) ?? []), d]);
+    } else unknownTown++;
     const cls = classifyPlaintiff(r['Plaintiff']);
     plaintiffTypes[cls.type]++;
     if (cls.type === 'institutional') parents.set(cls.parent, (parents.get(cls.parent) ?? 0) + 1);
@@ -480,6 +483,20 @@ async function collectCounty(c, today) {
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .slice(0, 5)
     .map(([t, n]) => ({ town: prettyTown(t), count: n }));
+  // Every town at or above the small-cell floor (feeds the town pages at
+  // /sheriff-sales/<county>/<town>/). Same suppression rule as topTowns.
+  const allTowns = [...towns]
+    .filter(([, n]) => n >= TOWN_MIN_CELL)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([t, n]) => {
+      const up = (townDates.get(t) ?? []).filter((d) => d >= today).sort((a, b) => a - b);
+      return {
+        town: prettyTown(t),
+        count: n,
+        nextSale: up.length ? iso(up[0]) : null,
+        salesNext30: up.filter((d) => d - today <= 30 * DAY).length,
+      };
+    });
 
   log(`    ${rows.length} scheduled (${terminalInOpenView} terminal set aside), ${soldOrCancelled ?? '?'} sold/cancelled, sample ${sample ? `${sample.adjourned}/${sample.sampled}` : 'skipped'}, towns unmatched ${unknownTown}, ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 
@@ -505,6 +522,7 @@ async function collectCounty(c, today) {
       lastUpdated: open.lastUpdated,
       distinctTowns: towns.size,
       topTowns,
+      towns: allTowns,
       plaintiffTypes,
       unparsedDates,
       unmatchedTowns: unknownTown,
@@ -661,6 +679,25 @@ async function main() {
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, `${month}.json`), out + '\n');
   writeFileSync(join(dir, 'latest.json'), out + '\n');
+
+  // Month-over-month history (feeds /reports/nj-foreclosure-index/). One
+  // aggregate summary per month; re-running a month replaces its entry.
+  const histPath = join(dir, 'history.json');
+  let hist = { note: 'One summary per monthly NJ Sheriff Sale Report, appended by scripts/sheriff-report/collect.mjs. Aggregates only.', months: [] };
+  try {
+    hist = JSON.parse(readFileSync(histPath, 'utf8'));
+  } catch {
+    /* first run */
+  }
+  const pick = (o, keys) => Object.fromEntries(keys.map((k) => [k, o[k] ?? null]));
+  const entry = {
+    month,
+    asOfDate: report.asOfDate,
+    statewide: pick(report.statewide, ['countiesIncluded', 'openListings', 'salesNext30', 'soldOrCancelledLast30', 'sampleAdjournedPct']),
+    counties: Object.fromEntries(counties.map((c) => [c.slug, pick(c, ['openListings', 'salesNext30', 'soldOrCancelledLast30', 'sampleAdjournedPct'])])),
+  };
+  hist.months = [...hist.months.filter((m) => m.month !== month), entry].sort((a, b) => a.month.localeCompare(b.month));
+  writeFileSync(histPath, JSON.stringify(hist, null, 1) + '\n');
   log(`\nWrote data/sheriff-report/${month}.json and latest.json in ${report.runtimeSeconds}s`);
   log(`Statewide: ${report.statewide.openListings} open listings in ${counties.length} counties; ${report.statewide.salesNext30} in next 30 days.`);
   if (failed.length) log(`Failed counties: ${failed.map((f) => f.name).join(', ')}`);

@@ -125,7 +125,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               href={`/sheriff-sales/${isCounty ? loc.slug : `${countyName.toLowerCase().replace(/\s+/g, '-')}-county`}/`}
               className="text-slate-900 underline underline-offset-4 font-semibold"
             >
-              Check {countyName} County&apos;s official sale listings and adjournment process
+              Check {countyName}{' '}County&apos;s official sale listings and adjournment process
             </Link>
             , verified contacts included.
           </p>

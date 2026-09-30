@@ -1,0 +1,114 @@
+{
+ "note": "One summary per monthly NJ Sheriff Sale Report, appended by scripts/sheriff-report/collect.mjs. Aggregates only.",
+ "months": [
+  {
+   "month": "2026-09",
+   "asOfDate": "2026-09-24",
+   "statewide": {
+    "countiesIncluded": 16,
+    "openListings": 1465,
+    "salesNext30": 795,
+    "soldOrCancelledLast30": 430,
+    "sampleAdjournedPct": 60
+   },
+   "counties": {
+    "camden-county": {
+     "openListings": 180,
+     "salesNext30": 139,
+     "soldOrCancelledLast30": 70,
+     "sampleAdjournedPct": 47
+    },
+    "essex-county": {
+     "openListings": 180,
+     "salesNext30": 92,
+     "soldOrCancelledLast30": 59,
+     "sampleAdjournedPct": 60
+    },
+    "gloucester-county": {
+     "openListings": 141,
+     "salesNext30": 39,
+     "soldOrCancelledLast30": 19,
+     "sampleAdjournedPct": 53
+    },
+    "middlesex-county": {
+     "openListings": 137,
+     "salesNext30": 56,
+     "soldOrCancelledLast30": 25,
+     "sampleAdjournedPct": 40
+    },
+    "passaic-county": {
+     "openListings": 118,
+     "salesNext30": 46,
+     "soldOrCancelledLast30": 26,
+     "sampleAdjournedPct": 40
+    },
+    "monmouth-county": {
+     "openListings": 101,
+     "salesNext30": 44,
+     "soldOrCancelledLast30": 41,
+     "sampleAdjournedPct": 67
+    },
+    "morris-county": {
+     "openListings": 91,
+     "salesNext30": 32,
+     "soldOrCancelledLast30": 13,
+     "sampleAdjournedPct": 80
+    },
+    "bergen-county": {
+     "openListings": 86,
+     "salesNext30": 66,
+     "soldOrCancelledLast30": 31,
+     "sampleAdjournedPct": 73
+    },
+    "atlantic-county": {
+     "openListings": 83,
+     "salesNext30": 56,
+     "soldOrCancelledLast30": 30,
+     "sampleAdjournedPct": 47
+    },
+    "burlington-county": {
+     "openListings": 80,
+     "salesNext30": 59,
+     "soldOrCancelledLast30": null,
+     "sampleAdjournedPct": 73
+    },
+    "union-county": {
+     "openListings": 79,
+     "salesNext30": 58,
+     "soldOrCancelledLast30": 47,
+     "sampleAdjournedPct": 80
+    },
+    "hudson-county": {
+     "openListings": 67,
+     "salesNext30": 41,
+     "soldOrCancelledLast30": 22,
+     "sampleAdjournedPct": 53
+    },
+    "cumberland-county": {
+     "openListings": 43,
+     "salesNext30": 36,
+     "soldOrCancelledLast30": 28,
+     "sampleAdjournedPct": 67
+    },
+    "hunterdon-county": {
+     "openListings": 31,
+     "salesNext30": 8,
+     "soldOrCancelledLast30": 6,
+     "sampleAdjournedPct": 73
+    },
+    "cape-may-county": {
+     "openListings": 28,
+     "salesNext30": 8,
+     "soldOrCancelledLast30": 3,
+     "sampleAdjournedPct": 80
+    },
+    "salem-county": {
+     "openListings": 20,
+     "salesNext30": 15,
+     "soldOrCancelledLast30": 10,
+     "sampleAdjournedPct": 33
+    }
+   }
+  }
+ ]
+}

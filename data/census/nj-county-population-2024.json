@@ -1,0 +1,27 @@
+{
+ "source": "U.S. Census Bureau, Population Estimates Program, Vintage 2024 county population estimates (July 1, 2024), file co-est2024-alldata.csv",
+ "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/counties/totals/co-est2024-alldata.csv",
+ "counties": {
+  "atlantic-county": 279114,
+  "bergen-county": 978641,
+  "burlington-county": 475515,
+  "camden-county": 533988,
+  "cape-may-county": 93875,
+  "cumberland-county": 155678,
+  "essex-county": 881527,
+  "gloucester-county": 311783,
+  "hudson-county": 736185,
+  "hunterdon-county": 131708,
+  "mercer-county": 392138,
+  "middlesex-county": 890119,
+  "monmouth-county": 647520,
+  "morris-county": 523053,
+  "ocean-county": 666434,
+  "passaic-county": 526597,
+  "salem-county": 65874,
+  "somerset-county": 357467,
+  "sussex-county": 147444,
+  "union-county": 594160,
+  "warren-county": 112031
+ }
+}

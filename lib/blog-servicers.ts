@@ -9,11 +9,14 @@
 // ---------------------------------------------------------------------------
 
 import type { TopicPost } from './topic-blog';
+import { getServicer } from './servicers';
 
 const PUB = '2026-09-17';
 
 interface ServicerSpec {
   slug: string;
+  /** lib/servicers.ts slug; phone and online-application facts come from there. */
+  key: string;
   brand: string;
   phone: string;
   online: boolean;
@@ -24,26 +27,29 @@ interface ServicerSpec {
 const SPECS: ServicerSpec[] = [
   {
     slug: 'behind-on-mortgage-mr-cooper-nj',
+    key: 'mr-cooper',
     brand: 'Mr. Cooper',
     phone: '866-316-2432',
     online: true,
     who: [
-      'Mr. Cooper is one of the largest mortgage servicers in the country, and since its combination with Rocket Companies the two brands publish the same assistance line. Odds are Mr. Cooper does not own your loan — it collects payments and manages the account on behalf of an investor whose rules govern what workouts are possible. That distinction matters: "the bank" you negotiate with is really a servicing operation applying someone else’s criteria, which is why complete paperwork moves files and frustration does not.',
+      'Mr. Cooper is one of the largest mortgage servicers in the country, and it has now joined Rocket Mortgage: mrcooper.com is retired, and existing Mr. Cooper loans are managed through Rocket with the same loan number and terms. Odds are Mr. Cooper does not own your loan — it collects payments and manages the account on behalf of an investor whose rules govern what workouts are possible. That distinction matters: "the bank" you negotiate with is really a servicing operation applying someone else’s criteria, which is why complete paperwork moves files and frustration does not.',
     ],
-    door: 'Mr. Cooper runs an online mortgage-assistance application through its account portal, alongside the phone line — submitting online creates a timestamped record, which is worth having.',
+    door: 'Former Mr. Cooper customers now go through Rocket Mortgage, which publishes the same assistance line and asks you to call to speak with a team member. Whatever route you use, keep a dated record of every call and every document you send.',
   },
   {
     slug: 'behind-on-mortgage-wells-fargo-nj',
+    key: 'wells-fargo',
     brand: 'Wells Fargo Home Mortgage',
     phone: '1-800-678-7986',
     online: true,
     who: [
-      'Wells Fargo is both a major loan owner and a major servicer, so your loan may be owned in-house or serviced for an investor — the assistance process looks the same from your side either way. As a large bank servicer it runs a structured payment-help operation with an online application path and published hardship options.',
+      'Wells Fargo is both a major loan owner and a major servicer, so your loan may be owned in-house or serviced for an investor — the assistance process looks the same from your side either way. As a large bank servicer it runs a structured payment-help operation with published hardship options.',
     ],
-    door: 'Wells Fargo’s payment-help pages include an online application; the phone door and the portal reach the same loss-mitigation review.',
+    door: 'Wells Fargo’s payment-help page offers the assistance application as a PDF you sign and send back, every page; if you already applied, you can sign on to check status or upload documents.',
   },
   {
     slug: 'behind-on-mortgage-chase-nj',
+    key: 'chase',
     brand: 'Chase Home Lending',
     phone: '1-800-848-9380',
     online: true,
@@ -54,16 +60,18 @@ const SPECS: ServicerSpec[] = [
   },
   {
     slug: 'behind-on-mortgage-bank-of-america-nj',
+    key: 'bank-of-america',
     brand: 'Bank of America Home Loans',
     phone: '800-669-6650',
     online: true,
     who: [
       'Bank of America remains one of the country’s biggest servicers, with a mortgage-assistance operation shaped by more than a decade of post-2008 procedure. Your loan may be bank-owned or investor-owned; the application door is the same. Expect a documented process: hardship letter, income proof, and a review with defined stages and timelines.',
     ],
-    door: 'Bank of America’s home-loan assistance runs through its online banking portal as well as the phone line; keep copies of every upload confirmation.',
+    door: 'Bank of America’s home loan help site offers assistance in English, Spanish and other languages; keep copies of everything you send and every confirmation number.',
   },
   {
     slug: 'behind-on-mortgage-freedom-mortgage-nj',
+    key: 'freedom-mortgage',
     brand: 'Freedom Mortgage',
     phone: '855-690-5900',
     online: true,
@@ -74,26 +82,29 @@ const SPECS: ServicerSpec[] = [
   },
   {
     slug: 'behind-on-mortgage-pennymac-nj',
+    key: 'pennymac',
     brand: 'Pennymac',
     phone: '866-545-9070',
     online: true,
     who: [
-      'Pennymac grew into one of the largest servicers in the country largely through government-backed and agency loans, and it runs a standardized hardship-assistance operation with an online application. As with every large servicer, the entity you talk to is applying investor and agency rules to your file — which is why identifying your loan type (FHA, VA, conventional) early tells you which menu you are actually ordering from.',
+      'Pennymac grew into one of the largest servicers in the country largely through government-backed and agency loans, and it runs a standardized hardship-assistance operation. As with every large servicer, the entity you talk to is applying investor and agency rules to your file — which is why identifying your loan type (FHA, VA, conventional) early tells you which menu you are actually ordering from.',
     ],
-    door: 'Pennymac’s online assistance application timestamps your submission; pair it with the phone line and note every reference number.',
+    door: 'Pennymac’s relief and assistance page lists modification, short sale and deed-in-lieu among its options; call the line, ask how to submit a complete application, and note every reference number.',
   },
   {
     slug: 'behind-on-mortgage-newrez-shellpoint-nj',
-    brand: 'Newrez (including former Shellpoint)',
+    key: 'newrez',
+    brand: 'Newrez and Shellpoint',
     phone: '866-317-2347',
     online: true,
     who: [
-      'Newrez absorbed Shellpoint Mortgage Servicing, so statements and letters may carry either name while reaching the same operation. Newrez services many loans it does not own, including seasoned and transferred loans — and transferred loans deserve special attention: federal rules protect borrowers during servicing transfers, payments made to the old servicer around a transfer must be honored, and loss-mitigation applications in progress do not simply evaporate. If your loan just moved to Newrez, put your history in writing early.',
+      'Shellpoint Mortgage Servicing is a brand of Newrez LLC, so statements and letters may carry either name. Shellpoint still has its own customer care line (1-800-365-7107). Newrez services many loans it does not own, including seasoned and transferred loans — and transferred loans deserve special attention: federal rules protect borrowers during servicing transfers, payments made to the old servicer around a transfer must be honored, and loss-mitigation applications in progress do not simply evaporate. If your loan just moved to Newrez, put your history in writing early.',
     ],
-    door: 'Newrez runs an online assistance path alongside the phone line; after any transfer, confirm in writing what application materials carried over.',
+    door: 'Newrez’s loss mitigation page has a Start an Application link that requires signing in to your account; after any transfer, confirm in writing what application materials carried over.',
   },
   {
     slug: 'behind-on-mortgage-sps-nj',
+    key: 'sps',
     brand: 'Select Portfolio Servicing (SPS)',
     phone: '888-818-6032',
     online: true,
@@ -104,6 +115,7 @@ const SPECS: ServicerSpec[] = [
   },
   {
     slug: 'behind-on-mortgage-phh-ocwen-nj',
+    key: 'phh-onity',
     brand: 'PHH Mortgage (Onity, formerly Ocwen)',
     phone: '800-449-8767',
     online: true,
@@ -114,6 +126,7 @@ const SPECS: ServicerSpec[] = [
   },
   {
     slug: 'behind-on-mortgage-carrington-nj',
+    key: 'carrington',
     brand: 'Carrington Mortgage Services',
     phone: '800-561-4567',
     online: true,
@@ -143,13 +156,20 @@ const NJ_SECTIONS = (brand: string): { h: string; body: string[] }[] => [
   },
 ];
 
-export const SERVICER_POSTS: TopicPost[] = SPECS.map((s) => ({
+// Phone and online-application facts are read from lib/servicers.ts so the
+// posts can never drift from the verified registry.
+const RESOLVED = SPECS.map((s) => {
+  const sv = getServicer(s.key);
+  return { ...s, phone: sv?.phone ?? s.phone, online: sv ? sv.onlineApp === true : s.online };
+});
+
+export const SERVICER_POSTS: TopicPost[] = RESOLVED.map((s) => ({
   slug: s.slug,
   title: `Behind on Your Mortgage with ${s.brand} in NJ? Start Here`,
   description: `Facing foreclosure with ${s.brand} in New Jersey: the loss-mitigation door, your NJ rights that don’t depend on the servicer, and how to make the file move.`,
   tldr: `${s.brand} services your loan — usually on behalf of an investor whose rules govern the workout menu — and its loss-mitigation door is real: ${s.phone}${s.online ? ', with an online assistance application as well' : ''}. Your New Jersey rights are servicer-independent: a 30-day Notice of Intention before any complaint, 35 days to answer, free court mediation if eligible, and a cure right that runs to final judgment. Complete applications move files; free HUD counselors (800-569-4287) build them with you.`,
   published: PUB,
-  updated: PUB,
+  updated: '2026-09-30',
   minutes: 6,
   theme: 'servicers' as const,
   sections: [
@@ -164,6 +184,7 @@ export const SERVICER_POSTS: TopicPost[] = SPECS.map((s) => ({
     ...NJ_SECTIONS(s.brand),
   ],
   links: [
+    { href: `/servicers/${s.key}/`, label: `${s.brand}: phone, documents and what to say` },
     { href: '/servicers', label: 'The full NJ servicer directory, verified' },
     { href: '/answers/how-much-to-reinstate-my-mortgage', label: 'What catching up actually costs' },
     { href: '/free-checklist', label: 'The Week-One Checklist + 45-Day Playbook (free PDF)' },

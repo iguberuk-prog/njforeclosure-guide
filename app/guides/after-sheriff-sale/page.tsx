@@ -171,7 +171,7 @@ export default function AfterSheriffSalePage() {
             <Link href="/guides/surplus-funds" className="text-slate-900 underline underline-offset-4 font-semibold">how to claim it yourself</Link>.
           </p>
           <p>
-            <strong className="text-slate-900">If it brought less,</strong> the lender may pursue the
+            <strong className="text-slate-900">If it brought less,</strong>{' '}the lender may pursue the
             difference, but New Jersey makes that burdensome: a separate lawsuit filed within three months
             of the sale, and your right to have the home&apos;s fair market value, not just the auction
             price, credited against the debt. If you are served with a deficiency complaint, that credit is

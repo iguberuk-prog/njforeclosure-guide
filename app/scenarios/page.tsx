@@ -492,7 +492,7 @@ export default function ScenariosPage() {
       <section className="max-w-3xl mx-auto px-4 pt-10">
         <div className="rounded-xl border-2 border-slate-400 bg-slate-50 p-5">
           <p className="text-sm text-slate-800 leading-relaxed">
-            <span className="font-bold">These are illustrative examples, not client stories.</span> No real person
+            <span className="font-bold">These are illustrative examples, not client stories.</span>{' '}No real person
             is described on this page, and nobody is named. Each one is a composite of a situation type, written
             to show you what the decision looks like from the inside. The dollar figures are round numbers chosen
             to make the arithmetic clear, not amounts anyone received. We would rather show you honest arithmetic

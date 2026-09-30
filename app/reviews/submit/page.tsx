@@ -179,7 +179,7 @@ export default function SubmitReviewPage() {
                 className="mt-0.5 h-4 w-4 flex-shrink-0 accent-slate-900"
               />
               <span className="text-xs text-slate-600 leading-relaxed">
-                <span className="font-semibold text-slate-800">You may publish this</span> on
+                <span className="font-semibold text-slate-800">You may publish this</span>{' '}on
                 njforeclosureguide.org, shown as my first name, last initial and town, for example
                 &quot;Maria S., Bayonne&quot;. I understand you will email me first with exactly how it
                 would appear, that nothing goes up until I reply, and that I can have it removed at any

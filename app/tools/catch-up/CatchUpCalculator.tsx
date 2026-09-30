@@ -155,7 +155,7 @@ export default function CatchUpCalculator() {
                   <p className="font-serif text-2xl font-bold mb-2">What you set aside may cover it</p>
                   <p className="text-slate-300 text-sm leading-relaxed">
                     On these numbers, the {fmt(r.arrears)} estimate is covered, with about{' '}
-                    {fmt(r.setAsideLeftOver)} to spare. Quotes grow daily and often include charges a
+                    {fmt(r.setAsideLeftOver)}{' '}to spare. Quotes grow daily and often include charges a
                     statement does not show, so get the servicer&apos;s written reinstatement quote
                     before you send anything.
                   </p>

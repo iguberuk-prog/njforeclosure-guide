@@ -116,12 +116,12 @@ export default function AboutPage() {
         <h2 className="font-serif text-2xl font-bold text-slate-900 mt-10 mb-3">Our editorial rules</h2>
         <div className="space-y-4">
           <p>
-            <strong className="text-slate-900">Deadlines are stated as general rules.</strong> Court papers
+            <strong className="text-slate-900">Deadlines are stated as general rules.</strong>{' '}Court papers
             and judges control individual cases, so we say &ldquo;generally&rdquo; where the law allows
             exceptions, and we never promise that any step will stop a foreclosure.
           </p>
           <p>
-            <strong className="text-slate-900">Free help comes first.</strong> HUD-approved counselors, Legal
+            <strong className="text-slate-900">Free help comes first.</strong>{' '}HUD-approved counselors, Legal
             Services of New Jersey, and the courts&rsquo; mediation program are listed before any paid
             option, on every page where they apply.
           </p>

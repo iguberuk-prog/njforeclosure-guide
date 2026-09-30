@@ -149,7 +149,7 @@ export default function ScamsPage() {
           </p>
           <p>
             New Jersey&apos;s <strong className="text-slate-900">Foreclosure Rescue Fraud Prevention
-            Act</strong> adds state prohibitions: foreclosure consultants may not take upfront fees,
+            Act</strong>{' '}adds state prohibitions: foreclosure consultants may not take upfront fees,
             and &quot;rescue&quot; deals involving the transfer of your deed, including sale-leaseback
             arrangements, are tightly regulated precisely because they were the signature scam of the
             last foreclosure wave.

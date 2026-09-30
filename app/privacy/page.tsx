@@ -78,7 +78,7 @@ export default function PrivacyPage() {
           information on our behalf so the site can function.
         </p>
         <p>
-          <span className="font-semibold text-slate-900">Where our GoHighLevel account lives.</span> The GoHighLevel
+          <span className="font-semibold text-slate-900">Where our GoHighLevel account lives.</span>{' '}The GoHighLevel
           account we use is hosted inside a workspace run by Urbni, a nonprofit that is listed on this site and is run
           by a friend of the people behind this guide. That means people on Urbni&apos;s team can see inquiries stored
           there. We keep website inquiries in their own separate pipeline, apart from Urbni&apos;s own contacts, and we
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
           you contact us, or ask us to delete them at any time.
         </p>
         <p>
-          <span className="font-semibold text-slate-900">When the law requires it.</span> We may disclose information if
+          <span className="font-semibold text-slate-900">When the law requires it.</span>{' '}We may disclose information if
           we are legally compelled to, or to protect someone&apos;s safety.
         </p>
         <p className="text-slate-900 font-semibold">

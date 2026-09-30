@@ -35,6 +35,16 @@ const LINKS: { href: string; title: string; sub: string; hot?: boolean }[] = [
     hot: true,
   },
   {
+    href: '/tools/sheriff-sale-date',
+    title: 'When Is My Sheriff Sale? Find the Date',
+    sub: 'Your county’s official list, how to search it, and who to call',
+  },
+  {
+    href: '/servicers',
+    title: 'Call Your Mortgage Company: 44 Verified Numbers',
+    sub: 'Hardship lines, what to say, and the documents to send',
+  },
+  {
     href: '/tools/sheriff-sale-countdown',
     title: 'Sheriff Sale Date? Start the Countdown',
     sub: 'Days left, your adjournments, your sheriff’s number, today’s plan',

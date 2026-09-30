@@ -145,6 +145,12 @@ export default function EsHomePage() {
               Si la subasta dejó más de lo que debía, calcule cuánto podría ser suyo y cómo reclamarlo sin pagar comisiones.
             </p>
           </Link>
+          <Link href="/es/ventas-del-sheriff/" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
+            <p className="font-bold text-slate-900">Subastas del sheriff por condado</p>
+            <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">
+              Los 21 condados de NJ: la lista oficial, cuántas subastas hay este mes, el teléfono del sheriff y cómo aplazar la fecha.
+            </p>
+          </Link>
           <Link href="/es/herramientas/cuenta-regresiva" className="border border-slate-200 rounded-2xl px-5 py-5 hover:border-slate-400 hover:shadow-sm transition group">
             <p className="font-bold text-slate-900">Cuenta regresiva para la subasta</p>
             <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">

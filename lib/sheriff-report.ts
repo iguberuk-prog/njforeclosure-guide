@@ -13,6 +13,13 @@
  */
 import reportJson from '../data/sheriff-report/latest.json';
 
+export interface ReportTown {
+  town: string;
+  count: number;
+  nextSale?: string | null;
+  salesNext30?: number;
+}
+
 export interface ReportCounty {
   slug: string;
   name: string;
@@ -27,17 +34,37 @@ export interface ReportCounty {
   distinctTowns: number;
   topTowns: { town: string; count: number }[];
   plaintiffTypes: { institutional: number; tax: number; hoa: number; other: number };
+  /** Every town at or above townMinCell (collector 2026-10 onward). */
+  towns?: ReportTown[];
   /** Not emitted by the collector yet; rendered only if a future month adds it. */
   topPlaintiffs?: { name: string; count: number }[];
 }
 
-interface Report {
+export interface Report {
   month: string;
   generatedAt: string;
   asOfDate: string;
   method: { townMinCell: number };
   counties: ReportCounty[];
-  statewide: { countiesIncluded: number };
+  statewide: {
+    countiesIncluded: number;
+    openListings: number;
+    salesNext30: number;
+    salesNext60: number;
+    salesNext90: number;
+    soldOrCancelledLast30: number;
+    soldOrCancelledCounties: number;
+    sampleSize: number;
+    sampleAdjourned: number;
+    sampleAdjournedPct: number;
+    distinctTowns: number;
+    plaintiffTypes: { institutional: number; tax: number; hoa: number; other: number };
+    nextSale: string | null;
+  };
+  sourceNote: string;
+  topTowns: { town: string; county: string; countySlug: string | null; count: number }[];
+  topPlaintiffs: { name: string; count: number }[];
+  weeklySchedule: { weekStart: string; weekEnd: string; count: number }[];
   notIncluded: { slug: string; name: string; reason: string; salesUrl: string }[];
 }
 
@@ -140,4 +167,46 @@ export function contextSentence(s: CountyStats): string {
     return `Some of the ${name} listings we sampled (${share}) had already been pushed back at least once, so the date on the list is not always the final date. ${tail}`;
   }
   return `None of the ${name} listings we sampled had been pushed back yet, but sale dates can still change before the sale. ${tail}`;
+}
+
+// ---------------------------------------------------------------------------
+// Spanish rendering (pages under /es/ventas-del-sheriff/). Same numbers, same
+// rules; dates formatted in UTC for the same reason as above.
+// ---------------------------------------------------------------------------
+const fmtEs = (iso: string, opts: Intl.DateTimeFormatOptions) =>
+  new Date(`${iso}T12:00:00Z`).toLocaleDateString('es-US', { timeZone: 'UTC', ...opts });
+export const longDateEs = (iso: string) => fmtEs(iso, { month: 'long', day: 'numeric', year: 'numeric' });
+export const mediumDateEs = (iso: string) => fmtEs(iso, { month: 'short', day: 'numeric', year: 'numeric' });
+export const AS_OF_LONG_ES = longDateEs(REPORT.asOfDate);
+export const AS_OF_MEDIUM_ES = mediumDateEs(REPORT.asOfDate);
+const monthEs = fmtEs(REPORT.asOfDate, { month: 'long', year: 'numeric' }).replace(/ de /, ' ');
+/** "Octubre 2026" */
+export const AS_OF_MONTH_ES = monthEs.charAt(0).toUpperCase() + monthEs.slice(1);
+
+export function adjournedLineEs(s: CountyStats): string | null {
+  const c = s.county;
+  if (c.sampleAdjournedPct === null || !c.sampleSize) return null;
+  return s.adjournedCount !== null
+    ? `${s.adjournedCount} de ${c.sampleSize} anuncios de la muestra ya habían sido aplazados al menos una vez`
+    : `El ${c.sampleAdjournedPct}% de ${c.sampleSize} anuncios de la muestra ya habían sido aplazados al menos una vez`;
+}
+
+export function contextSentenceEs(s: CountyStats): string {
+  const c = s.county;
+  const name = `el condado de ${c.name}`;
+  const pct = c.sampleAdjournedPct;
+  const tail = 'Los propietarios pueden confirmar la fecha actual en la lista oficial y revisar sus opciones más abajo.';
+  if (pct === null || !c.sampleSize) {
+    return `Las fechas de subasta en la lista de ${name} cambian con frecuencia, así que la fecha que aparece no siempre es la definitiva. ${tail}`;
+  }
+  const share = s.adjournedCount !== null ? `${s.adjournedCount} de ${c.sampleSize}` : `${pct}%`;
+  if (pct > 50) return `La mayoría de los anuncios de ${name} que revisamos (${share}) ya se habían aplazado al menos una vez, por eso la fecha de la lista muchas veces no es la definitiva. ${tail}`;
+  if (pct === 50) return `La mitad de los anuncios de ${name} que revisamos ya se habían aplazado al menos una vez, así que la fecha de la lista muchas veces no es la definitiva. ${tail}`;
+  if (pct > 0) return `Algunos de los anuncios de ${name} que revisamos (${share}) ya se habían aplazado al menos una vez, así que la fecha de la lista no siempre es la definitiva. ${tail}`;
+  return `Ninguno de los anuncios de ${name} que revisamos se había aplazado todavía, pero las fechas pueden cambiar antes de la subasta. ${tail}`;
+}
+
+/** Spanish ordinal rank, e.g. "1.º" or "Empate en el 3.º". */
+export function rankLabelEs(s: CountyStats): string {
+  return s.tiedWith.length ? `Empate en el ${s.rank}.º` : `${s.rank}.º`;
 }

@@ -1,18 +1,19 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
-import { SERVICERS, SERVICER_DATA_VERIFIED } from '../../lib/servicers';
+import { SERVICERS, SERVICER_DATA_VERIFIED, telHref } from '../../lib/servicers';
+import { shortName } from '../../lib/servicer-guide';
 import { OG_IMAGES } from '../../lib/og';
 import { fitTitle, fitDescription } from '../../lib/seo';
 
 export const metadata: Metadata = {
-  title: fitTitle('Reach Your Mortgage Servicer | Loss Mitigation Contacts'),
+  title: fitTitle('Mortgage Servicer Hardship Phone Numbers: 44 Verified'),
   description:
-    fitDescription('How to actually reach loss mitigation at the biggest mortgage servicers: Mr. Cooper, Wells Fargo, Chase, Bank of America, Freedom, Pennymac, Newrez, SPS and more. Phones verified against each servicer\'s own site.'),
+    fitDescription('How to actually reach loss mitigation at the biggest mortgage servicers: 44 servicers including Rocket/Mr. Cooper, Wells Fargo, Chase, PNC, Valley, TD and Lakeview. Phones verified on each servicer\'s own site.'),
   alternates: { canonical: 'https://njforeclosureguide.org/servicers/' },
   openGraph: {
     images: OG_IMAGES,
-    title: 'Reach Your Mortgage Servicer | Loss Mitigation Contacts',
+    title: 'Mortgage Servicer Hardship Phone Numbers: 44 Verified',
     description: 'Verified mortgage-assistance phone numbers and application links for the largest servicers.',
     url: 'https://njforeclosureguide.org/servicers/',
   },
@@ -42,7 +43,7 @@ export default function ServicersPage() {
       <section className="max-w-3xl mx-auto px-4 py-12">
         <div className="border-l-2 border-amber-400 pl-5 mb-10">
           <p className="text-slate-700 leading-relaxed">
-            <strong className="text-slate-900">Before you dial:</strong> your servicer is whoever you
+            <strong className="text-slate-900">Before you dial:</strong>{' '}your servicer is whoever you
             send payments to, named on your statement; it may differ from the company that gave you
             the loan. Ask for &quot;loss mitigation&quot; or &quot;mortgage assistance,&quot; request
             the full application, and write down the date, the person&apos;s name, and what was said,
@@ -50,32 +51,33 @@ export default function ServicersPage() {
           </p>
         </div>
 
-        <div className="space-y-4">
-          {SERVICERS.map((s) => (
-            <div key={s.name} className="border border-slate-200 rounded-2xl px-6 py-5">
+        <p className="text-slate-600 text-sm mb-4">
+          {SERVICERS.length} servicers, A to Z. Tap a name for the full guide: what to say, documents to
+          send, and your protections while they review you.
+        </p>
+        <div className="space-y-3">
+          {[...SERVICERS].sort((a, b) => a.name.localeCompare(b.name)).map((s) => (
+            <div key={s.slug} className="border border-slate-200 rounded-2xl px-5 py-4 hover:border-slate-400 transition">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <p className="font-bold text-slate-900">{s.name}</p>
-                {s.phone && (
-                  <p className="font-serif text-xl font-bold text-slate-900">{s.phone}</p>
+                <Link href={`/servicers/${s.slug}/`} className="font-bold text-slate-900 underline underline-offset-4 decoration-slate-300 hover:decoration-slate-900">
+                  {s.name}
+                </Link>
+                {s.phone ? (
+                  <a href={telHref(s.phone)} className="font-serif text-xl font-bold text-slate-900">{s.phone}</a>
+                ) : (
+                  <span className="text-sm text-slate-500">Use the number on your statement</span>
                 )}
               </div>
-              <div className="text-sm text-slate-600 mt-1.5 space-y-1">
-                {s.phone && s.phoneType === 'general' && (
-                  <p>Main line; ask for loss mitigation.</p>
-                )}
-                {s.phone && s.phoneType === 'loss-mitigation' && (
-                  <p>Published for mortgage assistance directly.</p>
-                )}
-                {s.onlineApp === true && <p>Offers an online hardship application.</p>}
-                {s.note && <p className="text-slate-500">{s.note}</p>}
-                {s.assistUrl && (
-                  <p>
-                    <a href={s.assistUrl} target="_blank" rel="noopener noreferrer" className="text-slate-900 underline underline-offset-4 font-semibold break-all">
-                      Assistance page
-                    </a>
-                  </p>
-                )}
-              </div>
+              <p className="text-sm text-slate-500 mt-1">
+                {s.phone && s.phoneType === 'loss-mitigation' && 'Published for mortgage assistance. '}
+                {s.phone && s.phoneType === 'general' && !s.phoneLabel && 'Main line; ask for loss mitigation. '}
+                {s.phoneLabel && `${s.phoneLabel}. `}
+                {s.onlineApp === true && 'Online application available. '}
+                {s.aliases.length > 0 && `Also: ${s.aliases.slice(0, 3).join(', ')}.`}
+              </p>
+              <Link href={`/servicers/${s.slug}/`} className="text-sm font-semibold text-slate-900 mt-1 inline-block">
+                {shortName(s.name)} guide →
+              </Link>
             </div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { SHERIFF_SOURCES, SHERIFF_DATA_VERIFIED } from '../../../lib/sheriff-sales';
 import { countdown, parseDay, ADJOURNMENT_DAYS } from '../../../lib/countdown';
@@ -40,6 +40,22 @@ export default function CountdownPlanner() {
   const [used, setUsed] = useState('0');
   const [goal, setGoal] = useState<Goal>('unsure');
   const tracked = useRef(false);
+  // Prefill from ?date=YYYY-MM-DD&county=<slug>&used=0|1|2 (links from the
+  // sale date finder at /tools/sheriff-sale-date/). Read once on mount; the
+  // values stay in this browser tab only.
+  useEffect(() => {
+    try {
+      const q = new URLSearchParams(window.location.search);
+      const d = q.get('date');
+      const cty = q.get('county');
+      const u = q.get('used');
+      if (d && parseDay(d)) setDate(d);
+      if (cty && SHERIFF_SOURCES.some((s) => s.slug === cty)) setCounty(cty);
+      if (u && ['0', '1', '2'].includes(u)) setUsed(u);
+    } catch {
+      // No prefill; the form works as before.
+    }
+  }, []);
   const touch = () => {
     if (!tracked.current) {
       tracked.current = true;
@@ -104,7 +120,7 @@ export default function CountdownPlanner() {
                 <p className="font-serif text-2xl font-bold text-slate-900">That date has passed</p>
                 <p className="text-slate-700 mt-1 leading-relaxed">
                   Sales are adjourned constantly, so first check the county listing to see whether it actually went forward.
-                  If it did, the next {Math.max(0, 10 + c.daysLeft)} day(s) may still matter: there is generally a 10-day
+                  If it did, the next {Math.max(0, 10 + c.daysLeft)}{' '}day(s) may still matter: there is generally a 10-day
                   window after a sale before the sheriff&apos;s deed is delivered (estimated to end {fmt(c.postSaleWindowEnds)}).
                 </p>
               </>

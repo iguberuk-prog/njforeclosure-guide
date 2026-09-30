@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
 import { SHERIFF_SOURCES, SHERIFF_DATA_VERIFIED } from '../../lib/sheriff-sales';
+import { TOWN_PAGES } from '../../lib/town-sales';
 import { OG_IMAGES } from '../../lib/og';
 import { fitTitle, fitDescription } from '../../lib/seo';
 
@@ -9,7 +10,14 @@ export const metadata: Metadata = {
   title: fitTitle('NJ Sheriff Sale Directory | Every County, One Page'),
   description:
     fitDescription('Where to check your foreclosure sale date in all 21 New Jersey counties: official sheriff sale listings, office phone numbers, and how to request an adjournment. Verified against official county sources.'),
-  alternates: { canonical: 'https://njforeclosureguide.org/sheriff-sales/' },
+  alternates: {
+    canonical: 'https://njforeclosureguide.org/sheriff-sales/',
+    languages: {
+      en: 'https://njforeclosureguide.org/sheriff-sales/',
+      es: 'https://njforeclosureguide.org/es/ventas-del-sheriff/',
+      'x-default': 'https://njforeclosureguide.org/sheriff-sales/',
+    },
+  },
   openGraph: {
     images: OG_IMAGES,
     title: 'NJ Sheriff Sale Directory | Every County, One Page',
@@ -37,6 +45,14 @@ export default function SheriffSalesPage() {
             check the date in your county, who to call, and what New Jersey law lets you do about it.
             Every link and phone number below comes from the county&apos;s own official pages.
           </p>
+          <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/tools/sheriff-sale-date" className="bg-amber-400 text-slate-950 px-7 py-3.5 rounded-lg font-bold hover:bg-amber-300 transition">
+              Find my sale date →
+            </Link>
+            <Link href="/es/ventas-del-sheriff/" hrefLang="es" className="border border-white/30 px-7 py-3.5 rounded-lg font-bold hover:bg-white/10 transition">
+              En español
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -62,9 +78,10 @@ export default function SheriffSalesPage() {
             shows which fit your situation.
           </p>
           <p>
-            <strong className="text-slate-900">Most counties list sales online.</strong> Seventeen
-            counties publish through the state&apos;s CivilView system; Mercer, Somerset, Sussex and
-            Warren publish their own lists. Either way, the links below go straight to your
+            <strong className="text-slate-900">Most counties list sales online.</strong>{' '}Sixteen
+            counties publish through the state&apos;s CivilView system (Ocean&apos;s CivilView page has
+            not been kept current, so check the sheriff&apos;s own site there); Mercer, Somerset, Sussex
+            and Warren publish their own lists. Either way, the links below go straight to your
             county&apos;s listings, where you can search by address or defendant name.
           </p>
         </div>
@@ -74,7 +91,9 @@ export default function SheriffSalesPage() {
         <p className="text-slate-600 mb-6">
           Statewide numbers:{' '}
           <Link href="/reports/nj-sheriff-sales/" className="font-semibold text-slate-900 underline underline-offset-4">this month&apos;s New Jersey Sheriff Sale Report</Link>{' '}
-          (scheduled sales by county, town and lender).
+          (scheduled sales by county, town and lender), and the{' '}
+          <Link href="/reports/nj-foreclosure-index/" className="font-semibold text-slate-900 underline underline-offset-4">NJ Sheriff Sale Index</Link>{' '}
+          (rates per 100,000 residents, with an interactive map).
         </p>
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">Find your county</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -91,6 +110,15 @@ export default function SheriffSalesPage() {
                 {s.usesCivilView ? 'Listings on CivilView' : 'Publishes its own listings'}
                 {s.phone ? ` · ${s.phone}` : ''}
               </p>
+            </Link>
+          ))}
+        </div>
+        <h2 className="font-serif text-2xl font-bold text-slate-900 mt-12 mb-4">Sheriff sales by town</h2>
+        <p className="text-slate-600 mb-5">The towns with the most scheduled sales in our monthly report, each with its own count and how to find it on the official list.</p>
+        <div className="flex flex-wrap gap-2">
+          {[...TOWN_PAGES].sort((a, b) => a.town.localeCompare(b.town)).map((t) => (
+            <Link key={t.countySlug + t.slug} href={`/sheriff-sales/${t.countySlug}/${t.slug}/`} className="text-sm border border-slate-200 rounded-full px-3 py-1.5 text-slate-700 hover:bg-slate-50">
+              {t.town} <span className="text-slate-400">({t.county})</span>
             </Link>
           ))}
         </div>

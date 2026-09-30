@@ -102,10 +102,10 @@ export default function ScamCheckerPage() {
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">Is this foreclosure help legit? Questions to ask first</h2>
         <ul className="space-y-3 text-slate-600 leading-relaxed mb-12 list-disc pl-5">
           <li><strong className="text-slate-900">Do they want money before doing anything?</strong> Relief companies generally cannot charge until you have an agreement with your lender, and New Jersey foreclosure consultants cannot collect until the work is fully done.</li>
-          <li><strong className="text-slate-900">Who are they, really?</strong> Look up the company, agency, or lawyer yourself. New Jersey foreclosure consultants must be licensed by the Department of Banking and Insurance, and a lawyer&apos;s license can be checked with the New Jersey Courts&apos; Attorney Search.</li>
+          <li><strong className="text-slate-900">Who are they, really?</strong>{' '}Look up the company, agency, or lawyer yourself. New Jersey foreclosure consultants must be licensed by the Department of Banking and Insurance, and a lawyer&apos;s license can be checked with the New Jersey Courts&apos; Attorney Search.</li>
           <li><strong className="text-slate-900">Do they want you to stop talking to your lender, or to pay them instead?</strong> A legitimate helper never does.</li>
           <li><strong className="text-slate-900">Do they want your deed, a power of attorney, or your banking login?</strong> Stop there.</li>
-          <li><strong className="text-slate-900">Can you take the papers home?</strong> If the answer is &quot;sign today&quot;, walk away.</li>
+          <li><strong className="text-slate-900">Can you take the papers home?</strong>{' '}If the answer is &quot;sign today&quot;, walk away.</li>
         </ul>
 
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">Loan modification scam red flags</h2>

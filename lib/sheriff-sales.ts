@@ -250,3 +250,4 @@ export function getSheriffSource(slug: string): SheriffSaleSource | undefined {
 /** The date the dataset above was last verified, shown on the pages so both
  *  readers and AI crawlers can judge freshness. Update when re-verifying. */
 export const SHERIFF_DATA_VERIFIED = 'August 27, 2026';
+export const SHERIFF_DATA_VERIFIED_ES = '27 de agosto de 2026';

@@ -84,12 +84,12 @@ export default function PartnersPage() {
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-3">The ground rules</h2>
         <div className="space-y-4 text-slate-600 leading-relaxed mb-12">
           <p>
-            <strong className="text-slate-900">It is free, permanently.</strong> No signup, no key, no quota, and we do
+            <strong className="text-slate-900">It is free, permanently.</strong>{' '}No signup, no key, no quota, and we do
             not track your visitors — the widget makes no external requests and stores nothing.
             Selections stay in the visitor&rsquo;s browser.
           </p>
           <p>
-            <strong className="text-slate-900">It is educational, not legal advice</strong> — the widget says so on its
+            <strong className="text-slate-900">It is educational, not legal advice</strong>{' '}— the widget says so on its
             face, frames deadlines as general New Jersey rules, and points people to the free help
             first: HUD counselors, Legal Services of NJ, and the courts&rsquo; own mediation program.
           </p>
