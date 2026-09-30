@@ -26,6 +26,8 @@ export interface SheriffSaleSource {
    *  prefixed "Sales held at:" so nobody mails documents to an ice rink. */
   address: string | null;
   verifiedFrom: string | null;
+  /** A notice the county itself posts about its sales, quoted plainly with the date we read it. */
+  notice?: { en: string; es: string; checked: string };
 }
 
 export const SHERIFF_SOURCES: SheriffSaleSource[] = [
@@ -88,6 +90,11 @@ export const SHERIFF_SOURCES: SheriffSaleSource[] = [
     phone: '856-451-4449 ext 25116',
     address: '220 North Laurel Street, Bridgeton, NJ',
     verifiedFrom: 'https://www.cumberlandcountynj.gov/sheriffsales',
+    notice: {
+      en: 'Cumberland County’s sheriff sales page says residential property sales are currently adjourned pending compliance with New Jersey’s Community Wealth Preservation Program, while commercial sales continue as scheduled. Listings may still show dates, so confirm the status of any residential sale with the sheriff’s office.',
+      es: 'La página de subastas del sheriff del condado de Cumberland dice que las subastas de propiedades residenciales están aplazadas por ahora, mientras se cumple con el Programa de Preservación de la Riqueza Comunitaria (Community Wealth Preservation Program) de Nueva Jersey; las comerciales siguen según lo programado. La lista puede seguir mostrando fechas, así que confirme el estado de cualquier subasta residencial con la oficina del sheriff.',
+      checked: '2026-09-30',
+    },
   },
   {
     slug: 'essex-county',

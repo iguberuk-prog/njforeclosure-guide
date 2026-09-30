@@ -54,6 +54,7 @@ export default async function CondadoSubastasPage({ params }: { params: Promise<
   if (!src) notFound();
   const c = sheriffAngleFor(src.slug);
   const towns = townPagesForCounty(src.slug);
+  const NOTICE = src.notice;
 
   const faq: FaqItem[] = [
     {
@@ -115,6 +116,15 @@ export default async function CondadoSubastasPage({ params }: { params: Promise<
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-12">
+        {NOTICE && (
+          <div className="rounded-2xl border-2 border-amber-400 bg-amber-50 px-6 py-5 mb-10" role="note">
+            <p className="font-bold text-slate-900 mb-1">Aviso del condado</p>
+            <p className="text-slate-700 leading-relaxed">{NOTICE.es}</p>
+            <p className="text-slate-500 text-xs mt-2">
+              Leído en el sitio del condado el {new Date(`${NOTICE.checked}T12:00:00Z`).toLocaleDateString('es-US', { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric' })}.
+            </p>
+          </div>
+        )}
         <CountySaleStatsEs slug={src.slug} county={src.county} officialUrl={src.salesUrl} />
 
         {towns.length > 0 && (

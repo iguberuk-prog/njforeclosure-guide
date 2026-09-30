@@ -56,6 +56,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
   const c = sheriffAngleFor(src.slug);
   const cs = src.slug.replace(/-county$/, '');
   const townPages = townPagesForCounty(src.slug);
+  const NOTICE = src.notice;
 
   const faq = [
     {
@@ -139,6 +140,15 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
       </section>
 
       <section className="max-w-3xl mx-auto px-4 py-12">
+        {NOTICE && (
+          <div className="rounded-2xl border-2 border-amber-400 bg-amber-50 px-6 py-5 mb-10" role="note">
+            <p className="font-bold text-slate-900 mb-1">Notice from the county</p>
+            <p className="text-slate-700 leading-relaxed">{NOTICE.en}</p>
+            <p className="text-slate-500 text-xs mt-2">
+              Read on the county&apos;s website on {new Date(`${NOTICE.checked}T12:00:00Z`).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric' })}.
+            </p>
+          </div>
+        )}
         <CountySaleStats slug={src.slug} county={src.county} officialUrl={src.salesUrl} />
 
         {townPages.length > 0 && (

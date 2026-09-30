@@ -66,6 +66,12 @@ export default function SaleDateFinder({ months, asOf }: { months: CountyMonth[]
         <div className="rounded-2xl border-2 border-slate-900 p-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">2. Look it up</p>
           <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">Where {src.county} County lists its sales</h2>
+          {src.notice && (
+            <div className="rounded-xl border-2 border-amber-400 bg-amber-50 px-4 py-3 mb-4 text-sm text-slate-800 leading-relaxed" role="note">
+              <strong className="text-slate-900">Notice from the county: </strong>
+              {src.notice.en}
+            </div>
+          )}
           <a
             href={src.salesUrl}
             target="_blank"

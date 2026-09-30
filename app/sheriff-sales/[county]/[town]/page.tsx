@@ -45,6 +45,7 @@ export default async function TownSheriffPage({ params }: { params: Promise<{ co
   const siblings = townPagesForCounty(t.countySlug).filter((x) => x.slug !== t.slug);
   const helpPost = TOWN_HELP_POSTS[t.slug];
   const adj = cs ? adjournedLine(cs) : null;
+  const NOTICE = src.notice;
   const heldAt = src.address?.startsWith('Sales held at:') ? src.address.replace(/^Sales held at:\s*/, '') : null;
 
   const countLine = st.row
@@ -149,6 +150,15 @@ export default async function TownSheriffPage({ params }: { params: Promise<{ co
       </nav>
 
       <section className="max-w-3xl mx-auto px-4 py-8">
+        {NOTICE && (
+          <div className="rounded-2xl border-2 border-amber-400 bg-amber-50 px-6 py-5 mb-10" role="note">
+            <p className="font-bold text-slate-900 mb-1">Notice from the county</p>
+            <p className="text-slate-700 leading-relaxed">{NOTICE.en}</p>
+            <p className="text-slate-500 text-xs mt-2">
+              Read on the county&apos;s website on {new Date(`${NOTICE.checked}T12:00:00Z`).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric' })}.
+            </p>
+          </div>
+        )}
         <div className="border border-slate-200 rounded-2xl p-6 mb-10">
           <p className="text-amber-700 text-xs font-semibold tracking-[0.2em] uppercase mb-2">From our NJ Sheriff Sale Report</p>
           <h2 className="font-serif text-2xl font-bold text-slate-900 mb-1">{t.town} sheriff sales this month</h2>

@@ -296,7 +296,7 @@ export default function SheriffSaleReportPage() {
           adjournment; small samples, so read it as a rough indicator. {excludedNames.length > 0 && <>Not included: {listJoin(excludedNames)} (see methodology).</>}
         </p>
 
-        <div className="grid md:grid-cols-2 gap-10 mb-14">
+        <div className="grid md:grid-cols-2 gap-10 mb-14 [&>*]:min-w-0">
           <div>
             <h2 className="font-serif text-2xl font-bold text-slate-900 mb-2">Scheduled sales, next 12 weeks</h2>
             <p className="text-slate-600 text-sm leading-relaxed mb-6">
@@ -348,7 +348,7 @@ export default function SheriffSaleReportPage() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 mb-14">
+        <div className="grid md:grid-cols-2 gap-10 mb-14 [&>*]:min-w-0">
           <div>
             <h2 className="font-serif text-2xl font-bold text-slate-900 mb-2">Towns with the most scheduled sales</h2>
             <p className="text-slate-600 text-sm leading-relaxed mb-5">

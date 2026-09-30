@@ -105,7 +105,7 @@ export default function IndexExplorer({
         ))}
       </div>
 
-      <div className={`grid ${compact ? 'sm:grid-cols-[260px_1fr]' : 'md:grid-cols-[300px_1fr]'} gap-6`}>
+      <div className={`grid ${compact ? 'sm:grid-cols-[260px_1fr]' : 'md:grid-cols-[300px_1fr]'} gap-6 [&>*]:min-w-0`}>
         {/* Tile map */}
         <div>
           <p className="text-sm font-semibold text-slate-900 mb-2">{m.blurb}</p>
