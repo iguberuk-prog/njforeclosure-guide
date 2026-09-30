@@ -49,6 +49,9 @@ export default function SheriffSalesPage() {
             <Link href="/tools/sheriff-sale-date" className="bg-amber-400 text-slate-950 px-7 py-3.5 rounded-lg font-bold hover:bg-amber-300 transition">
               Find my sale date →
             </Link>
+            <Link href="/sheriff-sales/calendar/" className="border border-white/30 px-7 py-3.5 rounded-lg font-bold hover:bg-white/10 transition">
+              This week&apos;s calendar
+            </Link>
             <Link href="/es/ventas-del-sheriff/" hrefLang="es" className="border border-white/30 px-7 py-3.5 rounded-lg font-bold hover:bg-white/10 transition">
               En español
             </Link>

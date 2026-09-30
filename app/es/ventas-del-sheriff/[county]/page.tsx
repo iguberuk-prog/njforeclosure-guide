@@ -6,6 +6,7 @@ import MarsNoticeEs from '../../../components/MarsNoticeEs';
 import type { FaqItem } from '../../../components/GuideFaq';
 import RespuestasRapidas from '../../_components/RespuestasRapidas';
 import CountySaleStatsEs from '../../_components/CountySaleStatsEs';
+import CountySaleCalendar from '../../../components/CountySaleCalendar';
 import { SHERIFF_SOURCES, getSheriffSource, SHERIFF_DATA_VERIFIED_ES } from '../../../../lib/sheriff-sales';
 import { sheriffAngleFor } from '../../../../lib/county-blog';
 import { REPORT, AS_OF_MEDIUM_ES, AS_OF_MONTH_ES, num, countyStats } from '../../../../lib/sheriff-report';
@@ -126,6 +127,7 @@ export default async function CondadoSubastasPage({ params }: { params: Promise<
           </div>
         )}
         <CountySaleStatsEs slug={src.slug} county={src.county} officialUrl={src.salesUrl} />
+        <CountySaleCalendar slug={src.slug} county={src.county} lang="es" />
 
         {towns.length > 0 && (
           <div className="border border-slate-200 rounded-2xl px-6 py-5 mb-10">

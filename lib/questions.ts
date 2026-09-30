@@ -8,6 +8,8 @@
 // answer. Keep every legal number consistent with lib/documents.ts.
 // ---------------------------------------------------------------------------
 
+import { QUESTIONS_NEW } from './questions-2';
+
 export interface QuestionEntry {
   slug: string;
   q: string;
@@ -17,7 +19,7 @@ export interface QuestionEntry {
   links: { href: string; label: string }[];
 }
 
-export const QUESTIONS: QuestionEntry[] = [
+const BASE_QUESTIONS: QuestionEntry[] = [
   {
     slug: 'is-nj-a-judicial-foreclosure-state',
     q: 'Is New Jersey a judicial foreclosure state?',
@@ -421,6 +423,7 @@ export const QUESTIONS: QuestionEntry[] = [
     more:
       'Practical guidance: the complaint being real does not depend on you recognizing the plaintiff; check the docket number with the court if in doubt. If you contest the case, an attorney can demand proof of standing and the chain of assignments, which occasionally uncovers genuine problems and more often confirms the transfer history. What the unfamiliar name does not do is change your rights: the Fair Foreclosure Act notices, the 35-day answer window, mediation, reinstatement, and adjournments all apply no matter who the plaintiff is.',
     links: [
+      { href: '/who-is-suing-me', label: 'Look up the plaintiff: U.S. Bank, Wilmington, Deutsche Bank and more' },
       { href: '/servicers', label: 'Find who actually services your loan' },
       { href: '/answers/how-long-to-respond-to-complaint', label: 'Your 35-day answer window, explained' },
     ],
@@ -430,3 +433,5 @@ export const QUESTIONS: QuestionEntry[] = [
 export function getQuestion(slug: string): QuestionEntry | undefined {
   return QUESTIONS.find((x) => x.slug === slug);
 }
+
+export const QUESTIONS: QuestionEntry[] = [...BASE_QUESTIONS, ...QUESTIONS_NEW];

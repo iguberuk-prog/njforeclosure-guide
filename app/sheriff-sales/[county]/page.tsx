@@ -7,6 +7,7 @@ import { sheriffAngleFor } from '../../../lib/county-blog';
 import { OG_IMAGES } from '../../../lib/og';
 import { fitTitle, fitDescription } from '../../../lib/seo';
 import CountySaleStats from '../../components/CountySaleStats';
+import CountySaleCalendar from '../../components/CountySaleCalendar';
 import { REPORT, AS_OF_MEDIUM, AS_OF_MONTH, num, countyStats } from '../../../lib/sheriff-report';
 import { townPagesForCounty } from '../../../lib/town-sales';
 
@@ -150,6 +151,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
           </div>
         )}
         <CountySaleStats slug={src.slug} county={src.county} officialUrl={src.salesUrl} />
+        <CountySaleCalendar slug={src.slug} county={src.county} />
 
         {townPages.length > 0 && (
           <div className="border border-slate-200 rounded-2xl px-6 py-5 mb-10">
@@ -226,6 +228,11 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
         <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
           How the {src.county} County auction works
         </h2>
+        <p className="text-sm mb-4">
+          <Link href={`/sheriff-sales/${src.slug}/how-to-bid/`} className="text-slate-900 underline underline-offset-4 font-semibold">
+            Buying at a sale? {src.county} County bidder rules: deposit, payment and deadlines →
+          </Link>
+        </p>
         <div className="space-y-4 text-slate-600 leading-relaxed mb-10">
           <p>
             A sheriff sale is a public auction of the property to satisfy the foreclosure judgment.

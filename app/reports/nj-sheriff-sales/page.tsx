@@ -390,7 +390,8 @@ export default function SheriffSaleReportPage() {
             <h2 className="font-serif text-2xl font-bold text-slate-900 mb-2">Most frequent institutional plaintiffs</h2>
             <p className="text-slate-600 text-sm leading-relaxed mb-5">
               Names shortened to the parent institution. &ldquo;As trustee&rdquo; means the bank is suing on behalf of a
-              loan trust, not as the original lender.
+              loan trust, not as the original lender.{' '}
+              <Link href="/who-is-suing-me/" className="text-slate-900 underline underline-offset-4 font-semibold">Who each plaintiff is</Link>.
             </p>
             <div className="overflow-x-auto border border-slate-200 rounded-2xl">
               <table className="w-full text-sm">

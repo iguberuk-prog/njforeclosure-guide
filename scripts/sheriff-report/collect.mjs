@@ -704,7 +704,7 @@ async function main() {
 }
 
 // Exported for ad-hoc testing (node -e "import('./collect.mjs')" is not used by the page).
-export { classifyPlaintiff, townFromAddress, parseListing, parseStatusHistory, Session };
+export { classifyPlaintiff, townFromAddress, parseListing, parseStatusHistory, Session, loadSources, rowDate, parseDate, todayNJ, iso, TERMINAL_STATUS_RE, BASE as CIVILVIEW_BASE };
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   main().catch((e) => {
