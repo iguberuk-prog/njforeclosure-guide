@@ -5,7 +5,7 @@ import SiteHeader from '../../../components/SiteHeader';
 import { getSheriffSource } from '../../../../lib/sheriff-sales';
 import { sheriffAngleFor } from '../../../../lib/county-blog';
 import { REPORT, REPORT_URL, AS_OF_LONG, AS_OF_MEDIUM, AS_OF_MONTH, mediumDate, num, countyStats, adjournedLine } from '../../../../lib/sheriff-report';
-import { TOWN_PAGES, getTownPage, townStats, countyTownTable, townPagesForCounty, TOWN_HELP_POSTS } from '../../../../lib/town-sales';
+import { TOWN_PAGES, getTownPage, townStats, countyTownTable, townPagesForCounty} from '../../../../lib/town-sales';
 import { OG_IMAGES } from '../../../../lib/og';
 import { fitTitle, fitDescription } from '../../../../lib/seo';
 
@@ -45,7 +45,6 @@ export default async function TownSheriffPage({ params }: { params: Promise<{ co
   const c = sheriffAngleFor(t.countySlug);
   const table = countyTownTable(t.countySlug);
   const siblings = townPagesForCounty(t.countySlug).filter((x) => x.slug !== t.slug);
-  const helpPost = TOWN_HELP_POSTS[t.slug];
   const adj = cs ? adjournedLine(cs) : null;
   const NOTICE = src.notice;
   const heldAt = src.address?.startsWith('Sales held at:') ? src.address.replace(/^Sales held at:\s*/, '') : null;
@@ -305,9 +304,6 @@ export default async function TownSheriffPage({ params }: { params: Promise<{ co
         <div className="border border-slate-200 rounded-2xl px-6 py-5 mb-10">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">More for {t.town} homeowners</p>
           <ul className="space-y-2 text-slate-700">
-            {helpPost && (
-              <li><Link href={`/blog/${helpPost}/`} className="underline underline-offset-4">Foreclosure help in {t.town}: the local guide</Link></li>
-            )}
             <li><Link href={`/foreclosure-help/${t.countySlug}/`} className="underline underline-offset-4">Foreclosure help in {t.county} County</Link></li>
             <li><Link href="/tools/sheriff-sale-date" className="underline underline-offset-4">When is my sheriff sale? Find your date</Link></li>
             <li><Link href={REPORT_URL} className="underline underline-offset-4">The statewide NJ Sheriff Sale Report</Link></li>

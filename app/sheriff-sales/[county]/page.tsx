@@ -269,7 +269,6 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
             </h2>
             <div className="space-y-4 text-slate-600 leading-relaxed mb-10">
               <p>{c.character}</p>
-              <p>{c.market}</p>
             </div>
           </>
         )}

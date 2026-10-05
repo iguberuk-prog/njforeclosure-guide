@@ -16,7 +16,6 @@ import {
   DOCUMENTS,
   CALL_SCRIPT,
   CALL_QUESTIONS,
-  SERVICER_BLOG,
   shortName,
   domainOf,
 } from '../../../lib/servicer-guide';
@@ -58,7 +57,6 @@ export default async function ServicerPage({ params }: { params: Promise<{ slug:
   const short = shortName(s.name);
   const brand = /mortgage/i.test(short) ? short : `${short} Mortgage`;
   const source = domainOf(s.verifiedFrom);
-  const blogSlug = SERVICER_BLOG[s.slug];
   const others = SERVICERS.filter((x) => x.slug !== s.slug);
 
   const faq = [
@@ -301,9 +299,6 @@ export default async function ServicerPage({ params }: { params: Promise<{ slug:
         <div className="border border-slate-200 rounded-2xl px-6 py-5 mb-10">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Next steps</p>
           <ul className="space-y-2 text-slate-700">
-            {blogSlug && (
-              <li><Link href={`/blog/${blogSlug}/`} className="underline underline-offset-4">Behind on your mortgage with {short} in NJ? The full walkthrough</Link></li>
-            )}
             <li><Link href="/tools/sheriff-sale-countdown" className="underline underline-offset-4">Have a sheriff sale date? Use the countdown</Link></li>
             <li><Link href="/tools/catch-up" className="underline underline-offset-4">What would it cost to catch up?</Link></li>
             <li>
