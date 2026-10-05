@@ -39,7 +39,7 @@ export default function CountySaleCalendar({ slug, county, lang = 'en' }: { slug
       <p className="text-slate-500 text-xs leading-relaxed">
         {es
           ? 'Son subastas programadas; muchas se aplazan o se resuelven antes. La lista oficial del condado es la autoridad para cada caso.'
-          : 'These are scheduled sales; many are adjourned or resolved before the auction. The county’s official list is the authority for any individual sale.'}{' '}
+          : 'Scheduled, not final: many sales move or resolve before auction day.'}{' '}
         {!es && (
           <Link href="/sheriff-sales/calendar/" className="underline underline-offset-2 font-semibold text-slate-700">
             Statewide calendar
