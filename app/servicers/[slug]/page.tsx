@@ -44,6 +44,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title,
     description,
+    // Templated page kept for visitors but out of Google's index (2026-10-05 quality cleanup).
+    robots: { index: false, follow: true },
     alternates: { canonical: url },
     openGraph: { images: OG_IMAGES, title, description, url },
   };
