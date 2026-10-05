@@ -443,4 +443,44 @@ export const LISTING_POSTS: TopicPost[] = [
       { href: '/compare', label: 'Every path\'s honest trade-offs, one table' },
     ],
   },
+  {
+    slug: 'selling-house-with-leased-solar-panels-foreclosure-nj',
+    title: 'Leased Solar Panels and a NJ Foreclosure: Selling With Someone Else’s Equipment on the Roof',
+    description:
+      'New Jersey roofs carry a lot of leased solar. What a lease or PPA means for a sale during foreclosure, how transfers and buyouts actually work, and why starting the paperwork early protects the closing date.',
+    tldr:
+      'A solar lease or power purchase agreement is a separate contract that does not disappear because a foreclosure is pending — and the solar company has usually recorded a fixture filing that shows up in every buyer’s title search. A homeowner selling during foreclosure has three standard paths: transfer the agreement to the buyer (who typically must credit-qualify with the solar company), pay the agreement off with a written buyout quote, or — rarely, and at a cost — have the system removed. None of this blocks a sale; all of it adds weeks, which is exactly what a foreclosure timeline is short on. The move is to request the transfer-and-buyout package from the solar company the same week the home is listed, not after a buyer appears.',
+    published: '2026-10-05',
+    updated: '2026-10-05',
+    minutes: 6,
+    theme: 'listing',
+    sections: [
+      {
+        h: 'First, figure out which of four deals is on your roof',
+        body: [
+          'Solar arrangements come in four flavors, and they behave completely differently in a sale. Owned outright (bought with cash or a loan since paid off): the panels are simply part of the house, and often a selling point. Solar loan: the panels are yours, but a lender financed them and commonly recorded a security interest — the loan gets paid off at or before closing like any other lien-shaped obligation. Lease: the company owns the equipment and you pay monthly rent for it. Power purchase agreement (PPA): the company owns the equipment and you buy the electricity it produces at a contracted rate. The lease and the PPA are the complicated ones, because the roof is carrying equipment that belongs to a company with a contract measured in decades.',
+          'If you are not sure which you have, the paperwork from installation says — and so does your title report: solar companies routinely record a UCC fixture filing with the county to put the world on notice of their interest in the equipment. That filing is why the subject surfaces at the worst possible moment in so many sales: the buyer’s title search finds it, and suddenly everyone wants answers the seller has not gathered yet.',
+        ],
+      },
+      {
+        h: 'The three exits, and what each one costs in time',
+        body: [
+          'Transfer: most leases and PPAs are built to be assumed by a home’s buyer, but the solar company must approve, and the buyer typically completes a credit application with them. Expect the transfer department to work in weeks, not days — and expect some buyers to balk at inheriting a payment they never shopped for, which is a negotiation point, not a dead end. Buyout: nearly every agreement has a purchase or prepayment option; get the figure in writing and current, because a quote from two years ago is not a payoff. Sellers sometimes fold the buyout into the closing so the buyer takes the system free and clear. Removal: usually the worst option — agreements that allow it tend to put removal costs on the homeowner, and a roof that has hosted panels needs patching — but it exists for the rare deal where nothing else works.',
+          'During a foreclosure, the arithmetic of those weeks changes. A conventional seller who loses a month to a slow transfer department is annoyed; a seller working against a sheriff sale date may need that month back through an adjournment. This is why the solar paperwork belongs in the first week of the listing: request the transfer package and the written buyout quote immediately, hand both to your agent and the closing attorney, and disclose the system to buyers up front. Surprises kill closings; disclosed solar mostly just gets priced.',
+        ],
+      },
+      {
+        h: 'What happens if the house goes to auction instead',
+        body: [
+          'Letting the sheriff sale happen does not make the solar contract vanish — it is an agreement you signed personally, separate from the mortgage, and walking away from the house can leave you with the company pursuing the remaining payments while the panels sit on a roof you no longer own. Auction buyers, for their part, discount hard for complications they cannot quantify from a listing sheet, and third-party equipment with a recorded filing is precisely that kind of complication. It is one more entry in the long list of reasons a controlled sale generally treats the owner’s equity better than the courthouse steps: in a listed sale, the solar question gets answered on your schedule and priced into a negotiation; at auction, it gets guessed at, against you.',
+          'None of this is individual legal or financial advice — solar contracts differ, and the right move depends on yours. A real estate attorney reviewing the actual agreement, or a HUD-approved counselor (800-569-4287, free) helping you sequence the bigger foreclosure picture, turns this from folklore into a plan.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/blog/yes-you-can-list-during-foreclosure', label: 'The listed sale during foreclosure, mechanics first' },
+      { href: '/tools/net-proceeds', label: 'Price the sale — buyout included — free' },
+      { href: '/tools/sheriff-sale-countdown', label: 'How much runway your sale date leaves' },
+    ],
+  },
 ];

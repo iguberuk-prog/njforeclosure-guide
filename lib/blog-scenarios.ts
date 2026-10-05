@@ -354,4 +354,59 @@ export const SCENARIO_POSTS: TopicPost[] = [
       { href: '/answers/does-bankruptcy-stop-foreclosure-in-nj', label: 'The stay, and when it fits' },
     ],
   ),
+  // SCRA facts verified 2026-10-05 against official sources:
+  // - 50 U.S.C. 3953 (uscode.house.gov, current text): sale/foreclosure/seizure
+  //   on a pre-service obligation is not valid during military service or
+  //   within one year after, except by court order or valid waiver.
+  // - CFPB (consumerfinance.gov, SCRA page): 6% cap on pre-service debts,
+  //   lasting one additional year after active duty for mortgages; written
+  //   request with orders, up to 180 days after release; default-judgment
+  //   protections (affidavit of military service, appointed attorney,
+  //   90-day stay); coverage includes Title 10 active duty and National
+  //   Guard on Title 32 federal orders over 30 consecutive days.
+  {
+    slug: 'military-scra-foreclosure-protections-nj',
+    title: 'Active Duty and Behind on the Mortgage: SCRA Protections in a NJ Foreclosure',
+    description:
+      'Servicemembers get a federal layer of protection other homeowners don’t — interest caps, default-judgment safeguards, and a bar on foreclosing without a court order. How the SCRA actually works alongside New Jersey’s process.',
+    tldr:
+      'The Servicemembers Civil Relief Act adds a federal layer on top of New Jersey’s homeowner protections. For a mortgage taken out before military service began, a sale, foreclosure, or seizure of the property during service — or within one year after it ends — is generally not valid without a court order or the servicemember’s valid waiver. The same law caps interest on pre-service obligations at 6% during service (for mortgages, one extra year after), and no default judgment can be entered until the plaintiff files an affidavit about the defendant’s military status, with an appointed attorney and a stay available. The protections do not erase the debt, and every NJ right — the 35-day answer, free mediation, the right to sell — still applies alongside them. Free military legal assistance offices exist to enforce exactly these rights.',
+    published: '2026-10-05',
+    updated: '2026-10-05',
+    minutes: 7,
+    theme: 'scenarios',
+    sections: [
+      {
+        h: 'Who the SCRA covers, and which loans',
+        body: [
+          'The law reaches further than many families assume: active-duty members of every branch, Reserve and National Guard members serving on federal Title 10 orders, Guard members mobilized under Title 32 federal orders for more than 30 consecutive days, and commissioned officers of the Public Health Service and NOAA. The key dividing line is not rank but timing — the strongest protections attach to obligations that existed before the period of military service began. A mortgage signed as a civilian, then defended as a mobilized reservist, is the classic covered case; a loan taken out while already on active duty gets far less from the statute.',
+          'Dependents and spouses matter here too, practically: when the servicemember is deployed, it is often a spouse at home opening the mail from the servicer and the court. A power of attorney prepared before deployment — something every installation legal assistance office drafts for free — is what lets the family actually use these rights while the borrower is unreachable.',
+        ],
+      },
+      {
+        h: 'The three protections that matter in a foreclosure',
+        body: [
+          'First, the foreclosure bar: for a pre-service mortgage, federal law provides that a sale, foreclosure, or seizure of the property is not valid if made during the period of military service or within one year after it, except by court order or a valid written waiver. New Jersey forecloses through the courts anyway, so the practical weight lands on the second protection: before any default judgment, the plaintiff must file an affidavit telling the court whether the defendant is in military service. If the homeowner is, the court must appoint an attorney before entering a default judgment, and a stay of proceedings — typically 90 days or more — is available. Lenders check the Defense Manpower Data Center database to complete that affidavit, which is why hiding the deployment helps no one; invoking it loudly does.',
+          'Third, the interest cap: obligations taken out before service are capped at 6% interest during active duty, and for mortgages the cap runs one additional year after service ends. The reduction is not automatic — it takes a written request to the servicer with a copy of the orders, and the request can be made up to 180 days after release from active duty. For a household juggling a mobilization pay cut against civilian-sized bills, that cap can be the difference between falling behind and holding on.',
+        ],
+      },
+      {
+        h: 'What the SCRA does not do',
+        body: [
+          'The honest limits: the law delays and disciplines the process; it does not forgive the loan. Arrears still accumulate, the case resumes when the protected period ends, and a servicemember who ignores the file during a stay usually emerges with a bigger problem, not a smaller one. The protections also sit alongside — never instead of — New Jersey’s ordinary machinery: the Notice of Intention at least 30 days before filing, the 35-day window to answer the complaint, free statewide foreclosure mediation, loss mitigation with the servicer, and the right to sell the home at market any time before the sheriff’s deed. A servicemember with equity who cannot keep the house on the new math still protects that equity the same way every other owner does: deliberately, on their own timeline, not the auction’s.',
+        ],
+      },
+      {
+        h: 'The free help built for this',
+        body: [
+          'Every installation has a legal assistance office that handles SCRA matters at no charge, and servicemembers facing a civil case can also be pointed there through Armed Forces Legal Assistance. VA-backed loans add their own layer — the VA has loan technicians who intervene with servicers on a veteran’s behalf. Stack those on top of the help every NJ homeowner gets free: HUD-approved counselors (800-569-4287), Legal Services of New Jersey (1-888-576-5529) for income-qualifying households, and the court’s mediation program. If a servicer moved against the home while these protections applied, that is not a customer-service complaint — it is a legal problem worth a lawyer’s letter, and the military legal assistance office is the free first call.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/blog/va-loan-foreclosure-help-nj', label: 'The VA loan’s extra doors' },
+      { href: '/answers/how-long-to-respond-to-complaint', label: 'The 35-day answer, explained' },
+      { href: '/tools/letter-builder', label: 'Free letters: hardship, payoff request, and more' },
+    ],
+  },
 ];
