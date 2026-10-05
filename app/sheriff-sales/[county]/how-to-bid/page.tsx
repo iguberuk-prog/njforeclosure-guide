@@ -33,7 +33,8 @@ export async function generateMetadata({ params }: { params: Promise<{ county: s
       : `How bidding works at ${src.county} County sheriff sales in New Jersey: where to find the official terms, the deposit and payment rules most counties use, and what buyers take on.`,
   );
   const url = `${BASE}/sheriff-sales/${src.slug}/how-to-bid/`;
-  return { title, description, alternates: { canonical: url }, openGraph: { images: OG_IMAGES, title, description, url } };
+  // Templated page kept for visitors but out of Google's index (2026-10-05 quality cleanup).
+  return { title, description, robots: { index: false, follow: true }, alternates: { canonical: url }, openGraph: { images: OG_IMAGES, title, description, url } };
 }
 
 export default async function HowToBidPage({ params }: { params: Promise<{ county: string }> }) {
