@@ -8,7 +8,10 @@ import { OG_IMAGES } from '../../../lib/og';
 import { fitTitle, fitDescription } from '../../../lib/seo';
 import CountySaleStats from '../../components/CountySaleStats';
 import CountySaleCalendar from '../../components/CountySaleCalendar';
-import { REPORT, AS_OF_MEDIUM, AS_OF_MONTH, num, countyStats } from '../../../lib/sheriff-report';
+import { REPORT, AS_OF_MEDIUM, AS_OF_MONTH, num, countyStats, mediumDate } from '../../../lib/sheriff-report';
+import { BIDDER_RULES, BIDDER_RULES_CHECKED } from '../../../lib/bidder-rules';
+import { countySheriffNote } from '../../../lib/county-sheriff-notes';
+import { helpFor } from '../../../lib/local-help';
 import { townPagesForCounty } from '../../../lib/town-sales';
 
 export function generateStaticParams() {
@@ -52,22 +55,49 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
   const townPages = townPagesForCounty(src.slug);
   const NOTICE = src.notice;
 
-  const faq = [
-    {
-      q: `Where does ${src.county} County list sheriff sales?`,
-      a: src.usesCivilView
-        ? `${src.county} County publishes foreclosure sheriff sale listings through the state's CivilView system, where you can search upcoming sales by address or defendant name and see scheduled dates and status.`
-        : `${src.county} County publishes its own foreclosure sheriff sale listings on the sheriff's official website, where you can see upcoming sales and their scheduled dates.`,
-    },
-    {
-      q: `Can a sheriff sale in ${src.county} County be postponed?`,
-      a: `Generally yes. New Jersey law entitles a homeowner to request adjournments of a scheduled sheriff sale, typically two adjournments of up to 30 days each, and a court can order further postponements. Requests go through the sheriff's office, and there is usually a small fee. Speak with a licensed New Jersey attorney about your specific case.`,
-    },
-    {
-      q: `Does a scheduled sale mean I have lost the house?`,
-      a: `No. Until the sale actually happens (and through New Jersey's 10-day objection period after it), options can remain: reinstating the loan, completing a sale of the home, or the automatic stay from a Chapter 13 bankruptcy filing. Which ones are realistic depends on timing, so acting before the sale date matters more than anything else.`,
-    },
-  ];
+  const note = countySheriffNote(src.slug);
+  const rules = BIDDER_RULES[src.slug];
+  const stats = countyStats(src.slug);
+  // "Thursday at 12:00 noon" -> "on Thursday at 12:00 noon"; "2:00 p.m. (...)" -> "at 2:00 p.m. (...)".
+  const whenHeld = rules?.saleDay
+    ? /^\d/.test(rules.saleDay)
+      ? `at ${rules.saleDay}`
+      : /^(every|first|thursdays|tuesdays|mondays|wednesdays)/i.test(rules.saleDay)
+        ? rules.saleDay.charAt(0).toLowerCase() + rules.saleDay.slice(1)
+        : `on ${rules.saleDay}`
+    : null;
+
+  // County-specific FAQ built from the county's own list and its official
+  // conditions of sale, so each page answers with its own facts.
+  const faq: { q: string; a: string }[] = [];
+  faq.push({
+    q: `When is the next ${src.county} County sheriff sale?`,
+    a: [
+      stats?.county.nextSale
+        ? `As of ${AS_OF_MEDIUM}, the next sale date on the official ${src.county} County list was ${mediumDate(stats.county.nextSale)}, and ${num(stats.county.salesNext30)} listed sales were dated within the following 30 days.`
+        : `${src.county} County publishes its own list${src.usesCivilView ? ' on CivilView' : ' on the county website'}; check it for the next sale date.`,
+      whenHeld ? `The sheriff's office says sales are held ${whenHeld}${rules?.location ? `, at ${rules.location}` : ''}.` : '',
+      'Individual dates move often, so confirm any specific sale on the official list.',
+    ].filter(Boolean).join(' '),
+  });
+  if (rules?.depositRule || rules?.depositForm) {
+    faq.push({
+      q: `What deposit does ${src.county} County require from bidders?`,
+      a: [
+        rules.depositRule ? `Deposit: ${rules.depositRule}.` : '',
+        rules.depositForm ? `Accepted: ${rules.depositForm}.` : '',
+        rules.balanceDue ? `Balance: ${rules.balanceDue}.` : '',
+        `From the county's official sheriff pages as read on ${BIDDER_RULES_CHECKED}; confirm with the sheriff's office before bidding.`,
+      ].filter(Boolean).join(' '),
+    });
+  }
+  if (stats && stats.county.sampleAdjournedPct !== null && stats.county.sampleSize) {
+    faq.push({
+      q: `How often are ${src.county} County sheriff sales postponed?`,
+      a: `In our ${AS_OF_MONTH} sample of ${stats.county.sampleSize} ${src.county} County listings, ${stats.county.sampleAdjournedPct}% had been adjourned at least once, against ${REPORT.statewide.sampleAdjournedPct}% across all ${REPORT.statewide.countiesIncluded} counties in the report. It is a small sample, so treat it as a rough guide.`,
+    });
+  }
+
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -106,8 +136,9 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
             {src.county} County Sheriff Sales
           </h1>
           <p className="text-slate-300 text-lg leading-relaxed">
-            The official {src.county}{' '}County sale list, the sheriff&apos;s office contact, and — if
-            it&apos;s your home on the list — how to use the time New Jersey law gives you.
+            {stats
+              ? `${num(stats.county.openListings)} sales on the official ${src.county} County list as of ${AS_OF_MEDIUM}, how sale day works here, and what to do if one is your home.`
+              : `Where ${src.county} County posts its sale list, how sale day works here, and what to do if one is your home.`}
           </p>
           <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
             <a
@@ -195,11 +226,41 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
               </p>
             )}
           </div>
-          <p className="text-slate-400 text-xs mt-4">
-            Verified against official county sources on {SHERIFF_DATA_VERIFIED}. The county&apos;s
-            own site is always the authority.
-          </p>
+          <p className="text-slate-400 text-xs mt-4">Checked {SHERIFF_DATA_VERIFIED}; the county&apos;s site is the authority.</p>
         </div>
+
+        {note && (
+          <>
+            <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
+              Sale day in {src.county}{' '}County
+            </h2>
+            <p className="text-slate-600 leading-relaxed mb-5">{note.saleDay}</p>
+            {rules && (rules.saleDay || rules.location || rules.depositRule || rules.balanceDue) && (
+              <dl className="border border-slate-200 rounded-2xl divide-y divide-slate-100 text-sm mb-3">
+                {rules.saleDay && (
+                  <div className="px-5 py-3 sm:flex sm:gap-4"><dt className="font-semibold text-slate-900 sm:w-32 shrink-0">When</dt><dd className="text-slate-600">{rules.saleDay}</dd></div>
+                )}
+                {rules.location && (
+                  <div className="px-5 py-3 sm:flex sm:gap-4"><dt className="font-semibold text-slate-900 sm:w-32 shrink-0">Where</dt><dd className="text-slate-600">{rules.location}</dd></div>
+                )}
+                {rules.depositRule && (
+                  <div className="px-5 py-3 sm:flex sm:gap-4"><dt className="font-semibold text-slate-900 sm:w-32 shrink-0">Deposit</dt><dd className="text-slate-600">{rules.depositRule}</dd></div>
+                )}
+                {rules.balanceDue && (
+                  <div className="px-5 py-3 sm:flex sm:gap-4"><dt className="font-semibold text-slate-900 sm:w-32 shrink-0">Balance due</dt><dd className="text-slate-600">{rules.balanceDue}</dd></div>
+                )}
+              </dl>
+            )}
+            <p className="text-slate-400 text-xs mb-3">
+              From the county&apos;s official sheriff pages, read {BIDDER_RULES_CHECKED}. Terms change; confirm with the sheriff&apos;s office.
+            </p>
+            <p className="text-sm mb-10">
+              <Link href={`/sheriff-sales/${src.slug}/how-to-bid/`} className="text-slate-900 underline underline-offset-4 font-semibold">
+                All {src.county} County bidder rules →
+              </Link>
+            </p>
+          </>
+        )}
 
         {c && (
           <>
@@ -208,143 +269,61 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
             </h2>
             <div className="space-y-4 text-slate-600 leading-relaxed mb-10">
               <p>{c.character}</p>
-              {src.address?.startsWith('Sales held at:') && (
-                <p>
-                  One local detail that surprises people: {src.county} County sales are not held at a
-                  courthouse. They are conducted at {src.address.replace(/^Sales held at:\s*/, '')}.
-                </p>
-              )}
+              <p>{c.market}</p>
             </div>
           </>
         )}
 
-        <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
-          How the {src.county} County auction works
-        </h2>
-        <p className="text-sm mb-4">
-          <Link href={`/sheriff-sales/${src.slug}/how-to-bid/`} className="text-slate-900 underline underline-offset-4 font-semibold">
-            Buying at a sale? {src.county} County bidder rules: deposit, payment and deadlines →
-          </Link>
-        </p>
-        <div className="space-y-4 text-slate-600 leading-relaxed mb-10">
-          <p>
-            A sheriff sale is a public auction of the property to satisfy the foreclosure judgment.
-            Bidders must meet the county&apos;s deposit and payment conditions, the lender typically
-            bids up to what it is owed, and if no one outbids that, the property goes back to the
-            lender.
+        <div className="rounded-2xl border-2 border-amber-300 bg-amber-50 px-6 py-6 mb-10">
+          <h2 className="font-serif text-2xl font-bold text-slate-900 mb-3">
+            If it&apos;s your home on the {src.county}{' '}County list
+          </h2>
+          {note && <p className="text-slate-700 leading-relaxed mb-3">{note.ifYours}</p>}
+          <p className="text-slate-700 leading-relaxed mb-4">
+            Until the auction, and for the short redemption window after it, reinstating, selling the home
+            or a Chapter 13 filing can still change the outcome. Never pay anyone to postpone it for you.
           </p>
-          <p>
-            Two facts matter most to a homeowner. The listed sale date moves often, so check the
-            official list weekly rather than trusting the notice you were mailed. And if the sale
-            brings more than the judgment, the surplus belongs to you and must be claimed from the
-            court; it is not mailed automatically.{' '}
-            <Link href="/guides/surplus-funds" className="text-slate-900 underline underline-offset-4 font-semibold">
-              How to claim surplus funds
-            </Link>
-            .
-          </p>
-        </div>
-
-        <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
-          If your home has a sale date
-        </h2>
-        <div className="space-y-4 text-slate-600 leading-relaxed mb-10">
-          <p className="rounded-xl bg-amber-50 border border-amber-200 px-4 py-3">
-            <strong className="text-slate-900">Have a date?</strong>{' '}
-            <Link href="/tools/sheriff-sale-countdown" className="text-slate-900 underline underline-offset-4 font-semibold">
-              Use the sheriff sale countdown
-            </Link>{' '}
-            to see your days left, how far adjournments can generally move it, and a plan for today.
-          </p>
-          <p>
-            <strong className="text-slate-900">First, confirm the actual date</strong> using the
-            listings link above; sales are frequently adjourned, and the notice you received may no
-            longer be current.
-          </p>
-          <p>
-            <strong className="text-slate-900">Second, know your adjournment rights.</strong>{' '}New
-            Jersey homeowners are generally entitled to request two adjournments of the sale, each up
-            to 30 days, through the sheriff&apos;s office, and courts can grant more in the right
-            circumstances. Used well, that time is enough to close a sale of the home, finish a
-            reinstatement, or get a Chapter 13 filed.
-          </p>
-          <p>
-            <strong className="text-slate-900">Third, use the time on an actual plan.</strong> A
-            postponed auction with no plan is just a later auction. Our free assessment sorts out
-            which of the seven options still fit at your stage, and the{' '}
-            <Link href="/tools/timeline" className="text-slate-900 underline underline-offset-4 font-semibold">
-              timeline tool
-            </Link>{' '}
-            shows where you are in the process.
-          </p>
-          <p>
-            <strong className="text-slate-900">Request early and do it yourself.</strong>{' '}Ask days
-            ahead, not the morning of, and confirm the new date on the official list afterward. Never
-            pay a third party to &quot;get your sale postponed&quot;: the request is yours to make, and
-            up-front fees for foreclosure rescue services are generally illegal in New Jersey.
-          </p>
-        </div>
-
-        <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
-          What the extra days are actually for
-        </h2>
-        <div className="space-y-4 text-slate-600 leading-relaxed mb-10">
-          <p>
-            Up to sixty days fits three real plans: a sale of the home (a cash sale commonly closes in
-            14&ndash;30 days, which pays the judgment and ends the case), finishing a loss-mitigation
-            review already under way, or a properly prepared Chapter 13 filing whose automatic stay
-            halts the sale. Time without one of those attached is just interest accruing.
-          </p>
-          {c && <p>{c.market}</p>}
-        </div>
-
-        <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
-          After the sale
-        </h2>
-        <div className="space-y-4 text-slate-600 leading-relaxed mb-10">
-          <p>
-            A completed sale is not always the last word. New Jersey court rules generally allow a
-            10-day period after the sale for objections and for the owner to redeem by paying what is
-            owed, before the sheriff&apos;s deed is delivered. Even then, the buyer must obtain a
-            court writ of possession, executed by the sheriff, before anyone can be required to leave. If the sale brought more than the judgment, the surplus is
-            yours to claim.
-          </p>
-          <ul className="list-disc pl-5 space-y-1.5">
-            <li>
-              <Link href="/guides/after-sheriff-sale" className="text-slate-900 underline underline-offset-4 font-semibold">The complete after-the-sale guide</Link>
-            </li>
-            <li>
-              <Link href="/answers/what-happens-after-a-sheriff-sale/" className="text-slate-900 underline underline-offset-4">What happens after a sheriff sale</Link>
-            </li>
-            <li>
-              <Link href="/answers/can-i-get-my-house-back-after-sheriff-sale/" className="text-slate-900 underline underline-offset-4">Can I get my house back after the sale?</Link>
-            </li>
-            <li>
-              <Link href="/tools/surplus-funds" className="text-slate-900 underline underline-offset-4">Surplus funds calculator: was there money left over?</Link>
-            </li>
+          <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+            <li><Link href="/tools/sheriff-sale-countdown" className="text-slate-900 underline underline-offset-4 font-semibold">Sheriff sale countdown: your days left</Link></li>
+            <li><Link href="/blog/sheriff-sale-adjournment-playbook/" className="text-slate-900 underline underline-offset-4 font-semibold">How to request an adjournment</Link></li>
+            <li><Link href="/guides/after-sheriff-sale" className="text-slate-900 underline underline-offset-4 font-semibold">What happens after the sale</Link></li>
+            <li><Link href="/guides/surplus-funds" className="text-slate-900 underline underline-offset-4 font-semibold">Claiming surplus funds</Link></li>
           </ul>
         </div>
 
-        {c && c.orgs.length > 0 && (
-          <>
-            <h2 className="font-serif text-2xl font-bold text-slate-900 mb-2">
-              Free help for {src.county} County homeowners
-            </h2>
-            <p className="text-slate-600 text-sm leading-relaxed mb-5">
-              All free. We are not paid by any of them; they are listed because they help.
-            </p>
-            <div className="space-y-3 mb-10">
-              {c.orgs.slice(0, 4).map((org) => (
-                <div key={org.name} className="border border-slate-200 rounded-xl px-5 py-4">
-                  <a href={org.url} target="_blank" rel="noopener noreferrer" className="font-bold text-slate-900 text-sm underline underline-offset-4">
-                    {org.name}
-                  </a>
-                  <p className="text-slate-600 text-sm mt-0.5 leading-relaxed">{org.what}</p>
+        {(() => {
+          const local = helpFor(src.county).filter((o) => o.counties !== 'statewide');
+          const statewide = helpFor(src.county).filter((o) => o.counties === 'statewide');
+          return (
+            <div className="mb-10">
+              <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
+                Free help for {src.county}{' '}County homeowners
+              </h2>
+              {local.length > 0 && (
+                <div className="space-y-3 mb-4">
+                  {local.map((org) => (
+                    <div key={org.name} className="border border-slate-200 rounded-xl px-5 py-4">
+                      <a href={org.url} target="_blank" rel="noopener noreferrer" className="font-bold text-slate-900 text-sm underline underline-offset-4">
+                        {org.name}
+                      </a>
+                      <p className="text-slate-600 text-sm mt-0.5 leading-relaxed">{org.what}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
+              <p className="text-slate-600 text-sm leading-relaxed">
+                {local.length > 0 ? 'Statewide, also free: ' : 'Free statewide options that serve the county: '}
+                {statewide.map((org, i) => (
+                  <span key={org.name}>
+                    {i > 0 && (i === statewide.length - 1 ? ' and ' : ', ')}
+                    <a href={org.url} target="_blank" rel="noopener noreferrer" className="text-slate-900 underline underline-offset-4">{org.name}</a>
+                  </span>
+                ))}
+                . None of them pays us.
+              </p>
             </div>
-          </>
-        )}
+          );
+        })()}
 
         <div className="bg-slate-50 rounded-2xl p-6 mb-10">
           {faq.map((f, i) => (
@@ -362,7 +341,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
             </p>
             <ul className="space-y-2 text-slate-700">
               <li><Link href={`/foreclosure-help/${src.slug}/`} className="underline underline-offset-4">Foreclosure help in {src.county} County: timeline, local help and options</Link></li>
-              <li><Link href="/blog/sheriff-sale-adjournment-playbook/" className="underline underline-offset-4">The full adjournment playbook</Link></li>
+              <li><Link href="/tools/timeline" className="underline underline-offset-4">Where am I in the NJ foreclosure timeline?</Link></li>
             </ul>
           </div>
         )}

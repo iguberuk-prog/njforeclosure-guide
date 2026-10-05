@@ -136,9 +136,8 @@ export default function CountySaleStats({ slug, county, officialUrl }: { slug: s
       <p className="text-slate-700 leading-relaxed mb-4">{contextSentence(s)}</p>
 
       <p className="text-slate-500 text-xs leading-relaxed mb-4">
-        Counts are scheduled sheriff sales, not completed sales. &ldquo;Sold or cancelled&rdquo; combines both outcomes,
-        as CivilView does. The adjournment figure comes from reading the status history of a small sample, so treat it as
-        a rough indicator. The county&apos;s own list is always the authority for any individual sale.
+        Scheduled sales, not completed ones; the adjournment share comes from a small sample. The county&apos;s list is the
+        authority for any single sale.
       </p>
 
       <Link href={REPORT_URL} className="text-slate-900 underline underline-offset-4 font-semibold text-sm">
