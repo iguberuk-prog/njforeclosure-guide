@@ -25,7 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     `Why ${p.name} is named in your New Jersey foreclosure${n ? ` (${num(n)} scheduled NJ sheriff sales)` : ''}, who actually services the loan, how to reach them, and your rights no matter who the plaintiff is.`,
   );
   const url = `${BASE}/who-is-suing-me/${p.slug}/`;
-  return { title, description, alternates: { canonical: url }, openGraph: { images: OG_IMAGES, title, description, url } };
+  // Templated page kept for visitors but out of Google's index (2026-10-05 quality cleanup).
+  return { title, description, robots: { index: false, follow: true }, alternates: { canonical: url }, openGraph: { images: OG_IMAGES, title, description, url } };
 }
 
 export default async function PlaintiffPage({ params }: { params: Promise<{ slug: string }> }) {

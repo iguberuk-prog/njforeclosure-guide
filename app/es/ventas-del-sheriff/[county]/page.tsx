@@ -34,7 +34,6 @@ export async function generateMetadata({ params }: { params: Promise<{ county: s
   if (!src) return {};
   const stats = countyStats(src.slug);
   const urlEs = `${BASE}/es/ventas-del-sheriff/${src.slug}/`;
-  const urlEn = `${BASE}/sheriff-sales/${src.slug}/`;
   const title = stats
     ? fitTitle(`Subastas del Sheriff en el Condado de ${src.county} (NJ) | ${AS_OF_MONTH_ES}`)
     : fitTitle(`Subastas del Sheriff en el Condado de ${src.county} (NJ) | Lista Oficial`);
@@ -44,7 +43,9 @@ export async function generateMetadata({ params }: { params: Promise<{ county: s
   return {
     title,
     description,
-    alternates: { canonical: urlEs, languages: { en: urlEn, es: urlEs, 'x-default': urlEn } },
+    // Templated page kept for visitors but out of Google's index (2026-10-05 quality cleanup).
+    robots: { index: false, follow: true },
+    alternates: { canonical: urlEs },
     openGraph: { images: OG_IMAGES, title, description, url: urlEs, locale: 'es_US' },
   };
 }

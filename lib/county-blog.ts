@@ -171,6 +171,9 @@ const PUBLISHED_BY_COUNTY: Record<string, string> = {
   Warren: '2026-09-21',
 };
 
+/** County post types still published as standalone blog posts (none since 2026-10-05). */
+const PUBLISHED_COUNTY_TYPES = new Set<CountyPostType>([]);
+
 export function countyPosts(): CountyPost[] {
   const posts: CountyPost[] = [];
   for (const c of BLOG_COUNTIES) {
@@ -240,7 +243,14 @@ export function countyPosts(): CountyPost[] {
   // Its unique content now lives on the directory page and the old URLs
   // 301 there (public/_redirects). The generator stays so the prose is
   // not lost; it is simply no longer published as a separate post.
-  return posts.filter((p) => p.type !== 'sheriff-sales');
+  // 2026-10-05: the remaining four county series (playbook, sell-fast,
+  // free-help, timeline) were unpublished too. Search Console showed Google
+  // dropping the site after 2026-09-23 ("Crawled - currently not indexed")
+  // and these 84 posts were 58-71% identical to each other. Their county
+  // facts already live on /foreclosure-help/<county>/ and
+  // /sheriff-sales/<county>/; the old URLs 301 to the county help hub
+  // (public/_redirects). Generators stay so nothing is lost.
+  return posts.filter((p) => PUBLISHED_COUNTY_TYPES.has(p.type));
 }
 
 /** Consolidated sheriff-sales angle, rendered inside /sheriff-sales/<county>/. */
