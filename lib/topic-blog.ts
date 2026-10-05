@@ -14,15 +14,11 @@ import { STORY_POSTS_1 } from './blog-stories-1';
 import { STORY_POSTS_2 } from './blog-stories-2';
 import { STORY_POSTS_3 } from './blog-stories-3';
 import { LETTER_POSTS } from './blog-letters';
-import { TOWN_POSTS } from './blog-towns';
 import { TIMING_POSTS } from './blog-timing';
-import { SERVICER_POSTS } from './blog-servicers';
-import { TOWN_POSTS_2 } from './blog-towns-2';
 import { MONEY_POSTS } from './blog-money';
 import { BANKS_POSTS_1 } from './blog-banks-1';
 import { BANKS_POSTS_2 } from './blog-banks-2';
 import { BANKS_POSTS_3 } from './blog-banks-3';
-import { TOWN_POSTS_3 } from './blog-towns-3';
 import { SCENARIO_POSTS } from './blog-scenarios';
 import { EXPOSURE_POSTS_1 } from './blog-exposure-1';
 import { EXPOSURE_POSTS_2 } from './blog-exposure-2';
@@ -34,7 +30,11 @@ export interface TopicPost extends PostMeta {
 }
 
 export function topicPosts(): TopicPost[] {
-  return [...FREE_HELP_POSTS, ...VENDOR_POSTS, ...LISTING_POSTS, ...STORY_POSTS_1, ...STORY_POSTS_2, ...STORY_POSTS_3, ...LETTER_POSTS, ...TOWN_POSTS, ...TIMING_POSTS, ...SERVICER_POSTS, ...TOWN_POSTS_2, ...MONEY_POSTS, ...BANKS_POSTS_1, ...BANKS_POSTS_2, ...BANKS_POSTS_3, ...TOWN_POSTS_3, ...SCENARIO_POSTS, ...EXPOSURE_POSTS_1, ...EXPOSURE_POSTS_2];
+  // 2026-10-05 quality cleanup: the town series (blog-towns*.ts, 35 posts) and
+  // the servicer series (blog-servicers.ts, 10 posts) are no longer published.
+  // They shared most of their text with each other; the old URLs 301 to the
+  // county help hub or the servicer page (public/_redirects). Files are kept.
+  return [...FREE_HELP_POSTS, ...VENDOR_POSTS, ...LISTING_POSTS, ...STORY_POSTS_1, ...STORY_POSTS_2, ...STORY_POSTS_3, ...LETTER_POSTS, ...TIMING_POSTS, ...MONEY_POSTS, ...BANKS_POSTS_1, ...BANKS_POSTS_2, ...BANKS_POSTS_3, ...SCENARIO_POSTS, ...EXPOSURE_POSTS_1, ...EXPOSURE_POSTS_2];
 }
 
 export function getTopicPost(slug: string): TopicPost | undefined {
