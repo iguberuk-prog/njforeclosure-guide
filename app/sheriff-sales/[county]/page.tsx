@@ -36,14 +36,8 @@ export async function generateMetadata({ params }: { params: Promise<{ county: s
   return {
     title,
     description,
-    alternates: {
-      canonical: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/`,
-      languages: {
-        en: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/`,
-        es: `https://njforeclosureguide.org/es/ventas-del-sheriff/${src.slug}/`,
-        'x-default': `https://njforeclosureguide.org/sheriff-sales/${src.slug}/`,
-      },
-    },
+    // No hreflang to the Spanish county page: it is noindex since the 2026-10-05 cleanup.
+    alternates: { canonical: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/` },
     openGraph: { images: OG_IMAGES, title, description, url: `https://njforeclosureguide.org/sheriff-sales/${src.slug}/` },
   };
 }
@@ -55,7 +49,6 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
   // Consolidated county content (formerly /blog/sheriff-sales-<county>/):
   // the hand-written county character + market paragraphs and local orgs.
   const c = sheriffAngleFor(src.slug);
-  const cs = src.slug.replace(/-county$/, '');
   const townPages = townPagesForCounty(src.slug);
   const NOTICE = src.notice;
 
@@ -368,9 +361,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
               More for {src.county} County homeowners
             </p>
             <ul className="space-y-2 text-slate-700">
-              <li><Link href={`/blog/foreclosure-timeline-${cs}-county/`} className="underline underline-offset-4">The {src.county} County foreclosure timeline, stage by stage</Link></li>
-              <li><Link href={`/blog/foreclosure-${cs}-county-playbook/`} className="underline underline-offset-4">The {src.county} County local playbook</Link></li>
-              <li><Link href={`/blog/free-foreclosure-help-${cs}-county/`} className="underline underline-offset-4">Every free help source in {src.county} County</Link></li>
+              <li><Link href={`/foreclosure-help/${src.slug}/`} className="underline underline-offset-4">Foreclosure help in {src.county} County: timeline, local help and options</Link></li>
               <li><Link href="/blog/sheriff-sale-adjournment-playbook/" className="underline underline-offset-4">The full adjournment playbook</Link></li>
             </ul>
           </div>
