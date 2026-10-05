@@ -6,7 +6,6 @@ import { trackEvent } from '../../lib/analytics';
 import { SHERIFF_SOURCES } from '../../lib/sheriff-sales';
 import { NJ_COUNTIES } from '../../lib/nj-locations';
 import { helpFor } from '../../lib/local-help';
-import { BLOG_COUNTIES } from '../../lib/county-blog';
 
 /**
  * The NJ Foreclosure Map: a tile-grid map of all 21 counties (deliberately
@@ -40,7 +39,6 @@ export default function NjMapClient() {
   const sheriff = SHERIFF_SOURCES.find((s) => s.county === sel)!;
   const county = NJ_COUNTIES.find((c) => c.name === sel)!;
   const orgs = helpFor(sel).slice(0, 4);
-  const hasBlogSeries = BLOG_COUNTIES.some((c) => c.name === sel);
 
   return (
     <div className="grid lg:grid-cols-[380px_1fr] gap-8">
@@ -127,11 +125,6 @@ export default function NjMapClient() {
               <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-sm">
                 <Link href={`/foreclosure-help/${sheriff.slug}`} className="font-semibold text-slate-900 underline underline-offset-4">Free local help page</Link>
                 <Link href={`/sheriff-sales/${sheriff.slug}`} className="font-semibold text-slate-900 underline underline-offset-4">Sale rules, decoded</Link>
-                {hasBlogSeries && (
-                  <Link href={`/blog/foreclosure-${sheriff.slug.replace('-county', '')}-county-playbook`} className="font-semibold text-slate-900 underline underline-offset-4">
-                    The {sel} County playbook (5-part series)
-                  </Link>
-                )}
               </div>
             </div>
 
