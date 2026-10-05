@@ -1,9 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getAllLocations } from '../lib/nj-locations';
 import { SHERIFF_SOURCES } from '../lib/sheriff-sales';
-import { SERVICERS, SERVICER_DATA_VERIFIED_ISO } from '../lib/servicers';
-import { TOWN_PAGES } from '../lib/town-sales';
-import { PLAINTIFFS } from '../lib/plaintiffs';
 import { DOCUMENTS } from '../lib/documents';
 import { QUESTIONS } from '../lib/questions';
 import { QUESTIONS_ES } from '../lib/questions-es';
@@ -125,37 +122,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const bidderPages = SHERIFF_SOURCES.map((s) => ({
-    url: `${base}/sheriff-sales/${s.slug}/how-to-bid/`,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
-
-  const sheriffEsPages = SHERIFF_SOURCES.map((s) => ({
-    url: `${base}/es/ventas-del-sheriff/${s.slug}/`,
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
-
-  const townPages = TOWN_PAGES.map((t) => ({
-    url: `${base}/sheriff-sales/${t.countySlug}/${t.slug}/`,
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
-  }));
-
-  const plaintiffPages = PLAINTIFFS.map((p) => ({
-    url: `${base}/who-is-suing-me/${p.slug}/`,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  const servicerPages = SERVICERS.map((s) => ({
-    url: `${base}/servicers/${s.slug}/`,
-    lastModified: SERVICER_DATA_VERIFIED_ISO,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
   const questionPages = QUESTIONS.map((x) => ({
     url: `${base}/answers/${x.slug}/`,
     changeFrequency: 'monthly' as const,
@@ -188,5 +154,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...locationPages, ...sheriffPages, ...sheriffEsPages, ...bidderPages, ...townPages, ...servicerPages, ...plaintiffPages, ...documentPages, ...questionPages, ...questionEsPages, ...blogPages, ...blogEsPages];
+  // Left out since 2026-10-05 (noindex, kept for visitors): Spanish county sheriff pages,
+  // how-to-bid pages, town sheriff pages, servicer detail pages and plaintiff detail pages.
+  return [...staticPages, ...locationPages, ...sheriffPages, ...documentPages, ...questionPages, ...questionEsPages, ...blogPages, ...blogEsPages];
 }
