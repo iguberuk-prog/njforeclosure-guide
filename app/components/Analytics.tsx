@@ -106,6 +106,8 @@ export default function Analytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           window.gtag = gtag;
+          // Owner's own browsers opt out on /admin ("Don't count my visits").
+          try { if (localStorage.getItem('njfg_internal') === '1') window['ga-disable-${GA_MEASUREMENT_ID}'] = true; } catch (e) {}
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}', { anonymize_ip: true });
         `}
