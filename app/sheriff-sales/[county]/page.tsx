@@ -8,6 +8,7 @@ import { OG_IMAGES } from '../../../lib/og';
 import { fitTitle, fitDescription } from '../../../lib/seo';
 import CountySaleStats from '../../components/CountySaleStats';
 import CountySaleCalendar from '../../components/CountySaleCalendar';
+import SheriffHomeownerCta from '../../components/SheriffHomeownerCta';
 import { REPORT, AS_OF_MEDIUM, AS_OF_MONTH, num, countyStats, mediumDate } from '../../../lib/sheriff-report';
 import { BIDDER_RULES, BIDDER_RULES_CHECKED } from '../../../lib/bidder-rules';
 import { countySheriffNote } from '../../../lib/county-sheriff-notes';
@@ -175,6 +176,7 @@ export default async function CountySheriffPage({ params }: { params: Promise<{ 
           </div>
         )}
         <CountySaleStats slug={src.slug} county={src.county} officialUrl={src.salesUrl} />
+        <SheriffHomeownerCta slug={src.slug} county={src.county} />
         <CountySaleCalendar slug={src.slug} county={src.county} />
 
         {townPages.length > 0 && (

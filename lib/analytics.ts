@@ -21,7 +21,9 @@ export const GA_MEASUREMENT_ID: string | null = 'G-J1ZBSH6SQL';
 //   generate_lead   contact left: quiz, Spanish quiz, commercial assessment,
 //                   offer concierge, or Samantha chat (lead_type 'chat',
 //                   once per conversation)                    <- PRIMARY
+//   quiz_start      first quiz answer (param: from = referring CTA, e.g. sheriff-essex-county)
 //   quiz_complete   quiz finished and results shown (with or without contact)
+//   cta_click       click on an in-page call to action (params: cta, county, target)
 //   email_capture   guide / checklist / plan emailed (name + email only)
 //   call_click      tap on any tel: link (HUD, Legal Services, companies)
 //   calculator_use  a free tool produced a result (param: tool)
