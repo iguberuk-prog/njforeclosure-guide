@@ -153,6 +153,13 @@ export default function QuizPage() {
   const [contactError, setContactError] = useState('');
 
   const handleAnswer = (key: string, value: string) => {
+    if (step === 0 && Object.keys(answers).length === 0) {
+      // First answer = the quiz has started. `from` says which page sent them
+      // (e.g. sheriff-essex-county from the county sheriff page box).
+      let from = 'direct';
+      try { from = new URLSearchParams(window.location.search).get('from') || 'direct'; } catch {}
+      trackEvent('quiz_start', { from });
+    }
     const newAnswers = { ...answers, [key]: value };
     setAnswers(newAnswers);
     setStep(step + 1);
