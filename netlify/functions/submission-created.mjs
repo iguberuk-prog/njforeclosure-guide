@@ -54,6 +54,7 @@ export function toGhlPayload(payload) {
   const tags = ['njfg', `njfg-${LEAD_TYPE_BY_FORM[formName] || formName || 'form'}`];
   if (str(data.language).toLowerCase().startsWith('es')) tags.push('njfg-spanish');
   if (str(data.requestOffers)) tags.push('njfg-offer-request');
+  if (str(data.leadType) === 'call-request') tags.push('njfg-call-request');
 
   return {
     source: 'njforeclosureguide.org',
