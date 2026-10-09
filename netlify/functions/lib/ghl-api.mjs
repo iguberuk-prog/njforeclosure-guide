@@ -25,6 +25,11 @@ export const BASE_TAG = 'njfg-website';
 
 let pipelineCache = null; // { pipelineId, stageId } per warm function instance
 
+// GHL contact ids are 20-ish alphanumerics. Text-message links carry the
+// recipient's id as ?cid=..., so a one-tap "call me" from a texted homeowner
+// can be attached to their existing contact without them typing anything.
+const CID_RE = /^[A-Za-z0-9]{10,40}$/;
+
 async function call(fetchImpl, token, method, path, body) {
   const res = await fetchImpl(`${BASE}${path}`, {
     method,
@@ -107,13 +112,21 @@ async function findPipeline(fetchImpl, token, locationId) {
 export async function pushLeadToGhl(p, { token, locationId = DEFAULT_LOCATION_ID, fetchImpl = fetch } = {}) {
   const out = { contactId: null, tagged: false, noted: false, opportunity: null, errors: [] };
   if (!token) return { ...out, skipped: 'no token' };
-  if (!p.email && !p.phone) return { ...out, skipped: 'no email or phone' };
+  const knownId = CID_RE.test(String(p.ghlContactId || '')) ? String(p.ghlContactId) : '';
+  if (!p.email && !p.phone && !knownId) return { ...out, skipped: 'no email, phone or contact id' };
 
   try {
     const body = contactBody(p, locationId);
-    const up = await call(fetchImpl, token, 'POST', '/contacts/upsert', body);
-    out.contactId = up?.contact?.id || up?.id || null;
-    if (!out.contactId) throw new Error('upsert returned no contact id');
+    if (p.email || p.phone) {
+      const up = await call(fetchImpl, token, 'POST', '/contacts/upsert', body);
+      out.contactId = up?.contact?.id || up?.id || null;
+      if (!out.contactId) throw new Error('upsert returned no contact id');
+    } else {
+      // No contact details typed (one-tap call request from a text link):
+      // attach to the contact the text was sent to.
+      out.contactId = knownId;
+      out.matchedById = true;
+    }
 
     try {
       await call(fetchImpl, token, 'POST', `/contacts/${out.contactId}/tags`, { tags: body.tags });
@@ -139,7 +152,7 @@ export async function pushLeadToGhl(p, { token, locationId = DEFAULT_LOCATION_ID
           pipelineId: pl.pipelineId,
           pipelineStageId: pl.stageId,
           contactId: out.contactId,
-          name: `${p.name || p.email || p.phone} - NJFG website`,
+          name: `${p.name || p.email || p.phone || 'Call request'} - NJFG website`,
           status: 'open',
           source: 'NJ Foreclosure Guide website',
         });
