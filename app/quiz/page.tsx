@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SiteHeader from '../components/SiteHeader';
 import Link from 'next/link';
 import { matchPartners, COMPENSATION_LABEL, type Answers } from '../../lib/partners';
@@ -12,6 +12,8 @@ import { sendIntake } from '../../lib/intake';
 import AddressInput from '../components/AddressInput';
 import BrcCard from '../components/BrcCard';
 import OfferConcierge from '../components/OfferConcierge';
+import CallMeBox from '../components/CallMeBox';
+import { captureAttribution, getAttribution } from '../../lib/attribution';
 
 /**
  * Escape hatch. Someone with a sale date next week should not have to finish
@@ -79,7 +81,7 @@ const quizResults: Record<string, QuizResult> = {
     secondaryUrl: '/professionals',
     guide: 'Foreclosure 101',
     guideUrl: '/guides/foreclosure-101',
-    explanation: 'With foreclosure in progress and time short, your two strongest paths are a fast cash sale (14 to 30 days, stops the foreclosure and protects your credit) or an attorney who can negotiate with your lender. We can connect you with both so you can compare.',
+    explanation: 'With foreclosure in progress and time short, your two strongest paths are a fast cash sale (often 14 to 30 days, and closing before the sale date ends the case and limits the credit damage) or an attorney who can negotiate with your lender. We can connect you with both so you can compare.',
   },
   'behind-urgent': {
     showBrc: true,
@@ -151,6 +153,18 @@ export default function QuizPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [contactError, setContactError] = useState('');
+  // Texted homeowners arrive with ?cid=<GHL contact id> (kept for the session
+  // by captureAttribution). For them the contact step needs no typing.
+  const [cid, setCid] = useState('');
+  const [showEmail, setShowEmail] = useState(false);
+  const [detailsSent, setDetailsSent] = useState(false);
+
+  useEffect(() => {
+    // Capture first: the layout's Analytics effect runs after this one on the
+    // landing page, so the cid from the text link may not be stored yet.
+    captureAttribution();
+    setCid(getAttribution().ghlContactId);
+  }, []);
 
   const handleAnswer = (key: string, value: string) => {
     if (step === 0 && Object.keys(answers).length === 0) {
@@ -160,6 +174,11 @@ export default function QuizPage() {
       try { from = new URLSearchParams(window.location.search).get('from') || 'direct'; } catch {}
       trackEvent('quiz_start', { from });
     }
+    // One event per answered question, so the dashboard shows exactly which
+    // step loses people (2026-10-09). quiz_contact_view marks reaching the
+    // contact step.
+    trackEvent('quiz_step', { step: step + 1, question: key, answer: value });
+    if (step + 1 === questions.length) trackEvent('quiz_contact_view', { known_contact: cid ? 'yes' : 'no' });
     const newAnswers = { ...answers, [key]: value };
     setAnswers(newAnswers);
     setStep(step + 1);
@@ -167,8 +186,8 @@ export default function QuizPage() {
 
   const handleContactSubmit = async (skip: boolean) => {
     if (!skip) {
-      if (!contact.name.trim() || (!contact.phone.trim() && !contact.email.trim())) {
-        setContactError('Please enter your name and at least a phone number or email so we can send your results.');
+      if (!cid && (!contact.name.trim() || (!contact.phone.trim() && !contact.email.trim()))) {
+        setContactError('Please enter your first name and a phone number (or an email) so Samantha can reach you.');
         return;
       }
     }
@@ -181,6 +200,7 @@ export default function QuizPage() {
       try {
         const formData = new URLSearchParams();
         formData.append('form-name', 'lead-quiz');
+        formData.append('leadType', 'quiz');
         formData.append('name', contact.name);
         formData.append('phone', contact.phone);
         formData.append('email', contact.email);
@@ -229,6 +249,41 @@ export default function QuizPage() {
     setSubmitting(false);
   };
 
+  // Optional follow-up after someone has already sent their details: refines
+  // the matches below and gives Samantha context before she calls. Same
+  // name/phone/email/cid, so GHL attaches it to the same contact.
+  const handleDetailsSubmit = async () => {
+    try {
+      const f = new URLSearchParams();
+      f.append('form-name', 'lead-quiz');
+      f.append('leadType', 'quiz-details');
+      f.append('name', contact.name);
+      f.append('phone', contact.phone);
+      f.append('email', contact.email);
+      f.append('propertyAddress', contact.address);
+      f.append('town', contact.town);
+      f.append('notes', contact.notes);
+      f.append('propertyCondition', answers.condition || '');
+      f.append('homeValue', answers.homeValue || '');
+      f.append('ownerType', answers.type || '');
+      f.append('outcomeConsent', outcomeConsent ? 'YES' : 'no');
+      f.append('sourcePage', '/quiz');
+      appendAttribution(f);
+      await Promise.all([
+        fetch('/__forms.html', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: f.toString(),
+        }),
+        sendIntake(f),
+      ]);
+      trackEvent('quiz_details', { filled: [answers.condition, answers.homeValue, answers.type, contact.address, contact.notes].filter(Boolean).length });
+    } catch {
+      // Optional extras: never block the results.
+    }
+    setDetailsSent(true);
+  };
+
   const questions = [
     {
       key: 'situation',
@@ -259,6 +314,11 @@ export default function QuizPage() {
         { value: 'unsure', label: 'Not sure yet, want to compare' },
       ],
     },
+  ];
+
+  // Asked only AFTER someone has sent their details (2026-10-09): they refine
+  // the matches but were costing us people before the contact step.
+  const detailQuestions = [
     {
       key: 'condition',
       title: 'Has the property been damaged?',
@@ -306,8 +366,55 @@ export default function QuizPage() {
 
             {submitted && (
               <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-lg px-5 py-4 mb-6 text-sm">
-                Got it. A member of our team will reach out shortly to make your introduction. Your information stays private.
+                Got it. Samantha will call you, usually the same business day, to walk through these. Your information stays private.
               </div>
+            )}
+
+            {submitted && !detailsSent && (
+              <div className="rounded-xl border border-slate-200 bg-white px-5 py-5 mb-8">
+                <p className="font-semibold text-slate-900 mb-1">Optional: help Samantha prepare</p>
+                <p className="text-sm text-slate-500 mb-4">Skip any of these. They sharpen the matches below and save time on the call.</p>
+                {detailQuestions.map((dq) => (
+                  <div key={dq.key} className="mb-4">
+                    <p className="text-sm font-semibold text-slate-700 mb-2">{dq.title}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {dq.options.map((o) => {
+                        const on = (answers as Record<string, string | undefined>)[dq.key] === o.value;
+                        return (
+                          <button key={o.value} type="button"
+                            onClick={() => setAnswers({ ...answers, [dq.key]: on ? undefined : o.value })}
+                            className={`text-xs px-3 py-1.5 rounded-full border transition ${on ? 'bg-slate-900 text-white border-slate-900' : 'bg-white text-slate-700 border-slate-300 hover:border-slate-500'}`}>
+                            {o.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+                <div className="space-y-3">
+                  <AddressInput value={contact.address} onChange={(v) => setContact({ ...contact, address: v })} />
+                  <textarea value={contact.notes} onChange={(e) => setContact({ ...contact, notes: e.target.value })} rows={2}
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+                    placeholder="Sheriff sale date, months behind, anything Samantha should know" />
+                  <label className="flex gap-3 items-start text-xs text-slate-600 leading-relaxed cursor-pointer">
+                    <input type="checkbox" checked={outcomeConsent} onChange={(e) => setOutcomeConsent(e.target.checked)}
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 accent-slate-900" />
+                    <span>You may follow up later to ask how things turned out. Nothing is ever published without asking me again first.</span>
+                  </label>
+                  <button type="button" onClick={handleDetailsSubmit}
+                    className="bg-slate-900 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-slate-800 transition">
+                    Send to Samantha
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {submitted && detailsSent && (
+              <p className="text-sm text-emerald-700 mb-6">Thanks, Samantha has that now.</p>
+            )}
+
+            {!submitted && (
+              <CallMeBox sourcePage="/quiz" headline="Want someone to walk you through these?" />
             )}
 
             <div className="bg-slate-50 border border-slate-200 p-6 rounded-xl mb-8">
@@ -464,100 +571,66 @@ export default function QuizPage() {
     );
   }
 
-  // Contact capture step (after final question)
+  // Contact capture step (after final question). Kept to the minimum: a first
+  // name and a phone number, or nothing at all for texted homeowners whose
+  // contact id came in the link (2026-10-09; it used to be six fields).
   if (step >= questions.length) {
     const leadScore = scoreLeadUrgency(answers);
+    const field = 'w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent';
     return (
       <div className="min-h-full bg-slate-50">
         <SiteHeader />
         <div className="max-w-2xl mx-auto py-14 px-4">
           <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200">
-            <p className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Almost Done</p>
-            <h1 className="font-serif text-3xl font-bold text-slate-900 mb-3">Where Should We Send Your Results?</h1>
+            <p className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Last Step</p>
+            <h1 className="font-serif text-3xl font-bold text-slate-900 mb-3">
+              {cid ? 'Want Samantha to go over these with you?' : 'Where should Samantha reach you?'}
+            </h1>
             <p className="text-slate-600 mb-8">
-              {leadScore === 'HOT'
-                ? 'Based on your answers, time matters in your situation. Leave your details and we will prioritize your introduction to the right professional, usually within the hour during business hours.'
-                : 'Leave your details and we will send your personalized results plus a direct introduction to professionals matched to your situation. Free and confidential.'}
+              {cid
+                ? 'She already has your number from her text, so there is nothing to type. Tap below to see your results, and she will give you a call to walk through them. Free, no obligation.'
+                : leadScore === 'HOT'
+                  ? 'Time matters in your situation. Leave a first name and a number and Samantha will call you, usually the same business day, to walk through your results. Free, no obligation.'
+                  : 'Leave a first name and a number and Samantha will call you to walk through your results. Free, no obligation, and you decide what happens next.'}
             </p>
 
             <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Your Name *</label>
-                <input
-                  type="text"
-                  value={contact.name}
-                  onChange={(e) => setContact({ ...contact, name: e.target.value })}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
-                  placeholder="First and last name"
-                />
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4">
+              {cid ? (
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Phone</label>
-                  <input
-                    type="tel"
-                    value={contact.phone}
+                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Different number? (optional)</label>
+                  <input type="tel" autoComplete="tel" inputMode="tel" value={contact.phone}
                     onChange={(e) => setContact({ ...contact, phone: e.target.value })}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
-                    placeholder="(555) 555-5555"
-                  />
+                    className={field} placeholder="Leave blank to use the number we texted" />
                 </div>
+              ) : (
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-700 mb-1.5">First name</label>
+                    <input type="text" autoComplete="given-name" value={contact.name}
+                      onChange={(e) => setContact({ ...contact, name: e.target.value })}
+                      className={field} placeholder="First name" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-700 mb-1.5">Phone</label>
+                    <input type="tel" autoComplete="tel" inputMode="tel" value={contact.phone}
+                      onChange={(e) => setContact({ ...contact, phone: e.target.value })}
+                      className={field} placeholder="(555) 555-5555" />
+                  </div>
+                </div>
+              )}
+              {!cid && (showEmail ? (
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
-                  <input
-                    type="email"
-                    value={contact.email}
+                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email (instead of, or as well as, a phone)</label>
+                  <input type="email" autoComplete="email" value={contact.email}
                     onChange={(e) => setContact({ ...contact, email: e.target.value })}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
-                    placeholder="you@email.com"
-                  />
+                    className={field} placeholder="you@email.com" />
                 </div>
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Property address (optional)</label>
-                <AddressInput
-                  value={contact.address}
-                  onChange={(v) => setContact({ ...contact, address: v })}
-                />
-                <p className="text-xs text-slate-400 mt-1">
-                  So we know which property we are talking about. Never shared without your permission.
-                </p>
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Town (optional)</label>
-                <input
-                  type="text"
-                  value={contact.town}
-                  onChange={(e) => setContact({ ...contact, town: e.target.value })}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
-                  placeholder="e.g. Newark"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Anything else we should know? (optional)</label>
-                <textarea
-                  value={contact.notes}
-                  onChange={(e) => setContact({ ...contact, notes: e.target.value })}
-                  rows={3}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
-                  placeholder="Sheriff sale date, months behind, anything relevant"
-                />
-              </div>
-
-              <label className="flex gap-3 items-start rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 cursor-pointer hover:border-slate-400 transition">
-                <input
-                  type="checkbox"
-                  checked={outcomeConsent}
-                  onChange={(e) => setOutcomeConsent(e.target.checked)}
-                  className="mt-0.5 h-4 w-4 flex-shrink-0 accent-slate-900"
-                />
-                <span className="text-xs text-slate-600 leading-relaxed">
-                  <span className="font-semibold text-slate-800">Optional:</span> you may follow up later
-                  to ask how things turned out, and I am open to letting you share what happened to help
-                  other homeowners. Nothing is ever published without asking me again first, and I can say
-                  no then. Leaving this unchecked changes nothing about the help you give me.
-                </span>
-              </label>
+              ) : (
+                <button type="button" onClick={() => setShowEmail(true)}
+                  className="text-sm text-slate-600 underline underline-offset-2 hover:text-slate-900">
+                  Prefer email? Add it instead
+                </button>
+              ))}
             </div>
 
             {contactError && (
@@ -569,38 +642,27 @@ export default function QuizPage() {
               disabled={submitting}
               className="w-full mt-6 bg-amber-400 text-slate-950 py-4 rounded-xl font-bold text-lg hover:bg-amber-300 transition disabled:opacity-60"
             >
-              {submitting ? 'Sending...' : 'Get My Results and Free Introduction'}
+              {submitting ? 'Sending...' : cid ? 'Yes, show my results and have Samantha call' : 'Show my results and have Samantha call'}
             </button>
             <button
               onClick={() => handleContactSubmit(true)}
               disabled={submitting}
-              className="w-full mt-3 text-slate-500 hover:text-slate-700 text-sm underline underline-offset-2"
+              className="w-full mt-3 text-slate-400 hover:text-slate-600 text-xs underline underline-offset-2"
             >
-              Skip, just show my results
+              No thanks, just show my results
             </button>
 
-            <div className="mt-6 rounded-lg bg-slate-50 border border-slate-200 px-5 py-4">
-              <p className="text-[11px] text-slate-500 leading-relaxed">
-                By submitting, you agree that NJ Foreclosure Guide and, if you request an introduction, the professional
-                we connect you with, may contact you at the phone number and email you provided, including by automated
-                dialing or text message, about your inquiry. Consent is not a condition of any purchase or of using this
-                site, and you can opt out at any time by replying STOP or emailing us. Message and data rates may apply.
-                We do not sell your information and we share it only when you ask us to make an introduction. See our{' '}
-                <Link href="/privacy" className="text-slate-700 font-semibold underline underline-offset-2">
-                  Privacy Policy
-                </Link>{' '}
-                and{' '}
-                <Link href="/terms" className="text-slate-700 font-semibold underline underline-offset-2">
-                  Terms of Use
-                </Link>
-                .
-              </p>
-            </div>
-            <p className="text-xs text-slate-400 mt-4 text-center leading-relaxed">
-              Prefer not to share contact details? Skip above and your results still appear.
+            <p className="text-[11px] text-slate-500 leading-relaxed mt-6">
+              By tapping, you agree that NJ Foreclosure Guide and, if you ask for an introduction, the professional we
+              connect you with may call or text you about your inquiry, including by automated means. Consent is not a
+              condition of any purchase or of using this site. Reply STOP to opt out. Message and data rates may apply.
+              We do not sell your information. See our{' '}
+              <Link href="/privacy" className="text-slate-700 font-semibold underline underline-offset-2">Privacy Policy</Link>{' '}
+              and{' '}
+              <Link href="/terms" className="text-slate-700 font-semibold underline underline-offset-2">Terms of Use</Link>.
             </p>
 
-            <CallInstead note="Would rather explain your situation out loud than type it? Call and we will walk through it with you." />
+            <CallInstead note="Would rather not leave details at all? Two things you can do right now." />
           </div>
         </div>
       </div>
@@ -617,7 +679,7 @@ export default function QuizPage() {
           <div className="mb-8">
             <div className="flex justify-between items-center mb-3">
               <p className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase">Free Assessment</p>
-              <p className="text-slate-400 text-sm">Step {step + 1} of {questions.length}</p>
+              <p className="text-slate-400 text-sm">Question {step + 1} of {questions.length}</p>
             </div>
             <div className="w-full bg-slate-100 rounded-full h-1.5">
               <div
@@ -653,7 +715,13 @@ export default function QuizPage() {
             </button>
           )}
 
-          <CallInstead />
+          {step === 0 ? (
+            <div className="mt-8">
+              <CallMeBox sourcePage="/quiz" headline="Rather skip the questions? Samantha can call you." />
+            </div>
+          ) : (
+            <CallInstead />
+          )}
         </div>
       </div>
     </div>
