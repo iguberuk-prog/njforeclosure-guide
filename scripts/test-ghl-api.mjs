@@ -88,8 +88,22 @@ await ok('no token or no email/phone: skipped, no calls', async () => {
   const f = mockFetch();
   assert.equal((await pushLeadToGhl(lead, { token: '', fetchImpl: f })).skipped, 'no token');
   const bare = toGhlPayload({ form_name: 'client-review', data: { name: 'X' } });
-  assert.equal((await pushLeadToGhl(bare, { token: 'T', fetchImpl: f })).skipped, 'no email or phone');
+  assert.equal((await pushLeadToGhl(bare, { token: 'T', fetchImpl: f })).skipped, 'no email, phone or contact id');
+  const badCid = toGhlPayload({ form_name: 'lead-quiz', data: { ghlContactId: 'not a valid id!' } });
+  assert.equal((await pushLeadToGhl(badCid, { token: 'T', fetchImpl: f })).skipped, 'no email, phone or contact id');
   assert.equal(f.calls.length, 0);
+});
+
+await ok('one-tap call request with only a GHL contact id: attaches to that contact, no upsert', async () => {
+  _resetCache();
+  const f = mockFetch();
+  const p = toGhlPayload({ form_name: 'lead-quiz', data: { leadType: 'call-request', ghlContactId: '4ZQzKUp000Za0LYjfUqx', sourcePage: '/documents/summons-and-complaint/' } });
+  assert.match(p.tags, /njfg-call-request/);
+  const r = await pushLeadToGhl(p, { token: 'T', locationId: 'LOC', fetchImpl: f });
+  assert.equal(r.contactId, '4ZQzKUp000Za0LYjfUqx');
+  assert.equal(r.matchedById, true);
+  assert.ok(!f.calls.some((c) => c.path === '/contacts/upsert'));
+  assert.ok(f.calls.some((c) => c.path === '/contacts/4ZQzKUp000Za0LYjfUqx/notes'));
 });
 
 console.log(`${n} tests passed`);
