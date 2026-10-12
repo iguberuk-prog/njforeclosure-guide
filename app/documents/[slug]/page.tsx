@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import SiteHeader from '../../components/SiteHeader';
+import CallMeBox from '../../components/CallMeBox';
 import { DOCUMENTS, getDocument } from '../../../lib/documents';
 import { OG_IMAGES } from '../../../lib/og';
 import { fitTitle, fitDescription } from '../../../lib/seo';
@@ -102,12 +103,18 @@ export default async function DocumentPage({ params }: { params: Promise<{ slug:
           <p className="text-slate-600 leading-relaxed">{doc.stillOpen}</p>
         </section>
 
+        <CallMeBox
+          sourcePage={`/documents/${doc.slug}/`}
+          headline="Got these papers? Samantha can call you today."
+          sub="Free, no obligation. She will go over your deadline and the options that are still open, and you decide what happens next."
+        />
+
         <div className="bg-slate-50 rounded-2xl p-6 mb-10">
           <p className="text-slate-700 leading-relaxed mb-4">
-            Two minutes of questions tells you which of these options actually fit your numbers and
-            your timeline.
+            Rather do it yourself? Three quick questions tell you which of these options fit your
+            timeline.
           </p>
-          <Link href="/quiz" className="inline-block bg-amber-400 text-slate-950 px-8 py-3.5 rounded-lg font-bold hover:bg-amber-300 transition">
+          <Link href={`/quiz?from=doc-${doc.slug}`} className="inline-block bg-amber-400 text-slate-950 px-8 py-3.5 rounded-lg font-bold hover:bg-amber-300 transition">
             See My Options, Free
           </Link>
         </div>
