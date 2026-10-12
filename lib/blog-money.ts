@@ -7,6 +7,16 @@
 // periods), always pointed at licensed professionals for individual advice,
 // zero outcome promises.
 //
+// Retirement-money facts verified 2026-10-12 against:
+// - IRS, Retirement Topics — Hardship Distributions:
+//   https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-hardship-distributions
+//   (safe-harbor "immediate and heavy financial need" list includes payments
+//   necessary to prevent eviction from, or foreclosure on the mortgage of,
+//   the employee's principal residence; hardship distributions are generally
+//   includible in gross income and may be subject to the 10% additional tax
+//   on early distributions; they are not repaid to the plan). Tax outcomes
+//   stay qualitative in the prose — individual answers go to a tax pro.
+//
 // Force-placed insurance facts verified 2026-09-28 against:
 // - 12 CFR 1024.37 (Regulation X), eCFR current text:
 //   https://www.ecfr.gov/current/title-12/chapter-X/part-1024/subpart-C/section-1024.37
@@ -22,6 +32,7 @@ import type { TopicPost } from './topic-blog';
 
 const PUB = '2026-09-17';
 const PUB2 = '2026-09-28';
+const PUB3 = '2026-10-12';
 
 export const MONEY_POSTS: TopicPost[] = [
   {
@@ -433,6 +444,53 @@ export const MONEY_POSTS: TopicPost[] = [
       { href: '/tools/letter-builder', label: 'Draft a notice-of-error letter, free' },
       { href: '/blog/escrow-shock-why-your-payment-jumped', label: 'How escrow recalculations work' },
       { href: '/blog/how-arrears-grow-anatomy-of-a-reinstatement-quote', label: 'Where the charge lands in your arrears' },
+    ],
+  },
+  {
+    slug: 'using-401k-retirement-money-catch-up-mortgage-nj',
+    title: 'Using Retirement Money to Catch Up a NJ Mortgage: Run This Math First',
+    description:
+      'A 401(k) loan, a hardship withdrawal, an IRA raid — three very different prices for the same cash. What to weigh before retirement savings touch a foreclosure.',
+    tldr:
+      'Retirement savings can fund a cure of a New Jersey mortgage default — and the Fair Foreclosure Act generally keeps that reinstatement right open up to entry of final judgment — but the three routes to the money carry very different costs: a 401(k) loan is borrowed from yourself and repaid, a hardship withdrawal usually means income tax and possibly an early-distribution penalty on money that never comes back, and an IRA follows its own rules entirely. Two free checks come first: whether the regular payment is sustainable going forward (a HUD-approved counselor will run that arithmetic without charging you), and whether a repayment plan or a modification could fold the arrears into the loan without touching savings at all. Retirement accounts also carry creditor protection that the cash loses the moment it is withdrawn — a decision this permanent deserves a tax professional, not adrenaline.',
+    published: PUB3,
+    updated: PUB3,
+    minutes: 6,
+    theme: 'money',
+    sections: [
+      {
+        h: 'The question that comes before the money',
+        body: [
+          'The arrears are yesterday’s problem; the monthly payment is tomorrow’s. Before asking whether the 401(k) can cover the catch-up number, ask whether the household budget covers the regular payment from next month forward. If the hardship has genuinely ended — the new job started, the recovery is real — retirement money can close a one-time gap and the story ends well. If the income is still short, the same withdrawal buys a few quiet months, the default returns, and the savings are gone along with the time they bought. Counselors have a name for this pattern, and it is the single most expensive mistake in the catch-up playbook.',
+          'New Jersey gives you room to make this decision deliberately. The right to cure the default generally runs to entry of final judgment under the Fair Foreclosure Act, and sheriff-sale adjournments add time even late. Use some of that runway for one free appointment: a HUD-approved counselor (800-569-4287) will put your real income against the real payment and tell you which story you are in before any account gets liquidated.',
+        ],
+      },
+      {
+        h: 'Three doors into the same account, three different prices',
+        body: [
+          'A 401(k) loan, where the plan offers one, is usually the gentlest door: you borrow from your own balance, repay yourself with interest through payroll, and owe no tax if you stay on schedule. Its sharp edge is the job itself — leave or lose it, and many plans want the balance back quickly, with any shortfall treated as a distribution.',
+          'A hardship withdrawal is a different animal: the money comes out for good, with no repaying it. IRS rules list the standard qualifying needs — payments necessary to prevent eviction from, or foreclosure on the mortgage of, a principal residence is among them — but qualifying for the withdrawal does not make it cheap: the amount is generally taxable income, and an additional early-distribution penalty can apply before age 59½. An IRA has no loan option at all and its own exception list. We are educators, not tax advisors: the real cost of each door depends on your bracket, your age, and your plan’s terms, and a CPA or enrolled agent — or a free VITA site for income-qualifying filers — can price all three in one sitting.',
+        ],
+      },
+      {
+        h: 'The armor the money leaves behind',
+        body: [
+          'Retirement accounts are, broadly speaking, among the best-protected assets a household owns: employer plans and (within limits) IRAs are generally beyond the reach of ordinary creditors under federal and state law, through lawsuits and even most bankruptcies. Cash in a checking account enjoys no such shield, and neither does the house the cash is about to rescue. Pulling protected savings into an unresolved default converts your most defended asset into your most exposed one — which is precisely why bankruptcy attorneys so often wince at drained 401(k)s. A consult with one, before the withdrawal, is cheap insurance; if a Chapter 13 was ever going to be the catch-up mechanism, it works with the retirement account intact.',
+          'There is also the quieter cost: the years. Money withdrawn at 52 is not just the balance on the statement — it is what that balance would have become by 67, in an account nobody can garnish. The closer retirement stands, the fewer rebuilding years remain, and the more the sustainable-payment question above deserves a brutally honest answer.',
+        ],
+      },
+      {
+        h: 'The cheaper moves to check first',
+        body: [
+          'Start with the exact number: an itemized reinstatement quote in writing, with a good-through date — our free letter builder drafts the request. Then test the alternatives that cost no savings at all: a repayment plan spreads the arrears over months on top of the regular payment; a modification can fold them into the loan balance; a forbearance formalizes a temporary gap. Partial reinstatement paired with a repayment plan for the remainder is a common negotiated outcome, which means even a smaller withdrawal — or none — may do the job a full one was about to do.',
+          'If, after the counselor’s math and the tax pro’s math, retirement money is still the right bridge: take only what the written quote requires, pay by certified, trackable funds, and get written confirmation that the default is cured and any case is being dismissed. The goal is never to empty an account for a maybe — it is to spend the smallest protected dollar on a house the budget has already proven it can keep.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/tools/catch-up', label: 'Can you realistically catch up? Free calculator' },
+      { href: '/tools/letter-builder', label: 'Request the itemized reinstatement quote in writing' },
+      { href: '/professionals', label: 'Free HUD counselors for the sustainable-payment math' },
     ],
   },
 ];

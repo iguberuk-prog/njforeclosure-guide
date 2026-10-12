@@ -6,6 +6,16 @@
 // effect, REO aftermath. Same discipline: facts, no promises, lawyers where
 // lawyers belong.
 //
+// Insurance loss-draft facts verified 2026-10-12 against:
+// - Fannie Mae Servicing Guide B-5-01, Insured Loss Events:
+//   https://servicing-guide.fanniemae.com/svc/b-5-01/insured-loss-events
+//   (insurance loss proceeds disbursement is keyed to the loan's delinquency
+//   status and repair progress; delinquent loans get controlled, inspection-
+//   gated disbursements). Prose stays qualitative — "investor servicing
+//   rules generally" — because thresholds vary by investor and change.
+// - Notice-of-error channel: Reg X, as already used across the site
+//   (lib/letters.ts notice-of-error letter, lib/questions-2.ts header).
+//
 // Returned-payment / suspense facts verified 2026-09-28 against:
 // - 12 CFR 1026.36(c)(1) (Regulation Z), eCFR current text:
 //   https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-E/section-1026.36
@@ -21,6 +31,7 @@ import type { TopicPost } from './topic-blog';
 
 const PUB = '2026-09-17';
 const PUB2 = '2026-09-28';
+const PUB3 = '2026-10-12';
 
 export const BANKS_POSTS_3: TopicPost[] = [
   {
@@ -431,6 +442,53 @@ export const BANKS_POSTS_3: TopicPost[] = [
       { href: '/tools/catch-up', label: 'Can you catch up? Run the numbers, free' },
       { href: '/blog/payoff-and-reinstatement-quotes-numbers-banks-must-honor', label: 'Getting the quote they must stand behind' },
       { href: '/answers/how-much-to-reinstate-my-mortgage', label: 'The reinstatement right, in brief' },
+    ],
+  },
+  {
+    slug: 'mortgage-company-holding-insurance-claim-check-nj',
+    title: 'The Insurance Check With Two Names on It: Loss Drafts, Repairs, Arrears',
+    description:
+      'Storm damage, a claim paid — and the repair money parked at the mortgage company. How loss drafts work, what changes when the loan is behind, and how to move a stalled one.',
+    tldr:
+      'When an insured loss hits a mortgaged New Jersey home, the claim check usually arrives payable to the homeowner and the lender together, and the servicer’s loss-draft department controls how the repair money is released — typically into a restricted account, paid out in installments tied to inspections and contractor paperwork. A delinquent loan gets a tighter leash: investor servicing rules generally require closer control of disbursements when payments are behind, and in some default situations the mortgage contract can direct proceeds toward the balance rather than repairs. The levers that move a stalled file are written ones: the servicer’s complete requirements list on paper, a formal notice of error when money is mishandled, and complaints to the CFPB or New Jersey’s Department of Banking and Insurance. None of it requires paying anyone.',
+    published: PUB3,
+    updated: PUB3,
+    minutes: 6,
+    theme: 'banks',
+    sections: [
+      {
+        h: 'Why the check has two names on it',
+        body: [
+          'The house is the loan’s collateral, so the standard mortgage contract gives the lender an interest in the insurance that protects it. That is why the insurer’s check names both of you, why your endorsement alone will not cash it, and why the money detours through a department you had never heard of — commonly called loss drafts or claims processing — before any roofer gets paid. Infuriating as the detour feels with a tarp on the roof, it is the contract operating normally, not a sign the servicer is confiscating your claim.',
+          'The design has a defensible core: a house restored is collateral restored, and the gated process exists to make sure the money becomes a roof rather than disappearing. The friction starts when the gate becomes the problem — paperwork loops, slow inspections, checks sitting while contractors walk. That is where the rest of this post lives.',
+        ],
+      },
+      {
+        h: 'How a loss draft normally moves',
+        body: [
+          'In the typical sequence, the endorsed check goes into a restricted escrow-type account the servicer controls, and the money comes back out in draws: a portion up front to start work, the rest released as inspections confirm progress, with the final draw after completion. Smaller claims are often released faster and more fully; big structural claims get the full inspection treatment. Expect to supply the adjuster’s report, a signed contractor estimate, the contractor’s license and tax information, and lien waivers as work is paid.',
+          'Treat the department the way you would treat loss mitigation: get the complete list of required documents in writing before you send anything, confirm where checks and paperwork must go (loss-draft addresses often differ from payment addresses), log every call with the date, the name, and a reference number, and send anything that matters by a trackable method. Most stalled loss drafts are stalled on one missing document nobody named out loud.',
+        ],
+      },
+      {
+        h: 'What changes when the loan is behind',
+        body: [
+          'Delinquency tightens everything. Investor servicing rules — Fannie Mae’s guide is the famous example — generally key the disbursement schedule to the loan’s payment status, so a borrower who is months behind should expect smaller up-front releases, more inspections, and less discretion. And in some default situations, standard mortgage language allows proceeds to be applied to the loan balance instead of repairs, particularly where restoring the property is not economically feasible. If you are behind and a damage claim is in play, ask the servicer directly, in writing, how it intends to apply the proceeds — the answer shapes every other decision.',
+          'Two more things belong in the same breath. First, keep the hazard insurance itself alive through the crisis; a lapse invites force-placed coverage at a worse price, stacked onto the same arrears. Second, the event that damaged the house is usually a documentable hardship for loss mitigation — disaster and casualty sit on every servicer’s standard hardship list — and an unrepaired house quietly shrinks your other exits too, from the appraisal behind a modification review to the price any sale could bring. Run the insurance claim and the loss-mitigation conversation in parallel, not in sequence.',
+        ],
+      },
+      {
+        h: 'Moving a stalled file',
+        body: [
+          'When the draws stop making sense — money vanished, a release promised and never sent, proceeds applied to the balance with no explanation — move the dispute from the phone to paper. Federal servicing rules give you a formal notice-of-error channel with acknowledgment and response deadlines, and our free letter builder drafts that letter in minutes. Pair it with a request for the account history showing exactly where the claim funds sit. If the written answer fails too, escalate outward: a CFPB complaint routes through a system servicers answer, and New Jersey’s Department of Banking and Insurance takes consumer complaints on both sides of this problem — the servicer holding the money and the insurer that was slow to pay it.',
+          'Photograph the damage and every stage of repair, keep contractor contracts and receipts in one folder, and send endorsements and documents certified. None of this guarantees a particular outcome; what it builds is a dated paper record, and paper records are what these systems actually respond to. Homeowners who income-qualify can add Legal Services of New Jersey (1-888-576-5529) for free legal help, especially where the claim money and an active foreclosure are tangled together.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/tools/letter-builder', label: 'Draft the notice-of-error letter, free' },
+      { href: '/blog/escalating-when-the-servicer-stalls', label: 'The escalation ladder, in full' },
+      { href: '/blog/force-placed-insurance-mortgage-nj', label: 'If the coverage lapses: force-placed insurance' },
     ],
   },
 ];
