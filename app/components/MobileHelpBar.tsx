@@ -1,24 +1,31 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { trackEvent } from '../../lib/analytics';
+import CallMeBox from './CallMeBox';
 
 /**
  * Sticky bottom bar on phones: the two actions a scared homeowner needs
- * within thumb's reach on every page — call the FREE HUD counselor line, or
- * build their free plan. Most visitors in foreclosure are on a phone and
- * never scroll to a footer.
+ * within thumb's reach on every page. Most visitors in foreclosure are on a
+ * phone and never scroll to a footer.
  *
- * Deliberately free-help-only: no brokerage line, no "sell now" button, so
- * no disclosure placement questions arise. Hidden on md+ screens, in print,
- * and inside the embeddable /widget pages. Spanish labels under /es.
- * ChatWidget sits above this bar on mobile (bottom-20) so they never collide.
+ * Left: the FREE HUD counselor line. Right (2026-10-12): "Samantha, call me",
+ * which opens the one-tap call request (CallMeBox) in a sheet. GA4 showed
+ * almost nobody used the plan button, and texted visitors leave without
+ * typing, so the bar now offers a call back instead. Neither button sells
+ * anything, so no brokerage disclosure is needed here; the BRC card still
+ * carries its own wherever it appears. Spanish pages keep the plan button
+ * (CallMeBox is English only). Hidden on md+ screens, in print, on /admin
+ * and inside the embeddable /widget pages. ChatWidget sits above this bar on
+ * mobile (bottom-20) so they never collide.
  */
 
 export default function MobileHelpBar() {
   const pathname = usePathname() || '';
-  if (pathname.startsWith('/widget')) return null;
+  const [open, setOpen] = useState(false);
+  if (pathname.startsWith('/widget') || pathname.startsWith('/admin')) return null;
   const es = pathname.startsWith('/es');
 
   return (
@@ -36,14 +43,42 @@ export default function MobileHelpBar() {
           </span>
           <span className="text-sm font-bold">800-569-4287</span>
         </a>
-        <Link
-          href={es ? '/es/centro-de-mando' : '/command-center'}
-          onClick={() => trackEvent('mobile_bar_plan', { page: pathname })}
-          className="flex-1 flex items-center justify-center rounded-lg bg-amber-400 text-slate-950 text-sm font-bold py-1.5"
-        >
-          {es ? 'Mi plan gratis →' : 'My free plan →'}
-        </Link>
+        {es ? (
+          <Link
+            href="/es/centro-de-mando"
+            onClick={() => trackEvent('mobile_bar_plan', { page: pathname })}
+            className="flex-1 flex items-center justify-center rounded-lg bg-amber-400 text-slate-950 text-sm font-bold py-1.5"
+          >
+            Mi plan gratis →
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              trackEvent('mobile_bar_call_me', { page: pathname });
+              setOpen(true);
+            }}
+            className="flex-1 flex flex-col items-center justify-center rounded-lg bg-amber-400 text-slate-950 py-1.5"
+          >
+            <span className="text-[10px] uppercase tracking-wider font-bold">Free, no obligation</span>
+            <span className="text-sm font-bold">Samantha, call me</span>
+          </button>
+        )}
       </div>
+
+      {open && !es && (
+        <div className="fixed inset-0 z-50 md:hidden print:hidden flex flex-col justify-end" role="dialog" aria-modal="true" aria-label="Ask Samantha to call you">
+          <button type="button" aria-label="Close" onClick={() => setOpen(false)} className="absolute inset-0 bg-slate-950/60" />
+          <div className="relative bg-white rounded-t-2xl px-4 pt-4 pb-2 max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-end mb-1">
+              <button type="button" onClick={() => setOpen(false)} className="text-slate-500 text-sm font-semibold px-2 py-1">
+                Close ✕
+              </button>
+            </div>
+            <CallMeBox sourcePage={pathname || '/'} headline="Samantha can call you today." />
+          </div>
+        </div>
+      )}
     </>
   );
 }
