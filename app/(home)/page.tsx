@@ -11,6 +11,7 @@ import { FAQSchema, OrganizationSchema } from '../schema';
 import { RESPONSE_PROMISE } from '../../lib/contact';
 import TrackRecord from '../components/TrackRecord';
 import BrcCard from '../components/BrcCard';
+import CallMeBox from '../components/CallMeBox';
 import { HOMEOWNERS_HELPED, yearsOfService } from '../../lib/partners';
 
 
@@ -127,6 +128,13 @@ export default function Home() {
             </span>
             <span className="text-amber-400 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
           </Link>
+        </div>
+      </section>
+
+      {/* ONE-TAP CALL REQUEST (2026-10-12): the hero only offered the quiz and the command center */}
+      <section className="px-4 pt-10 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <CallMeBox sourcePage="/" headline="Rather talk to a person? Samantha can call you today." />
         </div>
       </section>
 
