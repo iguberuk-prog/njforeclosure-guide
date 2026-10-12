@@ -23,7 +23,7 @@ import { sendIntake } from '../../lib/intake';
 
 // The GHL number Samantha's texts come from, e.g. '+19085551234'. While null
 // the "Text Samantha" button is hidden.
-export const SAMANTHA_TEXT_NUMBER: string | null = null;
+export const SAMANTHA_TEXT_NUMBER: string | null = '+17326552237';
 
 const TIMES = ['Morning', 'Afternoon', 'Evening'] as const;
 
