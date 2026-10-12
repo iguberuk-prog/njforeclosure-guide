@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SiteHeader from '../components/SiteHeader';
+import CallMeBox from '../components/CallMeBox';
 import { SHERIFF_SOURCES, SHERIFF_DATA_VERIFIED } from '../../lib/sheriff-sales';
 import { TOWN_PAGES } from '../../lib/town-sales';
 import { OG_IMAGES } from '../../lib/og';
@@ -87,6 +88,13 @@ export default function SheriffSalesPage() {
             and Warren publish their own lists. Either way, the links below go straight to your
             county&apos;s listings, where you can search by address or defendant name.
           </p>
+        </div>
+        <div className="mt-10">
+          <CallMeBox
+            sourcePage="/sheriff-sales/"
+            headline="Is a sale scheduled on your home? Samantha can call you today."
+            sub="Free, no obligation. She will go over your sale date and the options that are still open, and you decide what happens next."
+          />
         </div>
       </section>
 
