@@ -1,21 +1,21 @@
 {
- "asOfDate": "2026-10-07",
+ "asOfDate": "2026-10-14",
  "windowDays": 21,
  "counties": {
   "atlantic-county": {
    "name": "Atlantic",
    "days": [
     {
-     "date": "2026-10-08",
-     "count": 5
-    },
-    {
      "date": "2026-10-15",
-     "count": 6
+     "count": 5
     },
     {
      "date": "2026-10-22",
      "count": 13
+    },
+    {
+     "date": "2026-10-29",
+     "count": 10
     }
    ]
   },
@@ -24,11 +24,11 @@
    "days": [
     {
      "date": "2026-10-16",
-     "count": 25
+     "count": 17
     },
     {
      "date": "2026-10-23",
-     "count": 19
+     "count": 17
     }
    ]
   },
@@ -36,16 +36,16 @@
    "name": "Burlington",
    "days": [
     {
-     "date": "2026-10-08",
-     "count": 8
-    },
-    {
      "date": "2026-10-15",
-     "count": 8
+     "count": 7
     },
     {
      "date": "2026-10-22",
-     "count": 24
+     "count": 23
+    },
+    {
+     "date": "2026-10-29",
+     "count": 17
     }
    ]
   },
@@ -53,12 +53,8 @@
    "name": "Camden",
    "days": [
     {
-     "date": "2026-10-07",
-     "count": 41
-    },
-    {
      "date": "2026-10-21",
-     "count": 56
+     "count": 47
     }
    ]
   },
@@ -67,7 +63,11 @@
    "days": [
     {
      "date": "2026-10-14",
-     "count": 3
+     "count": 1
+    },
+    {
+     "date": "2026-10-28",
+     "count": 6
     }
    ]
   },
@@ -75,12 +75,8 @@
    "name": "Cumberland",
    "days": [
     {
-     "date": "2026-10-07",
-     "count": 12
-    },
-    {
      "date": "2026-10-21",
-     "count": 18
+     "count": 15
     }
    ]
   },
@@ -88,20 +84,20 @@
    "name": "Essex",
    "days": [
     {
-     "date": "2026-10-08",
-     "count": 2
-    },
-    {
-     "date": "2026-10-13",
-     "count": 47
-    },
-    {
      "date": "2026-10-16",
      "count": 1
     },
     {
      "date": "2026-10-27",
-     "count": 52
+     "count": 50
+    },
+    {
+     "date": "2026-10-30",
+     "count": 1
+    },
+    {
+     "date": "2026-11-01",
+     "count": 1
     }
    ]
   },
@@ -109,12 +105,8 @@
    "name": "Gloucester",
    "days": [
     {
-     "date": "2026-10-08",
-     "count": 1
-    },
-    {
      "date": "2026-10-14",
-     "count": 14
+     "count": 10
     },
     {
      "date": "2026-10-21",
@@ -123,6 +115,10 @@
     {
      "date": "2026-10-23",
      "count": 1
+    },
+    {
+     "date": "2026-10-28",
+     "count": 23
     }
    ]
   },
@@ -130,12 +126,8 @@
    "name": "Hudson",
    "days": [
     {
-     "date": "2026-10-08",
-     "count": 14
-    },
-    {
      "date": "2026-10-22",
-     "count": 18
+     "count": 20
     }
    ]
   },
@@ -144,29 +136,24 @@
    "days": [
     {
      "date": "2026-10-14",
-     "count": 5
+     "count": 3
+    },
+    {
+     "date": "2026-10-28",
+     "count": 6
     }
    ]
   },
   "middlesex-county": {
    "name": "Middlesex",
-   "days": [
-    {
-     "date": "2026-10-07",
-     "count": 27
-    }
-   ]
+   "days": []
   },
   "monmouth-county": {
    "name": "Monmouth",
    "days": [
     {
-     "date": "2026-10-13",
-     "count": 22
-    },
-    {
      "date": "2026-10-26",
-     "count": 28
+     "count": 24
     }
    ]
   },
@@ -175,7 +162,7 @@
    "days": [
     {
      "date": "2026-10-19",
-     "count": 12
+     "count": 11
     }
    ]
   },
@@ -183,12 +170,8 @@
    "name": "Union",
    "days": [
     {
-     "date": "2026-10-07",
-     "count": 12
-    },
-    {
      "date": "2026-10-21",
-     "count": 33
+     "count": 30
     }
    ]
   }
@@ -197,12 +180,12 @@
   {
    "slug": "morris-county",
    "name": "Morris",
-   "error": "official CivilView list showed 0 listings on 2026-10-07 (2 days after 91/123 open listings); treated as a temporary outage and left off the calendar"
+   "error": "official CivilView list showed 0 listings on 2026-10-14 (also 0 on 2026-10-07, after 91/123 open listings on 2026-10-05); treated as a temporary outage and left off the calendar"
   },
   {
    "slug": "passaic-county",
    "name": "Passaic",
-   "error": "official CivilView list showed 0 listings on 2026-10-07 (2 days after 91/123 open listings); treated as a temporary outage and left off the calendar"
+   "error": "official CivilView list showed 0 listings on 2026-10-14 (also 0 on 2026-10-07, after 91/123 open listings on 2026-10-05); treated as a temporary outage and left off the calendar"
   }
  ]
 }
