@@ -1,4 +1,4 @@
-// BLOG SERIES: FREE HELP THAT WORKS (10 posts)
+// BLOG SERIES: FREE HELP THAT WORKS (11 posts)
 // ---------------------------------------------------------------------------
 // Theme: the free machinery of NJ foreclosure help, shown working. Every
 // walkthrough is an ILLUSTRATIVE COMPOSITE and says so in the prose — we do
@@ -10,6 +10,7 @@
 import type { TopicPost } from './topic-blog';
 
 const PUB = '2026-09-04';
+const PUB2 = '2026-10-19';
 
 export const FREE_HELP_POSTS: TopicPost[] = [
   {
@@ -436,6 +437,71 @@ export const FREE_HELP_POSTS: TopicPost[] = [
       { href: '/guides/surplus-funds', label: 'The complete surplus funds guide' },
       { href: '/answers/what-happens-to-my-equity', label: 'Equity at auction, explained' },
       { href: '/sheriff-sales', label: 'Find your county\'s sale results' },
+    ],
+  },
+  // Case Jacket facts verified 2026-10-19 against the NJ Judiciary's own guide,
+  // "Public Access to Case Jacket - eCourts":
+  //   https://www.njcourts.gov/sites/default/files/attorneys/ecourts/training/publicaccesscasejacket.pdf
+  //   (free, no login, reCAPTCHA per search; search by docket — county, docket
+  //   type, number, year — or by party name, with 3+ characters needed for a
+  //   broad individual-name search; General Equity docket types include
+  //   Foreclosure (F); public view shows case details incl. status, judge and
+  //   initiation date, the parties, and the case-actions list with filed
+  //   documents viewable, downloadable and printable, plus a PDF of the whole
+  //   jacket; JEFIS-era foreclosure filings (2005–2016) and archived documents
+  //   are NOT visible in public access — the guide points those requests to the
+  //   county or the Superior Court Clerk's Office). Entry point confirmed via
+  //   https://www.njcourts.gov/public/find-a-case
+  {
+    slug: 'look-up-nj-foreclosure-case-online-free',
+    title: 'How to Look Up Your NJ Foreclosure Case Online — Free, No Login',
+    description:
+      'The court file in your foreclosure is public, and the NJ Judiciary lets you read it from your phone at no cost. Where the search lives, how to run it, and how to translate what you find into your actual deadlines.',
+    tldr:
+      'Every New Jersey foreclosure is a Superior Court case with a public file, and the Judiciary\'s free Public Access Case Jacket search lets you read that file online — no account, no fee, just a quick captcha. Search by the docket number on your court papers (foreclosure dockets are type "F") or by name, and you can see the case status, every filing with its date, and the documents themselves. The docket tells you where you really are — whether an answer was filed, whether default or final judgment was entered, whether a writ has issued — which is exactly the information your remaining options depend on.',
+    published: PUB2,
+    updated: PUB2,
+    minutes: 6,
+    theme: 'free-help',
+    sections: [
+      {
+        h: 'Your foreclosure has two public trackers — this is the court one',
+        body: [
+          'Homeowners usually meet the public records at the end, when the sheriff\'s sale listing appears on CivilView. But the sale listing is only the last chapter. The case itself — the complaint, any answer, the default, the motions, the judgment, the writ — lives in a different system: the Superior Court\'s electronic case jacket, and the Judiciary gives the public a free window into it. One tracker tells you when the auction is; the other tells you everything that happened to put it there, and everything that has not happened yet.',
+          'Reading your own docket does something the mail cannot: it shows the case as the court sees it, in order, with dates. Letters get lost, servicers transfer, and rescue operators lie about where a case stands — the docket does none of those things.',
+        ],
+      },
+      {
+        h: 'Finding the search and running it',
+        body: [
+          'The tool is the NJ Courts Public Access Case Jacket — reachable through the "Find a Case" section of njcourts.gov, or by searching that exact phrase. There is no login and no fee; the only gate is a captcha. You can search two ways. By docket number: foreclosure cases are docket type "F", and the number and two-digit year appear on the first page of the complaint, the summons, and most court mail — enter the pieces and the case comes up. By name: a last and first name works too (use at least three letters of the last name, or the search demands an exact match), which is the route when the paperwork is lost or when you are helping a relative sort an unopened pile.',
+          'If nothing comes up under your name, that is information too: a Notice of Intention is not a lawsuit, and many homeowners who feel "in foreclosure" have no case filed yet — which means the cheapest window, the pre-court one, is still open.',
+        ],
+      },
+      {
+        h: 'How to read what you find',
+        body: [
+          'The case details screen gives the frame: when the case was filed, its current status, the venue, and the judge if one is assigned. The parties tab names the plaintiff — the trust or bank suing you, which is worth decoding separately — and every defendant, including lienholders you may not have known about. The case actions tab is the heart: each filing in order, with its date and a one-line description, and the documents themselves open, download, and print. You can even generate a PDF of the entire jacket for a counselor or attorney, which turns a first consultation from archaeology into analysis.',
+        ],
+      },
+      {
+        h: 'Matching the docket to your windows',
+        body: [
+          'A few entries map directly onto the rights this site covers elsewhere. A complaint with recent service means the 35-day answer clock is running, and the court\'s free mediation program is generally requested within 60 days of service. An "entry of default" means the answer window passed — serious, not final: defaults can sometimes be vacated, and the Fair Foreclosure Act\'s right to cure the arrears runs to entry of final judgment. A final judgment and writ of execution mean the sheriff-sale machinery is engaged, which is when the adjournment rights and the sale-you-control options become the live questions. Wherever the docket says you are, there is a corresponding move — and free people to make it with: Legal Services of New Jersey (1-888-576-5529) for income-qualifying homeowners, HUD-approved counselors (800-569-4287) at any stage.',
+        ],
+      },
+      {
+        h: 'When the search comes up short',
+        body: [
+          'Two honest limits. Older filings — the Judiciary\'s guide notes that foreclosure papers e-filed between 2005 and 2016 ran through an earlier system whose documents do not display in public access, and archived documents are likewise withheld — so a long-dormant case may show its docket entries but not every underlying paper; the county clerk or the Superior Court Clerk\'s Office fills those gaps. And the docket is a record, not an advisor: it tells you that a motion was filed, not whether you should oppose it. Treat the lookup as the free first step that makes every later step — the counselor meeting, the legal consult, the mediation session — faster and sharper.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/blog/how-to-read-nj-sheriff-sale-listing-civilview/', label: 'The companion guide: reading your CivilView sale listing' },
+      { href: '/who-is-suing-me', label: 'Decoding the plaintiff\'s name on your complaint' },
+      { href: '/documents', label: 'Every court paper decoded, in order' },
+      { href: '/tools/sheriff-sale-countdown/', label: 'Found a sale date? Count your windows back from it' },
     ],
   },
 ];

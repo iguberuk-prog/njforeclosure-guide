@@ -1,4 +1,4 @@
-// BLOG SERIES: MONEY & AFTERMATH (11 posts)
+// BLOG SERIES: MONEY & AFTERMATH (12 posts)
 // ---------------------------------------------------------------------------
 // Theme: the financial questions around and after a foreclosure — credit,
 // taxes, deficiency, buying again, equity protection, liens, co-signers,
@@ -33,6 +33,7 @@ import type { TopicPost } from './topic-blog';
 const PUB = '2026-09-17';
 const PUB2 = '2026-09-28';
 const PUB3 = '2026-10-12';
+const PUB4 = '2026-10-19';
 
 export const MONEY_POSTS: TopicPost[] = [
   {
@@ -491,6 +492,58 @@ export const MONEY_POSTS: TopicPost[] = [
       { href: '/tools/catch-up', label: 'Can you realistically catch up? Free calculator' },
       { href: '/tools/letter-builder', label: 'Request the itemized reinstatement quote in writing' },
       { href: '/professionals', label: 'Free HUD counselors for the sustainable-payment math' },
+    ],
+  },
+  // Taxes-and-insurance-during-foreclosure post: every legal mechanic below is
+  // already stated and sourced elsewhere on the site — escrow advances growing
+  // arrears (reinstatement-quote post), force-placed insurance and the
+  // escrow-advance norm under 12 CFR 1024.37 / 1024.17(k) (force-placed post,
+  // verified 2026-09-28), municipal tax-sale certificates, redemption through
+  // the tax collector and post-Tyler equity protection (tax-foreclosure story),
+  // and the state senior property-tax relief programs (reverse-mortgage story).
+  // Tax outcomes stay qualitative; individual answers go to professionals.
+  {
+    slug: 'pay-property-taxes-insurance-during-foreclosure-nj',
+    title: 'Behind on the Mortgage in NJ: Do You Still Pay the Taxes and Insurance?',
+    description:
+      'When the mortgage is already unpayable, the tax quarter and the insurance bill feel optional. One of them can quietly start a second foreclosure; the other can cost you the house and everything in it. The triage, honestly.',
+    tldr:
+      'Falling behind on a New Jersey mortgage does not make the property taxes or the homeowner\'s insurance go away — and skipping them creates separate problems the foreclosure case does not cover. Unpaid tax quarters feed a municipal tax-sale process that runs on its own law and its own clock, and a lapsed insurance policy invites force-placed coverage that costs more and protects less. If your loan has an escrow account, the servicer usually keeps paying both and adds the advances to what you owe; if it does not, those two bills deserve a place near the top of a crisis budget. State property-tax relief programs and free HUD counseling can shrink the problem rather than just reshuffle it.',
+    published: PUB4,
+    updated: PUB4,
+    minutes: 6,
+    theme: 'money',
+    sections: [
+      {
+        h: 'First, find out who has been paying them',
+        body: [
+          'The answer starts with one fact many homeowners in crisis have never checked: whether the loan has an escrow account. If it does, your monthly payment always included the taxes and insurance, and the servicer generally keeps paying both even while you are behind — advancing its own money and adding each advance to the arrears, where it resurfaces later in the reinstatement quote or the payoff. That is why an escrowed homeowner\'s delinquency grows faster than the missed principal-and-interest alone. If the loan has no escrow — common on older mortgages, paid-off-then-refinanced homes, and inherited houses — then nobody is paying those bills but you, and the rest of this article is about what happens if nobody does.',
+        ],
+      },
+      {
+        h: 'The insurance bill: the cheapest catastrophe prevention you own',
+        body: [
+          'Letting the homeowner\'s policy lapse mid-foreclosure fails in two directions at once. The smaller failure is force-placed insurance: the servicer buys its own policy, bills you a multiple of the market price, and the coverage typically protects the lender\'s interest in the structure — not your contents, not your liability, and not the equity you may still be fighting to keep. The larger failure is the uncovered loss: a kitchen fire in an uninsured house turns a hard negotiation into a ruin, because the equity that funded every option — the sale, the surplus claim, the fresh start — was sitting in the structure. A homeowner choosing which bills to pay from a short stack should know that this one, measured against what it protects, is usually the best-priced item in the pile.',
+        ],
+      },
+      {
+        h: 'The tax quarters: do not open a second front',
+        body: [
+          'Unpaid property taxes do not wait politely for the mortgage case to finish. New Jersey municipalities sell tax-sale certificates on delinquent quarters, and a certificate holder — after paying further taxes and waiting the statutory period — can bring a foreclosure of their own, on different law and a different clock than the bank\'s case. Homeowners already in a mortgage foreclosure sometimes discover the tax track late, because its mail looks small next to the bank\'s. The redemption right is the core protection — paying off the certificate through the tax collector ends that threat — but every quarter skipped makes the figure larger. And the bill itself may be shrinkable: New Jersey\'s property-tax relief programs, especially for seniors, exist precisely for budgets in this condition, and enrolling costs nothing.',
+        ],
+      },
+      {
+        h: 'Triage, for the months when everything cannot be paid',
+        body: [
+          'None of this is a lecture to pay bills with money that does not exist; it is an ordering principle for the money that does. A free HUD-approved counselor (800-569-4287) builds exactly this budget — which obligations protect the roof and the equity, which can wait, and how the arrears story reads inside a loss-mitigation application. Two practical notes for that conversation: a servicer\'s escrow advances and a town\'s tax certificate both ultimately settle out of your equity, at a closing or from sale proceeds, so paying them late is not the same as never paying them — you are choosing interest and risk, not forgiveness. And if the numbers say the house cannot be kept, the same ordering protects the sale: a buyer\'s title search finds every unpaid quarter, and an insured, tax-current house negotiates from strength.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/blog/force-placed-insurance-mortgage-nj/', label: 'Force-placed insurance: the rules and the fix' },
+      { href: '/blog/property-tax-foreclosure-vs-mortgage-nj/', label: 'NJ\'s other foreclosure: the tax-sale track' },
+      { href: '/tools/catch-up', label: 'The honest catch-up math, free' },
+      { href: '/professionals', label: 'Free budget triage with a HUD counselor' },
     ],
   },
 ];
