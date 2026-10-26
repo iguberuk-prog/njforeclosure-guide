@@ -1,4 +1,4 @@
-// BLOG SERIES: SCENARIO DEEP-DIVES (15 posts)
+// BLOG SERIES: SCENARIO DEEP-DIVES (16 posts)
 // ---------------------------------------------------------------------------
 // Practical guides for specific life situations — NOT stories or composites:
 // each is a how-to for a household type, built on the site's standard legal
@@ -407,6 +407,71 @@ export const SCENARIO_POSTS: TopicPost[] = [
       { href: '/blog/va-loan-foreclosure-help-nj', label: 'The VA loan’s extra doors' },
       { href: '/answers/how-long-to-respond-to-complaint', label: 'The 35-day answer, explained' },
       { href: '/tools/letter-builder', label: 'Free letters: hardship, payoff request, and more' },
+    ],
+  },
+  // Manufactured-housing facts verified 2026-10-26 against the Federal
+  // Reserve Bank of Philadelphia report "Manufactured Housing Communities in
+  // New Jersey" (philadelphiafed.org): ~268 land-lease communities statewide,
+  // roughly 33,600 manufactured homes on owned and leased land, communities
+  // in every county except Essex (most in Atlantic, Ocean, Monmouth, Cape
+  // May); NJ titles manufactured homes as personal property, convertible to
+  // real property when permanently affixed to land the owner holds; homes in
+  // communities pay municipal service fees rather than property tax on the
+  // dwelling; home-only (chattel) loans carry higher rates and fewer
+  // protections than mortgages (2019–2022 HMDA medians: 6.25% vs 4.43%);
+  // chattel defaults are handled as repossession, not foreclosure; the
+  // Mobile Home Park/Private Residential Leasehold Communities Act is
+  // N.J.S.A. 46:8C; local rent stabilization often applies to lot rents.
+  // No individual-outcome claims; all NJ process numbers match site canon.
+  {
+    slug: 'manufactured-home-behind-on-payments-nj',
+    title: 'Behind on a Manufactured or Mobile Home in NJ: Which Process You’re Actually In',
+    description:
+      'A manufactured home can be lost three different ways — mortgage foreclosure, loan repossession, or a lot-rent eviction — and the warnings, clocks, and help differ for each. How to tell which case is yours.',
+    tldr:
+      'New Jersey has roughly 268 land-lease manufactured-home communities and about 33,600 manufactured homes, and when payments slip, the first question is not “how far behind am I?” but “which legal process am I in?” A home financed together with its land under a mortgage goes through New Jersey’s ordinary judicial foreclosure — Notice of Intention, 35-day answer, free court mediation, sheriff sale — with every protection this site describes. A home in a community on a rented lot is usually titled as personal property and financed with a home-only (chattel) loan, and a default there is handled as a repossession, a faster track with fewer built-in warnings. Behind on lot rent is a third, separate case: a landlord-tenant eviction that can cost you the home’s place to stand even while the loan is current. Free help — HUD-approved counselors at 800-569-4287 and Legal Services of New Jersey at 1-888-576-5529 — applies to all three.',
+    published: '2026-10-26',
+    updated: '2026-10-26',
+    minutes: 7,
+    theme: 'scenarios',
+    sections: [
+      {
+        h: 'First, find out what your home is on paper',
+        body: [
+          'New Jersey treats a manufactured home as personal property by default — titled through the Motor Vehicle Commission the way a vehicle is, with a certificate of ownership rather than a deed. A home permanently affixed to land the homeowner also owns can be converted to real property, and homes bought together with their land under one loan are usually mortgaged like any site-built house. So before anything else, pull your paperwork and answer two questions: does your loan cover the home and the land together, and is the home titled or deeded? The answers decide which process a default triggers, which warnings the law requires, and how much time the clocks really give you.',
+          'The split shows up in the loan terms long before it shows up in a default. Home-only loans on leased land — chattel loans — run meaningfully more expensive than mortgages: in federal lending data for 2019–2022, the median New Jersey chattel loan priced at 6.25% against 4.43% for manufactured-home mortgages, with shorter terms and fewer of the servicing protections mortgage borrowers take for granted. If you are not sure which kind you have, the loan documents will say — and a HUD-approved counselor (800-569-4287, free) can read them with you.',
+        ],
+      },
+      {
+        h: 'Home plus land: the full New Jersey foreclosure, protections included',
+        body: [
+          'If your loan is a mortgage on the home and the land, falling behind puts you in the same judicial process as every other New Jersey homeowner, with the same rights this site maps stage by stage: a Notice of Intention at least 30 days before any filing, a 35-day window to answer the complaint, the ability to cure the default, the free statewide foreclosure mediation program, adjournment rights at the sheriff-sale stage, and surplus funds if an auction ever brings more than the judgment. Nothing about the home being manufactured takes those away. The playbook is the ordinary one — answer the complaint, request mediation, build a complete loss-mitigation file, and price a sale of your own against the arithmetic of keeping the home.',
+        ],
+      },
+      {
+        h: 'Home-only loan on a rented lot: repossession, a different animal',
+        body: [
+          'A chattel loan secured by the home alone is not a mortgage on real property, so a default generally does not produce a Chancery foreclosure at all. The lender’s remedy is repossession of the home as personal property — in practice usually pursued through the courts, since a house is not a car that can be towed at 2 a.m., but on a track that is faster and quieter than foreclosure, without the Notice of Intention, the 35-day answer, or the court mediation program that were built around real-property mortgages. The honest consequence: a chattel borrower has less automatic warning and less built-in process, which makes early, documented contact with the lender — a hardship letter, a workout request, a complete financial package — matter even more than it does in a foreclosure. The free letter builder on this site drafts those, and a HUD counselor can manage the file.',
+          'Two cautions belong here. First, do not assume the repossession math favors the lender: moving a home off a lot is expensive and resale on-site is usually worth more to everyone, which is why lenders entertain repayment plans and workouts — ask for one in writing before the default hardens. Second, the shorter runway makes manufactured-home owners a target for rescue offers exactly when they are most pressed; run any unsolicited “we’ll save your home” pitch through the scam checker before signing anything.',
+        ],
+      },
+      {
+        h: 'Lot rent: the third way to lose the home, separate from the loan',
+        body: [
+          'In a land-lease community you can be current on the loan and still at risk, because the lot underneath is rented. Unpaid lot rent is a landlord-tenant matter: eviction for nonpayment goes through New Jersey’s landlord-tenant courts under the good-cause framework of the Anti-Eviction Act, and losing the right to the lot can force a sale or relocation of a home that is fully paid for. New Jersey regulates these communities under their own statute (N.J.S.A. 46:8C), and many towns’ rent-stabilization ordinances apply to lot rents — so the rent history and any increase above the local cap are worth checking before concluding the arrears are what the ledger says. Legal Services of New Jersey (1-888-576-5529) handles exactly these cases for income-qualifying households, and because an eviction case moves quickly, the call belongs at the first missed lot-rent payment, not the last.',
+        ],
+      },
+      {
+        h: 'The exits, priced honestly',
+        body: [
+          'Manufactured homes in New Jersey communities sell — the state’s roughly 268 communities sit in every county except Essex, with the deepest markets in Atlantic, Ocean, Monmouth, and Cape May counties, and a home sold in place to a buyer the community approves usually beats any forced outcome. If keeping the home is the goal, the sequence is the same in all three processes: contact early and in writing, document the hardship, propose a specific catch-up plan you can actually sustain, and bring in the free professionals rather than negotiating alone. If the honest arithmetic says the home cannot be kept, selling on your own timeline — before a repossession, a sheriff sale, or a lot-rent judgment forces the issue — is what protects whatever equity the home holds. Either way, the decision deserves real numbers, not dread.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/tools/catch-up', label: 'Build a catch-up plan you can sustain' },
+      { href: '/tools/letter-builder', label: 'Free letters: hardship, workout request, and more' },
+      { href: '/tools/scam-checker', label: 'Run any rescue offer through the scam checker' },
     ],
   },
 ];

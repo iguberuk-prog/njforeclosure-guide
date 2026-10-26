@@ -1,4 +1,4 @@
-// BLOG SERIES: DEADLINE & TIMING QUESTIONS (10 posts)
+// BLOG SERIES: DEADLINE & TIMING QUESTIONS (11 posts)
 // ---------------------------------------------------------------------------
 // Theme: "how long do I have" at every stage. These are the panic-hour
 // searches; each post answers the clock question first, then what to do with
@@ -382,6 +382,66 @@ export const TIMING_POSTS: TopicPost[] = [
       { href: '/answers/is-it-too-late', label: 'Is it too late? The short answer' },
       { href: '/tools/timeline', label: 'Find your stage: free timeline tool' },
       { href: '/compare', label: 'All 7 options, compared honestly' },
+    ],
+  },
+  // Abandoned-property facts verified 2026-10-26 against the NJ Department of
+  // Community Affairs bulletin "Disposal of Remaining Personal Property
+  // Abandoned by Tenant," N.J.S.A. 2A:18-72 to -84 (nj.gov/dca): written
+  // notice by certified or receipted first-class mail; removal deadline not
+  // less than 30 days after delivery or 33 days after mailing; storage with
+  // reasonable care required after notice; reclaiming tenant reimburses
+  // reasonable storage/removal costs; sale or disposal only after the notice
+  // period runs. The statute is written for tenancies (warrant for removal or
+  // written relinquishment), so the post is explicit that a former owner
+  // removed under a Chancery writ of possession should not count on it and
+  // should move irreplaceables first. Possession-process facts match site
+  // canon (10-day redemption, deed, writ, scheduled officer-executed lockout,
+  // no self-help, LSNJ 1-888-576-5529).
+  {
+    slug: 'belongings-after-foreclosure-eviction-nj',
+    title: 'Your Belongings and the Move-Out After an NJ Foreclosure: A Practical Guide',
+    description:
+      'What lockout day actually looks like, what happens to property left behind, and the move-out checklist — documents, utilities, mail — that protects you on the way out.',
+    tldr:
+      'Until a court-issued writ of possession is executed by officers on a scheduled date, nobody — not the buyer, not the bank — may change your locks, remove your belongings, or shut off your utilities. But once that date arrives, you leave with what you have moved, and anything still inside is in someone else’s hands. New Jersey’s abandoned-property law makes landlords give written notice (at least 30 days from delivery, or 33 from mailing) and store what tenants leave behind with reasonable care; how fully that framework protects a former owner after a foreclosure writ is far less certain, so the only safe plan is to treat lockout day as final and move the irreplaceables — documents, medications, photos, titles — first. The rest of a clean exit is logistics: forward the mail, close out utilities in your name, photograph the home’s condition, and claim any surplus funds the sale produced, which remain yours after you leave.',
+    published: '2026-10-26',
+    updated: '2026-10-26',
+    minutes: 6,
+    theme: 'timing',
+    sections: [
+      {
+        h: 'What lockout day actually is — and is not',
+        body: [
+          'The possession process ends, when it ends, with a scheduled event, not an ambush: after the roughly 10-day post-sale window and the sheriff’s deed, the new owner must obtain a writ of possession from the court, the sheriff’s office serves it with a date, and on that date officers can require anyone still living there to leave and turn the property over. Until that executed writ, self-help is off the table — no lock changes, no hauling your things to the curb, no utility shutoffs to squeeze you out. If any of that happens before a lockout, it is a legal problem for the person doing it, and Legal Services of New Jersey (1-888-576-5529) should hear about it the same day.',
+          'What the scheduled date means in practice: you know, in advance, the last day the house is yours to empty. Plan the move backward from that date the way you would plan for a closing — because that is what it is, a closing you did not choose. If a genuine hardship makes the date impossible, an attorney can ask the court for a short stay; ask early, not the night before. And if a negotiated move-out is on the table — cash for keys in exchange for a date and broom-clean condition — the move-out date you agree to in writing replaces the one on the writ.',
+        ],
+      },
+      {
+        h: 'The law on left-behind property — and why you shouldn’t lean on it',
+        body: [
+          'New Jersey does have a statute for property left behind. Under the abandoned-property law (N.J.S.A. 2A:18-72 and following), a landlord disposing of what a tenant leaves must first send written notice — certified or receipted first-class mail — and give at least 30 days from delivery (33 from mailing) to claim the property; in the meantime it must be stored with reasonable care, and a tenant who claims in time gets it back on payment of reasonable storage and removal costs. Only after the window runs can the property be sold or discarded.',
+          'Here is the honest caveat: that framework was written for tenancies — its triggers are a landlord-tenant warrant for removal or a tenant’s written surrender — and a former owner removed under a Chancery writ of possession is not its textbook case. Some buyers follow the notice-and-storage path anyway because it is the careful one; none are guaranteed to. So treat any right to retrieve things later as a possibility, never a plan. The plan is simpler and harsher: by lockout day, everything you cannot replace is already out.',
+        ],
+      },
+      {
+        h: 'The triage list: what leaves the house first',
+        body: [
+          'Move the irreplaceable and the load-bearing before the merely valuable. Papers first: every foreclosure notice and court filing, the sheriff-sale paperwork, payoff and reinstatement quotes, closing documents from when you bought, insurance policies, tax returns — you will need this file to claim surplus funds, to answer any tax form the resolution generates, and to dispute anything later. Then identity and health: IDs, Social Security cards, birth certificates, passports, medications and prescriptions, medical records. Then the unreplaceables: photographs, heirlooms, hard drives. Vehicle titles and spare keys. Children’s school documents. Only after all of that do the couch and the television earn a box.',
+          'Two habits protect you on the way out. Photograph and video every room after you finish — condition disputes are won by the person with time-stamped pictures, whether the question is a cash-for-keys walk-through or an accusation of damage. And if you truly cannot finish, ask the new owner in writing for a specific access date to remove the rest; a short written agreement beats an assumption, and buyers often prefer an empty house to a storage problem.',
+        ],
+      },
+      {
+        h: 'The unglamorous checklist that prevents expensive surprises',
+        body: [
+          'File a USPS mail-forwarding order before you move — court notices, surplus-funds correspondence, and tax forms will keep coming to the old address, and the ones you miss are the ones that cost money. Close or transfer utilities that are in your name with final meter readings, so you are not billed for the next occupant. Update your address with the bank, the DMV, your employer, the children’s schools, and anyone who sends you money or legal mail. Keep renter-application ammunition together — pay stubs, references, the explanation letter — because the next landlord will ask about the foreclosure, and a short, honest paragraph answers it better than an apology.',
+          'And do not leave money behind: if the sheriff sale brought more than the judgment and costs, the surplus was deposited with the court and belongs to you — moving out does not forfeit it, and no one will chase you down to hand it over. Check, claim it through the court process, and be instantly suspicious of anyone who offers to “recover” it for a large cut of what is already yours.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/tools/surplus-funds', label: 'Check for surplus funds from your sale' },
+      { href: '/guides/after-sheriff-sale', label: 'The complete after-the-sale guide' },
+      { href: '/blog/how-long-can-i-stay-after-sheriff-sale-nj', label: 'How long you can stay: the timeline' },
     ],
   },
 ];
