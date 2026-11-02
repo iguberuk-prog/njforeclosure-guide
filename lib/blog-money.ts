@@ -1,4 +1,4 @@
-// BLOG SERIES: MONEY & AFTERMATH (12 posts)
+// BLOG SERIES: MONEY & AFTERMATH (14 posts)
 // ---------------------------------------------------------------------------
 // Theme: the financial questions around and after a foreclosure — credit,
 // taxes, deficiency, buying again, equity protection, liens, co-signers,
@@ -34,6 +34,7 @@ const PUB = '2026-09-17';
 const PUB2 = '2026-09-28';
 const PUB3 = '2026-10-12';
 const PUB4 = '2026-10-19';
+const PUB5 = '2026-11-02';
 
 export const MONEY_POSTS: TopicPost[] = [
   {
@@ -544,6 +545,72 @@ export const MONEY_POSTS: TopicPost[] = [
       { href: '/blog/property-tax-foreclosure-vs-mortgage-nj/', label: 'NJ\'s other foreclosure: the tax-sale track' },
       { href: '/tools/catch-up', label: 'The honest catch-up math, free' },
       { href: '/professionals', label: 'Free budget triage with a HUD counselor' },
+    ],
+  },
+  // Program facts verified 2026-11-02 against the NJ Division of Taxation
+  // (nj.gov/treasury/taxation/relief.shtml, /anchor/, /staynj/, /ptr/):
+  // ANCHOR homeowner benefit $1,500 (income ≤ $150k) or $1,000 ($150k–$250k),
+  // renters $450/$700, Division auto-files for most under-65 homeowners;
+  // Senior Freeze reimburses property-tax increases for eligible 65+/disabled
+  // residents; Stay NJ (65+, owned and occupied all year, income ≤ $200k)
+  // tops out at $6,500/$5,000/$4,000 by income tier, paid in installments,
+  // with total relief capped at the year's actual tax bill; PAS-1 is the one
+  // combined application (propertytaxreliefapp.nj.gov) for seniors and
+  // Social Security/Railroad disability recipients; the 2025-year deadline
+  // was November 2, 2026. Dollar figures are labeled as the 2025 benefit
+  // year and readers are pointed to nj.gov for the current cycle. $250
+  // senior/disabled and veteran deductions run through the municipality.
+  // No claims that relief stops or pauses any foreclosure.
+  {
+    slug: 'nj-property-tax-relief-behind-on-mortgage',
+    title: 'ANCHOR, Senior Freeze, and Stay NJ: The Property-Tax Money Homeowners in Trouble Forget to Claim',
+    description:
+      'New Jersey pays real property-tax relief — up to four figures a year, more for seniors — and homeowners in foreclosure routinely never apply. What each program pays, the one application that now covers the senior benefits, and what the money can and cannot do for a mortgage in trouble.',
+    tldr:
+      'New Jersey runs three major property-tax relief programs that pay homeowners directly: ANCHOR (for the 2025 benefit year, $1,500 for household incomes up to $150,000 and $1,000 up to $250,000), Senior Freeze (which reimburses eligible residents 65+ or receiving federal disability for property-tax increases over their base year), and Stay NJ (new, for homeowners 65+ with income up to $200,000, worth up to $6,500 a year depending on income). Seniors and federal-disability recipients now apply for all three with one combined form, the PAS-1, filed free at propertytaxreliefapp.nj.gov; most under-65 homeowners have their ANCHOR application filed automatically by the state. For a household behind on the mortgage this is unclaimed money that can feed a reinstatement or catch-up plan — but it arrives on the state’s schedule, months after applying, and nothing about it pauses a foreclosure. Deadlines land in the fall and move year to year; check the Division of Taxation’s relief page on nj.gov for the current cycle.',
+    published: PUB5,
+    updated: PUB5,
+    minutes: 7,
+    theme: 'money',
+    sections: [
+      {
+        h: 'Why this money goes unclaimed exactly when it is needed most',
+        body: [
+          'A household fighting a foreclosure is drowning in mail it dreads, so mail it would welcome — a state benefit application — gets lost in the pile. That is how homeowners entitled to a thousand dollars or more a year in property-tax relief go without it in the very years the budget is tightest. The programs are not loans, not liens, and not means-tested into oblivion: ANCHOR reaches household incomes up to $250,000, and the senior programs reach up to $200,000. The applications are free, the benefits are paid to you rather than quietly absorbed somewhere, and a missed year is simply money gone. If you are behind on the mortgage and have never filed, this is one of the few envelopes in the pile that contains good news.',
+        ],
+      },
+      {
+        h: 'The three programs, in one honest paragraph each',
+        body: [
+          'ANCHOR is the broad one: a flat annual benefit for homeowners (and a smaller one for renters) who meet the income limits. For the 2025 benefit year it pays homeowners $1,500 when household income is $150,000 or less and $1,000 up to $250,000, with a small addition for seniors. The state now files the application automatically for most homeowners under 65, sending a confirmation letter in late summer — but automatically is not the same as always, so if no letter and no payment have appeared, check your status rather than assuming.',
+          'Senior Freeze (officially the Property Tax Reimbursement) is the long-game program: for eligible residents 65 and older, or those receiving federal Social Security disability, who have met the program’s residency and income rules, it reimburses the difference each year between the property taxes in their “base year” and today’s higher bill. On a long-held New Jersey home whose taxes have climbed for a decade, that reimbursement check can be substantial — and it recurs every year the eligibility holds.',
+          'Stay NJ is the new one, with its first benefits flowing in 2026: for homeowners 65 and older who owned and lived in their home the full year, with income up to $200,000, it is worth up to $6,500 a year depending on income tier, paid in installments, with one overall guardrail — your combined relief from all programs cannot exceed what you actually paid in property tax. The figures above are the 2025 benefit year’s; amounts, tiers, and payment schedules are set in each state budget, so treat nj.gov as the source of record, not this page.',
+        ],
+      },
+      {
+        h: 'One application now covers the senior programs',
+        body: [
+          'For years the honest complaint was that each program had its own form, its own deadline, and its own filing ritual. That is largely fixed: seniors and federal-disability recipients now file a single combined application, the PAS-1, which covers ANCHOR, Senior Freeze, and Stay NJ at once — online at propertytaxreliefapp.nj.gov or on paper — and the Division of Taxation sorts out which benefits the household qualifies for. File it even if you doubt you qualify for all three; the application costs nothing and the state does the math. Deadlines fall in the autumn (the 2025-year deadline was November 2, 2026) and shift from cycle to cycle, so the one habit worth building is checking the Division’s property-tax relief page each summer. And a word that belongs in every foreclosure-adjacent paragraph: there is no legitimate fee to apply. Anyone offering to file your PAS-1 or “recover your relief” for a percentage is selling you a free form — run the pitch through the scam checker.',
+        ],
+      },
+      {
+        h: 'What relief money can do for a mortgage in trouble — and what it cannot',
+        body: [
+          'These benefits are paid to the homeowner — by check or direct deposit — not credited against the mortgage. That makes them flexible money in a budget that has none: a Stay NJ installment plus an ANCHOR payment can fund a meaningful piece of a reinstatement, keep a catch-up plan from collapsing in a thin month, or cover the homeowner’s insurance premium that keeps force-placed coverage away. If your taxes are escrowed, the servicer keeps paying the full tax bill out of escrow either way; the relief lands in your hands, and pointing it at the arrears is a choice the catch-up calculator can price. Where expectations need managing: the money moves on the state’s timetable, typically months between application and payment, and some benefits arrive in installments. A payment that will arrive in February cannot stop a sheriff sale scheduled for January, and no relief program pauses a foreclosure, a tax-sale certificate, or a single deadline in the court case. Claim the money because it is yours — but build the foreclosure plan on the clocks that actually bind, and use the free help built for that.',
+        ],
+      },
+      {
+        h: 'The quiet extras at the municipal counter',
+        body: [
+          'Two smaller, older benefits run through your town rather than Trenton: the $250 annual property-tax deduction for qualifying seniors and disabled residents, and the $250 deduction for qualifying veterans and certain surviving spouses. They are claimed through the municipal tax assessor or collector, they stack with the state programs inside the overall cap, and in a tight year another $250 off the tax bill is another $250 that can face the mortgage. While you are at the counter, confirm where your tax quarters actually stand — a homeowner in mortgage trouble cannot afford a surprise on the tax side, because unpaid quarters feed New Jersey’s separate tax-sale track. Every dollar of relief claimed is a dollar of equity that stays yours.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/tools/catch-up', label: 'Price what relief money does to your catch-up plan' },
+      { href: '/tools/scam-checker', label: 'Check any paid “filing service” pitch before signing' },
+      { href: '/blog/pay-property-taxes-insurance-during-foreclosure-nj/', label: 'Taxes and insurance during foreclosure: the triage guide' },
+      { href: '/blog/retiree-fixed-income-foreclosure-nj/', label: 'Foreclosure on a fixed income: the senior playbook' },
     ],
   },
 ];

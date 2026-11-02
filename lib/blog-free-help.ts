@@ -1,4 +1,4 @@
-// BLOG SERIES: FREE HELP THAT WORKS (11 posts)
+// BLOG SERIES: FREE HELP THAT WORKS (12 posts)
 // ---------------------------------------------------------------------------
 // Theme: the free machinery of NJ foreclosure help, shown working. Every
 // walkthrough is an ILLUSTRATIVE COMPOSITE and says so in the prose — we do
@@ -11,6 +11,7 @@ import type { TopicPost } from './topic-blog';
 
 const PUB = '2026-09-04';
 const PUB2 = '2026-10-19';
+const PUB3 = '2026-11-02';
 
 export const FREE_HELP_POSTS: TopicPost[] = [
   {
@@ -502,6 +503,68 @@ export const FREE_HELP_POSTS: TopicPost[] = [
       { href: '/who-is-suing-me', label: 'Decoding the plaintiff\'s name on your complaint' },
       { href: '/documents', label: 'Every court paper decoded, in order' },
       { href: '/tools/sheriff-sale-countdown/', label: 'Found a sale date? Count your windows back from it' },
+    ],
+  },
+  // Chapter 7 companion to the Chapter 13 guide. All bankruptcy facts here
+  // are bedrock federal law stated generally (no dollar figures, no statute
+  // citations the site does not already use): the automatic stay arises on
+  // filing; Chapter 7 has no cure mechanism; discharge removes personal
+  // liability but not the mortgage lien; a Statement of Intention is filed;
+  // a repeat filing within a year gets a shortened stay unless extended.
+  // NJ-process numbers (35-day answer, cure to final judgment, 10-day
+  // objection/redemption, writ of possession, LSNJ hotline) match site canon
+  // in lib/questions.ts and the Chapter 13 guide. No outcome promises.
+  {
+    slug: 'chapter-7-bankruptcy-foreclosure-nj',
+    title: 'Chapter 7 Bankruptcy in a NJ Foreclosure: What It Pauses, What It Erases, What It Cannot Cure',
+    description:
+      'Chapter 7 halts a sheriff sale the moment it is filed and can erase your personal liability on the mortgage — but it has no mechanism to catch up the missed payments. Where it genuinely helps a New Jersey homeowner, and where it only postpones the same decision.',
+    tldr:
+      'Filing any bankruptcy, including Chapter 7, triggers an automatic stay that immediately pauses a New Jersey foreclosure — even a sheriff sale scheduled for that morning. But Chapter 7 is a liquidation, not a repayment plan: it has no mechanism to cure mortgage arrears, so for most homeowners it delays the foreclosure rather than resolving it. What it can do is powerful in a different way: discharge your personal liability on the mortgage note (taking any deficiency judgment off the table), wipe out the credit cards and other unsecured debts that were crowding out the house payment, and buy a structured pause in which a sale or modification can be finished. Keeping the home long-term through bankruptcy is Chapter 13’s job. A bankruptcy decision deserves a consultation with a New Jersey bankruptcy attorney; income-qualifying homeowners can start with Legal Services of New Jersey at 1-888-576-5529.',
+    published: PUB3,
+    updated: PUB3,
+    minutes: 8,
+    theme: 'free-help',
+    sections: [
+      {
+        h: 'The automatic stay: a real pause, not a rescue',
+        body: [
+          'The moment a bankruptcy petition is filed, federal law imposes an automatic stay on collection activity — and in a New Jersey foreclosure that means everything stops: the Chancery case, the scheduled sheriff sale, the eviction clock, the phone calls. The stay arises automatically, without a hearing, even if the petition is filed the morning of the auction. That immediacy is why bankruptcy sits in every foreclosure playbook, and it is real. What the stay is not is permanent. The lender can ask the bankruptcy court for relief from the stay to resume the foreclosure, and in a Chapter 7 where the homeowner has no equity to protect and no way to catch up the loan, those motions are routinely granted within a few months. A Chapter 7 stay is best understood as a structured pause — valuable if you have a plan that fits inside it, and only a postponement if you do not.',
+          'One honesty note the rescue industry hopes you never hear: the pause shrinks with repetition. A debtor whose previous bankruptcy case was dismissed within the past year gets only a brief automatic stay in the next case unless a judge extends it, and a pattern of serial filings can mean no stay at all. Operators who charge desperate homeowners to file bare-bones petitions on the eve of each sale date are selling a protection that wears out — and courts see the pattern quickly. If someone’s entire plan for your house is “file a petition whenever a sale gets close,” run it through the scam checker and talk to a real attorney instead.',
+        ],
+      },
+      {
+        h: 'What Chapter 7 erases — and the lien it does not touch',
+        body: [
+          'Chapter 7’s product is the discharge: a court order wiping out your personal liability on most unsecured debts — credit cards, medical bills, personal loans — and, importantly for a homeowner, on the mortgage note itself. After a discharge, the lender cannot pursue you personally for the loan balance, which means the deficiency question that worries so many New Jersey homeowners is generally answered for good: if the house later sells at sheriff sale for less than what was owed, the shortfall is not collectible from you. Debt discharged in bankruptcy also carries its own exclusion from the cancellation-of-debt income rules, which heads off the 1099 surprise that can follow a short sale or forgiven balance.',
+          'What the discharge does not touch is the mortgage lien on the house. Bankruptcy erases debts, not liens: the lender’s security interest in the property survives the case, and once the stay lifts or the case closes, the foreclosure can resume against the property itself. This is the single most misunderstood point in the whole subject. Chapter 7 can leave you owing nothing and still losing the house — because the debt was personal and the lien never was. Anyone who tells you a Chapter 7 filing by itself saves a home you cannot pay for is describing a product that does not exist.',
+        ],
+      },
+      {
+        h: 'Where Chapter 7 genuinely earns its keep',
+        body: [
+          'The strongest homeowner case for Chapter 7 is indirect: it attacks the debts around the mortgage rather than the mortgage itself. A household paying hundreds a month toward credit cards and medical bills often cannot afford its own house payment specifically because of those obligations. Discharge them and the budget can change shape — sometimes enough to carry the regular mortgage payment again, which in turn makes a loan modification application stronger, because the servicer’s math looks at what you can afford going forward. A HUD-approved counselor (800-569-4287, free) can run that before-and-after budget with you before anyone files anything.',
+          'The second honest case is the homeowner who has already decided, on real numbers, that the house cannot be kept. Chapter 7 lets you surrender the property in the bankruptcy — a formal election made on the Statement of Intention filed in the case — walk away from the note without a deficiency, clear the unsecured debts in the same stroke, and start over. And because the stay pauses the sheriff-sale clock, a homeowner mid-listing sometimes gains the weeks needed to close a sale of their own, which protects equity far better than any auction. What Chapter 7 is not built for is the middle case — the family that wants to keep the home and needs years to catch up the arrears. That is precisely the problem Chapter 13 was designed to solve, with a three-to-five-year court-supervised plan that cures the default while the regular payment resumes.',
+        ],
+      },
+      {
+        h: '“Surrender” does not mean the keys leave your hand that day',
+        body: [
+          'Electing to surrender the house in a Chapter 7 changes your obligations, not the deed. You remain the legal owner until a sheriff’s deed is actually delivered to an auction buyer, which in New Jersey means the full foreclosure process still has to run — final judgment, the sheriff sale, the roughly 10-day objection and redemption period, and, if anyone is still living there, a court-issued writ of possession before any lockout. That gap between surrender and sale routinely lasts months. Through it, the house is still yours to insure and look after, lawful occupancy is still yours until the writ runs, and leaving too early forfeits time the law gives you. Keep the homeowner’s insurance in force, keep the property secured, and plan the move on the real calendar, not the scary one.',
+        ],
+      },
+      {
+        h: 'Choosing the chapter, and getting real advice free or cheap',
+        body: [
+          'The fork is simpler than the statute books make it look. Chapter 13 is the keep-the-house chapter: it cures arrears through a payment plan while you maintain the regular payment. Chapter 7 is the clean-slate chapter: faster and cheaper, it erases personal liability but cures nothing, so it fits homeowners who need the debts around the mortgage gone, or who are letting the house go and want to leave nothing owed behind. Eligibility runs through an income-based means test, every filer completes a short credit-counseling course, and New Jersey cases are filed in the U.S. Bankruptcy Court for the District of New Jersey — details a bankruptcy attorney walks through in an initial consultation that is very often free. Income-qualifying homeowners can call Legal Services of New Jersey at 1-888-576-5529; the court’s own website, njb.uscourts.gov, lists resources for filers without lawyers. Whatever you choose, choose it as a strategy with a plan attached — bankruptcy is a serious tool with lasting credit consequences, not a button that makes a sale date disappear.',
+        ],
+      },
+    ],
+    links: [
+      { href: '/guides/bankruptcy-chapter-13', label: 'Chapter 13: the keep-the-house chapter, start to finish' },
+      { href: '/answers/does-bankruptcy-stop-foreclosure-in-nj', label: 'The short answer on bankruptcy and the stay' },
+      { href: '/tools/sheriff-sale-countdown/', label: 'Count your real windows back from the sale date' },
+      { href: '/tools/scam-checker', label: 'Run any “we’ll file for you” pitch through the scam checker' },
     ],
   },
 ];
