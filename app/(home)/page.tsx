@@ -12,6 +12,7 @@ import { RESPONSE_PROMISE } from '../../lib/contact';
 import TrackRecord from '../components/TrackRecord';
 import BrcCard from '../components/BrcCard';
 import CallMeBox from '../components/CallMeBox';
+import GhlChatDock from '../components/GhlChatDock';
 import { HOMEOWNERS_HELPED, yearsOfService } from '../../lib/partners';
 
 
@@ -578,6 +579,9 @@ export default function Home() {
               <p className="text-sm mb-2">Confidential help, every day</p>
               <a href="mailto:help@njforeclosureguide.org" className="block text-amber-400 hover:text-amber-300 font-semibold mb-3 transition text-sm">help@njforeclosureguide.org</a>
               <p className="text-xs text-slate-600">We respond within 2 hours</p>
+              {/* GoHighLevel's texting opt-in, kept deliberately quiet: a small
+                  icon that stays in the footer. See GhlChatDock. */}
+              <GhlChatDock className="mt-4" />
             </div>
           </div>
 
