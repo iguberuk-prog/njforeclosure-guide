@@ -27,6 +27,10 @@ export default function MobileHelpBar() {
   const [open, setOpen] = useState(false);
   if (pathname.startsWith('/widget') || pathname.startsWith('/admin')) return null;
   const es = pathname.startsWith('/es');
+  // On the home page the button links to /call instead of opening the form in
+  // a sheet. GoHighLevel's A2P review reads the home page and fails it if a
+  // second phone field can appear there; see app/call/page.tsx.
+  const home = pathname === '/';
 
   return (
     <>
@@ -50,6 +54,15 @@ export default function MobileHelpBar() {
             className="flex-1 flex items-center justify-center rounded-lg bg-amber-400 text-slate-950 text-sm font-bold py-1.5"
           >
             Mi plan gratis →
+          </Link>
+        ) : home ? (
+          <Link
+            href="/call"
+            onClick={() => trackEvent('mobile_bar_call_me', { page: pathname })}
+            className="flex-1 flex flex-col items-center justify-center rounded-lg bg-amber-400 text-slate-950 py-1.5"
+          >
+            <span className="text-[10px] uppercase tracking-wider font-bold">Free, no obligation</span>
+            <span className="text-sm font-bold">Samantha, call me</span>
           </Link>
         ) : (
           <button

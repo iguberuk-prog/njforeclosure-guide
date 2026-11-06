@@ -6,12 +6,13 @@ import { useEffect, useRef } from 'react';
  * GoHighLevel (LeadConnector) text-chat widget, as a small icon that sits in
  * the page instead of floating over it.
  *
- * WHERE IT MAY GO: only on a page with no field that collects a phone number.
- * GoHighLevel's A2P compliance review fails "Multiple Opt-ins" when its widget
- * shares a page with any such form. It started in the home page footer and
- * failed for that reason (the "Samantha can call you" box is on that page),
- * so it now sits at the bottom of /about. Wherever this component renders is
- * the only place GoHighLevel loads.
+ * WHERE IT MUST GO: the home page, and the home page must have no other field
+ * that collects a phone number. GoHighLevel's A2P compliance review reads the
+ * home page only. It fails "Chat Widget Compliance" if the widget is not
+ * there (tried: moving it to /about failed exactly that way) and fails
+ * "Multiple Opt-ins" if any other phone-collecting form is there. That is why
+ * the home page's call box is a button to /call and not the form itself.
+ * Wherever this component renders is the only place GoHighLevel loads.
  *
  * Why it exists: the A2P 10DLC texting registration needs GoHighLevel's own
  * opt-in form, with its consent wording, to be reachable on the site.

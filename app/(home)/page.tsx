@@ -11,7 +11,8 @@ import { FAQSchema, OrganizationSchema } from '../schema';
 import { RESPONSE_PROMISE } from '../../lib/contact';
 import TrackRecord from '../components/TrackRecord';
 import BrcCard from '../components/BrcCard';
-import CallMeBox from '../components/CallMeBox';
+import GhlChatDock from '../components/GhlChatDock';
+import { trackEvent } from '../../lib/analytics';
 import { HOMEOWNERS_HELPED, yearsOfService } from '../../lib/partners';
 
 
@@ -134,7 +135,27 @@ export default function Home() {
       {/* ONE-TAP CALL REQUEST (2026-10-12): the hero only offered the quiz and the command center */}
       <section className="px-4 pt-10 bg-white">
         <div className="max-w-3xl mx-auto">
-          <CallMeBox sourcePage="/" headline="Rather talk to a person? Samantha can call you today." />
+          {/* A button, not the form (2026-11-06). GoHighLevel's A2P review
+              reads this page and fails it if anything here collects a phone
+              number besides its own chat widget, so the form itself lives on
+              /call. Do not put CallMeBox, or any phone field or sms: link,
+              back on the home page. */}
+          <div className="rounded-2xl border-2 border-amber-400 bg-amber-50 px-6 py-6 mb-10">
+            <p className="font-serif text-2xl font-bold text-slate-900 mb-2">
+              Rather talk to a person? Samantha can call you today.
+            </p>
+            <p className="text-slate-700 leading-relaxed mb-4">
+              Free, no obligation. She will walk you through your options and your deadlines, and you decide what
+              happens next.
+            </p>
+            <Link
+              href="/call"
+              onClick={() => trackEvent('cta_click', { cta: 'call_me_open', page: '/' })}
+              className="inline-block bg-amber-400 text-slate-950 px-6 py-3.5 rounded-lg font-bold text-center hover:bg-amber-300 transition"
+            >
+              Have Samantha call me &rarr;
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -578,6 +599,9 @@ export default function Home() {
               <p className="text-sm mb-2">Confidential help, every day</p>
               <a href="mailto:help@njforeclosureguide.org" className="block text-amber-400 hover:text-amber-300 font-semibold mb-3 transition text-sm">help@njforeclosureguide.org</a>
               <p className="text-xs text-slate-600">We respond within 2 hours</p>
+              {/* GoHighLevel's texting opt-in: the ONLY thing on this page
+                  that may collect a phone number. See GhlChatDock. */}
+              <GhlChatDock className="mt-4" />
             </div>
           </div>
 

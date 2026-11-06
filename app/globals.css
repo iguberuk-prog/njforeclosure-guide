@@ -76,7 +76,7 @@ textarea::placeholder {
   .heroDot { animation: none; opacity: 1; }
 }
 
-/* GoHighLevel chat icon, docked in the page (currently the bottom of /about).
+/* GoHighLevel chat icon, docked in the page (the home footer, Support column).
    Markup and the reasons for it: app/components/GhlChatDock.tsx.
 
    GoHighLevel draws everything with `position: fixed`, measured from its
