@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
-import GhlChatDock from '../components/GhlChatDock';
 import { OG_IMAGES } from '../../lib/og';
 import { fitTitle, fitDescription } from '../../lib/seo';
 
@@ -166,16 +165,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* GoHighLevel's texting opt-in, kept deliberately quiet. It lives on
-            THIS page because this page has no phone field: GoHighLevel's A2P
-            compliance review fails "Multiple Opt-ins" if the widget shares a
-            page with any form that collects a phone number (it did on the
-            home page, with the "Samantha can call you" box). Do not add a
-            phone field here, and do not move this to a page that has one. */}
-        <div className="mt-8 flex items-center gap-4 text-sm text-slate-500 not-prose">
-          <GhlChatDock />
-          <p>Prefer to text? Tap the icon.</p>
-        </div>
       </article>
     </div>
   );
