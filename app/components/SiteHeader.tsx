@@ -18,6 +18,18 @@ import Logo from './Logo';
  *  - The mobile menu. Previously the nav links were simply `hidden` below the
  *    md breakpoint, so phone visitors got a logo and one button and no way to
  *    reach the guides at all. Most people in foreclosure are on a phone.
+ *
+ * Desktop width budget (measured 2026-11-06, Windows Chrome, px):
+ *   brand 317 (logo 48 + gap 12 + wordmark 257) + row gap 16 + nav.
+ *   nav = 637 with six links, 831 with all eight, 922 with the social icons.
+ *   So the full set needs 1255, and a max-w-7xl row only ever has 1216: the
+ *   brand (min-w-0) got squeezed and the wordmark printed over "Start Here"
+ *   on every screen 1280 and wider. Three rules keep that from coming back:
+ *    - the row is max-w-[1400px], not max-w-7xl, so wide screens have room;
+ *    - the social icons wait for 1360px, the first width the full set fits;
+ *    - the brand is `lg:shrink-0`. If a future nav item blows the budget, the
+ *      nav spills into the right-hand page padding instead of text-on-text.
+ *   Adding a nav item? Re-measure against this budget first.
  */
 
 const NAV: { href: string; label: string; xlOnly?: boolean }[] = [
@@ -26,7 +38,7 @@ const NAV: { href: string; label: string; xlOnly?: boolean }[] = [
   { href: '/guides', label: 'Guides' },
   // xlOnly: the full set no longer fits beside the wordmark below ~1280px —
   // these two rendered UNDERNEATH the logo text (reported by Igor). They stay
-  // in the mobile menu and reappear on xl and up.
+  // in the mobile menu and reappear on xl and up. See the width budget above.
   { href: '/scenarios', label: 'Case Studies', xlOnly: true },
   { href: '/answers', label: 'Answers' },
   { href: '/companies', label: 'Get an Offer' },
@@ -68,10 +80,12 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-2 sm:gap-4 h-[72px] sm:h-20">
-          {/* Brand */}
-          <Link href="/" className="group flex items-center gap-2 sm:gap-3 min-w-0" onClick={() => setOpen(false)}>
+          {/* Brand. min-w-0 lets it give way on phones (the wordmark is fluid
+              there); lg:shrink-0 forbids that on desktop, where giving way
+              means the wordmark overflowing onto the nav. */}
+          <Link href="/" className="group flex items-center gap-2 sm:gap-3 min-w-0 lg:shrink-0" onClick={() => setOpen(false)}>
             <Logo className="h-8 w-8 sm:h-12 sm:w-12 text-slate-900 flex-shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5" />
             <span className="flex flex-col leading-none min-w-0">
               {/* Fluid size instead of truncation: the full name always fits.
@@ -80,7 +94,10 @@ export default function SiteHeader() {
                   for the name, which is why the mobile logo, gaps, and CTA are
                   all one notch smaller than they used to be. Never truncate the
                   brand name; a clipped logo reads as broken. */}
-              <span className="font-serif text-[clamp(11px,3.4vw,22px)] sm:text-2xl font-bold text-slate-900 tracking-tight whitespace-nowrap">
+              {/* lg:text-[22px]: between 1024 and 1279 the six-link nav is
+                  25px over budget at full size; one notch smaller here plus
+                  px-1.5 on the links buys it back. Full size again at xl. */}
+              <span className="font-serif text-[clamp(11px,3.4vw,22px)] sm:text-2xl lg:text-[22px] xl:text-2xl font-bold text-slate-900 tracking-tight whitespace-nowrap">
                 NJ Foreclosure Guide
               </span>
               <span className="hidden sm:block mt-1 text-[10px] text-slate-500 font-semibold tracking-[0.18em] uppercase whitespace-nowrap">
@@ -95,7 +112,7 @@ export default function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-2 py-2 text-[14px] font-medium text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap after:absolute after:left-2 after:right-2 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-amber-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left ${item.xlOnly ? 'hidden xl:block' : ''}`}
+                className={`relative px-1.5 xl:px-2 py-2 text-[14px] font-medium text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap after:absolute after:left-1.5 after:right-1.5 xl:after:left-2 xl:after:right-2 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-amber-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left ${item.xlOnly ? 'hidden xl:block' : ''}`}
               >
                 {item.label}
               </Link>
@@ -106,7 +123,7 @@ export default function SiteHeader() {
             >
               Free Assessment
             </Link>
-            <span className="ml-2.5 hidden xl:flex items-center gap-1 border-l border-slate-200 pl-2.5">
+            <span className="ml-2.5 hidden min-[1360px]:flex items-center gap-1 border-l border-slate-200 pl-2.5">
               {SOCIALS.map((s) => (
                 <SocialIcon key={s.href} s={s} className="p-1.5 text-slate-400 hover:text-slate-900 transition-colors" />
               ))}

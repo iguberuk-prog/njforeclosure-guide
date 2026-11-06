@@ -75,3 +75,67 @@ textarea::placeholder {
   .heroLineDraw { animation: none; stroke-dashoffset: 0; }
   .heroDot { animation: none; opacity: 1; }
 }
+
+/* GoHighLevel chat icon, docked in the footer.
+   Markup and the reasons for it: app/components/GhlChatDock.tsx.
+
+   GoHighLevel draws everything with `position: fixed`, measured from its
+   nearest transformed ancestor. Normally there is none, so it measures from
+   the screen and its button lands in the bottom-right corner, on top of
+   Samantha's. The dock is that transformed ancestor: wherever the dock is,
+   and however big it is, that is where the widget goes and how big it gets.
+
+   Closed: a small box in the footer. The round button lands in its top-left
+   corner (it sits 20px in from the bottom-right of a 78px box) and scrolls
+   with the page. scale() shrinks the 58px button to a 40px icon. clip-path
+   cuts off GoHighLevel's first-visit greeting, which it draws up and to the
+   left of the button, across the neighbouring footer column. */
+.ghl-dock {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  transform-origin: 0 0;
+  transform: scale(0.69);
+}
+
+/* Only clip where the open state below can undo it. A browser without :has()
+   would otherwise clip the open chat panel too. */
+@supports selector(:has(*)) {
+  .ghl-dock {
+    clip-path: inset(-6px);
+  }
+}
+
+/* Open: GoHighLevel sets data-active="true" on its element. The dock becomes
+   an invisible stage pinned to the screen and the chat panel sits in the
+   stage's bottom-right corner, sized to fit the stage. The stage deliberately
+   stops short of Samantha's button so the panel can never cover it:
+     - phones: 124px off the bottom (help bar 64px, then Samantha's pill);
+     - md and up: 231px off the right (Samantha's button is 211px wide and
+       24px from the edge; the panel keeps its own 20px margin).
+   Known limit: on desktop GoHighLevel sizes the panel's HEIGHT from the
+   screen, not from the stage (tried: shortening the stage does not shrink
+   it). On a screen under about 830px tall the open panel overlaps the bottom
+   40px of the sticky header, exactly as it would on any site.
+   z-index 45 is above the header and help bar (40), below Samantha (50).
+   The stage itself ignores clicks so the page under it still works. */
+.ghl-dock:has(chat-widget[data-active="true"]) {
+  position: fixed;
+  inset: 0 0 124px 0;
+  width: auto;
+  height: auto;
+  transform: translateZ(0);
+  clip-path: none;
+  z-index: 45;
+  pointer-events: none;
+}
+
+.ghl-dock > chat-widget {
+  pointer-events: auto;
+}
+
+@media (min-width: 768px) {
+  .ghl-dock:has(chat-widget[data-active="true"]) {
+    inset: 0 231px 0 0;
+  }
+}
