@@ -76,7 +76,7 @@ textarea::placeholder {
   .heroDot { animation: none; opacity: 1; }
 }
 
-/* GoHighLevel chat icon, docked in the footer.
+/* GoHighLevel chat icon, docked in the page (currently the bottom of /about).
    Markup and the reasons for it: app/components/GhlChatDock.tsx.
 
    GoHighLevel draws everything with `position: fixed`, measured from its
@@ -85,11 +85,11 @@ textarea::placeholder {
    Samantha's. The dock is that transformed ancestor: wherever the dock is,
    and however big it is, that is where the widget goes and how big it gets.
 
-   Closed: a small box in the footer. The round button lands in its top-left
+   Closed: a small box in the page. The round button lands in its top-left
    corner (it sits 20px in from the bottom-right of a 78px box) and scrolls
    with the page. scale() shrinks the 58px button to a 40px icon. clip-path
    cuts off GoHighLevel's first-visit greeting, which it draws up and to the
-   left of the button, across the neighbouring footer column. */
+   left of the button, across whatever sits beside it. */
 .ghl-dock {
   position: relative;
   width: 78px;
