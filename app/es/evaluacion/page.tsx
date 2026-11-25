@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { contactError as validateContact } from '../../../lib/contact-validation';
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
 import MarsNoticeEs from '../../components/MarsNoticeEs';
@@ -184,8 +185,9 @@ export default function EvaluacionPage() {
 
   const handleContactSubmit = async (skip: boolean) => {
     if (!skip) {
-      if (!contact.name.trim() || (!contact.phone.trim() && !contact.email.trim())) {
-        setContactError('Escriba su nombre y al menos un teléfono o correo para enviarle sus resultados.');
+      const invalid = validateContact(contact, 'es');
+      if (invalid) {
+        setContactError(invalid);
         return;
       }
     }

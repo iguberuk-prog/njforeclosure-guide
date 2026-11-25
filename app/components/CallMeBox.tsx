@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { trackEvent } from '../../lib/analytics';
 import { appendAttribution, captureAttribution, getAttribution } from '../../lib/attribution';
 import { sendIntake } from '../../lib/intake';
+import { contactError } from '../../lib/contact-validation';
 
 /**
  * "Have Samantha call me" (2026-10-09).
@@ -11,10 +12,10 @@ import { sendIntake } from '../../lib/intake';
  * GA4 showed texted homeowners reading the summons page and opening the quiz,
  * then leaving without typing anything. This gives them a one-tap way to ask
  * for a call. Texted visitors arrive with ?cid=<GHL contact id>, which
- * captureAttribution() keeps for the session, so for them no typing is needed:
- * the request is attached to the contact the text went to
- * (netlify/functions/lib/ghl-api.mjs). Everyone else types a first name and
- * phone number.
+ * captureAttribution() keeps for the session, so their request is still
+ * attached to the contact the text went to (netlify/functions/lib/ghl-api.mjs).
+ * Since 2026-11-05 everyone, texted or not, gives a name, phone and email
+ * (lib/contact-validation.ts) so every lead can be followed up.
  *
  * Posts to the existing lead-quiz Netlify form with leadType=call-request, so
  * it reaches email, the Bidnology CRM and GHL (tag njfg-call-request) the same
@@ -40,6 +41,7 @@ export default function CallMeBox({
   const [time, setTime] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [state, setState] = useState<'idle' | 'sending' | 'done'>('idle');
   const [error, setError] = useState('');
 
@@ -52,8 +54,9 @@ export default function CallMeBox({
 
   const send = async () => {
     trackEvent('cta_click', { cta: 'call_me', page: sourcePage, known_contact: cid ? 'yes' : 'no' });
-    if (!cid && (!name.trim() || phone.replace(/\D/g, '').length < 10)) {
-      setError('Please add your first name and a 10-digit phone number.');
+    const invalid = contactError({ name, phone, email });
+    if (invalid) {
+      setError(invalid);
       return;
     }
     setError('');
@@ -64,6 +67,7 @@ export default function CallMeBox({
       f.append('leadType', 'call-request');
       f.append('name', name.trim());
       f.append('phone', phone.trim());
+      f.append('email', email.trim());
       f.append('notes', `Asked for a call from ${sourcePage}.${time ? ` Best time: ${time.toLowerCase()}.` : ''}`);
       f.append('sourcePage', sourcePage);
       appendAttribution(f);
@@ -103,27 +107,34 @@ export default function CallMeBox({
       <p className="font-serif text-2xl font-bold text-slate-900 mb-2">{headline}</p>
       <p className="text-slate-700 leading-relaxed mb-4">{sub}</p>
 
-      {!cid && (
-        <div className="grid sm:grid-cols-2 gap-3 mb-4">
-          <input
-            type="text"
-            autoComplete="given-name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="First name"
-            className="w-full px-4 py-3 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
-          />
-          <input
-            type="tel"
-            autoComplete="tel"
-            inputMode="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="Phone number"
-            className="w-full px-4 py-3 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
-          />
-        </div>
-      )}
+      <div className="grid sm:grid-cols-2 gap-3 mb-4">
+        <input
+          type="text"
+          autoComplete="given-name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+          className="w-full px-4 py-3 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
+        />
+        <input
+          type="tel"
+          autoComplete="tel"
+          inputMode="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="Phone number"
+          className="w-full px-4 py-3 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
+        />
+        <input
+          type="email"
+          autoComplete="email"
+          inputMode="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          className="w-full px-4 py-3 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-900 sm:col-span-2"
+        />
+      </div>
 
       <div className="flex flex-wrap items-center gap-2 mb-4">
         <span className="text-sm text-slate-600">Best time (optional):</span>
