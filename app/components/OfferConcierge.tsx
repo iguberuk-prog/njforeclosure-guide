@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { contactError } from '../../lib/contact-validation';
 import AddressInput from './AddressInput';
 import { PARTNERS } from '../../lib/partners';
 import { trackEvent } from '../../lib/analytics';
@@ -34,8 +35,9 @@ export default function OfferConcierge({ sourcePage }: { sourcePage: string }) {
     setSelected((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
 
   const submit = async () => {
-    if (!form.name.trim() || (!form.phone.trim() && !form.email.trim())) {
-      setError('Please add your name and a phone number or email.');
+    const invalid = contactError(form);
+    if (invalid) {
+      setError(invalid);
       return;
     }
     if (!form.address.trim()) {
