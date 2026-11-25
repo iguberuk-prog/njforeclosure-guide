@@ -8,6 +8,7 @@ import { SITE_EMAIL, RESPONSE_PROMISE } from '../../lib/contact';
 import RecommendationBasis from '../components/RecommendationBasis';
 import { trackEvent } from '../../lib/analytics';
 import { appendAttribution } from '../../lib/attribution';
+import { contactError as leadContactError } from '../../lib/contact-validation';
 import { sendIntake } from '../../lib/intake';
 import AddressInput from '../components/AddressInput';
 import BrcCard from '../components/BrcCard';
@@ -156,7 +157,6 @@ export default function QuizPage() {
   // Texted homeowners arrive with ?cid=<GHL contact id> (kept for the session
   // by captureAttribution). For them the contact step needs no typing.
   const [cid, setCid] = useState('');
-  const [showEmail, setShowEmail] = useState(false);
   const [detailsSent, setDetailsSent] = useState(false);
 
   useEffect(() => {
@@ -186,8 +186,9 @@ export default function QuizPage() {
 
   const handleContactSubmit = async (skip: boolean) => {
     if (!skip) {
-      if (!cid && (!contact.name.trim() || (!contact.phone.trim() && !contact.email.trim()))) {
-        setContactError('Please enter your first name and a phone number (or an email) so Samantha can reach you.');
+      const invalid = leadContactError(contact);
+      if (invalid) {
+        setContactError(invalid);
         return;
       }
     }
@@ -584,53 +585,35 @@ export default function QuizPage() {
           <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-200">
             <p className="text-amber-600 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Last Step</p>
             <h1 className="font-serif text-3xl font-bold text-slate-900 mb-3">
-              {cid ? 'Want Samantha to go over these with you?' : 'Where should Samantha reach you?'}
+              Where should Samantha reach you?
             </h1>
             <p className="text-slate-600 mb-8">
-              {cid
-                ? 'She already has your number from her text, so there is nothing to type. Tap below to see your results, and she will give you a call to walk through them. Free, no obligation.'
-                : leadScore === 'HOT'
-                  ? 'Time matters in your situation. Leave a first name and a number and Samantha will call you, usually the same business day, to walk through your results. Free, no obligation.'
-                  : 'Leave a first name and a number and Samantha will call you to walk through your results. Free, no obligation, and you decide what happens next.'}
+              {leadScore === 'HOT'
+                ? 'Time matters in your situation. Leave your name, phone and email and Samantha will call you, usually the same business day, to walk through your results. Free, no obligation.'
+                : 'Leave your name, phone and email and Samantha will call you to walk through your results. Free, no obligation, and you decide what happens next.'}
             </p>
 
             <div className="space-y-4">
-              {cid ? (
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Different number? (optional)</label>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Name</label>
+                  <input type="text" autoComplete="name" value={contact.name}
+                    onChange={(e) => setContact({ ...contact, name: e.target.value })}
+                    className={field} placeholder="Your name" />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Phone</label>
                   <input type="tel" autoComplete="tel" inputMode="tel" value={contact.phone}
                     onChange={(e) => setContact({ ...contact, phone: e.target.value })}
-                    className={field} placeholder="Leave blank to use the number we texted" />
+                    className={field} placeholder="(555) 555-5555" />
                 </div>
-              ) : (
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1.5">First name</label>
-                    <input type="text" autoComplete="given-name" value={contact.name}
-                      onChange={(e) => setContact({ ...contact, name: e.target.value })}
-                      className={field} placeholder="First name" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1.5">Phone</label>
-                    <input type="tel" autoComplete="tel" inputMode="tel" value={contact.phone}
-                      onChange={(e) => setContact({ ...contact, phone: e.target.value })}
-                      className={field} placeholder="(555) 555-5555" />
-                  </div>
-                </div>
-              )}
-              {!cid && (showEmail ? (
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email (instead of, or as well as, a phone)</label>
-                  <input type="email" autoComplete="email" value={contact.email}
-                    onChange={(e) => setContact({ ...contact, email: e.target.value })}
-                    className={field} placeholder="you@email.com" />
-                </div>
-              ) : (
-                <button type="button" onClick={() => setShowEmail(true)}
-                  className="text-sm text-slate-600 underline underline-offset-2 hover:text-slate-900">
-                  Prefer email? Add it instead
-                </button>
-              ))}
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
+                <input type="email" autoComplete="email" inputMode="email" value={contact.email}
+                  onChange={(e) => setContact({ ...contact, email: e.target.value })}
+                  className={field} placeholder="you@email.com" />
+              </div>
             </div>
 
             {contactError && (
@@ -642,7 +625,7 @@ export default function QuizPage() {
               disabled={submitting}
               className="w-full mt-6 bg-amber-400 text-slate-950 py-4 rounded-xl font-bold text-lg hover:bg-amber-300 transition disabled:opacity-60"
             >
-              {submitting ? 'Sending...' : cid ? 'Yes, show my results and have Samantha call' : 'Show my results and have Samantha call'}
+              {submitting ? 'Sending...' : 'Show my results and have Samantha call'}
             </button>
             <button
               onClick={() => handleContactSubmit(true)}
