@@ -1,21 +1,21 @@
 {
- "asOfDate": "2026-10-07",
+ "asOfDate": "2026-11-25",
  "windowDays": 21,
  "counties": {
   "atlantic-county": {
    "name": "Atlantic",
    "days": [
     {
-     "date": "2026-10-08",
-     "count": 5
+     "date": "2026-11-26",
+     "count": 2
     },
     {
-     "date": "2026-10-15",
-     "count": 6
+     "date": "2026-12-03",
+     "count": 14
     },
     {
-     "date": "2026-10-22",
-     "count": 13
+     "date": "2026-12-10",
+     "count": 7
     }
    ]
   },
@@ -23,12 +23,12 @@
    "name": "Bergen",
    "days": [
     {
-     "date": "2026-10-16",
-     "count": 25
+     "date": "2026-12-04",
+     "count": 29
     },
     {
-     "date": "2026-10-23",
-     "count": 19
+     "date": "2026-12-11",
+     "count": 13
     }
    ]
   },
@@ -36,16 +36,12 @@
    "name": "Burlington",
    "days": [
     {
-     "date": "2026-10-08",
-     "count": 8
+     "date": "2026-12-03",
+     "count": 28
     },
     {
-     "date": "2026-10-15",
-     "count": 8
-    },
-    {
-     "date": "2026-10-22",
-     "count": 24
+     "date": "2026-12-10",
+     "count": 19
     }
    ]
   },
@@ -53,12 +49,8 @@
    "name": "Camden",
    "days": [
     {
-     "date": "2026-10-07",
-     "count": 41
-    },
-    {
-     "date": "2026-10-21",
-     "count": 56
+     "date": "2026-12-02",
+     "count": 38
     }
    ]
   },
@@ -66,7 +58,7 @@
    "name": "Cape May",
    "days": [
     {
-     "date": "2026-10-14",
+     "date": "2026-12-02",
      "count": 3
     }
    ]
@@ -75,12 +67,8 @@
    "name": "Cumberland",
    "days": [
     {
-     "date": "2026-10-07",
-     "count": 12
-    },
-    {
-     "date": "2026-10-21",
-     "count": 18
+     "date": "2026-12-02",
+     "count": 17
     }
    ]
   },
@@ -88,20 +76,32 @@
    "name": "Essex",
    "days": [
     {
-     "date": "2026-10-08",
-     "count": 2
-    },
-    {
-     "date": "2026-10-13",
-     "count": 47
-    },
-    {
-     "date": "2026-10-16",
+     "date": "2026-11-26",
      "count": 1
     },
     {
-     "date": "2026-10-27",
-     "count": 52
+     "date": "2026-11-27",
+     "count": 1
+    },
+    {
+     "date": "2026-12-01",
+     "count": 32
+    },
+    {
+     "date": "2026-12-02",
+     "count": 1
+    },
+    {
+     "date": "2026-12-08",
+     "count": 1
+    },
+    {
+     "date": "2026-12-11",
+     "count": 1
+    },
+    {
+     "date": "2026-12-15",
+     "count": 73
     }
    ]
   },
@@ -109,19 +109,11 @@
    "name": "Gloucester",
    "days": [
     {
-     "date": "2026-10-08",
-     "count": 1
+     "date": "2026-12-02",
+     "count": 2
     },
     {
-     "date": "2026-10-14",
-     "count": 14
-    },
-    {
-     "date": "2026-10-21",
-     "count": 1
-    },
-    {
-     "date": "2026-10-23",
+     "date": "2026-12-12",
      "count": 1
     }
    ]
@@ -130,12 +122,8 @@
    "name": "Hudson",
    "days": [
     {
-     "date": "2026-10-08",
-     "count": 14
-    },
-    {
-     "date": "2026-10-22",
-     "count": 18
+     "date": "2026-12-10",
+     "count": 28
     }
    ]
   },
@@ -143,7 +131,7 @@
    "name": "Hunterdon",
    "days": [
     {
-     "date": "2026-10-14",
+     "date": "2026-12-02",
      "count": 5
     }
    ]
@@ -152,8 +140,8 @@
    "name": "Middlesex",
    "days": [
     {
-     "date": "2026-10-07",
-     "count": 27
+     "date": "2026-12-02",
+     "count": 67
     }
    ]
   },
@@ -161,12 +149,34 @@
    "name": "Monmouth",
    "days": [
     {
-     "date": "2026-10-13",
-     "count": 22
+     "date": "2026-12-07",
+     "count": 31
+    }
+   ]
+  },
+  "morris-county": {
+   "name": "Morris",
+   "days": [
+    {
+     "date": "2026-12-03",
+     "count": 10
+    }
+   ]
+  },
+  "passaic-county": {
+   "name": "Passaic",
+   "days": [
+    {
+     "date": "2026-12-01",
+     "count": 16
     },
     {
-     "date": "2026-10-26",
-     "count": 28
+     "date": "2026-12-08",
+     "count": 6
+    },
+    {
+     "date": "2026-12-15",
+     "count": 11
     }
    ]
   },
@@ -174,8 +184,8 @@
    "name": "Salem",
    "days": [
     {
-     "date": "2026-10-19",
-     "count": 12
+     "date": "2026-12-14",
+     "count": 18
     }
    ]
   },
@@ -183,26 +193,11 @@
    "name": "Union",
    "days": [
     {
-     "date": "2026-10-07",
-     "count": 12
-    },
-    {
-     "date": "2026-10-21",
-     "count": 33
+     "date": "2026-12-02",
+     "count": 23
     }
    ]
   }
  },
- "failed": [
-  {
-   "slug": "morris-county",
-   "name": "Morris",
-   "error": "official CivilView list showed 0 listings on 2026-10-07 (2 days after 91/123 open listings); treated as a temporary outage and left off the calendar"
-  },
-  {
-   "slug": "passaic-county",
-   "name": "Passaic",
-   "error": "official CivilView list showed 0 listings on 2026-10-07 (2 days after 91/123 open listings); treated as a temporary outage and left off the calendar"
-  }
- ]
+ "failed": []
 }
