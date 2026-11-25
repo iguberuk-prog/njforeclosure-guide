@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { contactError } from '../../../lib/contact-validation';
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
 import AddressInput from '../../components/AddressInput';
@@ -220,8 +221,9 @@ export default function CommercialAssessmentPage() {
   const label = 'block text-sm font-semibold text-slate-700 mb-1.5';
 
   const submit = async (skip: boolean) => {
-    if (!skip && (!contact.name.trim() || (!contact.phone.trim() && !contact.email.trim()))) {
-      setError('Please enter your name and at least a phone number or email.');
+    const invalid = skip ? '' : contactError(contact);
+    if (invalid) {
+      setError(invalid);
       return;
     }
     setError('');
